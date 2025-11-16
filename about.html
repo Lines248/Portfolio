@@ -8,15 +8,7 @@
     </head>
 
     <body>
-        <header>
-            <nav class="nav">
-                <a href="index.html" class="logo">LINES</a>
-                <ul>
-                    <li><a href="work.html">Work</a></li>
-                    <li><a href="about.html" aria-current="page">About</a></li>
-                </ul>
-                </nav>
-        </header>
+        <header></header>
 
         <main class="about">
             <h1>About</h1>
@@ -27,5 +19,15 @@
                 My work centers on clean engineering, usability, and interacion systems that feel good to use. I care deeply about the intersection of design and development, and I bring that perspective into the things I build.
             </p>
         </main>
+        
+    <footer></footer>
+
+    <script type="module">
+            import { renderHeader } from "./js/renderHeader.js";
+            import { renderFooter } from "./js/renderFooter.js";
+            renderHeader();
+            renderFooter();
+        </script>
+
     </body>
 </html>

@@ -8,23 +8,22 @@
     </head>
 
     <body>
-        <header>
-            <nav class="nav">
-                <a href="index.html" class="logo">LINES</a>
-                <ul>
-                    <li><a href="work.html" aria-current="page">Work</a></li>
-                    <li><a href="about.html">About</a></li>
-                </ul>
-            </nav>
-        </header>
+        <header></header>
 
         <main>
             <h1>Work</h1>
             <div id="work-grid"></div>
         </main>
 
+    <footer></footer>
+
         <script type="module">
+            import { renderHeader } from "./js/renderHeader.js";
+            import { renderFooter } from "./js/renderFooter.js";
             import { renderProjects } from "./js/renderProjects.js";
+
+            renderHeader();
+            renderFooter();
             renderProjects({ containerId: "work-grid" });
         </script>
     </body>
