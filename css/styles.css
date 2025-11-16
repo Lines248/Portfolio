@@ -85,3 +85,47 @@ h1 {
     color: #555;
     margin-bottom: 1.5rem;
 }
+
+.grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    margin-bottom: 3rem;
+}
+
+.project-card {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.project-card h2 {
+    margin: 0.5rem 0;
+}
+
+.prpject-points {
+    padding-left: 1.2rem;
+    margin: 0.5rem 0 1rem;
+}
+
+.project-points li {
+    margin-bottom: 0.3rem;
+}
+
+.links a {
+    margin-right: 1re,;
+    color: #4c6fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
