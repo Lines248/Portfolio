@@ -12,76 +12,20 @@
             <nav class="nav">
                 <a href="index.html" class="logo">LINES</a>
                 <ul>
-                    <li><a href="work.html"aria-current="page">Work</a></li>
+                    <li><a href="work.html" aria-current="page">Work</a></li>
                     <li><a href="about.html">About</a></li>
                 </ul>
             </nav>
         </header>
 
-        <main class="work-grid">
+        <main>
+            <h1>Work</h1>
+            <div id="work-grid"></div>
+        </main>
 
-            <section>
-                <h1>Development Projects</h1>
-                <p class="section-tag">Front-end work using HTML, CSS, and JavaScript.</p>
-                <div class="grid">
-
-                        <article class="project-card">
-                        <img src="assets/images/sea-of-synapses" alt="Sea of Synapses visualization screenshot" />
-
-                        <h2>Own Your Data</h2>
-                        <p class="project-desc">
-                        An interactive Next.js prototype exploring authorship and ownership through motion, sound, and accessible interaction. The one-way claim flow mirrors blockchain minting semantics in a lightweight local form.                        
-                        <ul class="project-points">
-                            <li>Next.js 16, React 19, TypeScript</li>
-                            <li>Tailwind CSS v4 + tokens</li>
-                            <li>Framer Motion 12 for motion systems</li>
-                            <li>Client-side persistence via <code>localStorage</code></li>
-                            <li>Accessible keyboard and reduced-motion support</li>
-                            <li>Deployed on Vercel Edge</li>
-                        </ul>
-
-                        <div class="links">
-                            <a href="https://own-your-data.vercel.app">Live Demo</a>
-                            <a href="https://github.com/LinesSultzer/own-your-data">GitHub Repo</a>
-                        </div>
-                      </article>
-
-                      <article class="project-card">
-                        <img src="assets/images/sea-of-synapses" alt="Sea of Synapses visualization screenshot" />
-
-                        <h2>Sea of Synapses</h2>
-                        <p class="project-desc">
-                        Interactive data visualization prototype mapping relationships between cognitive states. Built with React, TypeScript, Tailwind, and Vite, withfully data-driven nodes and connection logic.                        
-                        <ul class="project-points">
-                            <li>React + TypeScript</li>
-                        <li>Tailwind CSS and CSS keyframe animation</li>
-                        <li>Data-driven node system from <code>nodes.json</code></li>
-                        <li>Custom hooks for node lookup and category mapping</li>
-                        <li>SVG neural pathways + animated glass-tile grid</li>
-                        <li>Accessible focus states and reduced-motion support</li>
-                        </ul>
-
-                        <div class="links">
-                            <a href="https://sea-of-synapses-n1r7tym6r-lines-projects-a21b5825.vercel.app/">Live Demo</a>
-                            <a href="#" target="_blank">GitHub Repo</a>
-                        </div>
-                      </article>
-
-                </div>
-            </section>
-            <section>
-            <h1>Client Projects</h1>
-            <p class="section-tag">Professional projects belnding design and development.</p>
-            
-            <div class="grid">
-
-                <article class="project-card">
-                    <img src="assets/images/deroche" alt="website screenshot" />
-                </article>
-            </div>
-           </section>
-            </main>
-
-        <script src="js/main.js"></script>
+        <script type="module">
+            import { renderProjects } from "./js/renderProjects.js";
+            renderProjects({ containerId: "work-grid" });
+        </script>
     </body>
 </html>

@@ -3,13 +3,13 @@ export const projects = [
     id: "sea-of-synapses",
     title: "Sea of Synapses",
     image: "assets/images/sea-of-synapses.png",
-    alt: "Screenshot of the Sea of Synapses data visualization sketch",
+    alt: "Screenshot of the Sea of Synapses data visualization",
     description:
         "Interactive data visualization prototype mapping relationships between cognitive states. Built with react, TypeScript, Tailwind, and Vite.",
-    stack: ["React","Typescript", "Vite","SVG Animation"],
+    stack: ["React","Typescript", "Vite", "SVG Animation"],
     links: {
-        live: "YOUR_LINK",
-        repo: "YOUR_REPO",
+        live: "YOUR_LINK_HERE",
+        repo: "YOUR_REPO_LINK_HERE",
     },
     featured: true,
     category: "development",

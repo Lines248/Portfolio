@@ -6,8 +6,8 @@
         <title>Lines - Portfolio</title>
         <link rel="stylesheet" href="css/styles.css" />
     </head>
-    <body>
 
+    <body>
         <header>
             <nav class="nav">
                 <a href="index.html" class="logo">LINES</a>
@@ -19,19 +19,20 @@
         </header>
 
         <main>
-            <section class="intro">
+            <section class="hero">
                 <h1>Front-End Developer building accessible, clear, and thouhgtfully designed web experiences.</h1>
-                <p>I build fast, reliable websites using modern JavaScript and semantic HTML/CSS.</p>
+                <p>I build fast, reliable websites using modern JavaScript, and semantic HTML/CSS.</p>
             </section>
         
-            <section class="work-grid">
-                <article class="project">
-                   <h2>Project Title</h2>
-                   <p>Short description.</p>
-                </article>
+            <section class="featired-section">
+                   <h2>Featured Work</h2>
+                  <div id="feature-grid"></div>
             </section>
         </main>
 
-        <script src="js/main.js"></script>
+        <script type="module">
+            import { renderProjects } from "./js/renderProjects.js";
+            renderProjects({ containerId: "featured", filter: "featured" });
+        </script>
     </body>
     </html>
