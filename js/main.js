@@ -11,6 +11,7 @@ loadInitialTheme();
 renderHeader();
 highlightActiveLink();
 enableHeaderScrollShadow();
+initFadeInAnimations();
 
 const CURRENT_PAGE = window.location.pathname.split("/").pop() || "index.html";
 
@@ -60,5 +61,27 @@ function enableHeaderScrollShadow() {
         } else {
             header.classList.remove("scrolled");
         }
+    });
+}
+
+function initFadeInAnimations() {
+    const fadeInElements = document.querySelectorAll(".fade-in-image, .fade-in");
+    
+    if (fadeInElements.length === 0) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add(entry.target.classList.contains("fade-in-image") ? "visible" : "is-visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    });
+
+    fadeInElements.forEach(element => {
+        observer.observe(element);
     });
 }
