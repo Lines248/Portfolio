@@ -5,9 +5,9 @@ export function SiteFooter() {
         <div class="footer-inner">
         <p>© ${year} Lines Sultzer - InLine Access Studio</p>
         <nav class="footer-nav">
-        <a href="index.html">Home</a>
-        <a href="work.html">Work</a>
-        <a href="about.html">About</a>
+            <a href="mailto: LinesSultzer@gmail.com">Email</a>
+            <a href="https://www.linkedin.com/in/lines-sultzer/">LinkedIn</a>
+            <a href="https://github.com/Lines248"">GitHub</a>
         </nav>
         </div>
     `;
