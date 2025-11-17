@@ -68,7 +68,7 @@ export class App {
   handleHomePage() {
     const grid = document.querySelector("#feature-grid");
     if (grid) {
-      renderProjects({ containerId: "feature-grid", filter: "feaured" });
+      renderProjects({ containerId: "feature-grid", filter: "featured" });
     }
   }
 

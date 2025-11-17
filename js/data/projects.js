@@ -28,6 +28,20 @@ export const projects = [
     },
     featured: true,
     category: "development",
+},
+{
+    id: "Trust Circle",
+   title: "Trust Circle Identity Verification Start-Up Site",
+   image: "assets/own-your-data.avif",
+   alt: "Screenshot of",
+   description:
+       "Interactive Next.js prototype exploring authorship and ownership through accessible motion, sound, and one-way claim semantics.",
+   stack: ["Figma", "Framer", "JavaScript", "HTML/CSS","responsive layout"],
+   links: {
+       live: "https://trustcircle.work/",
+   },
+   featured: false,
+   category: "design",
 }
 
 ];

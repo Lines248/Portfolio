@@ -41,7 +41,6 @@ export class PageUtils {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // Determine which class to add based on element's existing class
           const isFadeInImage = entry.target.classList.contains("fade-in-image");
           const className = isFadeInImage ? "visible" : "is-visible";
           
