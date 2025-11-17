@@ -238,6 +238,169 @@ section {
     padding-block: 3rem;
 }
 
+.about-page {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 5rem;
+  line-height: 1.7;
+}
+.about-page h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.about-page h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.about-page h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.about-page p {
+  margin-bottom: 1.25rem;
+  color: var(--text-color, #333);
+  font-size: 1.05rem;
+}
+.about-gallery {
+  margin-top: 3rem;
+}
+
+.gallery-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+  margin-top: 1.5rem;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  object-fit: cover;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gallery-item img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+}
+
+.gallery-item figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--text-muted, #555);
+  line-height: 1.5;
+}
+
+@media (min-width: 650px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.technical-skills ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.technical-skills li {
+  background: rgba(0,0,0,0.04);
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.dark-mode .technical-skills li {
+  background: rgba(255,255,255,0.04);
+}
+
+.technical-skills strong {
+  font-weight: 600;
+}
+
+.lets-work-together {
+  margin-top: 4rem;
+  text-align: left;
+}
+
+.lets-work-together p {
+  max-width: 650px;
+}
+.contact-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.25s, color 0.25s, transform 0.2s;
+}
+
+.btn-primary {
+  background: #375dfb;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #2b4fe0;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: rgba(0,0,0,0.06);
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background: rgba(0,0,0,0.10);
+  transform: translateY(-2px);
+}
+
+.dark-mode .btn-secondary {
+  background: rgba(255,255,255,0.08);
+  color: #eee;
+}
+
+.dark-mode .btn-secondary:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+
+@media (max-width: 480px) {
+  .about-page {
+    padding: 2rem 1rem 4rem;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 .about-header h1 {
     font-size: var(--fs-xl);
     margin-bottom: 1.25rem;
