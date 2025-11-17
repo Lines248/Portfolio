@@ -224,9 +224,142 @@ section {
     margin-bottom: 1rem;
 }
 
-.about p{
-    max-width: 60ch;
+.about-text p {
+    margin: 0 0 1.25rem;
+    font-size: var(--fs-m);
     color: var(--text-muted);
+    max-width: 65ch;
+    line-height: 1.65;
+}
+
+.about {
+    width: min(calc(100% - 2rem), var(--max-width));
+    margin: 0 auto;
+    padding-block: 3rem;
+}
+
+.about-header h1 {
+    font-size: var(--fs-xl);
+    margin-bottom: 1.25rem;
+}
+
+.about-section {
+    margin-bottom: 3.5rem;
+    display: grid;
+    gap: 1.75rem;
+}
+
+@media (min-width: 760px) {
+    .about-section.split-block {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 2.5rem;
+    }
+
+    .about-section.reverse {
+        direction: rtl; =
+    }
+    .about-section.reverse > * {
+        direction: ltr;
+    }
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    background: var(--bg-subtle);
+    object-fit: cover;
+    box-shadow: 0 8px 28px rgba(15, 23, 42, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.about-image img:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+}
+
+.skills {
+    margin-top: 4rem;
+}
+
+.skills h2 {
+    font-size: var(--fs-l);
+    margin-bottom: 1.25rem;
+}
+
+.skills ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.75rem;
+}
+
+.skills li {
+    background: var(--bg-elevated);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-m);
+    border: 1px solid var(--border-subtle);
+    font-size: var(--fs-s);
+    color: var(--text-muted);
+}
+
+
+.work-with-me {
+    margin-top: 4rem;
+    padding: 1.75rem 1.75rem;
+    background: var(--bg-elevated);
+    border-radius: var(--radius-m);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-soft);
+}
+
+.work-with-me h2 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+.work-with-me p {
+    margin: 0 0 1.5rem;
+    color: var(--text-muted);
+    max-width: 65ch;
+}
+
+.btn.primary {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+
+.btn.primary:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+.btn.secondary {
+    background: var(--bg-elevated);
+    border-color: var(--border-subtle);
+    color: var(--text);
+}
+
+.btn.secondary:hover {
+    background: var(--bg-subtle);
+}
+
+@media (max-width: 500px) {
+    .about {
+        padding-top: 2rem;
+    }
+
+    .work-with-me {
+        padding: 1.25rem 1.25rem;
+    }
+
+    .skills li {
+        font-size: var(--fs-xs);
+        padding: 0.6rem 0.8rem;
+    }
 }
 
 #work-grid,
