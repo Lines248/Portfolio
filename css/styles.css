@@ -439,3 +439,7 @@ section {
     margin-top: 1.25rem;
   }
 }
+
+ul {
+    list-style-type: none;
+}
