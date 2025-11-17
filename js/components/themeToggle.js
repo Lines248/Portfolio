@@ -2,7 +2,6 @@ export class ThemeToggle {
   constructor() {
     this.themeManager = null;
   }
-
   init(themeManager) {
     this.themeManager = themeManager;
     this.render();
@@ -46,7 +45,6 @@ export class ThemeToggle {
       this.updateButton(newTheme);
     });
 
-    // Update button when theme changes externally
     document.addEventListener('themechange', (e) => {
       this.updateButton(e.detail.theme);
     });
