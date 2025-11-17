@@ -2,7 +2,7 @@ export const projects = [
 {
     id: "sea-of-synapses",
     title: "Sea of Synapses",
-    image: "assets/images/sea-of-synapses.png",
+    image: "assets/sea-of-synapses.avif",
     alt: "Screenshot of the Sea of Synapses data visualization",
     description:
         "Interactive data visualization prototype mapping relationships between cognitive states. Built with react, TypeScript, Tailwind, and Vite.",
@@ -16,8 +16,8 @@ export const projects = [
 },
 {
      id: "claim-your-signal",
-    title: "Claim Your Signal - Own Your Data",
-    image: "assets/images/claim-your-signal.png",
+    title: "Claim Your Signal",
+    image: "assets/own-your-data.avif",
     alt: "Screenshot of the Claim Your Signal prototype",
     description:
         "Interactive Next.js prototype exploring authorship and ownership through accessible motion, sound, and one-way claim semantics.",

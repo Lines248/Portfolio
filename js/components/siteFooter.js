@@ -2,7 +2,6 @@ export function SiteFooter() {
     const year = new Date().getFullYear();
     
     return `
-        <footer class="site-footer">
         <div class="footer-inner">
         <p>© ${year} Lines Sultzer - InLine Access Studio</p>
         <nav class="footer-nav">
@@ -11,6 +10,5 @@ export function SiteFooter() {
         <a href="about.html">About</a>
         </nav>
         </div>
-        </footer>
     `;
 }
