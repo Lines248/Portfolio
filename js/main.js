@@ -8,6 +8,9 @@ import { loadInitialTheme, enableDarkMode, disableDarkMode } from "./utils/theme
 renderHeader();
 renderFooter();
 loadInitialTheme();
+renderHeader();
+highlightActiveLink();
+enableHeaderScrollShadow();
 
 const CURRENT_PAGE = window.location.pathname.split("/").pop() || "index.html";
 
@@ -33,3 +36,29 @@ document.addEventListener("click", (e) => {
         else enableDarkMode();
     }
 });
+
+function highlightActiveLink() {
+    const path = window.location.pathname.split("/").pop() || "index.html";
+    const links = document.querySelectorAll(".nav a");
+
+    links.forEach(link => {
+        const href = link.getAttribute("href");
+        if (href === path) {
+            link.classList.add("active");
+        } else {
+            link.classList.remove("active");
+        }
+    });
+}
+
+function enableHeaderScrollShadow() {
+    const header = document.querySelector(".site-header");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 8) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    });
+}
