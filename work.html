@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8" />
+        <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Work</title>
+        <meta name="description" content="Portfolio of digital projects by Lines Sultzer exploring accessibility, interaction, and modern front-end engineering." />
+        <title>Work - Lines Sultzer Portfolio</title>
         <link rel="stylesheet" href="css/styles.css" />
     </head>
 
     <body>
-        <header class="site-header"></header>
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+        
+        <header class="site-header" role="banner"></header>
 
-        <main class="work-page">
-            <section class="work-intro">
-                <h1>Work</h1>
+        <main id="main-content" class="work-page" role="main">
+            <section class="work-intro" aria-labelledby="work-heading">
+                <h1 id="work-heading">Work</h1>
                 <p>A collection of digital projects exploring accessibility, interaction, and modern front-end engineering. My work ranges from interactive prototypes to fully built websites.</p>
             </section>
-            <section class="work-section">
-                <div id="work-grid"></div>
+            <section class="work-section" aria-labelledby="work-heading">
+                <h2 class="visually-hidden">Project Collection</h2>
+                <div id="work-grid" role="list" aria-label="All projects"></div>
             </section>
         </main>
 
-    <div data-theme-toggle-container></div>
-    <div data-side-nav-container></div>
+        <nav aria-label="Theme selection" data-theme-toggle-container></nav>
+        <nav aria-label="Page navigation" data-side-nav-container></nav>
 
-    <footer class="site-footer"></footer>
+        <footer class="site-footer" role="contentinfo"></footer>
 
         <script type="module" src="./js/main.js"></script>
     </body>

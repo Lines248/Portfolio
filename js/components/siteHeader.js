@@ -1,10 +1,10 @@
 export function SiteHeader() {
     return `
-    <nav class="nav">
-    <a href="index.html" class="logo">LINES SULTZER</a>
-    <ul>
-        <li><a href="index.html">Home</a></li>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="logo" aria-label="Lines Sultzer - Home">LINES SULTZER</a>
+        <ul role="list">
+            <li><a href="index.html" aria-current="page">Home</a></li>
         </ul>
-        </nav>
+    </nav>
     `;
 }

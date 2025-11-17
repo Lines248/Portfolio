@@ -3,30 +3,33 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Lines - Portfolio</title>
+        <meta name="description" content="Portfolio of Lines Sultzer, a front-end developer specializing in accessible, semantic web experiences." />
+        <title>Lines Sultzer - Front-End Developer Portfolio</title>
         <link rel="stylesheet" href="css/styles.css" />
     </head>
 
     <body>
-        <header class="site-header"></header>
+        <a href="#main-content" class="skip-link">Skip to main content</a>
+        
+        <header class="site-header" role="banner"></header>
 
-        <main>
-            <section class="hero">
-                <h1>Front-End Developer building accessible, clear, and thouhgtfully designed web experiences.</h1>
+        <main id="main-content" role="main">
+            <section class="hero" aria-labelledby="hero-heading">
+                <h1 id="hero-heading">Front-End Developer building accessible, clear, and thoughtfully designed web experiences.</h1>
                 <p>I build fast, reliable websites using modern JavaScript, and semantic HTML/CSS.</p>
             </section>
             
-            <section class="featured-section">
-                   <h2>Featured Work</h2>
-                  <div id="feature-grid"></div>
+            <section class="featured-section" aria-labelledby="featured-heading">
+                <h2 id="featured-heading">Featured Work</h2>
+                <div id="feature-grid" role="list" aria-label="Featured projects"></div>
             </section>
         </main>
 
-        <div data-theme-toggle-container></div>
-        <div data-side-nav-container></div>
+        <nav aria-label="Theme selection" data-theme-toggle-container></nav>
+        <nav aria-label="Page navigation" data-side-nav-container></nav>
 
-        <footer class="site-footer"></footer>
+        <footer class="site-footer" role="contentinfo"></footer>
 
         <script type="module" src="./js/main.js"></script>
     </body>
-    </html>
+</html>

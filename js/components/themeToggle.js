@@ -13,16 +13,19 @@ export class ThemeToggle {
     if (!container) return;
 
     const currentTheme = this.themeManager.getCurrentTheme();
+    const themeLabel = this.getThemeLabel(currentTheme);
     
     container.innerHTML = `
       <button 
         class="theme-toggle" 
         data-theme-toggle 
-        aria-label="Toggle theme"
-        title="Current theme: ${currentTheme}. Click to cycle themes."
+        type="button"
+        aria-label="Change theme. Current theme: ${themeLabel}. Cycles through Light, Dark, and Nature themes."
+        aria-pressed="false"
+        title="Current theme: ${themeLabel}. Click to cycle themes."
       >
         <span class="theme-toggle-icon" aria-hidden="true"></span>
-        <span class="theme-toggle-label">${this.getThemeLabel(currentTheme)}</span>
+        <span class="theme-toggle-label">${themeLabel}</span>
       </button>
     `;
   }
@@ -55,8 +58,10 @@ export class ThemeToggle {
     const label = button?.querySelector('.theme-toggle-label');
     
     if (button && label) {
-      label.textContent = this.getThemeLabel(theme);
-      button.setAttribute('title', `Current theme: ${theme}. Click to cycle themes.`);
+      const themeLabel = this.getThemeLabel(theme);
+      label.textContent = themeLabel;
+      button.setAttribute('aria-label', `Change theme. Current theme: ${themeLabel}. Cycles through Light, Dark, and Nature themes.`);
+      button.setAttribute('title', `Current theme: ${themeLabel}. Click to cycle themes.`);
     }
   }
 }

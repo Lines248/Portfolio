@@ -3,12 +3,12 @@ export function SiteFooter() {
     
     return `
         <div class="footer-inner">
-        <p>© ${year} Lines Sultzer - InLine Access Studio</p>
-        <nav class="footer-nav">
-            <a href="mailto: LinesSultzer@gmail.com">Email</a>
-            <a href="https://www.linkedin.com/in/lines-sultzer/">LinkedIn</a>
-            <a href="https://github.com/Lines248"">GitHub</a>
-        </nav>
+            <p>© ${year} Lines Sultzer - InLine Access Studio</p>
+            <nav class="footer-nav" aria-label="Footer links">
+                <a href="mailto:LinesSultzer@gmail.com" aria-label="Send email to Lines Sultzer">Email</a>
+                <a href="https://www.linkedin.com/in/lines-sultzer/" aria-label="Visit Lines Sultzer's LinkedIn profile (opens in new window)" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/Lines248" aria-label="Visit Lines Sultzer's GitHub profile (opens in new window)" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </nav>
         </div>
     `;
 }
