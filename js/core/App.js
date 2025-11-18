@@ -4,6 +4,7 @@ import { renderProjects } from "../renderProjects.js";
 import { themeManager } from "../utils/theme.js";
 import { ThemeToggle } from "../components/themeToggle.js";
 import { SideNav } from "../components/sideNav.js";
+import { WorkFilters } from "../components/workFilters.js";
 import { PageUtils } from "../utils/pageUtils.js";
 
 export class App {
@@ -73,10 +74,8 @@ export class App {
   }
 
   handleWorkPage() {
-    const grid = document.querySelector("#work-grid");
-    if (grid) {
-      renderProjects({ containerId: "work-grid" });
-    }
+    const workFilters = new WorkFilters();
+    workFilters.init();
   }
 
   initAnimations() {

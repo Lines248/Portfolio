@@ -326,6 +326,99 @@ section {
   margin-top: 2rem;
 }
 
+.work-filters {
+  margin-bottom: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.category-filters {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.65rem 1.4rem;
+  border-radius: 999px;
+  border: 2px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  color: var(--text);
+  font-size: var(--fs-m);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-sans);
+}
+
+.filter-btn:hover {
+  border-color: var(--accent);
+  background: var(--bg-subtle);
+}
+
+.filter-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+}
+
+.filter-btn:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.stack-filters h2 {
+  font-size: var(--fs-s);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+}
+
+.stack-filters-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.stack-filter-btn {
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  font-size: var(--fs-s);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-sans);
+}
+
+.stack-filter-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.stack-filter-btn.active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.stack-filter-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.no-results {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+  font-size: var(--fs-m);
+  grid-column: 1 / -1;
+}
+
 #work-grid,
 #feature-grid {
   display: grid;
@@ -923,6 +1016,29 @@ html.dark .gallery-item img {
 
   .work-page #work-grid .project-card {
     padding: 1.5rem 1.5rem;
+  }
+
+  .work-filters {
+    margin-bottom: 2rem;
+    gap: 1.5rem;
+  }
+
+  .category-filters {
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    padding: 0.55rem 1.2rem;
+    font-size: var(--fs-s);
+  }
+
+  .stack-filters-grid {
+    gap: 0.4rem;
+  }
+
+  .stack-filter-btn {
+    padding: 0.35rem 0.75rem;
+    font-size: var(--fs-xs);
   }
 
   .about-bottom {
