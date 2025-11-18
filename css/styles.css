@@ -544,11 +544,7 @@ section {
   border-bottom-color: rgba(37, 99, 235, 0.6);
 }
 
-.about-page {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding-block: 3rem 4.5rem;
-}
+
 
 .about-intro h1 {
   font-size: var(--fs-xl);
