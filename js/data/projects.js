@@ -1,21 +1,5 @@
 export const projects = [
 {
-    id: "sea-of-synapses",
-    title: "Sea of Synapses",
-    type: "Front-End Engineering | Data Visualization",
-    image: "assets/sea-of-synapses.avif",
-    alt: "Screenshot of the Sea of Synapses data visualization",
-    description:
-        "Interactive data visualization prototype mapping relationships between cognitive states. Built with react, TypeScript, Tailwind, and Vite.",
-    stack: ["React","Typescript", "Vite", "SVG Animation"],
-    links: {
-        live: "YOUR_LINK_HERE",
-        repo: "YOUR_REPO_LINK_HERE",
-    },
-    featured: true,
-    category: "development",
-},
-{
      id: "claim-your-signal",
     title: "Claim Your Signal",
     type: "Front-End Engineering | Interaction Design",
@@ -32,6 +16,22 @@ export const projects = [
     category: "development",
 },
 {
+    id: "sea-of-synapses",
+    title: "Sea of Synapses",
+    type: "Front-End Engineering | Data Visualization",
+    image: "assets/sea-of-synapses.avif",
+    alt: "Screenshot of the Sea of Synapses data visualization",
+    description:
+        "Interactive data visualization prototype mapping relationships between cognitive states. Built with react, TypeScript, Tailwind, and Vite.",
+    stack: ["React","Typescript", "Vite", "SVG Animation"],
+    links: {
+        live: "https://sea-of-synapses-n1r7tym6r-lines-projects-a21b5825.vercel.app/",
+        repo: "https://github.com/Lines248/sea-of-synapses",
+    },
+    featured: true,
+    category: "development",
+},
+{
 id: "deroche-projects",
    title: "DeRoche Projects",
    type: "UX/UI Design | CMS Implementation (Sanity)",
@@ -43,7 +43,7 @@ id: "deroche-projects",
    links: {
        live: "https://derocheprojects.com/",
    },
-   featured: false,
+   featured: true,
    category: "design",
 },
 {
@@ -59,7 +59,7 @@ id: "deroche-projects",
            live: "https://www.reedrushes.com/",
        },
        featured: false,
-       category: "design",
+       category: "design"
     },
         {
             id: "trust-circle",
@@ -95,17 +95,17 @@ id: "deroche-projects",
                 {
                     id: "nomin-eat",
                        title: "NominEat - Group Voting Web App",
-                       type: "Full-Stack Development",
+                       type: "Full-Stack Development | API Integration",
                        image: "assets/images/nomineat.avif",
-                       alt: "Screenshot of the NominEat web app.",
+                       alt: "Screenshot of the NominEat gorup voting web application.",
                        description:
-                            "Designed and built a portfolio site for NYC performance artist Reed Rushes. Created a cinematic visual identity, orchestrated image sequencing, and implemented custom interactions in Framer with targeted JavaScript enhancements.",
-                       stack: ["Java", "Vue", "PostgreSQL", "Yelp API", "PostgreSQL"],
+                            "Designed and developed a full-stack web app that helps groups vote on where to eat. Users can create rooms, submit restaurant options, and vote in real-time. Built with a Java backend, Vue front-end, PostgreSQL database, and the Yelp API for live restaurant data.",
+                       stack: ["Java", "Vue", "PostgreSQL", "REST APIs", "YELP API"],
                        links: {
                            live: "",
                            repo: "",
                        },
                        featured: false,
                        category: "development",
-                    }
+                    },
 ];
