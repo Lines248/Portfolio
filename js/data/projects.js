@@ -23,7 +23,7 @@ export const projects = [
     alt: "Screenshot of the Sea of Synapses data visualization",
     description:
         "Interactive data visualization prototype mapping relationships between cognitive states. Built with react, TypeScript, Tailwind, and Vite.",
-    stack: ["React","Typescript", "Vite", "SVG Animation"],
+    stack: ["React","Typescript", "JavaScript", "Vite", "SVG Animation"],
     links: {
         live: "https://sea-of-synapses-n1r7tym6r-lines-projects-a21b5825.vercel.app/",
         repo: "https://github.com/Lines248/sea-of-synapses",
@@ -100,7 +100,7 @@ id: "deroche-projects",
                        alt: "Screenshot of the NominEat gorup voting web application.",
                        description:
                             "Designed and developed a full-stack web app that helps groups vote on where to eat. Users can create rooms, submit restaurant options, and vote in real-time. Built with a Java backend, Vue front-end, PostgreSQL database, and the Yelp API for live restaurant data.",
-                       stack: ["Java", "Vue", "PostgreSQL", "REST APIs", "YELP API"],
+                       stack: ["Java", "JavaScript", "Vue", "PostgreSQL", "REST APIs", "YELP API"],
                        links: {
                            live: "",
                            repo: "https://github.com/Lines248/TE-Capstone_",
