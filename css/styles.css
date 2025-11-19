@@ -333,6 +333,16 @@ section {
   gap: 2rem;
 }
 
+.mobile-filter-toggle {
+  display: none;
+}
+
+.filters-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .category-filters {
   display: flex;
   gap: 0.75rem;
@@ -1029,6 +1039,55 @@ html.dark .gallery-item img {
 
   .category-filters {
     gap: 0.5rem;
+  }
+
+  .mobile-filter-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    margin-top: 0.5rem;
+    background: var(--bg-elevated);
+    border: 2px solid var(--border-subtle);
+    border-radius: 12px;
+    color: var(--text);
+    font-size: var(--fs-m);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-filter-toggle:hover {
+    border-color: var(--accent);
+    background: var(--bg-subtle);
+  }
+
+  .mobile-filter-toggle:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .toggle-icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1;
+    transition: transform 0.3s ease;
+  }
+
+  .work-filters.filters-open .toggle-icon {
+    transform: rotate(0deg);
+  }
+
+  .filters-content {
+    display: none;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-top: 0.5rem;
+  }
+
+  .work-filters.filters-open .filters-content {
+    display: flex;
   }
 
   .filter-btn {

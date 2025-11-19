@@ -46,21 +46,21 @@ id: "deroche-projects",
    featured: true,
    category: "design",
 },
-{
-    id: "reed-rushes",
-       title: "Reed Rushes Portfolio",
-       type: "UX/UI Design | Front-End Build (Framer)",
-       image: "/assets/images/reed.avif",
-       alt: "Screenshot of Reed Rushes artist website.",
-       description:
-            "Designed and built a portfolio site for NYC performance artist Reed Rushes. Created a cinematic visual identity, orchestrated image sequencing, and implemented custom interactions in Framer with targeted JavaScript enhancements.",
-       stack: ["Framer", "Figma", "JavaScript", "Responsive Layout"],
-       links: {
-           live: "https://www.reedrushes.com/",
-       },
-       featured: false,
-       category: "design"
-    },
+// {
+//     id: "reed-rushes",
+//        title: "Reed Rushes Portfolio",
+//        type: "UX/UI Design | Front-End Build (Framer)",
+//        image: "/assets/images/reed.avif",
+//        alt: "Screenshot of Reed Rushes artist website.",
+//        description:
+//             "Designed and built a portfolio site for NYC performance artist Reed Rushes. Created a cinematic visual identity, orchestrated image sequencing, and implemented custom interactions in Framer with targeted JavaScript enhancements.",
+//        stack: ["Framer", "Figma", "JavaScript", "Responsive Layout"],
+//        links: {
+//            live: "https://www.reedrushes.com/",
+//        },
+//        featured: false,
+//        category: "design"
+//     },
         {
             id: "trust-circle",
                title: "Trust Circle",

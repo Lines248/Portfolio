@@ -6,6 +6,7 @@ export class WorkFilters {
     this.selectedCategory = "all";
     this.selectedStacks = [];
     this.allStacks = this.getAllStacks();
+    this.isMobileFiltersOpen = false;
   }
 
   getAllStacks() {
@@ -26,8 +27,11 @@ export class WorkFilters {
     const container = document.querySelector('[data-work-filters]');
     if (!container) return;
 
+    const filtersOpenClass = this.isMobileFiltersOpen ? 'filters-open' : '';
+    const filtersExpanded = this.isMobileFiltersOpen ? 'true' : 'false';
+
     container.innerHTML = `
-      <div class="work-filters">
+      <div class="work-filters ${filtersOpenClass}">
         <div class="category-filters" role="group" aria-label="Filter by category">
           <h2 class="visually-hidden">Filter by Category</h2>
           <button 
@@ -53,18 +57,30 @@ export class WorkFilters {
           </button>
         </div>
 
-        <div class="stack-filters" role="group" aria-label="Filter by technology">
-          <h2 class="visually-hidden">Filter by Technology</h2>
-          <div class="stack-filters-grid">
-            ${this.allStacks.map(stack => `
-              <button 
-                class="stack-filter-btn ${this.selectedStacks.includes(stack) ? 'active' : ''}" 
-                data-stack="${stack}"
-                aria-pressed="${this.selectedStacks.includes(stack)}"
-              >
-                ${stack}
-              </button>
-            `).join('')}
+        <button 
+          class="mobile-filter-toggle"
+          aria-expanded="${filtersExpanded}"
+          aria-controls="work-filters-content"
+          aria-label="Filter by technologies"
+        >
+          <span>Filter by technologies</span>
+          <span class="toggle-icon" aria-hidden="true">${this.isMobileFiltersOpen ? '−' : '+'}</span>
+        </button>
+        
+        <div id="work-filters-content" class="filters-content">
+          <div class="stack-filters" role="group" aria-label="Filter by technology">
+            <h2 class="visually-hidden">Filter by Technology</h2>
+            <div class="stack-filters-grid">
+              ${this.allStacks.map(stack => `
+                <button 
+                  class="stack-filter-btn ${this.selectedStacks.includes(stack) ? 'active' : ''}" 
+                  data-stack="${stack}"
+                  aria-pressed="${this.selectedStacks.includes(stack)}"
+                >
+                  ${stack}
+                </button>
+              `).join('')}
+            </div>
           </div>
         </div>
       </div>
@@ -72,6 +88,13 @@ export class WorkFilters {
   }
 
   attachEventListeners() {
+    const toggleButton = document.querySelector('.mobile-filter-toggle');
+    if (toggleButton) {
+      toggleButton.addEventListener('click', () => {
+        this.toggleMobileFilters();
+      });
+    }
+
     const categoryButtons = document.querySelectorAll('[data-category]');
     const stackButtons = document.querySelectorAll('[data-stack]');
 
@@ -88,6 +111,12 @@ export class WorkFilters {
         this.toggleStack(stack);
       });
     });
+  }
+
+  toggleMobileFilters() {
+    this.isMobileFiltersOpen = !this.isMobileFiltersOpen;
+    this.renderFilters();
+    this.attachEventListeners();
   }
 
   setCategory(category) {
