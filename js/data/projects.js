@@ -68,7 +68,7 @@ id: "deroche-projects",
                image: "/assets/images/trust-circle.avif",
                alt: "Screenshot of Trust Circle HR product site.",
                description:
-                    "Designed and built a portfolio site for NYC performance artist Reed Rushes. Created a cinematic visual identity, orchestrated image sequencing, and implemented custom interactions in Framer with targeted JavaScript enhancements.",
+                    "Designed and built the marketing site for an HR technology product, developing a clean visual identity and implementing responsive layouts in Framer with custom JavaScript enhancements. Collaborated with the founding team to translate product messaging into an accessible, high-impact web experience.",
                stack: ["Figma", "JavaScript", "Framer", "Responsive Layout"],
                links: {
                    live: "https://www.trustcircle.work/",
