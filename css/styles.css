@@ -1151,6 +1151,8 @@ html.dark .gallery-item img {
   pointer-events: none;
 }
 
+
+
 :root.dark .home-page::before {
   opacity: 0.12;
   filter: brightness(2) contrast(0.6) invert(1);
