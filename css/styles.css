@@ -1195,27 +1195,37 @@ html.dark .gallery-item img {
   position: fixed;
   inset: 0;
   background-color: var(--bg);
-  background-image: url("../assets/bg.min.svg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  opacity: 0.25;
-  filter: brightness(1.2) contrast(0.8);
   z-index: -2;
   pointer-events: none;
 }
 
-
+.home-page::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("../assets/bg.min.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  filter: brightness(1.4) contrast(0.7);
+  z-index: -1;
+  pointer-events: none;
+}
 
 :root.dark .home-page::before {
   background-color: #050816;
-  opacity: 0.18;
-  filter: brightness(1.8) contrast(0.7);
+}
+
+:root.dark .home-page::after {
+  opacity: 0.12;
+  filter: brightness(2) contrast(0.6) invert(1);
   mix-blend-mode: screen;
 }
 
-:root.environment .home-page::before {
-  background-color: #f0f7f0;
+
+
+:root.environment .home-page::after {
   opacity: 0.20;
   filter: sepia(0.65) hue-rotate(-20deg) saturate(1.4) brightness(1.05);
   mix-blend-mode: multiply;
@@ -1223,12 +1233,14 @@ html.dark .gallery-item img {
 
 @media (max-width: 640px) {
   .home-page::before {
+    background-color: var(--bg);
+  }
+
+  :root.dark .home-page::before {
     background-color: #050816;
-    background-image: url("../assets/bg.min.svg");
   }
 
   :root.environment .home-page::before {
-    background-color: #2d5a2d;
-    background-image: url("../assets/bg.min.svg");
+    background-color: #f0f7f0;
   }
 }
