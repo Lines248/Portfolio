@@ -76,6 +76,22 @@ id: "deroche-projects",
                featured: false,
                category: "design",
             },
+            {
+                id: "nomin-eat",
+                   title: "NominEat - Group Voting Web App",
+                   type: "Full-Stack Development | API Integration",
+                   image: "/assets/images/nomineat.avif",
+                   alt: "Screenshot of the NominEat group voting web application.",
+                   description:
+                        "Designed and developed a full-stack web app that helps groups vote on where to eat. Users can create rooms, submit restaurant options, and vote in real-time. Built with a Java backend, Vue front-end, PostgreSQL database, and the Yelp API for live restaurant data.",
+                   stack: ["Java", "JavaScript", "Vue", "PostgreSQL", "REST APIs", "YELP API"],
+                   links: {
+                       live: "",
+                       repo: "https://github.com/Lines248/TE-Capstone_",
+                   },
+                   featured: false,
+                   category: "development",
+                },
             // {
             //     id: "vending-machine",
             //        title: "Vending Machine Web App",
@@ -92,20 +108,5 @@ id: "deroche-projects",
             //        featured: false,
             //        category: "development",
             //     },
-                {
-                    id: "nomin-eat",
-                       title: "NominEat - Group Voting Web App",
-                       type: "Full-Stack Development | API Integration",
-                       image: "assets/images/nomineat.avif",
-                       alt: "Screenshot of the NominEat gorup voting web application.",
-                       description:
-                            "Designed and developed a full-stack web app that helps groups vote on where to eat. Users can create rooms, submit restaurant options, and vote in real-time. Built with a Java backend, Vue front-end, PostgreSQL database, and the Yelp API for live restaurant data.",
-                       stack: ["Java", "JavaScript", "Vue", "PostgreSQL", "REST APIs", "YELP API"],
-                       links: {
-                           live: "",
-                           repo: "https://github.com/Lines248/TE-Capstone_",
-                       },
-                       featured: false,
-                       category: "development",
-                    },
+      
 ];
