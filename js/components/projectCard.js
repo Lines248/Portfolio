@@ -1,15 +1,43 @@
+function isValidLink(url) {
+    if (!url) return false;
+    if (url.trim() === "") return false;
+    if (url === "YOUR_LINK_HERE") return false;
+    if (url === "YOUR_REPO_LINK_HERE") return false;
+    return true;
+}
+
+function createProjectLink(url, label, projectTitle, linkType) {
+    const ariaLabel = linkType === "live" 
+        ? `View ${projectTitle} live demo (opens in new window)`
+        : `View ${projectTitle} source code on GitHub (opens in new window)`;
+    
+    return `<a href="${url}" aria-label="${ariaLabel}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+}
+
+function buildProjectLinks(project) {
+    const links = [];
+    
+    if (isValidLink(project.links.live)) {
+        links.push(createProjectLink(project.links.live, "Live Demo", project.title, "live"));
+    }
+    
+    if (isValidLink(project.links.repo)) {
+        links.push(createProjectLink(project.links.repo, "GitHub Repo", project.title, "repo"));
+    }
+    
+    if (links.length === 0) {
+        return "";
+    }
+    
+    return `<nav class="links" aria-label="Project links">${links.join("")}</nav>`;
+}
+
 export function ProjectCard(project) {
     const stackList = project.stack
         .map((item) => `<li>${item}</li>`)
         .join("");
 
-    const liveLinkLabel = project.links.live && project.links.live !== "YOUR_LINK_HERE" 
-        ? `View ${project.title} live demo (opens in new window)`
-        : `${project.title} live demo (coming soon)`;
-    
-    const repoLinkLabel = project.links.repo && project.links.repo !== "YOUR_REPO_LINK_HERE"
-        ? `View ${project.title} source code on GitHub (opens in new window)`
-        : `${project.title} source code (coming soon)`;
+    const projectLinks = buildProjectLinks(project);
 
     return `
         <article class="project-card" role="listitem">
@@ -27,16 +55,7 @@ export function ProjectCard(project) {
                 ${stackList}
             </ul>
 
-            <nav class="links" aria-label="Project links">
-                ${project.links.live && project.links.live !== "YOUR_LINK_HERE" 
-                    ? `<a href="${project.links.live}" aria-label="${liveLinkLabel}" target="_blank" rel="noopener noreferrer">Live Demo</a>`
-                    : `<span class="link-disabled" aria-label="${liveLinkLabel}">Live Demo</span>`
-                }
-                ${project.links.repo && project.links.repo !== "YOUR_REPO_LINK_HERE"
-                    ? `<a href="${project.links.repo}" aria-label="${repoLinkLabel}" target="_blank" rel="noopener noreferrer">GitHub Repo</a>`
-                    : `<span class="link-disabled" aria-label="${repoLinkLabel}">GitHub Repo</span>`
-                }
-            </nav>
+            ${projectLinks}
         </article>
     `;
 }
