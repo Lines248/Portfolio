@@ -25,7 +25,7 @@ export const projects = [
         "Interactive data visualization prototype mapping relationships between cognitive states. Built with react, TypeScript, Tailwind, and Vite.",
     stack: ["React","Typescript", "JavaScript", "Vite", "SVG Animation"],
     links: {
-        live: "https://sea-of-synapses-n1r7tym6r-lines-projects-a21b5825.vercel.app/",
+        live: "https://sea-of-synapses.vercel.app/",
         repo: "https://github.com/Lines248/sea-of-synapses",
     },
     featured: true,
