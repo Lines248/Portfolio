@@ -16,6 +16,22 @@ export const projects = [
     category: "development",
 },
 {
+    id: "vending-machine",
+       title: "Vending Machine Web App",
+       type: "Full-Stack Development",
+       image: "assets/images/vending-machine.avif",
+       alt: "Screenshot of the Vending Machine app.",
+       description:
+       "Built as part of a backend engineering module at Tech Elevator. The original Java version was developed using Agile workflows and pair programming, after which I independently translated the full application into Python, re-implementing the architecture, logic, and transaction flow on my own. This CLI-based simulation highlights clean backend design, multi-language fluency, and the ability to refactor systems across stacks.",
+       stack: ["Python", "Java", "CLI", "REST APIs"],
+       links: {
+           live: "",
+           repo: "https://github.com/Lines248/vending_machine_webapp",
+       },
+       featured: true,
+       category: "development",
+    },
+{
     id: "sea-of-synapses",
     title: "Sea of Synapses",
     type: "Front-End Engineering | Data Visualization",
@@ -43,7 +59,7 @@ id: "deroche-projects",
    links: {
        live: "https://derocheprojects.com/",
    },
-   featured: true,
+   featured: false,
    category: "design",
 },
 // {
@@ -92,21 +108,5 @@ id: "deroche-projects",
                    featured: false,
                    category: "development",
                 },
-            // {
-            //     id: "vending-machine",
-            //        title: "Vending Machine Web App",
-            //        type: "Full-Stack Development",
-            //        image: "assets/images/vending.avif",
-            //        alt: "Screenshot of the Vending Machine app.",
-            //        description:
-            //             "Designed and built a portfolio site for NYC performance artist Reed Rushes. Created a cinematic visual identity, orchestrated image sequencing, and implemented custom interactions in Framer with targeted JavaScript enhancements.",
-            //        stack: ["Python", "Flask", "Java", "REST APIs", "PostgreSQL"],
-            //        links: {
-            //            live: "",
-            //            repo: "",
-            //        },
-            //        featured: false,
-            //        category: "development",
-            //     },
       
 ];
