@@ -83,7 +83,7 @@ id: "deroche-projects",
                    image: "/assets/images/nomineat.avif",
                    alt: "Screenshot of the NominEat group voting web application.",
                    description:
-                        "Designed and developed a full-stack web app that helps groups vote on where to eat. Users can create rooms, submit restaurant options, and vote in real-time. Built with a Java backend, Vue front-end, PostgreSQL database, and the Yelp API for live restaurant data.",
+                        "Designed and developed a full-stack web app that helps groups vote on where to eat. Users can create rooms, submit restaurant options, and vote in real time. Built with a Java backend, Vue front-end, PostgreSQL database, and the Yelp API for live restaurant data. Developed as my final capstone project at Tech Elevator, demonstrating end-to-end architecture, API integration, and a collaborative Agile workflow.",
                    stack: ["Java", "JavaScript", "Vue", "PostgreSQL", "REST APIs", "YELP API"],
                    links: {
                        live: "",
