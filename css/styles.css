@@ -725,6 +725,13 @@ html.dark .gallery-item img {
   opacity: 0.75;
 }
 
+@media (max-width: 640px) {
+  .footer-tagline {
+    margin-bottom: 7rem;
+    padding-bottom: 1rem;
+  }
+}
+
 [data-side-nav-container] {
   position: fixed;
   right: 2rem;
