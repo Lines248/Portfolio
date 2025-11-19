@@ -13,7 +13,7 @@ export class SideNav {
     return `
       <nav class="side-nav" aria-label="Page navigation">
         <a 
-          href="work.html" 
+          href="/work" 
           class="side-nav-btn ${isWorkActive ? 'active' : ''}"
           data-nav="work"
           aria-label="View work portfolio${isWorkActive ? ' (current page)' : ''}"
@@ -23,7 +23,7 @@ export class SideNav {
           <span class="side-nav-btn-bg" aria-hidden="true"></span>
         </a>
         <a 
-          href="about.html" 
+          href="/about" 
           class="side-nav-btn ${isAboutActive ? 'active' : ''}"
           data-nav="about"
           aria-label="View about page${isAboutActive ? ' (current page)' : ''}"
