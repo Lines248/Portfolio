@@ -38,7 +38,7 @@ id: "deroche-projects",
    image: "assets/images/deroche.avif",
    alt: "Screenshot of the DeRoche architecture portfolio",
    description:
-        "Designed the full UX/UI for an architecture studio website and uploaded the content system using Sanity CMS. Created custom schemas, modular content blocks, and a scalable design system used across case studies and imagery-heavy layouts.",
+        "Designed the full UX/UI for an architecture studio website and uploaded the content system using Sanity CMS. Created custom schemas, modular content blocks, and a scalable design system used across case studies and imagery-heavy layouts. Contracted to work with Digital Counsel Agency who handeled the build and marketing.",
    stack: ["Figma", "Adobe Photoshop", "Sanity CMS", "Responsive UI"],
    links: {
        live: "https://derocheprojects.com/",
