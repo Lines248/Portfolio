@@ -1224,9 +1224,11 @@ html.dark .gallery-item img {
 @media (max-width: 640px) {
   .home-page::before {
     background-color: #050816;
+    background-image: url("../assets/bg.min.svg");
   }
 
   :root.environment .home-page::before {
     background-color: #2d5a2d;
+    background-image: url("../assets/bg.min.svg");
   }
 }
