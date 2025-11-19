@@ -1187,13 +1187,18 @@ html.dark .gallery-item img {
 .home-page {
   position: relative;
   overflow-x: hidden;
+  background: var(--bg);
 }
 
 .home-page::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: url("../assets/bg.min.svg") center/cover no-repeat;
+  background-color: var(--bg);
+  background-image: url("../assets/bg.min.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   opacity: 0.15;
   filter: brightness(1.4) contrast(0.7);
   z-index: -2;
@@ -1203,13 +1208,25 @@ html.dark .gallery-item img {
 
 
 :root.dark .home-page::before {
+  background-color: #050816;
   opacity: 0.12;
   filter: brightness(2) contrast(0.6) invert(1);
   mix-blend-mode: screen;
 }
 
-.environment .home-page::before {
-  opacity: 0.20 !important;
-  filter: sepia(0.65) hue-rotate(-20deg) saturate(1.4) brightness(1.05) !important;
-  mix-blend-mode: multiply !important;
+:root.environment .home-page::before {
+  background-color: #f0f7f0;
+  opacity: 0.20;
+  filter: sepia(0.65) hue-rotate(-20deg) saturate(1.4) brightness(1.05);
+  mix-blend-mode: multiply;
+}
+
+@media (max-width: 640px) {
+  .home-page::before {
+    background-color: #050816;
+  }
+
+  :root.environment .home-page::before {
+    background-color: #2d5a2d;
+  }
 }
