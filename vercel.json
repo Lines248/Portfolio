@@ -1,8 +1,8 @@
 {
-    "rewrites": [
-      { "source": "/work", "destination": "/work.html" },
-      { "source": "/about", "destination": "/about.html" },
-      { "source": "/contact", "destination": "/contact.html" },
-      { "source": "/(.*)", "destination": "/$1.html" }
-    ]
-  }
+  "rewrites": [
+    { "source": "/work", "destination": "/work.html" },
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/home", "destination": "/index.html" },
+    { "source": "/", "destination": "/index.html" }
+  ]
+}

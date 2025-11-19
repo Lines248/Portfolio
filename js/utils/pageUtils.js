@@ -1,6 +1,34 @@
 export class PageUtils {
   static getCurrentPage() {
-    return window.location.pathname.split("/").pop() || "index.html";
+    const path = window.location.pathname;
+    const page = path.split("/").pop() || "";
+    
+    if (page === "" || page === "/" || page === "home") {
+      return "index.html";
+    }
+    
+    if (page === "work") {
+      return "work.html";
+    }
+    
+    if (page === "about") {
+      return "about.html";
+    }
+    
+    return page || "index.html";
+  }
+  
+  static normalizePageName(page) {
+    if (page === "" || page === "/" || page === "home" || page === "index.html") {
+      return "index.html";
+    }
+    if (page === "work" || page === "work.html") {
+      return "work.html";
+    }
+    if (page === "about" || page === "about.html") {
+      return "about.html";
+    }
+    return page;
   }
 
  
@@ -10,7 +38,12 @@ export class PageUtils {
 
     navLinks.forEach(link => {
       const href = link.getAttribute("href");
-      if (href === currentPage) {
+      const normalizedHref = this.normalizePageName(href.replace("/", "").replace(".html", ""));
+      const normalizedCurrent = this.normalizePageName(currentPage);
+      
+      if (normalizedHref === normalizedCurrent || 
+          (href === "/" && normalizedCurrent === "index.html") ||
+          (href === "/home" && normalizedCurrent === "index.html")) {
         link.classList.add("active");
       } else {
         link.classList.remove("active");

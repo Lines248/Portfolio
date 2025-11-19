@@ -1,11 +1,14 @@
+import { PageUtils } from "../utils/pageUtils.js";
+
 export class SideNav {
   constructor() {
-    this.currentPage = window.location.pathname.split("/").pop() || "index.html";
+    this.currentPage = PageUtils.getCurrentPage();
   }
 
   render() {
-    const isWorkActive = this.currentPage === 'work.html';
-    const isAboutActive = this.currentPage === 'about.html';
+    const normalizedPage = PageUtils.normalizePageName(this.currentPage);
+    const isWorkActive = normalizedPage === 'work.html';
+    const isAboutActive = normalizedPage === 'about.html';
     
     return `
       <nav class="side-nav" aria-label="Page navigation">

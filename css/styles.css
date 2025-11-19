@@ -770,6 +770,7 @@ html.dark .gallery-item img {
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 0;
+  pointer-events: none;
 }
 
 .side-nav-btn-text {
