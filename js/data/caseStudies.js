@@ -1,8 +1,3 @@
-/**
- * Case Study Content Data
- * Extended content for detailed case study pages
- * Follows OOP and DRY principles
- */
 
 export const caseStudies = {
   "vending-machine": {
@@ -28,7 +23,7 @@ export const caseStudies = {
       {
         title: "The Original Java App",
         content: `<hr class="case-study-divider" aria-hidden="true" />
-        
+
         <p>The original application:</p>
         <ul>
           <li>loaded inventory from a CSV file</li>
