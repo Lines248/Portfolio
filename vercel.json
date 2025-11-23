@@ -2,12 +2,14 @@
   "rewrites": [
     { "source": "/work", "destination": "/work.html" },
     { "source": "/about", "destination": "/about.html" },
+    { "source": "/vending-machine", "destination": "/vending-machine.html" },
     { "source": "/home", "destination": "/index.html" },
     { "source": "/", "destination": "/index.html" }
   ],
   "redirects": [
     { "source": "/work.html", "destination": "/work", "permanent": true },
     { "source": "/about.html", "destination": "/about", "permanent": true },
+    { "source": "/vending-machine.html", "destination": "/vending-machine", "permanent": true },
     { "source": "/index.html", "destination": "/", "permanent": true }
   ]
 }

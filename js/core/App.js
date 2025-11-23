@@ -5,6 +5,7 @@ import { themeManager } from "../utils/theme.js";
 import { ThemeToggle } from "../components/themeToggle.js";
 import { SideNav } from "../components/sideNav.js";
 import { WorkFilters } from "../components/workFilters.js";
+import { CaseStudy } from "../components/caseStudy.js";
 import { PageUtils } from "../utils/pageUtils.js";
 
 export class App {
@@ -56,13 +57,32 @@ export class App {
   initPageSpecificFeatures() {
     const pageHandlers = {
       "index.html": () => this.handleHomePage(),
-      "work.html": () => this.handleWorkPage()
+      "work.html": () => this.handleWorkPage(),
+      "vending-machine.html": () => this.handleCaseStudyPage()
     };
 
     const handler = pageHandlers[this.currentPage];
     if (handler) {
       handler();
+    } else if (this.isCaseStudyPage()) {
+      this.handleCaseStudyPage();
     }
+  }
+
+  /**
+   * Checks if the current page is a case study page
+   * @returns {boolean} True if it's a case study page
+   */
+  isCaseStudyPage() {
+    return document.querySelector("[data-case-study]") !== null;
+  }
+
+  /**
+   * Handles case study page initialization
+   */
+  handleCaseStudyPage() {
+    const caseStudy = new CaseStudy();
+    caseStudy.init();
   }
 
 

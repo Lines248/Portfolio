@@ -15,6 +15,10 @@ export class PageUtils {
       return "about.html";
     }
     
+    if (page === "vending-machine") {
+      return "vending-machine.html";
+    }
+    
     return page || "index.html";
   }
   

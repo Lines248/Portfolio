@@ -14,8 +14,35 @@ function createProjectLink(url, label, projectTitle, linkType) {
     return `<a href="${url}" aria-label="${ariaLabel}" target="_blank" rel="noopener noreferrer">${label}</a>`;
 }
 
+/**
+ * Checks if a project has a case study page
+ * @param {Object} project - The project object
+ * @returns {boolean} True if case study exists
+ */
+function hasCaseStudy(project) {
+    // List of project IDs that have case study pages
+    const caseStudyProjects = ["vending-machine"];
+    return caseStudyProjects.includes(project.id);
+}
+
+/**
+ * Gets the case study URL for a project
+ * @param {Object} project - The project object
+ * @returns {string} Case study URL
+ */
+function getCaseStudyUrl(project) {
+    return `/${project.id}`;
+}
+
 function buildProjectLinks(project) {
     const links = [];
+    
+    // Add case study link if available
+    if (hasCaseStudy(project)) {
+        links.push(
+            `<a href="${getCaseStudyUrl(project)}" class="case-study-link" aria-label="View ${project.title} case study">View Case Study</a>`
+        );
+    }
     
     if (isValidLink(project.links.live)) {
         links.push(createProjectLink(project.links.live, "Live Demo", project.title, "live"));
