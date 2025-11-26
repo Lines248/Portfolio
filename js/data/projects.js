@@ -10,7 +10,7 @@ export const projects = [
     stack: ["HTML", "CSS", "JavaScript", "Vue","Vite", "CSS Modules", "Vercel"],
     links: {
         live: "https://accex.vercel.app/",
-        repo: "",
+        repo: "https://github.com/Lines248/Accex",
     },
     featured: true,
     category: "development",
