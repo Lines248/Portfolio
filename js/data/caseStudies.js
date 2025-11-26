@@ -264,7 +264,7 @@ export const caseStudies = {
         <ul>
           <li>Starting with performance in mind from day one saves more effort than retrofitting later</li>
           <li>Even "simple" aesthetics require careful attention to spacing, typography, and responsiveness</li>
-          <li>Accessibility is often an afterthought—but integrating it up front improves UX for everyone</li>
+          <li>Accessibility is often an afterthought, but integrating it up front improves UX for everyone</li>
         </ul>`
       }
     ]
