@@ -56,7 +56,6 @@ class ThemeManager {
   loadInitialTheme() {
     const stored = this.getStoredTheme();
     if (stored && this.themes.includes(stored)) {
-      // Use stored theme if valid
       this.setTheme(stored);
     } else {
       this.setTheme(this.getPreferredTheme());

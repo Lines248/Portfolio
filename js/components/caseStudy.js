@@ -20,25 +20,41 @@ export class CaseStudy {
       return;
     }
 
-    this.caseStudyContent = caseStudies[projectId] || null;
+    if (caseStudies[projectId]) {
+      this.caseStudyContent = caseStudies[projectId];
+    } else {
+      this.caseStudyContent = null;
+    }
+    
     this.render();
   }
 
- 
   getProjectIdFromUrl() {
     const path = window.location.pathname;
-    const segments = path.split("/").filter(Boolean);
-    const lastSegment = segments[segments.length - 1];
+    const pathParts = path.split("/");
+    const filteredParts = pathParts.filter(function(part) {
+      return part !== "";
+    });
     
-    return lastSegment?.replace(".html", "") || null;
+    if (filteredParts.length === 0) {
+      return null;
+    }
+    
+    const lastPart = filteredParts[filteredParts.length - 1];
+    const projectId = lastPart.replace(".html", "");
+    
+    return projectId;
   }
-
 
   findProjectById(projectId) {
-    return projects.find((p) => p.id === projectId) || null;
+    for (let i = 0; i < projects.length; i++) {
+      if (projects[i].id === projectId) {
+        return projects[i];
+      }
+    }
+    return null;
   }
 
-  
   render() {
     const container = document.querySelector("[data-case-study]");
     if (!container) {
@@ -49,7 +65,6 @@ export class CaseStudy {
     container.innerHTML = this.buildCaseStudyHTML();
   }
 
- 
   buildCaseStudyHTML() {
     const stackList = this.buildStackList();
     const links = this.buildLinks();
@@ -63,7 +78,7 @@ export class CaseStudy {
           <div class="case-study-title-section">
             <h1 class="case-study-title">${this.project.title}</h1>
             <p class="case-study-type">${this.project.type}</p>
-            ${this.caseStudyContent?.overview ? `<p class="case-study-overview">${this.caseStudyContent.overview}</p>` : ""}
+            ${this.caseStudyContent && this.caseStudyContent.overview ? `<p class="case-study-overview">${this.caseStudyContent.overview}</p>` : ""}
           </div>
         </header>
 
@@ -88,7 +103,7 @@ export class CaseStudy {
   }
 
   buildExtendedContent() {
-    if (!this.caseStudyContent || !this.caseStudyContent.sections) {
+    if (!this.caseStudyContent) {
       return `
         <div class="case-study-description">
           <h2 id="case-study-description" class="visually-hidden">Project Description</h2>
@@ -97,85 +112,119 @@ export class CaseStudy {
       `;
     }
 
-    const sections = this.caseStudyContent.sections
-      .map((section, index) => {
-        const sectionId = `section-${index + 1}`;
-        return `
-          <section class="case-study-section" aria-labelledby="${sectionId}">
-            <h2 id="${sectionId}">${section.title}</h2>
-            <div class="case-study-section-content">
-              ${section.content}
-            </div>
-          </section>
-        `;
-      })
-      .join("");
+    if (!this.caseStudyContent.sections) {
+      return `
+        <div class="case-study-description">
+          <h2 id="case-study-description" class="visually-hidden">Project Description</h2>
+          <p>${this.project.description}</p>
+        </div>
+      `;
+    }
+
+    let sectionsHTML = "";
+    const sectionsArray = this.caseStudyContent.sections;
+    
+    for (let i = 0; i < sectionsArray.length; i++) {
+      const section = sectionsArray[i];
+      const sectionNumber = i + 1;
+      const sectionId = "section-" + sectionNumber;
+      
+      sectionsHTML += `
+        <section class="case-study-section" aria-labelledby="${sectionId}">
+          <h2 id="${sectionId}">${section.title}</h2>
+          <div class="case-study-section-content">
+            ${section.content}
+          </div>
+        </section>
+      `;
+    }
 
     const codeSnippet = this.buildCodeSnippet();
-    
-    return sections + codeSnippet;
+    return sectionsHTML + codeSnippet;
   }
 
   buildCodeSnippet() {
-    if (!this.caseStudyContent?.codeSnippet) {
+    if (!this.caseStudyContent) {
       return "";
     }
 
-    const { title, description, code } = this.caseStudyContent.codeSnippet;
+    if (!this.caseStudyContent.codeSnippet) {
+      return "";
+    }
+
+    const codeSnippetData = this.caseStudyContent.codeSnippet;
+    const title = codeSnippetData.title;
+    const description = codeSnippetData.description;
+    const code = codeSnippetData.code;
+    
+    let descriptionHTML = "";
+    if (description) {
+      descriptionHTML = `<p class="code-snippet-description">${description}</p>`;
+    }
     
     return `
       <section class="case-study-code-section" aria-labelledby="code-snippet">
         <h2 id="code-snippet">${title}</h2>
-        ${description ? `<p class="code-snippet-description">${description}</p>` : ""}
+        ${descriptionHTML}
         <pre class="case-study-code-block"><code>${this.escapeHtml(code)}</code></pre>
       </section>
     `;
   }
 
   escapeHtml(text) {
-    const div = document.createElement('div');
-    div.textContent = text;
-    return div.innerHTML;
+    const tempDiv = document.createElement('div');
+    tempDiv.textContent = text;
+    const escapedText = tempDiv.innerHTML;
+    return escapedText;
   }
 
   buildStackList() {
-    return this.project.stack
-      .map((item) => `<li role="listitem">${item}</li>`)
-      .join("");
+    let stackHTML = "";
+    const stackArray = this.project.stack;
+    
+    for (let i = 0; i < stackArray.length; i++) {
+      const item = stackArray[i];
+      stackHTML += `<li role="listitem">${item}</li>`;
+    }
+    
+    return stackHTML;
   }
 
   buildLinks() {
-    const links = [];
+    const linksArray = [];
     
-    if (this.isValidLink(this.project.links?.live)) {
-      links.push(
-        this.createLink(
-          this.project.links.live,
-          "Live Demo",
-          "View live demo (opens in new window)",
-          "live"
-        )
+    if (this.project.links && this.isValidLink(this.project.links.live)) {
+      const liveLink = this.createLink(
+        this.project.links.live,
+        "Live Demo",
+        "View live demo (opens in new window)",
+        "live"
       );
+      linksArray.push(liveLink);
     }
     
-    if (this.isValidLink(this.project.links?.repo)) {
-      links.push(
-        this.createLink(
-          this.project.links.repo,
-          "GitHub Repo",
-          "View source code on GitHub (opens in new window)",
-          "repo"
-        )
+    if (this.project.links && this.isValidLink(this.project.links.repo)) {
+      const repoLink = this.createLink(
+        this.project.links.repo,
+        "GitHub Repo",
+        "View source code on GitHub (opens in new window)",
+        "repo"
       );
+      linksArray.push(repoLink);
     }
 
-    if (links.length === 0) {
+    if (linksArray.length === 0) {
       return "";
+    }
+
+    let linksHTML = "";
+    for (let i = 0; i < linksArray.length; i++) {
+      linksHTML += linksArray[i];
     }
 
     return `
       <nav class="case-study-links" aria-label="Project links">
-        ${links.join("")}
+        ${linksHTML}
       </nav>
     `;
   }

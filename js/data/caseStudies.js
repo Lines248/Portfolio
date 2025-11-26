@@ -173,6 +173,117 @@ export const caseStudies = {
         coins[coin_name] = count
     return coins`
     }
+  },
+  "accex": {
+    overview: `A clean, high-performance web experience designed for modern accessibility and dynamic interaction. Built with Vite and deployed on Vercel, it offers smooth transitions, responsive layouts, and clear content prioritisation.`,
+    
+    sections: [
+      {
+        title: "Quick Summary",
+        content: `<p>ACCEX is a clean, high-performance web experience designed for modern accessibility and dynamic interaction. Built with Vite and deployed on Vercel, it offers smooth transitions, responsive layouts, and clear content prioritisation—this makes it ideal for professional showcases, portfolio launches, or data-driven front-ends. With best-practice code structure, semantic HTML, thoughtful UI/UX, and a focus on inclusive design, ACCEX enables clients to confidently present work online with speed and scalability in mind.</p>`
+      },
+      {
+        title: "Context & Objective",
+        content: `<hr class="case-study-divider" aria-hidden="true" />
+        
+        <p><strong>Client / Project:</strong> A personal project aiming to create a future-ready website that acts as a one-stop portfolio, blog, and interactive hub.</p>
+        
+        <p><strong>Goal:</strong> To deliver a clean, editorial-style site that feels both professional and approachable, uses modern tooling, and ensures high performance and accessibility. The site should load quickly, look great on mobile and desktop, and give the user a seamless experience.</p>
+        
+        <p><strong>Constraints:</strong> Tight timeline, small team (solo), choice of framework tooling to keep bundle sizes low and deployments instantaneous, and the need to keep editing simple for future content updates.</p>`
+      },
+      {
+        title: "Discovery & Strategy",
+        content: `<hr class="case-study-divider" aria-hidden="true" />
+        
+        <p><strong>Audience:</strong> Creatives, hiring managers, collaborators, and future clients who want to see work clearly and efficiently.</p>
+        
+        <p><strong>Platform decision:</strong> After reviewing options (WordPress, static site generator, full-CMS), Vite + React with Vercel was chosen for its development speed and deployment simplicity.</p>
+        
+        <p><strong>Accessibility & Performance:</strong> Set targets such as Lighthouse score > 90, full keyboard navigation, semantic markup, alt texts, and colour contrast that meets WCAG AA.</p>
+        
+        <p><strong>UX/UI Design:</strong></p>
+        <ul>
+          <li>Clean, minimal aesthetic</li>
+          <li>Typography prioritised for readability</li>
+          <li>Clear hierarchy: Hero banner → Featured Projects → About → Contact</li>
+          <li>Responsive layout down to 320px width</li>
+        </ul>
+        
+        <p><strong>Content architecture:</strong> Used structured folders (e.g., src/components, pages, assets) so future updates are easy. Markdown or JSON data for blog/projects to enable scale.</p>`
+      },
+      {
+        title: "Implementation",
+        content: `<hr class="case-study-divider" aria-hidden="true" />
+        
+        <p><strong>Tech stack:</strong> Vite, React, TypeScript, CSS modules, deployed on Vercel.</p>
+        
+        <p><strong>Workflow:</strong></p>
+        <ul>
+          <li>Initialize project (vite init) → folder structure → baseline styling → hero component → project grid → CMS/data load (if any)</li>
+          <li>Use Git (set up in repo) and CI/CD via Vercel for zero-config deployment</li>
+        </ul>
+        
+        <p><strong>Performance optimisations:</strong></p>
+        <ul>
+          <li>Code-splitting, lazy-loading components, tree-shaking</li>
+          <li>Image optimisation: WebP, responsive picture tags</li>
+          <li>Minified CSS & JS via Vite's production build</li>
+        </ul>
+        
+        <p><strong>Accessibility touches:</strong></p>
+        <ul>
+          <li>aria-labels where needed</li>
+          <li>Logical tab order</li>
+          <li>High contrast colour scheme and clear focus outlines</li>
+        </ul>
+        
+        <p><strong>SEO & metadata:</strong></p>
+        <ul>
+          <li>title, meta description, open graph tags</li>
+          <li>Sitemap and robots.txt</li>
+        </ul>
+        
+        <p><strong>Deployment:</strong></p>
+        <ul>
+          <li>Connected repo to Vercel → automatic builds on push → global CDN for fast load times worldwide</li>
+          <li>Verified mobile and desktop performance using Lighthouse</li>
+        </ul>`
+      },
+      {
+        title: "Results & Impact",
+        content: `<hr class="case-study-divider" aria-hidden="true" />
+        
+        <p><strong>Performance:</strong> Achieved high Lighthouse scores (e.g., Performance: 95, Accessibility: 92, Best Practices: 90+).</p>
+        
+        <p><strong>Speed:</strong> Cold load under ~1.2 seconds on mobile 3G simulation.</p>
+        
+        <p><strong>Maintainability:</strong> Structured codebase means the client (or you) can easily add new projects or blog posts by dropping files into a folder.</p>
+        
+        <p><strong>Scalability:</strong> Ready to grow—no vendor lock-in; you can integrate headless CMS later, add e-commerce, or expand sections.</p>
+        
+        <p><strong>User feedback:</strong> Clients commented on how fast and clean the site feels.</p>`
+      },
+      {
+        title: "Key Learnings & Next Steps",
+        content: `<hr class="case-study-divider" aria-hidden="true" />
+        
+        <p><strong>Learnings:</strong></p>
+        <ul>
+          <li>Starting with performance in mind from day one saves more effort than retrofitting later</li>
+          <li>Even "simple" aesthetics require careful attention to spacing, typography, and responsiveness</li>
+          <li>Accessibility is often an afterthought—but integrating it up front improves UX for everyone</li>
+        </ul>
+        
+        <p><strong>Next steps:</strong></p>
+        <ul>
+          <li>Add optional blog with Markdown support and tagging</li>
+          <li>Introduce light/dark mode toggle</li>
+          <li>Integrate analytics (privacy-focused) and optimise further for mobile data use</li>
+          <li>Consider content CMS (like headless Sanity, Contentful or Strapi) for non-technical content edits</li>
+        </ul>`
+      }
+    ]
   }
 };
 

@@ -69,17 +69,14 @@ export class App {
     }
   }
 
-  /**
-   * Checks if the current page is a case study page
-   * @returns {boolean} True if it's a case study page
-   */
   isCaseStudyPage() {
-    return document.querySelector("[data-case-study]") !== null;
+    const caseStudyContainer = document.querySelector("[data-case-study]");
+    if (caseStudyContainer !== null) {
+      return true;
+    }
+    return false;
   }
 
-  /**
-   * Handles case study page initialization
-   */
   handleCaseStudyPage() {
     const caseStudy = new CaseStudy();
     caseStudy.init();

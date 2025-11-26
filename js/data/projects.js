@@ -1,5 +1,37 @@
 export const projects = [
 {
+    id: "accex",
+    title: "ACCEX",
+    type: "Front-End Development | Web Performance",
+    image: "/assets/images/accex.avif",
+    alt: "Screenshot of the ACCEX website",
+    description:
+        "Fast, accessible front-end build created with Vite. Designed with clean structure, smooth interaction, and a minimal UI that scales easily as new sections and projects are added.",
+    stack: ["HTML", "CSS", "JavaScript", "Vue","Vite", "CSS Modules", "Vercel"],
+    links: {
+        live: "https://accex.vercel.app/",
+        repo: "",
+    },
+    featured: true,
+    category: "development",
+},
+{
+    id: "inline-access",
+    title: "Inline Access Studio Portfolio",
+    type: "Front-End Development | UX/UI",
+    image: "/assets/images/portfolio-site.avif",
+    alt: "Screenshot of the Inline Access Studio portfolio website",
+    description:
+        "Personal portfolio site designed and built to showcase accessible, modern front-end work. Created with a clean visual system, calm interactions, and a structure that highlights both design thinking and engineering skill. The site acts as a living workspace that scales as new case studies and client projects are added.",
+    stack: ["HTML", "CSS", "JavaScript", "Accessibility", "Responsive UI"],
+    links: {
+        live: "https://inlineaccess.studio/",
+        repo: "https://github.com/Lines248/portfolio-site",
+    },
+    featured: true,
+    category: "development",
+},
+    {
      id: "claim-your-signal",
     title: "Claim Your Signal",
     type: "Front-End Engineering | Interaction Design",
@@ -12,7 +44,7 @@ export const projects = [
         live: "https://own-your-data.vercel.app/",
         repo: "https://github.com/Lines248/own-your-data",
     },
-    featured: true,
+    featured: false,
     category: "development",
 },
 {
@@ -44,7 +76,7 @@ export const projects = [
         live: "https://sea-of-synapses.vercel.app/",
         repo: "https://github.com/Lines248/sea-of-synapses",
     },
-    featured: true,
+    featured: false,
     category: "development",
 },
 {
