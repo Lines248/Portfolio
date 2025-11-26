@@ -39,7 +39,7 @@ export const projects = [
     alt: "Screenshot of the Claim Your Signal prototype",
     description:
         "Interactive Next.js prototype exploring authorship and ownership through accessible motion, sound, and one-way claim semantics.",
-    stack: ["Next.js", "Tailwind v4", "Framer Motion","Typescript"],
+    stack: ["Next.js", "Tailwind v4", "Framer Motion","Typescript", "Vercel"],
     links: {
         live: "https://own-your-data.vercel.app/",
         repo: "https://github.com/Lines248/own-your-data",
@@ -71,7 +71,7 @@ export const projects = [
     alt: "Screenshot of the Sea of Synapses data visualization",
     description:
         "Interactive data visualization prototype mapping relationships between cognitive states. Built with react, TypeScript, Tailwind, and Vite.",
-    stack: ["React","Typescript", "JavaScript", "Vite", "SVG Animation"],
+    stack: ["React","Typescript", "JavaScript", "Vite", "SVG Animation", "Vercel"],
     links: {
         live: "https://sea-of-synapses.vercel.app/",
         repo: "https://github.com/Lines248/sea-of-synapses",
