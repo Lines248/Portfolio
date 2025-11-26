@@ -6,7 +6,7 @@ export const projects = [
     image: "/assets/images/accex.avif",
     alt: "Screenshot of the ACCEX website",
     description:
-        "Fast, accessible front-end build created with Vite. Designed with clean structure, smooth interaction, and a minimal UI that scales easily as new sections and projects are added.",
+        "ACCEX is an accessibility tool that checks color contrast for WCAG compliance. Fast, accessible front-end build created with Vite. Designed with clean structure, smooth interaction, and a minimal UI that scales easily as new sections and projects are added.",
     stack: ["HTML", "CSS", "JavaScript", "Vue","Vite", "CSS Modules", "Vercel"],
     links: {
         live: "https://accex.vercel.app/",
