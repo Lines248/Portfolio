@@ -23,6 +23,7 @@
 
   --accent: #4c6fff;
   --accent-soft: rgba(76, 111, 255, 0.06);
+  --accent-dark: #3a55d2;
 
   --link: #2563eb;
 }
@@ -36,6 +37,7 @@
   --border-subtle: #1f2933;
   --accent: #7c8cff;
   --accent-soft: rgba(124, 140, 255, 0.12);
+  --accent-dark: #5a6ae8;
   --link: #93c5fd;
 }
 
@@ -48,6 +50,7 @@
   --border-subtle: #c8e0c8;
   --accent: #2d7a2d;
   --accent-soft: rgba(45, 122, 45, 0.08);
+  --accent-dark: #1f5a1f;
   --link: #1f5a1f;
 }
 
@@ -92,7 +95,7 @@ body {
   left: 0;
   z-index: 1000;
   padding: 1rem 1.5rem;
-  background: var(--accent);
+  background: var(--accent-dark);
   color: #ffffff;
   text-decoration: none;
   font-weight: 600;
@@ -368,8 +371,8 @@ section {
 }
 
 .filter-btn.active {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
   color: #ffffff;
 }
 
@@ -534,8 +537,18 @@ section {
 
 .links {
   display: flex;
+  flex-direction: column;
   gap: 1rem;
   margin-top: 0.5rem;
+}
+
+.links-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.case-study-row {
+  display: flex;
 }
 
 .links a {
@@ -645,13 +658,13 @@ section {
 }
 
 .btn.primary {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
   color: #ffffff;
 }
 
 .btn.primary:hover {
-  background: #3a55d2;
+  background: var(--accent);
 }
 
 .btn.secondary {
@@ -813,8 +826,8 @@ html.dark .gallery-item img {
 }
 
 .side-nav-btn.active {
-  background: var(--accent);
-  border-color: var(--accent);
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
   color: #ffffff;
   box-shadow: 0 6px 20px rgba(76, 111, 255, 0.25);
   padding: 2rem 1.5rem;
@@ -1222,6 +1235,8 @@ html.dark .gallery-item img {
   .side-nav-btn.active {
     padding: 0.85rem 1.5rem;
     box-shadow: 0 4px 16px rgba(76, 111, 255, 0.3);
+    background: var(--accent-dark);
+    border-color: var(--accent-dark);
     color: #ffffff;
   }
   
@@ -1591,15 +1606,15 @@ html.dark .gallery-item img {
   border-radius: 999px;
   font-size: var(--fs-s);
   font-weight: 500;
-  background: var(--accent);
+  background: var(--accent-dark);
   color: #ffffff;
   text-decoration: none;
-  border: 1px solid var(--accent);
+  border: 1px solid var(--accent-dark);
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .links .case-study-link:hover {
-  background: #3a55d2;
+  background: var(--accent);
   transform: translateY(-1px);
 }
 

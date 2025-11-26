@@ -24,27 +24,38 @@ function getCaseStudyUrl(project) {
 }
 
 function buildProjectLinks(project) {
-    const links = [];
+    const regularLinks = [];
+    let caseStudyLink = "";
     
     if (hasCaseStudy(project)) {
-        links.push(
-            `<a href="${getCaseStudyUrl(project)}" class="case-study-link" aria-label="View ${project.title} case study">View Case Study</a>`
-        );
+        caseStudyLink = `<a href="${getCaseStudyUrl(project)}" class="case-study-link" aria-label="View ${project.title} case study">View Case Study</a>`;
     }
     
     if (isValidLink(project.links.live)) {
-        links.push(createProjectLink(project.links.live, "Live Demo", project.title, "live"));
+        regularLinks.push(createProjectLink(project.links.live, "Live Demo", project.title, "live"));
     }
     
     if (isValidLink(project.links.repo)) {
-        links.push(createProjectLink(project.links.repo, "GitHub Repo", project.title, "repo"));
+        regularLinks.push(createProjectLink(project.links.repo, "GitHub Repo", project.title, "repo"));
     }
     
-    if (links.length === 0) {
+    if (regularLinks.length === 0 && !caseStudyLink) {
         return "";
     }
     
-    return `<nav class="links" aria-label="Project links">${links.join("")}</nav>`;
+    let html = '<nav class="links" aria-label="Project links">';
+    
+    if (regularLinks.length > 0) {
+        html += `<div class="links-row">${regularLinks.join("")}</div>`;
+    }
+    
+    if (caseStudyLink) {
+        html += `<div class="case-study-row">${caseStudyLink}</div>`;
+    }
+    
+    html += '</nav>';
+    
+    return html;
 }
 
 export function ProjectCard(project) {
