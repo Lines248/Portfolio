@@ -66,7 +66,7 @@ export function ProjectCard(project) {
     const projectLinks = buildProjectLinks(project);
 
     return `
-        <article class="project-card" role="listitem">
+        <article class="project-card">
             <img
                 src="${project.image}"
                 alt="${project.alt}"
