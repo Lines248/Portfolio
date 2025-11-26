@@ -17,7 +17,7 @@
   --bg-subtle: #f1f3f7;
 
   --text: #111827;
-  --text-muted: #6b7280;
+  --text-muted: #4b5563;
 
   --border-subtle: #e5e7eb;
 
@@ -44,11 +44,11 @@
   --bg-elevated: #ffffff;
   --bg-subtle: #e8f5e8;
   --text: #1a3a1a;
-  --text-muted: #4a6b4a;
+  --text-muted: #2d4a2d;
   --border-subtle: #c8e0c8;
   --accent: #2d7a2d;
   --accent-soft: rgba(45, 122, 45, 0.08);
-  --link: #2d7a2d;
+  --link: #1f5a1f;
 }
 
 *,
@@ -793,6 +793,7 @@ html.dark .gallery-item img {
 .side-nav-btn-text {
   position: relative;
   z-index: 1;
+  color: var(--text);
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
@@ -1205,6 +1206,11 @@ html.dark .gallery-item img {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
+    color: var(--text);
+  }
+  
+  .side-nav-btn-text {
+    color: var(--text);
   }
 
   .side-nav-btn:active {
@@ -1216,6 +1222,11 @@ html.dark .gallery-item img {
   .side-nav-btn.active {
     padding: 0.85rem 1.5rem;
     box-shadow: 0 4px 16px rgba(76, 111, 255, 0.3);
+    color: #ffffff;
+  }
+  
+  .side-nav-btn.active .side-nav-btn-text {
+    color: #ffffff;
   }
 
   .side-nav-btn.active:hover {
