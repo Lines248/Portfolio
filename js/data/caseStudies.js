@@ -238,12 +238,6 @@ export const caseStudies = {
           <li>High contrast colour scheme and clear focus outlines</li>
         </ul>
         
-        <p><strong>SEO & metadata:</strong></p>
-        <ul>
-          <li>title, meta description, open graph tags</li>
-          <li>Sitemap and robots.txt</li>
-        </ul>
-        
         <p><strong>Deployment:</strong></p>
         <ul>
           <li>Connected repo to Vercel → automatic builds on push → global CDN for fast load times worldwide</li>
@@ -259,9 +253,7 @@ export const caseStudies = {
         <p><strong>Speed:</strong> Cold load under ~1.2 seconds on mobile 3G simulation.</p>
         
         <p><strong>Maintainability:</strong> Structured codebase means the client (or you) can easily add new projects or blog posts by dropping files into a folder.</p>
-        
-        <p><strong>Scalability:</strong> Ready to grow—no vendor lock-in; you can integrate headless CMS later, add e-commerce, or expand sections.</p>
-        
+                
         <p><strong>User feedback:</strong> Clients commented on how fast and clean the site feels.</p>`
       },
       {
