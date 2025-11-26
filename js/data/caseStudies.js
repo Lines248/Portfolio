@@ -265,14 +265,6 @@ export const caseStudies = {
           <li>Starting with performance in mind from day one saves more effort than retrofitting later</li>
           <li>Even "simple" aesthetics require careful attention to spacing, typography, and responsiveness</li>
           <li>Accessibility is often an afterthought—but integrating it up front improves UX for everyone</li>
-        </ul>
-        
-        <p><strong>Next steps:</strong></p>
-        <ul>
-          <li>Add optional blog with Markdown support and tagging</li>
-          <li>Introduce light/dark mode toggle</li>
-          <li>Integrate analytics (privacy-focused) and optimise further for mobile data use</li>
-          <li>Consider content CMS (like headless Sanity, Contentful or Strapi) for non-technical content edits</li>
         </ul>`
       }
     ]
