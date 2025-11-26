@@ -198,7 +198,7 @@ export const caseStudies = {
         
         <p><strong>Audience:</strong> Creatives, hiring managers, collaborators, and future clients who want to see work clearly and efficiently.</p>
         
-        <p><strong>Platform decision:</strong> After reviewing options (WordPress, static site generator, full-CMS), Vite + React with Vercel was chosen for its development speed and deployment simplicity.</p>
+        <p><strong>Platform decision:</strong> After reviewing options (WordPress, static site generator, full-CMS), Vite  with Vercel was chosen for its development speed and deployment simplicity.</p>
         
         <p><strong>Accessibility & Performance:</strong> Set targets such as Lighthouse score > 90, full keyboard navigation, semantic markup, alt texts, and colour contrast that meets WCAG AA.</p>
         
@@ -216,7 +216,7 @@ export const caseStudies = {
         title: "Implementation",
         content: `<hr class="case-study-divider" aria-hidden="true" />
         
-        <p><strong>Tech stack:</strong> Vite, React, TypeScript, CSS modules, deployed on Vercel.</p>
+        <p><strong>Tech stack:</strong> Vite, HTML, CSS, JavaScript, Vue, CSS modules, deployed on Vercel.</p>
         
         <p><strong>Workflow:</strong></p>
         <ul>
