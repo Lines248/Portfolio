@@ -39,7 +39,7 @@ export const projects = [
     alt: "Screenshot of the Claim Your Signal prototype",
     description:
         "Interactive Next.js prototype exploring authorship and ownership through accessible motion, sound, and one-way claim semantics.",
-    stack: ["Next.js", "React19","Tailwind v4", "Framer Motion","Typescript"],
+    stack: ["Next.js", "Tailwind v4", "Framer Motion","Typescript"],
     links: {
         live: "https://own-your-data.vercel.app/",
         repo: "https://github.com/Lines248/own-your-data",
