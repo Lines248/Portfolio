@@ -225,18 +225,7 @@ export const caseStudies = {
           <li>Verified mobile and desktop performance using Lighthouse</li>
         </ul>`
       },
-      {
-        title: "Results & Impact",
-        content: `<hr class="case-study-divider" aria-hidden="true" />
-        
-        <p><strong>Performance:</strong> Achieved high Lighthouse scores (e.g., Performance: 95, Accessibility: 92, Best Practices: 90+).</p>
-        
-        <p><strong>Speed:</strong> Cold load under ~1.2 seconds on mobile 3G simulation.</p>
-        
-        <p><strong>Maintainability:</strong> Structured codebase means the client (or you) can easily add new projects or blog posts by dropping files into a folder.</p>
-                
-        <p><strong>User feedback:</strong> Clients commented on how fast and clean the site feels.</p>`
-      },
+      
       {
         title: "Key Learnings & Next Steps",
         content: `<hr class="case-study-divider" aria-hidden="true" />
