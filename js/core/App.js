@@ -21,13 +21,18 @@ export class App {
   init() {
     this.renderBaseComponents();
     this.loadTheme();
-    this.initNavigation();
     this.initPageSpecificFeatures();
     
     if ('requestIdleCallback' in window) {
-      requestIdleCallback(() => this.initAnimations(), { timeout: 2000 });
+      requestIdleCallback(() => {
+        this.initNavigation();
+        this.initAnimations();
+      }, { timeout: 1000 });
     } else {
-      setTimeout(() => this.initAnimations(), 100);
+      setTimeout(() => {
+        this.initNavigation();
+        this.initAnimations();
+      }, 50);
     }
   }
 
@@ -48,15 +53,34 @@ export class App {
 
 
   initThemeToggle() {
-    this.components.themeToggle = new ThemeToggle();
-    this.components.themeToggle.init(themeManager);
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => {
+        this.components.themeToggle = new ThemeToggle();
+        this.components.themeToggle.init(themeManager);
+      }, { timeout: 500 });
+    } else {
+      setTimeout(() => {
+        this.components.themeToggle = new ThemeToggle();
+        this.components.themeToggle.init(themeManager);
+      }, 0);
+    }
   }
 
 
   initNavigation() {
     PageUtils.highlightActiveLink();
-    PageUtils.enableHeaderScrollShadow();
-    this.initSideNav();
+    
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => {
+        PageUtils.enableHeaderScrollShadow();
+        this.initSideNav();
+      }, { timeout: 500 });
+    } else {
+      setTimeout(() => {
+        PageUtils.enableHeaderScrollShadow();
+        this.initSideNav();
+      }, 50);
+    }
   }
 
   initSideNav() {
@@ -65,17 +89,36 @@ export class App {
   }
 
   initPageSpecificFeatures() {
-    const pageHandlers = {
-      "index.html": () => this.handleHomePage(),
-      "work.html": () => this.handleWorkPage(),
-      "vending-machine.html": () => this.handleCaseStudyPage()
-    };
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => {
+        const pageHandlers = {
+          "index.html": () => this.handleHomePage(),
+          "work.html": () => this.handleWorkPage(),
+          "vending-machine.html": () => this.handleCaseStudyPage()
+        };
 
-    const handler = pageHandlers[this.currentPage];
-    if (handler) {
-      handler();
-    } else if (this.isCaseStudyPage()) {
-      this.handleCaseStudyPage();
+        const handler = pageHandlers[this.currentPage];
+        if (handler) {
+          handler();
+        } else if (this.isCaseStudyPage()) {
+          this.handleCaseStudyPage();
+        }
+      }, { timeout: 200 });
+    } else {
+      setTimeout(() => {
+        const pageHandlers = {
+          "index.html": () => this.handleHomePage(),
+          "work.html": () => this.handleWorkPage(),
+          "vending-machine.html": () => this.handleCaseStudyPage()
+        };
+
+        const handler = pageHandlers[this.currentPage];
+        if (handler) {
+          handler();
+        } else if (this.isCaseStudyPage()) {
+          this.handleCaseStudyPage();
+        }
+      }, 0);
     }
   }
 
@@ -109,8 +152,17 @@ export class App {
   }
 
   handleWorkPage() {
-    const workFilters = new WorkFilters();
-    workFilters.init();
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => {
+        const workFilters = new WorkFilters();
+        workFilters.init();
+      }, { timeout: 300 });
+    } else {
+      setTimeout(() => {
+        const workFilters = new WorkFilters();
+        workFilters.init();
+      }, 0);
+    }
   }
 
   initAnimations() {
