@@ -4,8 +4,6 @@ import { renderProjects } from "../renderProjects.js";
 import { themeManager } from "../utils/theme.js";
 import { ThemeToggle } from "../components/themeToggle.js";
 import { SideNav } from "../components/sideNav.js";
-import { WorkFilters } from "../components/workFilters.js";
-import { CaseStudy } from "../components/caseStudy.js";
 import { PageUtils } from "../utils/pageUtils.js";
 
 export class App {
@@ -68,15 +66,15 @@ export class App {
 
 
   initNavigation() {
-    PageUtils.highlightActiveLink();
-    
     if ('requestIdleCallback' in window) {
       requestIdleCallback(() => {
+        PageUtils.highlightActiveLink();
         PageUtils.enableHeaderScrollShadow();
         this.initSideNav();
       }, { timeout: 500 });
     } else {
       setTimeout(() => {
+        PageUtils.highlightActiveLink();
         PageUtils.enableHeaderScrollShadow();
         this.initSideNav();
       }, 50);
@@ -103,7 +101,7 @@ export class App {
         } else if (this.isCaseStudyPage()) {
           this.handleCaseStudyPage();
         }
-      }, { timeout: 200 });
+      }, { timeout: 100 });
     } else {
       setTimeout(() => {
         const pageHandlers = {
@@ -130,7 +128,8 @@ export class App {
     return false;
   }
 
-  handleCaseStudyPage() {
+  async handleCaseStudyPage() {
+    const { CaseStudy } = await import("../components/caseStudy.js");
     const caseStudy = new CaseStudy();
     caseStudy.init();
   }
@@ -142,7 +141,7 @@ export class App {
       if ('requestIdleCallback' in window) {
         requestIdleCallback(() => {
           renderProjects({ containerId: "feature-grid", filter: "featured" });
-        }, { timeout: 500 });
+        }, { timeout: 200 });
       } else {
         setTimeout(() => {
           renderProjects({ containerId: "feature-grid", filter: "featured" });
@@ -151,14 +150,16 @@ export class App {
     }
   }
 
-  handleWorkPage() {
+  async handleWorkPage() {
     if ('requestIdleCallback' in window) {
-      requestIdleCallback(() => {
+      requestIdleCallback(async () => {
+        const { WorkFilters } = await import("../components/workFilters.js");
         const workFilters = new WorkFilters();
         workFilters.init();
       }, { timeout: 300 });
     } else {
-      setTimeout(() => {
+      setTimeout(async () => {
+        const { WorkFilters } = await import("../components/workFilters.js");
         const workFilters = new WorkFilters();
         workFilters.init();
       }, 0);
