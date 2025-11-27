@@ -1,13 +1,15 @@
-import { projects } from "./data/projects.js";
-import { ProjectCard } from "./components/projectCard.js";
-
-export function renderProjects({ containerId, filter = null, filteredList = null }) {
+export async function renderProjects({ containerId, filter = null, filteredList = null }) {
     const container = document.getElementById(containerId);
 
     if (!container) {
         console.error(`Container with ID "${containerId}" not found. `);
         return;
     }
+    
+    const [{ projects }, { ProjectCard }] = await Promise.all([
+        import("./data/projects.js"),
+        import("./components/projectCard.js")
+    ]);
     
     let list = filteredList || projects;
 

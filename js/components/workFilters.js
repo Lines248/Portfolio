@@ -1,5 +1,4 @@
 import { projects } from "../data/projects.js";
-import { renderProjects } from "../renderProjects.js";
 
 export class WorkFilters {
   constructor() {
@@ -172,7 +171,7 @@ export class WorkFilters {
     return filtered;
   }
 
-  renderProjects() {
+  async renderProjects() {
     const filteredProjects = this.getFilteredProjects();
     const container = document.getElementById('work-grid');
     
@@ -189,7 +188,8 @@ export class WorkFilters {
 
     container.setAttribute('aria-label', `${filteredProjects.length} project${filteredProjects.length !== 1 ? 's' : ''} found`);
     
-    renderProjects({ 
+    const { renderProjects } = await import("../renderProjects.js");
+    await renderProjects({ 
       containerId: 'work-grid', 
       filteredList: filteredProjects 
     });

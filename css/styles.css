@@ -189,11 +189,11 @@ main {
 
 @media (max-width: 640px) {
   main {
-    min-height: 850px;
+    min-height: 900px;
   }
   
   #main-content {
-    min-height: 850px;
+    min-height: 900px;
     contain: layout;
   }
   
@@ -472,27 +472,27 @@ section {
 @media (max-width: 640px) {
   #work-grid,
   #feature-grid {
-    min-height: 550px;
+    min-height: 600px;
     contain: layout;
   }
   
   .project-card {
-    min-height: 550px;
+    min-height: 600px;
     contain: layout;
   }
   
   .project-card img {
-    min-height: 240px;
+    min-height: 260px;
     will-change: auto;
   }
   
   .featured-section {
-    min-height: 650px;
+    min-height: 700px;
     contain: layout;
   }
   
   .hero {
-    min-height: 220px;
+    min-height: 240px;
     contain: layout;
   }
 }

@@ -1,6 +1,5 @@
 import { renderFooter } from "../renderFooter.js";
 import { renderHeader } from "../renderHeader.js";
-import { renderProjects } from "../renderProjects.js";
 import { themeManager } from "../utils/theme.js";
 import { ThemeToggle } from "../components/themeToggle.js";
 import { SideNav } from "../components/sideNav.js";
@@ -19,18 +18,19 @@ export class App {
   init() {
     this.renderBaseComponents();
     this.loadTheme();
-    this.initPageSpecificFeatures();
     
     if ('requestIdleCallback' in window) {
       requestIdleCallback(() => {
+        this.initPageSpecificFeatures();
         this.initNavigation();
         this.initAnimations();
-      }, { timeout: 1000 });
+      }, { timeout: 50 });
     } else {
       setTimeout(() => {
+        this.initPageSpecificFeatures();
         this.initNavigation();
         this.initAnimations();
-      }, 50);
+      }, 0);
     }
   }
 
@@ -46,7 +46,16 @@ export class App {
 
   loadTheme() {
     themeManager.loadInitialTheme();
-    this.initThemeToggle();
+    
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => {
+        this.initThemeToggle();
+      }, { timeout: 100 });
+    } else {
+      setTimeout(() => {
+        this.initThemeToggle();
+      }, 0);
+    }
   }
 
 
@@ -135,15 +144,17 @@ export class App {
   }
 
 
-  handleHomePage() {
+  async handleHomePage() {
     const grid = document.querySelector("#feature-grid");
     if (grid) {
       if ('requestIdleCallback' in window) {
-        requestIdleCallback(() => {
+        requestIdleCallback(async () => {
+          const { renderProjects } = await import("../renderProjects.js");
           renderProjects({ containerId: "feature-grid", filter: "featured" });
         }, { timeout: 200 });
       } else {
-        setTimeout(() => {
+        setTimeout(async () => {
+          const { renderProjects } = await import("../renderProjects.js");
           renderProjects({ containerId: "feature-grid", filter: "featured" });
         }, 0);
       }
