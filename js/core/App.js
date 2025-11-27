@@ -16,21 +16,27 @@ export class App {
 
 
   init() {
-    this.renderBaseComponents();
     this.loadTheme();
+    this.renderBaseComponents();
     
     if ('requestIdleCallback' in window) {
       requestIdleCallback(() => {
         this.initPageSpecificFeatures();
+      }, { timeout: 0 });
+      
+      requestIdleCallback(() => {
         this.initNavigation();
         this.initAnimations();
-      }, { timeout: 50 });
+      }, { timeout: 500 });
     } else {
       setTimeout(() => {
         this.initPageSpecificFeatures();
+      }, 0);
+      
+      setTimeout(() => {
         this.initNavigation();
         this.initAnimations();
-      }, 0);
+      }, 50);
     }
   }
 
@@ -38,9 +44,9 @@ export class App {
     renderHeader();
     
     if ('requestIdleCallback' in window) {
-      requestIdleCallback(() => renderFooter(), { timeout: 1000 });
+      requestIdleCallback(() => renderFooter(), { timeout: 2000 });
     } else {
-      setTimeout(() => renderFooter(), 50);
+      setTimeout(() => renderFooter(), 100);
     }
   }
 
@@ -150,12 +156,12 @@ export class App {
       if ('requestIdleCallback' in window) {
         requestIdleCallback(async () => {
           const { renderProjects } = await import("../renderProjects.js");
-          renderProjects({ containerId: "feature-grid", filter: "featured" });
-        }, { timeout: 200 });
+          await renderProjects({ containerId: "feature-grid", filter: "featured" });
+        }, { timeout: 100 });
       } else {
         setTimeout(async () => {
           const { renderProjects } = await import("../renderProjects.js");
-          renderProjects({ containerId: "feature-grid", filter: "featured" });
+          await renderProjects({ containerId: "feature-grid", filter: "featured" });
         }, 0);
       }
     }
