@@ -185,12 +185,9 @@ export const caseStudies = {
       {
         title: "Context & Objective",
         content: `<hr class="case-study-divider" aria-hidden="true" />
-        
-        <p><strong>Client / Project:</strong> A personal project aiming to create a future-ready website that acts as a one-stop portfolio, blog, and interactive hub.</p>
-        
+                
         <p><strong>Goal:</strong> To deliver a clean, editorial-style site that feels both professional and approachable, uses modern tooling, and ensures high performance and accessibility. The site should load quickly, look great on mobile and desktop, and give the user a seamless experience.</p>
-        
-        <p><strong>Constraints:</strong> Tight timeline, small team (solo), choice of framework tooling to keep bundle sizes low and deployments instantaneous, and the need to keep editing simple for future content updates.</p>`
+`
       },
   
       {
@@ -225,7 +222,6 @@ export const caseStudies = {
           <li>Verified mobile and desktop performance using Lighthouse</li>
         </ul>`
       },
-      
       {
         title: "Key Learnings & Next Steps",
         content: `<hr class="case-study-divider" aria-hidden="true" />
