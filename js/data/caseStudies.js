@@ -180,7 +180,7 @@ export const caseStudies = {
     sections: [
       {
         title: "Quick Summary",
-        content: `<p>ACCEX is a clean, high-performance web experience designed for modern accessibility and dynamic interaction. Built with Vite and deployed on Vercel, it offers smooth transitions, responsive layouts, and clear content prioritisation—this makes it ideal for professional showcases, portfolio launches, or data-driven front-ends. With best-practice code structure, semantic HTML, thoughtful UI/UX, and a focus on inclusive design, ACCEX enables clients to confidently present work online with speed and scalability in mind.</p>`
+        content: `<p>ACCEX is a clean, high-performance web experience designed for modern accessibility and dynamic interaction. Built with Vite and deployed on Vercel, it offers smooth transitions, responsive layouts, and clear content prioritisation, this makes it ideal for professional showcases, portfolio launches, or data-driven front-ends. With best-practice code structure, semantic HTML, thoughtful UI/UX, and a focus on inclusive design, ACCEX enables clients to confidently present work online with speed and scalability in mind.</p>`
       },
       {
         title: "Context & Objective",
@@ -192,26 +192,7 @@ export const caseStudies = {
         
         <p><strong>Constraints:</strong> Tight timeline, small team (solo), choice of framework tooling to keep bundle sizes low and deployments instantaneous, and the need to keep editing simple for future content updates.</p>`
       },
-      {
-        title: "Discovery & Strategy",
-        content: `<hr class="case-study-divider" aria-hidden="true" />
-        
-        <p><strong>Audience:</strong> Creatives, hiring managers, collaborators, and future clients who want to see work clearly and efficiently.</p>
-        
-        <p><strong>Platform decision:</strong> After reviewing options (WordPress, static site generator, full-CMS), Vite  with Vercel was chosen for its development speed and deployment simplicity.</p>
-        
-        <p><strong>Accessibility & Performance:</strong> Set targets such as Lighthouse score > 90, full keyboard navigation, semantic markup, alt texts, and colour contrast that meets WCAG AA.</p>
-        
-        <p><strong>UX/UI Design:</strong></p>
-        <ul>
-          <li>Clean, minimal aesthetic</li>
-          <li>Typography prioritised for readability</li>
-          <li>Clear hierarchy: Hero banner → Featured Projects → About → Contact</li>
-          <li>Responsive layout down to 320px width</li>
-        </ul>
-        
-        <p><strong>Content architecture:</strong> Used structured folders (e.g., src/components, pages, assets) so future updates are easy. Markdown or JSON data for blog/projects to enable scale.</p>`
-      },
+  
       {
         title: "Implementation",
         content: `<hr class="case-study-divider" aria-hidden="true" />
