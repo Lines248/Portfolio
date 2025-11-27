@@ -436,6 +436,7 @@ section {
 #feature-grid {
   display: grid;
   gap: 1.5rem;
+  min-height: 200px;
 }
 
 @media (min-width: 700px) {
@@ -483,6 +484,9 @@ section {
 
 .project-card img {
   width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
   border-radius: var(--radius-s);
   background: var(--bg-subtle);
 }
@@ -1366,6 +1370,7 @@ html.dark .gallery-item img {
 .case-study-image img {
   width: 100%;
   height: auto;
+  aspect-ratio: 16 / 9;
   display: block;
   object-fit: cover;
 }

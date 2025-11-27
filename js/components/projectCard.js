@@ -71,6 +71,8 @@ export function ProjectCard(project) {
                 src="${project.image}"
                 alt="${project.alt}"
                 loading="lazy"
+                width="800"
+                height="450"
             />
 
             <h3>${project.title}</h3>

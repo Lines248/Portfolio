@@ -236,6 +236,8 @@ export class CaseStudy {
           src="${this.project.image}"
           alt="${this.project.alt}"
           loading="eager"
+          width="1200"
+          height="675"
         />
       </figure>
     `;
