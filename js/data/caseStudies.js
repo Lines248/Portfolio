@@ -179,9 +179,6 @@ export const caseStudies = {
     
     sections: [
       {
-        title: "Quick Summary",
-      },
-      {
         title: "Context & Objective",
         content: `<hr class="case-study-divider" aria-hidden="true" />
                 
