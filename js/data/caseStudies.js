@@ -180,7 +180,6 @@ export const caseStudies = {
     sections: [
       {
         title: "Quick Summary",
-        content: `<p>ACCEX is a clean, high-performance web experience designed for modern accessibility and dynamic interaction. Built with Vite and deployed on Vercel, it offers smooth transitions, responsive layouts, and clear content prioritisation, this makes it ideal for professional showcases, portfolio launches, or data-driven front-ends. With best-practice code structure, semantic HTML, thoughtful UI/UX, and a focus on inclusive design, ACCEX enables clients to confidently present work online with speed and scalability in mind.</p>`
       },
       {
         title: "Context & Objective",
