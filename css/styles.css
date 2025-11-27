@@ -183,9 +183,18 @@ main {
   contain: layout;
 }
 
+#main-content {
+  contain: layout;
+}
+
 @media (max-width: 640px) {
   main {
-    min-height: 600px;
+    min-height: 700px;
+  }
+  
+  #main-content {
+    min-height: 700px;
+    contain: layout;
   }
 }
 
@@ -310,9 +319,13 @@ section {
   margin-bottom: 1.25rem;
 }
 
+.featured-section {
+  contain: layout;
+}
+
 @media (max-width: 640px) {
   .featured-section {
-    min-height: 400px;
+    min-height: 500px;
   }
 }
 
@@ -455,15 +468,22 @@ section {
 @media (max-width: 640px) {
   #work-grid,
   #feature-grid {
-    min-height: 300px;
+    min-height: 400px;
+    contain: layout;
   }
   
   .project-card {
-    min-height: 400px;
+    min-height: 450px;
+    contain: layout;
   }
   
   .project-card img {
-    min-height: 180px;
+    min-height: 200px;
+    will-change: auto;
+  }
+  
+  .featured-section {
+    min-height: 500px;
   }
 }
 

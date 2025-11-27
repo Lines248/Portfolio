@@ -23,12 +23,22 @@ export class App {
     this.loadTheme();
     this.initNavigation();
     this.initPageSpecificFeatures();
-    this.initAnimations();
+    
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => this.initAnimations(), { timeout: 2000 });
+    } else {
+      setTimeout(() => this.initAnimations(), 100);
+    }
   }
 
   renderBaseComponents() {
     renderHeader();
-    renderFooter();
+    
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => renderFooter(), { timeout: 1000 });
+    } else {
+      setTimeout(() => renderFooter(), 50);
+    }
   }
 
   loadTheme() {
@@ -86,7 +96,15 @@ export class App {
   handleHomePage() {
     const grid = document.querySelector("#feature-grid");
     if (grid) {
-      renderProjects({ containerId: "feature-grid", filter: "featured" });
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => {
+          renderProjects({ containerId: "feature-grid", filter: "featured" });
+        }, { timeout: 500 });
+      } else {
+        setTimeout(() => {
+          renderProjects({ containerId: "feature-grid", filter: "featured" });
+        }, 0);
+      }
     }
   }
 
