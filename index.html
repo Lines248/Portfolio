@@ -55,7 +55,7 @@
         </script>
         
         <link rel="preload" href="css/styles.css" as="style" />
-        <link rel="preload" href="js/main.js" as="script" />
+        <link rel="modulepreload" href="js/main.js" />
         <link rel="stylesheet" href="css/styles.css" />
     </head>
 
@@ -72,7 +72,10 @@
             
             <section class="featured-section" aria-labelledby="featured-heading">
                 <h2 id="featured-heading">Featured Work</h2>
-                <div id="feature-grid" aria-label="Featured projects"></div>
+                <div id="feature-grid" aria-label="Featured projects" aria-busy="true">
+                    <div class="project-card-skeleton" aria-hidden="true"></div>
+                    <div class="project-card-skeleton" aria-hidden="true"></div>
+                </div>
             </section>
         </main>
 

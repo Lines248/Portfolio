@@ -6,6 +6,8 @@ export async function renderProjects({ containerId, filter = null, filteredList 
         return;
     }
     
+    container.setAttribute("aria-busy", "true");
+    
     const [{ projects }, { ProjectCard }] = await Promise.all([
         import("./data/projects.js"),
         import("./components/projectCard.js")
@@ -18,4 +20,5 @@ export async function renderProjects({ containerId, filter = null, filteredList 
     }
     
     container.innerHTML = list.map(ProjectCard).join("");
+    container.removeAttribute("aria-busy");
 }

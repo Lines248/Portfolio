@@ -325,12 +325,7 @@ section {
 
 .featured-section {
   contain: layout;
-}
-
-@media (max-width: 640px) {
-  .featured-section {
-    min-height: 500px;
-  }
+  min-height: 800px;
 }
 
 .work-page {
@@ -467,33 +462,89 @@ section {
   display: grid;
   gap: 1.5rem;
   min-height: 200px;
+  contain: layout;
+}
+
+#feature-grid {
+  min-height: 700px;
+}
+
+#work-grid {
+  min-height: 1000px;
 }
 
 @media (max-width: 640px) {
-  #work-grid,
+  #work-grid {
+    min-height: 1200px;
+    contain: layout;
+  }
+  
   #feature-grid {
-    min-height: 600px;
+    min-height: 800px;
     contain: layout;
   }
   
   .project-card {
-    min-height: 600px;
+    min-height: 650px;
     contain: layout;
   }
   
   .project-card img {
-    min-height: 260px;
+    min-height: 280px;
     will-change: auto;
   }
   
   .featured-section {
-    min-height: 700px;
+    min-height: 1000px;
     contain: layout;
   }
   
   .hero {
-    min-height: 240px;
+    min-height: 260px;
     contain: layout;
+  }
+  
+  .project-card-skeleton {
+    min-height: 650px;
+  }
+}
+
+.project-card-skeleton {
+  background: var(--bg-elevated);
+  border-radius: var(--radius-m);
+  border: 1px solid var(--border-subtle);
+  padding: 1.25rem 1.3rem;
+  min-height: 500px;
+  contain: layout;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.project-card-skeleton::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 200px;
+  background: var(--bg-subtle);
+  border-radius: var(--radius-s);
+  margin-bottom: 1rem;
+}
+
+.project-card-skeleton::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 1.2rem;
+  background: var(--bg-subtle);
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
   }
 }
 

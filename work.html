@@ -45,7 +45,7 @@
         </script>
         
         <link rel="preload" href="css/styles.css" as="style" />
-        <link rel="preload" href="js/main.js" as="script" />
+        <link rel="modulepreload" href="js/main.js" />
         <link rel="stylesheet" href="css/styles.css" />
     </head>
 
@@ -62,7 +62,11 @@
             <section class="work-section" aria-labelledby="work-heading">
                 <h2 class="visually-hidden">Project Collection</h2>
                 <div data-work-filters></div>
-                <div id="work-grid" aria-label="All projects"></div>
+                <div id="work-grid" aria-label="All projects" aria-busy="true">
+                    <div class="project-card-skeleton" aria-hidden="true"></div>
+                    <div class="project-card-skeleton" aria-hidden="true"></div>
+                    <div class="project-card-skeleton" aria-hidden="true"></div>
+                </div>
             </section>
         </main>
 
