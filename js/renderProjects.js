@@ -20,7 +20,7 @@ export async function renderProjects({ containerId, filter = null, filteredList 
     }
     
     const skeletons = container.querySelectorAll(".project-card-skeleton");
-    const cardsHTML = list.map(ProjectCard).join("");
+    const cardsHTML = list.map((project, index) => ProjectCard(project, index)).join("");
     
     if (skeletons.length > 0) {
         skeletons.forEach(skeleton => skeleton.remove());

@@ -19,9 +19,9 @@ if (analyticsManager.shouldLoadAnalytics()) {
   };
 
   if ('requestIdleCallback' in window) {
-    requestIdleCallback(loadVercelAnalytics, { timeout: 2000 });
+    requestIdleCallback(loadVercelAnalytics, { timeout: 4000 });
   } else {
-    setTimeout(loadVercelAnalytics, 1000);
+    setTimeout(loadVercelAnalytics, 2000);
   }
 
   if (analyticsConfig.clarity.enabled && analyticsConfig.clarity.projectId) {

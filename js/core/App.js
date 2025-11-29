@@ -44,9 +44,9 @@ export class App {
     renderHeader();
     
     if ('requestIdleCallback' in window) {
-      requestIdleCallback(() => renderFooter(), { timeout: 2000 });
+      requestIdleCallback(() => renderFooter(), { timeout: 3000 });
     } else {
-      setTimeout(() => renderFooter(), 100);
+      setTimeout(() => renderFooter(), 200);
     }
   }
 
@@ -70,12 +70,12 @@ export class App {
       requestIdleCallback(() => {
         this.components.themeToggle = new ThemeToggle();
         this.components.themeToggle.init(themeManager);
-      }, { timeout: 500 });
+      }, { timeout: 2000 });
     } else {
       setTimeout(() => {
         this.components.themeToggle = new ThemeToggle();
         this.components.themeToggle.init(themeManager);
-      }, 0);
+      }, 100);
     }
   }
 
@@ -157,12 +157,12 @@ export class App {
         requestIdleCallback(async () => {
           const { renderProjects } = await import("../renderProjects.js");
           await renderProjects({ containerId: "feature-grid", filter: "featured" });
-        }, { timeout: 100 });
+        }, { timeout: 2000 });
       } else {
         setTimeout(async () => {
           const { renderProjects } = await import("../renderProjects.js");
           await renderProjects({ containerId: "feature-grid", filter: "featured" });
-        }, 0);
+        }, 100);
       }
     }
   }

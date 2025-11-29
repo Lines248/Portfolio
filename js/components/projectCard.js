@@ -58,21 +58,27 @@ function buildProjectLinks(project) {
     return html;
 }
 
-export function ProjectCard(project) {
+export function ProjectCard(project, index = 0) {
     const stackList = project.stack
         .map((item) => `<li>${item}</li>`)
         .join("");
 
     const projectLinks = buildProjectLinks(project);
 
+    const isFirstCard = project.featured && index === 0;
+    const fetchPriority = isFirstCard ? "high" : "auto";
+    const loadingAttr = isFirstCard ? "eager" : "lazy";
+    
     return `
         <article class="project-card">
             <img
                 src="${project.image}"
                 alt="${project.alt}"
-                loading="lazy"
+                loading="${loadingAttr}"
+                fetchpriority="${fetchPriority}"
                 width="800"
                 height="450"
+                decoding="async"
             />
 
             <h3>${project.title}</h3>
