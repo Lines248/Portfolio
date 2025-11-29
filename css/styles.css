@@ -215,6 +215,8 @@ section {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   padding-block: 1.1rem;
+  min-height: 60px;
+  contain: layout;
   transition: border-color 0.25s ease, background-color 0.22s ease, backdrop-filter 0.22s ease;
 }
 
@@ -507,6 +509,11 @@ section {
   .project-card-skeleton {
     min-height: 650px;
   }
+  
+  .work-page .project-card-skeleton {
+    padding: 1.75rem 2rem;
+    gap: 1rem;
+  }
 }
 
 .project-card-skeleton {
@@ -514,29 +521,34 @@ section {
   border-radius: var(--radius-m);
   border: 1px solid var(--border-subtle);
   padding: 1.25rem 1.3rem;
-  min-height: 500px;
+  min-height: 550px;
   contain: layout;
   animation: pulse 1.5s ease-in-out infinite;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .project-card-skeleton::before {
   content: "";
   display: block;
   width: 100%;
-  height: 200px;
+  height: 240px;
+  min-height: 240px;
+  aspect-ratio: 16 / 9;
   background: var(--bg-subtle);
   border-radius: var(--radius-s);
-  margin-bottom: 1rem;
+  flex-shrink: 0;
 }
 
 .project-card-skeleton::after {
   content: "";
   display: block;
   width: 60%;
-  height: 1.2rem;
+  height: 1.5rem;
   background: var(--bg-subtle);
   border-radius: 4px;
-  margin-bottom: 0.5rem;
+  flex-shrink: 0;
 }
 
 @keyframes pulse {
@@ -599,7 +611,7 @@ section {
   border-radius: var(--radius-s);
   background: var(--bg-subtle);
   display: block;
-  min-height: 0;
+  min-height: 240px;
   max-width: 100%;
 }
 
@@ -1052,6 +1064,8 @@ html.dark .gallery-item img {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding-block: 1.2rem;
+  min-height: 80px;
+  contain: layout;
 }
 
 :root.dark .site-footer {

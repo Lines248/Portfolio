@@ -19,6 +19,13 @@ export async function renderProjects({ containerId, filter = null, filteredList 
         list = projects.filter((p) => p.featured);
     }
     
-    container.innerHTML = list.map(ProjectCard).join("");
+    const skeletons = container.querySelectorAll(".project-card-skeleton");
+    const cardsHTML = list.map(ProjectCard).join("");
+    
+    if (skeletons.length > 0) {
+        skeletons.forEach(skeleton => skeleton.remove());
+    }
+    
+    container.insertAdjacentHTML("beforeend", cardsHTML);
     container.removeAttribute("aria-busy");
 }
