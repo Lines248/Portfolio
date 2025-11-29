@@ -22,21 +22,21 @@ export class App {
     if ('requestIdleCallback' in window) {
       requestIdleCallback(() => {
         this.initPageSpecificFeatures();
-      }, { timeout: 0 });
+      }, { timeout: 1000 });
       
       requestIdleCallback(() => {
         this.initNavigation();
         this.initAnimations();
-      }, { timeout: 500 });
+      }, { timeout: 2000 });
     } else {
       setTimeout(() => {
         this.initPageSpecificFeatures();
-      }, 0);
+      }, 100);
       
       setTimeout(() => {
         this.initNavigation();
         this.initAnimations();
-      }, 50);
+      }, 200);
     }
   }
 
