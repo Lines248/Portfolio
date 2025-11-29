@@ -1,11 +1,12 @@
 import { App } from "./core/App.js";
 import { analyticsManager } from "./utils/analytics.js";
+import { analyticsConfig } from "./config/analytics.js";
 
 const app = new App();
 app.init();
 
 if (analyticsManager.shouldLoadAnalytics()) {
-  const loadAnalytics = () => {
+  const loadVercelAnalytics = () => {
     const insightsScript = document.createElement("script");
     insightsScript.src = "/_vercel/insights/script.js";
     insightsScript.defer = true;
@@ -18,8 +19,18 @@ if (analyticsManager.shouldLoadAnalytics()) {
   };
 
   if ('requestIdleCallback' in window) {
-    requestIdleCallback(loadAnalytics, { timeout: 2000 });
+    requestIdleCallback(loadVercelAnalytics, { timeout: 2000 });
   } else {
-    setTimeout(loadAnalytics, 1000);
+    setTimeout(loadVercelAnalytics, 1000);
+  }
+
+  if (analyticsConfig.clarity.enabled && analyticsConfig.clarity.projectId) {
+    if (document.readyState === 'complete') {
+      analyticsManager.loadClarity(analyticsConfig.clarity.projectId, analyticsConfig.clarity);
+    } else {
+      window.addEventListener('load', () => {
+        analyticsManager.loadClarity(analyticsConfig.clarity.projectId, analyticsConfig.clarity);
+      }, { once: true });
+    }
   }
 }
