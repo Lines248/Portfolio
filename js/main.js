@@ -1,6 +1,5 @@
 import { App } from "./core/App.js";
 import { analyticsManager } from "./utils/analytics.js";
-import { analyticsConfig } from "./config/analytics.js";
 
 const app = new App();
 app.init();
@@ -16,10 +15,6 @@ if (analyticsManager.shouldLoadAnalytics()) {
     speedScript.src = "/_vercel/speed-insights/script.js";
     speedScript.defer = true;
     document.body.appendChild(speedScript);
-
-    if (analyticsConfig.clarity.enabled && analyticsConfig.clarity.projectId) {
-      analyticsManager.loadClarity(analyticsConfig.clarity.projectId);
-    }
   };
 
   if ('requestIdleCallback' in window) {
