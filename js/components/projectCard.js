@@ -26,7 +26,8 @@ function getCaseStudyUrl(project) {
 
 function buildProjectLinks(project) {
     // Explicitly exclude trust-circle from showing any links
-    if (project.id === "trust-circle") {
+    // Check both id and title as fallback
+    if (project.id === "trust-circle" || project.title === "Trust Circle") {
         return "";
     }
     
