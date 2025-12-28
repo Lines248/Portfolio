@@ -118,6 +118,9 @@ id: "deroche-projects",
                description:
                     "Designed and built the marketing site for an HR technology product, developing a clean visual identity and implementing responsive layouts in Framer with custom JavaScript enhancements. Collaborated with the founding team to translate product messaging into an accessible, high-impact web experience.",
                stack: ["Figma", "JavaScript", "Framer", "Responsive Layout"],
+               links: {
+                live: ""
+               },
                featured: false,
                category: "design",
             },
