@@ -31,12 +31,14 @@ function buildProjectLinks(project) {
         caseStudyLink = `<a href="${getCaseStudyUrl(project)}" class="case-study-link" aria-label="View ${project.title} case study">View Case Study</a>`;
     }
     
-    if (isValidLink(project.links.live)) {
-        regularLinks.push(createProjectLink(project.links.live, "Live Demo", project.title, "live"));
-    }
-    
-    if (isValidLink(project.links.repo)) {
-        regularLinks.push(createProjectLink(project.links.repo, "GitHub Repo", project.title, "repo"));
+    if (project.links) {
+        if (isValidLink(project.links.live)) {
+            regularLinks.push(createProjectLink(project.links.live, "Live Demo", project.title, "live"));
+        }
+        
+        if (isValidLink(project.links.repo)) {
+            regularLinks.push(createProjectLink(project.links.repo, "GitHub Repo", project.title, "repo"));
+        }
     }
     
     if (regularLinks.length === 0 && !caseStudyLink) {
