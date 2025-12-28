@@ -1,5 +1,6 @@
 function isValidLink(url) {
     if (!url) return false;
+    if (typeof url !== 'string') return false;
     if (url.trim() === "") return false;
     if (url === "YOUR_LINK_HERE") return false;
     if (url === "YOUR_REPO_LINK_HERE") return false;
@@ -32,11 +33,11 @@ function buildProjectLinks(project) {
     }
     
     if (project.links) {
-        if (isValidLink(project.links.live)) {
+        if (project.links.live && isValidLink(project.links.live)) {
             regularLinks.push(createProjectLink(project.links.live, "Live Demo", project.title, "live"));
         }
         
-        if (isValidLink(project.links.repo)) {
+        if (project.links.repo && isValidLink(project.links.repo)) {
             regularLinks.push(createProjectLink(project.links.repo, "GitHub Repo", project.title, "repo"));
         }
     }
