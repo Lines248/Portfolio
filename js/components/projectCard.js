@@ -68,11 +68,14 @@ function buildProjectLinks(project) {
 }
 
 export function ProjectCard(project, index = 0) {
+    // Explicitly prevent trust-circle from showing any links
+    const isTrustCircle = project.id === "trust-circle" || project.title === "Trust Circle";
+    
     const stackList = project.stack
         .map((item) => `<li>${item}</li>`)
         .join("");
 
-    const projectLinks = buildProjectLinks(project);
+    const projectLinks = isTrustCircle ? "" : buildProjectLinks(project);
 
     const isFirstCard = project.featured && index === 0;
     const fetchPriority = isFirstCard ? "high" : "auto";
