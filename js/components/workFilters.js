@@ -6,6 +6,7 @@ export class WorkFilters {
     this.selectedStacks = [];
     this.allStacks = this.getAllStacks();
     this.isMobileFiltersOpen = false;
+    this.isRendering = false;
   }
 
   getAllStacks() {
@@ -182,10 +183,17 @@ export class WorkFilters {
   }
 
   async renderProjects() {
+    // Prevent concurrent renders
+    if (this.isRendering) return;
+    
+    this.isRendering = true;
     const filteredProjects = this.getFilteredProjects();
     const container = document.getElementById('work-grid');
     
-    if (!container) return;
+    if (!container) {
+      this.isRendering = false;
+      return;
+    }
 
     if (filteredProjects.length === 0) {
       container.innerHTML = `
@@ -193,6 +201,7 @@ export class WorkFilters {
           No projects match the selected filters. Try adjusting your selection.
         </p>
       `;
+      this.isRendering = false;
       return;
     }
 
@@ -203,6 +212,8 @@ export class WorkFilters {
       containerId: 'work-grid', 
       filteredList: filteredProjects 
     });
+    
+    this.isRendering = false;
   }
 }
 

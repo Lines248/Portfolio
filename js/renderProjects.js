@@ -29,16 +29,13 @@ export async function renderProjects({ containerId, filter = null, filteredList 
         return true;
     });
     
-    // Clear existing content first to prevent duplicates
+    // Clear container first to prevent any duplicate rendering
     container.innerHTML = '';
     
-    const skeletons = container.querySelectorAll(".project-card-skeleton");
+    // Generate HTML for all project cards
     const cardsHTML = list.map((project, index) => ProjectCard(project, index)).join("");
     
-    if (skeletons.length > 0) {
-        skeletons.forEach(skeleton => skeleton.remove());
-    }
-    
-    container.insertAdjacentHTML("beforeend", cardsHTML);
+    // Set new content (this completely replaces everything, preventing duplicates)
+    container.innerHTML = cardsHTML;
     container.removeAttribute("aria-busy");
 }
