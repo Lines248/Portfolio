@@ -120,7 +120,6 @@ id: "deroche-projects",
                stack: ["Figma", "JavaScript", "Framer", "Responsive Layout"],
                featured: false,
                category: "design",
-               // Explicitly no links - do not add links property
             },
             {
                 id: "nomin-eat",

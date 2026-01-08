@@ -25,8 +25,6 @@ function getCaseStudyUrl(project) {
 }
 
 function buildProjectLinks(project) {
-    // Explicitly exclude trust-circle from showing any links
-    // Check both id and title as fallback
     if (project.id === "trust-circle" || project.title === "Trust Circle") {
         return "";
     }
@@ -68,14 +66,11 @@ function buildProjectLinks(project) {
 }
 
 export function ProjectCard(project, index = 0) {
-    // Explicitly prevent trust-circle from showing any links
-    const isTrustCircle = project.id === "trust-circle" || project.title === "Trust Circle";
-    
     const stackList = project.stack
         .map((item) => `<li>${item}</li>`)
         .join("");
 
-    const projectLinks = isTrustCircle ? "" : buildProjectLinks(project);
+    const projectLinks = buildProjectLinks(project);
 
     const isFirstCard = project.featured && index === 0;
     const fetchPriority = isFirstCard ? "high" : "auto";
