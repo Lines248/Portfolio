@@ -2,7 +2,7 @@ export async function renderProjects({ containerId, filter = null, filteredList 
     const container = document.getElementById(containerId);
 
     if (!container) {
-        console.error(`Container with ID "${containerId}" not found. `);
+        console.error(`Container with ID "${containerId}" not found.`);
         return;
     }
     
@@ -13,15 +13,22 @@ export async function renderProjects({ containerId, filter = null, filteredList 
         import("./components/projectCard.js")
     ]);
     
-    let list = filteredList || projects;
-
-    if (filter === "featured") {
+    // Determine which list to use
+    let list;
+    if (filteredList) {
+        // Use provided filtered list (already filtered by workFilters)
+        list = filteredList;
+    } else if (filter === "featured") {
+        // Filter for featured projects only
         list = projects.filter((p) => p.featured);
+    } else {
+        // Use all projects
+        list = projects;
     }
     
     // Remove duplicates by ID (keep first occurrence)
     const seenIds = new Set();
-    list = list.filter(project => {
+    const uniqueList = list.filter(project => {
         if (seenIds.has(project.id)) {
             return false;
         }
@@ -29,13 +36,8 @@ export async function renderProjects({ containerId, filter = null, filteredList 
         return true;
     });
     
-    // Clear container first to prevent any duplicate rendering
-    container.innerHTML = '';
-    
-    // Generate HTML for all project cards
-    const cardsHTML = list.map((project, index) => ProjectCard(project, index)).join("");
-    
-    // Set new content (this completely replaces everything, preventing duplicates)
+    // Generate HTML and replace container content in one operation
+    const cardsHTML = uniqueList.map((project, index) => ProjectCard(project, index)).join("");
     container.innerHTML = cardsHTML;
     container.removeAttribute("aria-busy");
 }

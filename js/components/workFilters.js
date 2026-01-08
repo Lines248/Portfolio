@@ -157,12 +157,15 @@ export class WorkFilters {
   }
 
   getFilteredProjects() {
-    let filtered = projects;
+    // Start with all projects
+    let filtered = [...projects];
 
+    // Apply category filter
     if (this.selectedCategory !== 'all') {
       filtered = filtered.filter(p => p.category === this.selectedCategory);
     }
 
+    // Apply stack filter
     if (this.selectedStacks.length > 0) {
       filtered = filtered.filter(p => 
         this.selectedStacks.some(stack => p.stack.includes(stack))
@@ -171,15 +174,13 @@ export class WorkFilters {
 
     // Remove duplicates by ID (keep first occurrence)
     const seenIds = new Set();
-    filtered = filtered.filter(project => {
+    return filtered.filter(project => {
       if (seenIds.has(project.id)) {
         return false;
       }
       seenIds.add(project.id);
       return true;
     });
-
-    return filtered;
   }
 
   async renderProjects() {
