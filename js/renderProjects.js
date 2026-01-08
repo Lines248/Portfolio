@@ -29,11 +29,11 @@ export async function renderProjects({ containerId, filter = null, filteredList 
         return true;
     });
     
+    // Clear existing content first to prevent duplicates
+    container.innerHTML = '';
+    
     const skeletons = container.querySelectorAll(".project-card-skeleton");
     const cardsHTML = list.map((project, index) => ProjectCard(project, index)).join("");
-    
-    const existingCards = container.querySelectorAll(".project-card");
-    existingCards.forEach(card => card.remove());
     
     if (skeletons.length > 0) {
         skeletons.forEach(skeleton => skeleton.remove());

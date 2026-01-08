@@ -168,6 +168,16 @@ export class WorkFilters {
       );
     }
 
+    // Remove duplicates by ID (keep first occurrence)
+    const seenIds = new Set();
+    filtered = filtered.filter(project => {
+      if (seenIds.has(project.id)) {
+        return false;
+      }
+      seenIds.add(project.id);
+      return true;
+    });
+
     return filtered;
   }
 
