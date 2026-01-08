@@ -19,6 +19,16 @@ export async function renderProjects({ containerId, filter = null, filteredList 
         list = projects.filter((p) => p.featured);
     }
     
+    // Remove duplicates by ID (keep first occurrence)
+    const seenIds = new Set();
+    list = list.filter(project => {
+        if (seenIds.has(project.id)) {
+            return false;
+        }
+        seenIds.add(project.id);
+        return true;
+    });
+    
     const skeletons = container.querySelectorAll(".project-card-skeleton");
     const cardsHTML = list.map((project, index) => ProjectCard(project, index)).join("");
     
