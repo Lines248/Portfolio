@@ -120,8 +120,13 @@ export class WorkFilters {
   }
 
   setCategory(category) {
+    if (category === this.selectedCategory) {
+      return;
+    }
     this.selectedCategory = category;
+    this.selectedStacks = [];
     this.updateCategoryButtons();
+    this.updateStackButtons();
     this.renderProjects();
   }
 
