@@ -185,36 +185,44 @@ export class WorkFilters {
 
   async renderProjects() {
     // Prevent concurrent renders
-    if (this.isRendering) return;
+    if (this.isRendering) {
+      return;
+    }
     
     this.isRendering = true;
-    const filteredProjects = this.getFilteredProjects();
-    const container = document.getElementById('work-grid');
     
-    if (!container) {
-      this.isRendering = false;
-      return;
-    }
+    try {
+      const filteredProjects = this.getFilteredProjects();
+      const container = document.getElementById('work-grid');
+      
+      if (!container) {
+        this.isRendering = false;
+        return;
+      }
 
-    if (filteredProjects.length === 0) {
-      container.innerHTML = `
-        <p class="no-results" role="status" aria-live="polite">
-          No projects match the selected filters. Try adjusting your selection.
-        </p>
-      `;
-      this.isRendering = false;
-      return;
-    }
+      // Clear container immediately to prevent duplicates
+      container.innerHTML = '';
 
-    container.setAttribute('aria-label', `${filteredProjects.length} project${filteredProjects.length !== 1 ? 's' : ''} found`);
-    
-    const { renderProjects } = await import("../renderProjects.js");
-    await renderProjects({ 
-      containerId: 'work-grid', 
-      filteredList: filteredProjects 
-    });
-    
-    this.isRendering = false;
+      if (filteredProjects.length === 0) {
+        container.innerHTML = `
+          <p class="no-results" role="status" aria-live="polite">
+            No projects match the selected filters. Try adjusting your selection.
+          </p>
+        `;
+        this.isRendering = false;
+        return;
+      }
+
+      container.setAttribute('aria-label', `${filteredProjects.length} project${filteredProjects.length !== 1 ? 's' : ''} found`);
+      
+      const { renderProjects } = await import("../renderProjects.js");
+      await renderProjects({ 
+        containerId: 'work-grid', 
+        filteredList: filteredProjects 
+      });
+    } finally {
+      this.isRendering = false;
+    }
   }
 }
 

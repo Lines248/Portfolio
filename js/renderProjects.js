@@ -6,6 +6,7 @@ export async function renderProjects({ containerId, filter = null, filteredList 
         return;
     }
     
+    container.innerHTML = '';
     container.setAttribute("aria-busy", "true");
     
     const [{ projects }, { ProjectCard }] = await Promise.all([
@@ -13,22 +14,18 @@ export async function renderProjects({ containerId, filter = null, filteredList 
         import("./components/projectCard.js")
     ]);
     
-    // Determine which list to use
     let list;
     if (filteredList) {
-        // Use provided filtered list (already filtered by workFilters)
         list = filteredList;
     } else if (filter === "featured") {
-        // Filter for featured projects only
         list = projects.filter((p) => p.featured);
     } else {
-        // Use all projects
         list = projects;
     }
     
-    // Remove duplicates by ID (keep first occurrence)
     const seenIds = new Set();
     const uniqueList = list.filter(project => {
+        if (!project || !project.id) return false;
         if (seenIds.has(project.id)) {
             return false;
         }
@@ -36,7 +33,6 @@ export async function renderProjects({ containerId, filter = null, filteredList 
         return true;
     });
     
-    // Generate HTML and replace container content in one operation
     const cardsHTML = uniqueList.map((project, index) => ProjectCard(project, index)).join("");
     container.innerHTML = cardsHTML;
     container.removeAttribute("aria-busy");
