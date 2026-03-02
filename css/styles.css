@@ -597,7 +597,7 @@ section {
   gap: 1rem;
 }
 
-.project-card:hover {
+.project-card.project-card--has-case-study:hover {
   box-shadow: var(--shadow-soft);
   transform: translateY(-3px);
   border-color: rgba(148, 163, 184, 0.6);

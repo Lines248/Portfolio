@@ -75,9 +75,10 @@ export function ProjectCard(project, index = 0) {
     const isFirstCard = project.featured && index === 0;
     const fetchPriority = isFirstCard ? "high" : "auto";
     const loadingAttr = isFirstCard ? "eager" : "lazy";
+    const caseStudyClass = hasCaseStudy(project) ? " project-card--has-case-study" : "";
     
     return `
-        <article class="project-card">
+        <article class="project-card${caseStudyClass}">
             <img
                 src="${project.image}"
                 alt="${project.alt}"
