@@ -71,23 +71,94 @@
         
         <header class="site-header" role="banner"></header>
 
-        <main id="main-content" role="main">
+        <main id="main-content" role="main" class="home-main">
+ 
             <section class="hero" aria-labelledby="hero-heading">
-                <h1 id="hero-heading">Hi! I'm Caroline (Lines) Sultzer, a Full-Stack, Front-End leaning engineer focused on accessible, high-quality user interfaces.</h1>
-                <p>I build fast products with modern JavaScript, strong semantic structure, and a design driven approach to accessibility.</p>
-            </section>
-            
-            <section class="featured-section" aria-labelledby="featured-heading">
-                <h2 id="featured-heading">Featured Work</h2>
-                <div id="feature-grid" aria-label="Featured projects" aria-busy="true">
-                    <div class="project-card-skeleton" aria-hidden="true"></div>
-                    <div class="project-card-skeleton" aria-hidden="true"></div>
+                <header class="hero__header">
+                    <h1 id="hero-heading" class="hero__title">Caroline (Lines) Sultzer. Full-Stack &amp; Front-End Engineer.</h1>
+                    <p class="hero__subhead">I write clean, reliable code to build accessible web applications. I focus on solid architecture, strong fundamentals, and semantic structure to create software that is easy to maintain and intuitive to use.</p>
+                </header>
+                <div class="hero__actions">
+                    <a href="/work.html" class="btn btn--primary">View Work</a>
+                    <a href="https://github.com/Lines248" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </div>
+            </section>
+
+            <section class="value-prop" aria-labelledby="value-prop-heading">
+                <h2 id="value-prop-heading" class="value-prop__title">Solid Engineering. Fluent in Design.</h2>
+                <p class="value-prop__intro">I combine rigorous engineering training with a detail-oriented design background to build inclusive, full-stack web applications.</p>
+                <div class="value-prop__grid" aria-label="Value proposition highlights">
+                    <article class="value-prop__card">
+                        <h3 class="value-prop__card-title">Full-Stack Foundations</h3>
+                        <p class="value-prop__card-text">Trained in Java and PostgreSQL, I build robust server-side logic and REST APIs. I understand the complete data lifecycle, ensuring front-end interfaces are powered by scalable, maintainable backend architecture.</p>
+                    </article>
+                    <article class="value-prop__card">
+                        <h3 class="value-prop__card-title">Digital Accessibility</h3>
+                        <p class="value-prop__card-text">Accessibility isn't an afterthought, for me its my entry point. I write strict semantic HTML and engineer WCAG-compliant interfaces to ensure digital experiences are performant, inclusive, and usable by everyone.</p>
+                    </article>
+                    <article class="value-prop__card">
+                        <h3 class="value-prop__card-title">Design Driven UI</h3>
+                        <p class="value-prop__card-text">Having worked as a designer, I understand the why behind user interactions. I bridge the gap between Figma and the browser, partnering with creative teams to build precise, high-quality React and Vue components.</p>
+                    </article>
+                </div>
+                <ul class="value-prop__skills" aria-label="Skills and focus areas">
+                    <li>JavaScript (ES6+)</li>
+                    <li>React &amp; Vue</li>
+                    <li>Java &amp; Python</li>
+                    <li>PostgreSQL</li>
+                    <li>Semantic HTML</li>
+                    <li>WCAG 2.2 Accessibility</li>
+                </ul>
+            </section>
+
+            <!-- Section 3: Work -->
+            <section class="featured-case-studies" aria-labelledby="case-studies-heading">
+                <h2 id="case-studies-heading" class="featured-case-studies__title">Featured Case Studies</h2>
+                <div class="case-studies-grid" aria-label="Featured case study cards">
+                    <a href="/work.html" class="case-study-card" aria-label="View Nomineat case study">
+                        <span class="case-study-card__image-wrap">
+                            <img class="case-study-card__image" src="assets/images/nomineat.avif" alt="Nomineat full-stack web application interface" width="800" height="450" loading="lazy" decoding="async" />
+                        </span>
+                        <div class="case-study-card__body">
+                            <h3 class="case-study-card__title">Nomineat</h3>
+                            <p class="case-study-card__subtitle">Full-Stack App • State Management • Java • Vue.js • PostgreSQL</p>
+                            <p class="case-study-card__description">Led front-end architecture and custom component design. Implemented client-side caching via global state management and collaborated closely on backend database structure to optimize data flow.</p>
+                        </div>
+                    </a>
+                    <a href="/vending-machine.html" class="case-study-card" aria-label="View Vending Machine Web App case study">
+                        <span class="case-study-card__image-wrap">
+                            <img class="case-study-card__image" src="assets/images/vending-machine.avif" alt="Vending Machine CLI application interface" width="800" height="450" loading="lazy" decoding="async" />
+                        </span>
+                        <div class="case-study-card__body">
+                            <h3 class="case-study-card__title">Vending Machine Web App</h3>
+                            <p class="case-study-card__subtitle">Java • Python • REST APIs</p>
+                            <p class="case-study-card__description">Independently translated and refactored a complete Java backend application into Python. Demonstrates multi-language literacy, clean system design, and robust transaction flow architecture.</p>
+                        </div>
+                    </a>
+                    <a href="/accex.html" class="case-study-card" aria-label="View ACCEX case study">
+                        <span class="case-study-card__image-wrap">
+                            <img class="case-study-card__image" src="assets/images/accex.avif" alt="ACCEX Color Contrast Checker interface" width="800" height="450" loading="lazy" decoding="async" />
+                        </span>
+                        <div class="case-study-card__body">
+                            <h3 class="case-study-card__title">ACCEX</h3>
+                            <p class="case-study-card__subtitle">Vue • Vite • WCAG 2.2</p>
+                            <p class="case-study-card__description">Designed and engineered entirely from scratch. A high-performance, accessible color contrast checker built with modern front-end tooling to streamline UI compliance.</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Section 4: Footer CTA -->
+            <section class="cta" aria-labelledby="cta-heading">
+                <h2 id="cta-heading" class="cta__title">Let's build something meaningful.</h2>
+                <p class="cta__intro">I'm currently looking for a full-stack, front-end or UI engineering role where I can contribute to thoughtful, accessible interface work.</p>
+                <p class="cta__action">
+                    <a href="mailto:LinesSultzer@gmail.com" class="btn btn--primary">Send an Email</a>
+                </p>
             </section>
         </main>
 
         <nav aria-label="Theme selection" data-theme-toggle-container></nav>
-        <nav aria-label="Page navigation" data-side-nav-container></nav>
 
         <footer class="site-footer" role="contentinfo"></footer>
 

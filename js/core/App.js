@@ -2,15 +2,13 @@ import { renderFooter } from "../renderFooter.js";
 import { renderHeader } from "../renderHeader.js";
 import { themeManager } from "../utils/theme.js";
 import { ThemeToggle } from "../components/themeToggle.js";
-import { SideNav } from "../components/sideNav.js";
 import { PageUtils } from "../utils/pageUtils.js";
 
 export class App {
   constructor() {
     this.currentPage = PageUtils.getCurrentPage();
     this.components = {
-      themeToggle: null,
-      sideNav: null
+      themeToggle: null
     };
   }
 
@@ -85,20 +83,13 @@ export class App {
       requestIdleCallback(() => {
         PageUtils.highlightActiveLink();
         PageUtils.enableHeaderScrollShadow();
-        this.initSideNav();
       }, { timeout: 500 });
     } else {
       setTimeout(() => {
         PageUtils.highlightActiveLink();
         PageUtils.enableHeaderScrollShadow();
-        this.initSideNav();
       }, 50);
     }
-  }
-
-  initSideNav() {
-    this.components.sideNav = new SideNav();
-    this.components.sideNav.init();
   }
 
   initPageSpecificFeatures() {

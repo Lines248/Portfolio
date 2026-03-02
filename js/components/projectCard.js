@@ -16,7 +16,7 @@ function createProjectLink(url, label, projectTitle, linkType) {
 }
 
 function hasCaseStudy(project) {
-    const caseStudyProjects = ["vending-machine", "accex"];
+    const caseStudyProjects = ["nomin-eat", "vending-machine", "accex"];
     return caseStudyProjects.includes(project.id);
 }
 
@@ -25,10 +25,6 @@ function getCaseStudyUrl(project) {
 }
 
 function buildProjectLinks(project) {
-    if (project.id === "trust-circle" || project.title === "Trust Circle") {
-        return "";
-    }
-    
     const regularLinks = [];
     let caseStudyLink = "";
     
