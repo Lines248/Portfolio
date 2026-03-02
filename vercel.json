@@ -4,6 +4,7 @@
       { "source": "/about", "destination": "/about.html" },
     { "source": "/vending-machine", "destination": "/vending-machine.html" },
     { "source": "/accex", "destination": "/accex.html" },
+    { "source": "/nomin-eat", "destination": "/nomineat.html" },
     { "source": "/home", "destination": "/index.html" },
     { "source": "/", "destination": "/index.html" }
   ],
@@ -12,6 +13,7 @@
     { "source": "/about.html", "destination": "/about", "permanent": true },
     { "source": "/vending-machine.html", "destination": "/vending-machine", "permanent": true },
     { "source": "/accex.html", "destination": "/accex", "permanent": true },
+    { "source": "/nomineat.html", "destination": "/nomin-eat", "permanent": true },
     { "source": "/index.html", "destination": "/", "permanent": true }
   ],
   "headers": [

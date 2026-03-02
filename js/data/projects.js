@@ -1,8 +1,8 @@
 export const projects = [
   {
     id: "nomin-eat",
-    title: "NominEat - Group Voting Web App",
-    type: "Full-Stack Development | API Integration",
+    title: "NominEat - Full-Stack Group Voting Web App",
+    type: "Java Spring Boot / PostgreSQL / Vue.js / Yelp Fusion API",
     image: "/assets/images/nomineat-cover.avif",
     alt: "Screenshot of the NominEat group voting web application.",
     description:

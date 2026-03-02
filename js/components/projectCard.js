@@ -21,7 +21,12 @@ function hasCaseStudy(project) {
 }
 
 function getCaseStudyUrl(project) {
-    return `/${project.id}`;
+    const caseStudyPaths = {
+        "nomin-eat": "/nomineat.html",
+        "vending-machine": "/vending-machine.html",
+        "accex": "/accex.html"
+    };
+    return caseStudyPaths[project.id] || `/${project.id}`;
 }
 
 function buildProjectLinks(project) {
@@ -72,10 +77,9 @@ export function ProjectCard(project, index = 0) {
     const fetchPriority = isFirstCard ? "high" : "auto";
     const loadingAttr = isFirstCard ? "eager" : "lazy";
     const caseStudyClass = hasCaseStudy(project) ? " project-card--has-case-study" : "";
-    
-    return `
-        <article class="project-card${caseStudyClass}">
-            <img
+    const caseStudyUrl = hasCaseStudy(project) ? getCaseStudyUrl(project) : null;
+    const imageBlock = caseStudyUrl
+        ? `<a href="${caseStudyUrl}" class="project-card__image-link" aria-label="View ${project.title} case study"><img
                 src="${project.image}"
                 alt="${project.alt}"
                 loading="${loadingAttr}"
@@ -83,7 +87,20 @@ export function ProjectCard(project, index = 0) {
                 width="800"
                 height="450"
                 decoding="async"
-            />
+            /></a>`
+        : `<img
+                src="${project.image}"
+                alt="${project.alt}"
+                loading="${loadingAttr}"
+                fetchpriority="${fetchPriority}"
+                width="800"
+                height="450"
+                decoding="async"
+            />`;
+
+    return `
+        <article class="project-card${caseStudyClass}">
+            ${imageBlock}
 
             <h3>${project.title}</h3>
 

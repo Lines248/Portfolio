@@ -98,7 +98,30 @@ export class CaseStudy {
             ${links}
           </aside>
         </section>
+        ${this.buildCaseStudyNavBottom()}
       </article>
+    `;
+  }
+
+  buildCaseStudyNavBottom() {
+    const caseStudyOrder = [
+      { id: "nomin-eat", url: "/nomineat.html", title: "NominEat" },
+      { id: "vending-machine", url: "/vending-machine.html", title: "Vending Machine" },
+      { id: "accex", url: "/accex.html", title: "ACCEX" }
+    ];
+    const currentIndex = caseStudyOrder.findIndex((p) => p.id === this.project.id);
+    const nextProject = currentIndex >= 0 && currentIndex < caseStudyOrder.length - 1
+      ? caseStudyOrder[currentIndex + 1]
+      : null;
+    const nextLink = nextProject
+      ? `<a href="${nextProject.url}" class="btn primary">See next case study</a>`
+      : "";
+    const returnLink = '<a href="/work.html" class="btn secondary">Return to all work</a>';
+    return `
+      <nav class="case-study-nav-bottom" aria-label="Case study navigation">
+        ${nextLink}
+        ${returnLink}
+      </nav>
     `;
   }
 

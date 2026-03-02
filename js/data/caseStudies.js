@@ -174,6 +174,68 @@ export const caseStudies = {
     return coins`
     }
   },
+  "nomin-eat": {
+    overview: ``,
+
+    sections: [
+      {
+        title: "The Challenge",
+        content: `<hr class="case-study-divider" aria-hidden="true" />
+        <p>Groups often struggle to reach a consensus on dining options. As my capstone project at Tech Elevator, I built NominEat to centralize restaurant discovery and real-time group voting into a seamless full-stack application.</p>`
+      },
+      {
+        title: "The Engineering Solution (Java Backend)",
+        content: `<hr class="case-study-divider" aria-hidden="true" />
+        <p>I engineered a robust <strong>REST API</strong> using <strong>Java</strong> and <strong>Spring Boot</strong> to handle complex business logic and data persistence.</p>
+        <ul>
+          <li><strong>External API:</strong> Implemented a service layer to interface with the Yelp Fusion API for live restaurant data.</li>
+          <li><strong>Data Persistence:</strong> Designed a PostgreSQL schema to manage users, restaurant selections, and transactional voting data.</li>
+        </ul>`
+      },
+      {
+        title: "Java Controller (Code)",
+        content: `<hr class="case-study-divider" aria-hidden="true" />
+        <figure class="case-study-screenshot">
+          <div class="case-study-screenshot-placeholder" aria-hidden="true">
+            <span>Java RestaurantController search method</span>
+          </div>
+          <figcaption>RestaurantController — bridge between Yelp API and custom schema.</figcaption>
+        </figure>`
+      },
+      {
+        title: "The UI Solution (Vue Frontend)",
+        content: `<hr class="case-study-divider" aria-hidden="true" />
+        <p>Built a reactive, state-driven frontend using <strong>Vue.js</strong> to provide users with real-time feedback during the voting lifecycle.</p>
+        <ul>
+          <li><strong>State Management:</strong> Utilized Vuex (or local state) to maintain consistency between the API results and the user interface.</li>
+        </ul>`
+      },
+      {
+        title: "Technical Flex",
+        content: `<hr class="case-study-divider" aria-hidden="true" />
+        <ul class="tech-stack-grid" role="list">
+          <li>RESTful API Design</li>
+          <li>Relational Database Mapping (DAO)</li>
+          <li>External API Integration</li>
+        </ul>`
+      },
+      {
+        title: "PostgreSQL Schema (Results)",
+        content: `<hr class="case-study-divider" aria-hidden="true" />
+        <figure class="case-study-screenshot">
+          <div class="case-study-screenshot-placeholder" aria-hidden="true">
+            <span>PostgreSQL schema / query results</span>
+          </div>
+          <figcaption>Database schema for users, restaurant selections, and voting data.</figcaption>
+        </figure>`
+      },
+      {
+        title: "The Transition Narrative",
+        content: `<hr class="case-study-divider" aria-hidden="true" />
+        <p>My background in physical fabrication taught me to troubleshoot complex systems step-by-step. I bring that same <strong>systems-thinking</strong> approach to my code, ensuring that every backend endpoint and frontend component serves a clear, accessible purpose.</p>`
+      }
+    ]
+  },
   "accex": {
     overview: ``,
 
