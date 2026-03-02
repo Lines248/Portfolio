@@ -5,7 +5,7 @@ export function SiteHeader() {
         <ul class="nav__links" role="list">
             <li><a href="/work">Work</a></li>
             <li><a href="/about">About</a></li>
-            <li><a href="/assets/resume.pdf" download="Caroline-Lines-Sultzer-Resume.pdf" aria-label="Download Caroline (Lines) Sultzer's resume (PDF)">Resume</a></li>
+            <li><a href="/assets/resume.pdf" download="Resume-Caroline-Sultzer.pdf" aria-label="Download Caroline (Lines) Sultzer's resume (PDF)">Resume</a></li>
         </ul>
     </nav>
     `;
