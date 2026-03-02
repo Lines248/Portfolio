@@ -1612,28 +1612,29 @@ html.dark .gallery-item img {
   margin: 0;
 }
 
-/* CTA primary button: jet black, scaled up, invert hover */
+/* CTA primary button: same as View Work (jet black, 2px radius) */
 .cta__link {
   display: inline-flex;
   align-items: center;
   gap: 12px;
   background-color: #141414;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 11px;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   text-decoration: none;
   border-radius: 2px;
   border: 1px solid #141414;
-  padding: 16px 36px;
+  padding: 12px 28px;
   transition: all 0.2s ease-in-out;
 }
 
 .cta__link:hover {
-  background-color: #ffffff;
-  color: #141414;
-  border-color: #141414;
+  background-color: #2a2a2a;
+  border-color: #2a2a2a;
+  color: #ffffff;
+  transform: translateY(-1px);
 }
 
 .cta__link-icon {
@@ -1641,16 +1642,60 @@ html.dark .gallery-item img {
   line-height: 1;
 }
 
-:root.dark .cta__link {
-  background-color: #141414;
+:root.dark .cta__link:hover {
+  background-color: #2a2a2a;
+  border-color: #2a2a2a;
   color: #ffffff;
-  border-color: #141414;
 }
 
-:root.dark .cta__link:hover {
+/* ----- 3-theme overrides: primary buttons & status tag ----- */
+
+/* Dark mode: primary buttons (View Work, View Case Study, Send an Email) – punched out on navy */
+[data-theme="dark"] .home-main .hero__actions .btn,
+[data-theme="dark"] .cta__link,
+[data-theme="dark"] .links .case-study-link {
   background-color: #ffffff;
-  color: #141414;
-  border-color: #141414;
+  color: #0a0f1c;
+  border: 1px solid #ffffff;
+}
+
+[data-theme="dark"] .home-main .hero__actions .btn:hover,
+[data-theme="dark"] .cta__link:hover,
+[data-theme="dark"] .links .case-study-link:hover {
+  background-color: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+/* Nature mode: primary buttons – dark green from theme */
+[data-theme="nature"] .home-main .hero__actions .btn,
+[data-theme="nature"] .cta__link,
+[data-theme="nature"] .links .case-study-link {
+  background-color: var(--accent-dark, #1f5a1f);
+  border: 1px solid var(--accent-dark, #1f5a1f);
+  color: #ffffff;
+}
+
+[data-theme="nature"] .home-main .hero__actions .btn:hover,
+[data-theme="nature"] .cta__link:hover,
+[data-theme="nature"] .links .case-study-link:hover {
+  background-color: transparent;
+  color: var(--text, #1a3a1a);
+  border-color: var(--text, #1a3a1a);
+}
+
+/* Dark mode: Open to Remote Roles status tag – glass on navy */
+[data-theme="dark"] .hero__status-tag {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Nature mode: status tag – crisp frosted glass, high-contrast text */
+[data-theme="nature"] .hero__status-tag {
+  background-color: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(27, 67, 50, 0.15);
+  color: var(--text, #1a3a1a);
 }
 
 @media (max-width: 640px) {
