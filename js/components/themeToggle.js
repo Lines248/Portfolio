@@ -14,29 +14,27 @@ export class ThemeToggle {
 
     const currentTheme = this.themeManager.getCurrentTheme();
     const themeLabel = this.getThemeLabel(currentTheme);
-    
+
     container.innerHTML = `
-      <button 
-        class="theme-toggle" 
-        data-theme-toggle 
+      <button
+        id="theme-toggle-btn"
+        class="theme-toggle"
+        data-theme-toggle
         type="button"
-        aria-label="Change theme. Current theme: ${themeLabel}. Cycles through Light, Dark, and Nature themes."
-        aria-pressed="false"
-        title="Current theme: ${themeLabel}. Click to cycle themes."
+        aria-label="Cycle theme. Current: ${themeLabel}."
+        title="Current theme: ${themeLabel}. Click to cycle."
       >
-        <span class="theme-toggle-icon" aria-hidden="true"></span>
-        <span class="theme-toggle-label">${themeLabel}</span>
+        <span class="horizon-window">
+          <span class="celestial-body"></span>
+        </span>
+        <span class="theme-label" id="theme-label-text">${themeLabel}</span>
       </button>
     `;
   }
 
   getThemeLabel(theme) {
-    const labels = {
-      light: 'Light',
-      dark: 'Dark',
-      environment: 'Nature'
-    };
-    return labels[theme] || theme;
+    const labels = { light: 'LIGHT', nature: 'NATURE', dark: 'DARK' };
+    return labels[theme] || (theme || '').toUpperCase();
   }
 
   attachEventListeners() {
@@ -54,14 +52,13 @@ export class ThemeToggle {
   }
 
   updateButton(theme) {
-    const button = document.querySelector('[data-theme-toggle]');
-    const label = button?.querySelector('.theme-toggle-label');
-    
+    const label = document.getElementById('theme-label-text');
+    const button = document.getElementById('theme-toggle-btn');
     if (button && label) {
       const themeLabel = this.getThemeLabel(theme);
       label.textContent = themeLabel;
-      button.setAttribute('aria-label', `Change theme. Current theme: ${themeLabel}. Cycles through Light, Dark, and Nature themes.`);
-      button.setAttribute('title', `Current theme: ${themeLabel}. Click to cycle themes.`);
+      button.setAttribute('aria-label', `Cycle theme. Current: ${themeLabel}.`);
+      button.setAttribute('title', `Current theme: ${themeLabel}. Click to cycle.`);
     }
   }
 }

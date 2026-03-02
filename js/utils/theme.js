@@ -1,12 +1,12 @@
 class ThemeManager {
   constructor() {
-    this.themes = ['light', 'dark', 'environment'];
-    
+    this.themes = ['light', 'nature', 'dark'];
     this.currentTheme = this.getStoredTheme() || this.getPreferredTheme();
   }
 
   getStoredTheme() {
-    return localStorage.getItem('theme');
+    const t = localStorage.getItem('theme');
+    return t === 'environment' ? 'nature' : t;
   }
 
   getPreferredTheme() {
@@ -16,26 +16,23 @@ class ThemeManager {
     return 'light';
   }
 
-
   setTheme(theme) {
     if (!this.themes.includes(theme)) {
       console.warn(`Invalid theme: ${theme}`);
       return;
     }
 
-    this.themes.forEach(t => {
-      document.documentElement.classList.remove(t);
-    });
+    const htmlEl = document.documentElement;
+    ['light', 'dark', 'environment'].forEach(c => htmlEl.classList.remove(c));
 
-    document.documentElement.classList.add(theme);
-    
+    const themeClass = theme === 'nature' ? 'environment' : theme;
+    htmlEl.classList.add(themeClass);
+    htmlEl.setAttribute('data-theme', theme);
+
     localStorage.setItem('theme', theme);
-    
     this.currentTheme = theme;
-    
-    document.dispatchEvent(new CustomEvent('themechange', { 
-      detail: { theme } 
-    }));
+
+    document.dispatchEvent(new CustomEvent('themechange', { detail: { theme } }));
   }
 
 
@@ -56,15 +53,12 @@ class ThemeManager {
   loadInitialTheme() {
     const stored = this.getStoredTheme();
     if (stored && this.themes.includes(stored)) {
-      document.documentElement.classList.add(stored);
-      this.currentTheme = stored;
+      this.setTheme(stored);
       return;
     }
-    
     const preferred = this.getPreferredTheme();
     if (preferred) {
-      document.documentElement.classList.add(preferred);
-      this.currentTheme = preferred;
+      this.setTheme(preferred);
     }
   }
 
