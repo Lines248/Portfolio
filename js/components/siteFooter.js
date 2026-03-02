@@ -1,9 +1,7 @@
 export function SiteFooter() {
-    const year = new Date().getFullYear();
-    
     return `
         <div class="footer-inner">
-            <p>© ${year} Lines Sultzer - InLine Access Studio</p>
+            <p>© 2026 Lines Sultzer</p>
             <nav class="footer-nav" aria-label="Footer links">
                 <a href="mailto:LinesSultzer@gmail.com" aria-label="Send email to Lines Sultzer">Email</a>
                 <a href="https://www.linkedin.com/in/lines-sultzer/" aria-label="Visit Lines Sultzer's LinkedIn profile (opens in new window)" target="_blank" rel="noopener noreferrer">LinkedIn</a>

@@ -199,7 +199,7 @@ export const caseStudies = {
           <div class="case-study-screenshot-placeholder" aria-hidden="true">
             <span>Java RestaurantController search method</span>
           </div>
-          <figcaption>RestaurantController — bridge between Yelp API and custom schema.</figcaption>
+          <figcaption>RestaurantController: bridge between Yelp API and custom schema.</figcaption>
         </figure>`
       },
       {
@@ -257,7 +257,7 @@ export const caseStudies = {
       {
         title: "Fine Art Tidbit",
         content: `<hr class="case-study-divider" aria-hidden="true" />
-        <p>In the studio, I learned that <strong>color is never static</strong>—it's always relative to what's next to it. ACCEX is the <strong>digital extension</strong> of that lesson. It's my way of ensuring that <strong>aesthetic choices</strong> never come at the cost of a user's ability to actually see and use the web.</p>`
+        <p>In the studio, I learned that <strong>color is never static</strong>, it's always relative to what's next to it. ACCEX is the <strong>digital extension</strong> of that lesson. It's my way of ensuring that <strong>aesthetic choices</strong> never come at the cost of a user's ability to actually see and use the web.</p>`
       }
     ]
   },
