@@ -214,9 +214,9 @@ export const caseStudies = {
         title: "Technical Flex",
         content: `<hr class="case-study-divider" aria-hidden="true" />
         <ul class="tech-stack-grid" role="list">
-          <li>RESTful API Design</li>
-          <li>Relational Database Mapping (DAO)</li>
-          <li>External API Integration</li>
+          <li class="tag-backend">RESTful API Design</li>
+          <li class="tag-backend">Relational Database Mapping (DAO)</li>
+          <li class="tag-backend">External API Integration</li>
         </ul>`
       },
       {

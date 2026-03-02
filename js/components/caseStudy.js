@@ -1,5 +1,6 @@
 import { projects } from "../data/projects.js";
 import { caseStudies } from "../data/caseStudies.js";
+import { getTagClass } from "../utils/tagClass.js";
 
 export class CaseStudy {
   constructor() {
@@ -114,13 +115,13 @@ export class CaseStudy {
       ? caseStudyOrder[currentIndex + 1]
       : null;
     const nextLink = nextProject
-      ? `<a href="${nextProject.url}" class="btn primary">See next case study</a>`
+      ? `<a href="${nextProject.url}" class="nav-link nav-link-next">see next case study</a>`
       : "";
-    const returnLink = '<a href="/work.html" class="btn secondary">Return to all work</a>';
+    const returnLink = '<a href="/work.html" class="nav-link nav-link-back">return to all work</a>';
     return `
-      <nav class="case-study-nav-bottom" aria-label="Case study navigation">
-        ${nextLink}
+      <nav class="case-study-nav-bottom case-study-nav" aria-label="Case study navigation">
         ${returnLink}
+        ${nextLink}
       </nav>
     `;
   }
@@ -204,12 +205,12 @@ export class CaseStudy {
   buildStackList() {
     let stackHTML = "";
     const stackArray = this.project.stack;
-    
+
     for (let i = 0; i < stackArray.length; i++) {
       const item = stackArray[i];
-      stackHTML += `<li role="listitem">${item}</li>`;
+      stackHTML += `<li class="${getTagClass(item)}" role="listitem">${item}</li>`;
     }
-    
+
     return stackHTML;
   }
 

@@ -1,3 +1,5 @@
+import { getTagClass } from "../utils/tagClass.js";
+
 function isValidLink(url) {
     if (!url) return false;
     if (typeof url !== 'string') return false;
@@ -68,7 +70,7 @@ function buildProjectLinks(project) {
 
 export function ProjectCard(project, index = 0) {
     const stackList = project.stack
-        .map((item) => `<li>${item}</li>`)
+        .map((item) => `<li class="${getTagClass(item)}">${item}</li>`)
         .join("");
 
     const projectLinks = buildProjectLinks(project);
