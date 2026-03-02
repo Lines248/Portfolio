@@ -42,8 +42,8 @@ export class CaseStudy {
     }
     
     const lastPart = filteredParts[filteredParts.length - 1];
-    const projectId = lastPart.replace(".html", "");
-    
+    let projectId = lastPart.replace(".html", "");
+    if (projectId === "portfolio-site") projectId = "inline-access";
     return projectId;
   }
 
@@ -106,22 +106,32 @@ export class CaseStudy {
 
   buildCaseStudyNavBottom() {
     const caseStudyOrder = [
+      { id: "inline-access", url: "/portfolio-site.html", title: "This Portfolio" },
       { id: "nomin-eat", url: "/nomineat.html", title: "NominEat" },
       { id: "vending-machine", url: "/vending-machine.html", title: "Vending Machine" },
       { id: "accex", url: "/accex.html", title: "ACCEX" }
     ];
     const currentIndex = caseStudyOrder.findIndex((p) => p.id === this.project.id);
+    const prevProject = currentIndex > 0 ? caseStudyOrder[currentIndex - 1] : null;
     const nextProject = currentIndex >= 0 && currentIndex < caseStudyOrder.length - 1
       ? caseStudyOrder[currentIndex + 1]
       : null;
+
+    const prevLink = prevProject
+      ? `<a href="${prevProject.url}" class="nav-link nav-link-prev" aria-label="See previous case study: ${prevProject.title}">SEE PREVIOUS CASE STUDY</a>`
+      : `<span class="nav-link nav-link-placeholder" aria-hidden="true">SEE PREVIOUS CASE STUDY</span>`;
+    const allLink = '<a href="/work.html" class="nav-link nav-link-all">ALL WORK</a>';
     const nextLink = nextProject
-      ? `<a href="${nextProject.url}" class="nav-link nav-link-next">see next case study</a>`
-      : "";
-    const returnLink = '<a href="/work.html" class="nav-link nav-link-back">return to all work</a>';
+      ? `<a href="${nextProject.url}" class="nav-link nav-link-next" aria-label="See next case study: ${nextProject.title}">SEE NEXT CASE STUDY</a>`
+      : `<span class="nav-link nav-link-placeholder" aria-hidden="true">SEE NEXT CASE STUDY</span>`;
+
     return `
       <nav class="case-study-nav-bottom case-study-nav" aria-label="Case study navigation">
-        ${returnLink}
-        ${nextLink}
+        <div class="case-study-nav-inner">
+          <span class="nav-link-wrap nav-link-wrap-prev">${prevLink}</span>
+          <span class="nav-link-wrap nav-link-wrap-all">${allLink}</span>
+          <span class="nav-link-wrap nav-link-wrap-next">${nextLink}</span>
+        </div>
       </nav>
     `;
   }
@@ -180,14 +190,17 @@ export class CaseStudy {
     const title = codeSnippetData.title;
     const description = codeSnippetData.description;
     const code = codeSnippetData.code;
+    const minimal = codeSnippetData.minimal;
     
     let descriptionHTML = "";
     if (description) {
       descriptionHTML = `<p class="code-snippet-description">${description}</p>`;
     }
     
+    const sectionClass = minimal ? "case-study-code-section case-study-code-section--minimal" : "case-study-code-section";
+    
     return `
-      <section class="case-study-code-section" aria-labelledby="code-snippet">
+      <section class="${sectionClass}" aria-labelledby="code-snippet">
         <h2 id="code-snippet">${title}</h2>
         ${descriptionHTML}
         <pre class="case-study-code-block"><code>${this.escapeHtml(code)}</code></pre>

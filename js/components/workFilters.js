@@ -107,8 +107,60 @@ export class WorkFilters {
         containerId: 'work-grid',
         filteredList: filteredProjects
       });
+
+      this.initScrollProgressLine();
     } finally {
       this.isRendering = false;
     }
+  }
+
+  initScrollProgressLine() {
+    const section = document.querySelector('.work-section');
+    const progressLine = document.querySelector('.scroll-progress-line');
+    const grid = document.getElementById('work-grid');
+    if (!section || !progressLine || !grid) return;
+
+    if (this._scrollProgressHandler) {
+      window.removeEventListener('scroll', this._scrollProgressHandler);
+      this._scrollProgressHandler = null;
+    }
+
+    const sectionTop = () => section.getBoundingClientRect().top + window.scrollY;
+
+    const updateProgress = () => {
+      const cards = grid.querySelectorAll('.project-card');
+      if (cards.length === 0) {
+        progressLine.style.height = '0';
+        return;
+      }
+      const viewportMid = window.scrollY + window.innerHeight * 0.4;
+      const st = sectionTop();
+      let activeIndex = -1;
+      cards.forEach((card, i) => {
+        const cardTop = card.getBoundingClientRect().top + window.scrollY;
+        if (cardTop <= viewportMid) activeIndex = i;
+      });
+      if (activeIndex < 0) {
+        progressLine.style.height = '0';
+        return;
+      }
+      const card = cards[activeIndex];
+      const cardCenter = card.getBoundingClientRect().top + window.scrollY + card.offsetHeight / 2;
+      const y = Math.max(0, cardCenter - st);
+      progressLine.style.height = `${y}px`;
+    };
+
+    let ticking = false;
+    this._scrollProgressHandler = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        updateProgress();
+        ticking = false;
+      });
+    };
+
+    window.addEventListener('scroll', this._scrollProgressHandler, { passive: true });
+    updateProgress();
   }
 }

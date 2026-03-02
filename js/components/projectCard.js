@@ -18,12 +18,13 @@ function createProjectLink(url, label, projectTitle, linkType) {
 }
 
 function hasCaseStudy(project) {
-    const caseStudyProjects = ["nomin-eat", "vending-machine", "accex"];
+    const caseStudyProjects = ["inline-access", "nomin-eat", "vending-machine", "accex"];
     return caseStudyProjects.includes(project.id);
 }
 
 function getCaseStudyUrl(project) {
     const caseStudyPaths = {
+        "inline-access": "/portfolio-site.html",
         "nomin-eat": "/nomineat.html",
         "vending-machine": "/vending-machine.html",
         "accex": "/accex.html"
@@ -90,7 +91,7 @@ export function ProjectCard(project, index = 0) {
                 height="450"
                 decoding="async"
             /></a>`
-        : `<img
+        : `<span class="project-card__image-wrap"><img
                 src="${project.image}"
                 alt="${project.alt}"
                 loading="${loadingAttr}"
@@ -98,21 +99,19 @@ export function ProjectCard(project, index = 0) {
                 width="800"
                 height="450"
                 decoding="async"
-            />`;
+            /></span>`;
 
     return `
         <article class="project-card${caseStudyClass}">
             ${imageBlock}
-
-            <h3>${project.title}</h3>
-
-            <p class="project-desc">${project.description}</p>
-
-            <ul class="project-points" aria-label="Technologies used">
-                ${stackList}
-            </ul>
-
-            ${projectLinks}
+            <div class="project-card__body">
+                <h3>${project.title}</h3>
+                <p class="project-desc">${project.description}</p>
+                <ul class="project-points" aria-label="Technologies used">
+                    ${stackList}
+                </ul>
+                ${projectLinks}
+            </div>
         </article>
     `;
 }

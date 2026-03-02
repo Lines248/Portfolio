@@ -14,7 +14,7 @@ const FRONTEND = [
 
 const CREATIVE = [
   "wcag", "accessibility", "full-stack", "interactive design", "ui/ux", "ux/ui",
-  "responsive ui", "figma", "design"
+  "responsive ui", "figma", "design", "system design", "ui architecture"
 ];
 
 function normalize(tag) {

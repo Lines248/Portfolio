@@ -260,6 +260,41 @@ export const caseStudies = {
         <p>In the studio, I learned that <strong>color is never static</strong>—it's always relative to what's next to it. ACCEX is the <strong>digital extension</strong> of that lesson. It's my way of ensuring that <strong>aesthetic choices</strong> never come at the cost of a user's ability to actually see and use the web.</p>`
       }
     ]
+  },
+  "inline-access": {
+    overview: `This site is a functional demonstration of first-principles UI engineering and state management. I built it to explore how a custom, zero-dependency engine can handle complex theme logic and architectural layouts without the overhead of a modern framework.`,
+
+    sections: [
+      {
+        title: "The Challenge",
+        content: `<hr class="case-study-divider" aria-hidden="true" />
+        <p>Standard portfolio templates often prioritize visual flair over structural integrity and performance. I needed a platform that could maintain a strict mathematical rhythm while managing three distinct visual environments and high-level accessibility requirements.</p>`
+      },
+      {
+        title: "The Solution",
+        content: `<hr class="case-study-divider" aria-hidden="true" />
+        <p>I engineered a lightweight system using Vanilla JavaScript to drive a tri-state theme ecosystem. By centering the entire build around an 8pt grid and the Intersection Observer API, the site remains stable, inclusive, and fast across all viewports.</p>`
+      },
+      {
+        title: "Real Inclusion",
+        content: `<hr class="case-study-divider" aria-hidden="true" />
+        <p>Accessibility isn't an afterthought here. I engineered the color pairings to meet high-contrast standards across all three themes and added support for reduced-motion preferences. It is about making sure the digital space is usable for everyone.</p>`
+      }
+    ],
+
+    codeSnippet: {
+      title: "Theme cycler",
+      description: null,
+      minimal: true,
+      code: `// Vanilla JS Theme Cycler
+const themes = ['light', 'nature', 'dark'];
+const cycleTheme = () => {
+  const current = document.documentElement.getAttribute('data-theme');
+  const next = themes[(themes.indexOf(current) + 1) % themes.length];
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+};`
+    }
   }
 };
 

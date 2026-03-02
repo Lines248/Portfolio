@@ -1,3 +1,11 @@
+/*
+ * 8pt GRID SYSTEM — InLine Access Studio
+ * All spacing (margin, padding, gap) must use multiples of 8:
+ *   8, 16, 24, 32, 40, 48, 64, 80, 120
+ * When adding or editing margin/padding/gap, default to the nearest
+ * multiple of 8 unless explicitly specified otherwise.
+ */
+
 :root {
   --max-width: 960px;
   --radius-s: 6px;
@@ -84,7 +92,7 @@ body {
   color: var(--text);
   background: var(--bg);
   position: relative;
-  line-height: 1.6;
+  line-height: 1.5;
   display: flex;
   flex-direction: column;
 }
@@ -179,7 +187,7 @@ main {
   flex: 1;
   width: min(calc(100% - 2rem), var(--max-width));
   margin-inline: auto;
-  padding-block: 2.5rem;
+  padding-block: 40px;
   contain: layout;
 }
 
@@ -203,9 +211,11 @@ main {
 }
 
 section {
-  margin-bottom: 3rem;
+  padding-block: 120px;
+  margin-bottom: 0;
 }
 
+/* Header: 8pt grid — 24px vertical, 48px horizontal */
 .site-header {
   position: sticky;
   top: 0;
@@ -214,8 +224,8 @@ section {
   border-bottom: 1px solid var(--border-subtle);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  padding-block: 1.1rem;
-  min-height: 60px;
+  padding: 24px 48px;
+  min-height: 64px;
   contain: layout;
   transition: border-color 0.25s ease, background-color 0.22s ease, backdrop-filter 0.22s ease;
 }
@@ -254,7 +264,7 @@ section {
 .nav ul {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 32px;
   padding: 0;
   margin: 0;
 }
@@ -311,8 +321,35 @@ section {
   width: 100%;
 }
 
+.mobile-menu-toggle {
+  display: none;
+}
+
+.nav-dropdown {
+  display: none;
+}
+
+/* Resume: minimalist outlined button (8pt), inverts on hover */
+.nav__resume {
+  border: 1px solid currentColor;
+  padding: 4px 12px;
+  border-radius: 2px;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.nav__resume::after {
+  display: none;
+}
+
+.nav__resume:hover {
+  background: currentColor;
+  color: var(--bg);
+}
+
 .hero {
-  padding: 1.75rem 1.5rem;
+  padding: 24px 24px;
   border-radius: 16px;
   background: var(--bg-elevated);
   border: 1px solid rgba(148, 163, 184, 0.18);
@@ -326,14 +363,14 @@ section {
 }
 
 .hero p {
-  margin: 0.75rem 0 0;
+  margin: 24px 0 0;
   color: var(--text-muted);
   font-size: var(--fs-m);
 }
 
 .featured-section h2 {
   font-size: var(--fs-l);
-  margin-bottom: 1.25rem;
+  margin-bottom: 24px;
 }
 
 .featured-section {
@@ -342,38 +379,146 @@ section {
 }
 
 .work-page {
-  padding-block: 2.5rem;
+  position: relative;
+  padding-block: 24px 48px;
+}
+
+/* Connecting thread: track line behind projects */
+.work-section {
+  position: relative;
+}
+
+/* Thread line: behind all content (z-index -1) for gallery effect */
+.work-section::before {
+  content: '';
+  position: absolute;
+  left: 32px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.scroll-progress-line {
+  position: absolute;
+  left: 32px;
+  top: 0;
+  width: 1px;
+  height: 0;
+  background: var(--text-muted);
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: -1;
+  transition: height 0.35s ease-out;
+}
+
+@media (max-width: 900px) {
+  .work-section::before,
+  .scroll-progress-line {
+    left: 16px;
+  }
+
+  .work-scroll-hint {
+    margin-left: 16px;
+  }
+}
+
+/* Work page sections: no global 120px; content above thread (z-index 1) */
+.work-page .work-intro,
+.work-page .work-section {
+  padding-block: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Work hero: 48px top padding (8pt crunch) */
+.work-page .work-intro {
+  padding-top: 48px;
 }
 
 .work-intro {
-  margin-bottom: 3.5rem;
+  margin-bottom: 0;
   max-width: 65ch;
+  padding-block: 0;
 }
 
 .work-intro h1 {
   font-size: var(--fs-xl);
-  margin: 0 0 1rem 0;
+  margin: 0 0 16px 0;
   letter-spacing: -0.02em;
 }
 
 .work-intro p {
   font-size: var(--fs-m);
   color: var(--text-muted);
-  line-height: 1.7;
+  line-height: 1.5;
   margin: 0;
 }
 
-.work-section {
-  margin-top: 2rem;
+/* Scroll hint: row layout — line on thread axis, text 16px right; 48px above/below */
+.work-scroll-hint {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  margin-top: 48px;
+  margin-bottom: 48px;
+  margin-left: 32px;
 }
 
-.work-filters {
-  margin-bottom: 2rem;
+.work-scroll-hint__line {
+  display: block;
+  width: 1px;
+  height: 20px;
+  background: currentColor;
+  opacity: 0.6;
+  animation: work-scroll-hint-bounce 2s ease-in-out infinite;
+}
+
+.work-scroll-hint__text {
+  font-family: var(--font-mono), 'Roboto Mono', monospace;
+  font-size: 9px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+}
+
+@keyframes work-scroll-hint-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-scroll-hint__line {
+    animation: none;
+  }
+}
+
+.work-section {
+  margin-top: 0;
+}
+
+/* 64px below filters before first project row; above thread */
+.work-page .work-filters {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 64px;
+}
+
+.work-page .category-filters {
+  gap: 16px;
+}
+
+.work-page .filter-btn {
+  padding: 16px 24px;
 }
 
 .category-filters {
   display: flex;
-  gap: 0.5rem;
+  gap: 8px;
   flex-wrap: wrap;
 }
 
@@ -633,9 +778,112 @@ li.tag-creative,
     border-color 0.22s ease, background-color 0.25s ease;
 }
 
+/* Work page: architectural project rows (flush image + text blocks) */
+.work-page #work-grid {
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
 .work-page #work-grid .project-card {
-  padding: 1.75rem 2rem;
-  gap: 1rem;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  column-gap: 80px;
+  row-gap: 0;
+  align-items: center;
+  margin-bottom: 48px;
+  padding: 0;
+  min-height: 90vh;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.work-page #work-grid .project-card:hover {
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.work-page #work-grid .project-card:last-child {
+  margin-bottom: 0;
+}
+
+/* Image block: inset/framed – 48px padding (16/24/32/48 grid) */
+.work-page #work-grid .project-card > .project-card__image-link,
+.work-page #work-grid .project-card > .project-card__image-wrap {
+  border-radius: 0;
+  overflow: hidden;
+  padding: 48px;
+  margin-bottom: 0;
+  background: color-mix(in srgb, var(--bg-subtle) 40%, transparent);
+}
+
+.work-page #work-grid .project-card > .project-card__image-link img,
+.work-page #work-grid .project-card > .project-card__image-wrap img {
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: contain;
+  display: block;
+  border-radius: 0;
+  aspect-ratio: auto;
+  min-height: 0;
+  margin-bottom: 0;
+}
+
+/* Text block: 48px padding, 8pt vertical rhythm */
+.work-page #work-grid .project-card__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  padding: 48px;
+}
+
+/* Title–Description 24px; Description–View Case Study 40px */
+.work-page #work-grid .project-card__body .project-desc {
+  margin-top: 24px;
+}
+
+.work-page #work-grid .project-card__body .project-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 0;
+  margin-top: 24px;
+}
+
+.work-page #work-grid .project-card__body .links {
+  margin-top: 40px;
+}
+
+@media (max-width: 900px) {
+  .work-page #work-grid .project-card {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    margin-bottom: 48px;
+  }
+
+  .work-page #work-grid .project-card > .project-card__image-link,
+  .work-page #work-grid .project-card > .project-card__image-wrap {
+    order: 1;
+    padding: 24px;
+  }
+
+  .work-page #work-grid .project-card > .project-card__image-link img,
+  .work-page #work-grid .project-card > .project-card__image-wrap img {
+    height: auto;
+    max-height: 50vh;
+    min-height: 160px;
+  }
+
+  .work-page #work-grid .project-card__body {
+    order: 2;
+    padding: 32px 24px;
+  }
 }
 
 .project-card.project-card--has-case-study:hover {
@@ -643,10 +891,16 @@ li.tag-creative,
   border-color: rgba(148, 163, 184, 0.6);
 }
 
-.project-card__image-link {
+.work-page #work-grid .project-card.project-card--has-case-study:hover {
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.project-card__image-link,
+.project-card__image-wrap {
   display: block;
   overflow: hidden;
-  border-radius: var(--radius-s);
+  border-radius: 0;
   margin-bottom: 0.5rem;
 }
 
@@ -664,7 +918,7 @@ li.tag-creative,
   aspect-ratio: 16 / 9;
   object-fit: cover;
   object-position: top center;
-  border-radius: var(--radius-s);
+  border-radius: 0;
   background: var(--bg-subtle);
   display: block;
   min-height: 240px;
@@ -676,7 +930,7 @@ li.tag-creative,
   aspect-ratio: 16 / 9;
   object-fit: cover;
   object-position: top center;
-  border-radius: 8px;
+  border-radius: 0;
   margin-bottom: 0.5rem;
 }
 
@@ -685,7 +939,8 @@ li.tag-creative,
   margin: 0.2rem 0 0.1rem;
 }
 
-.work-page #work-grid .project-card h2 {
+.work-page #work-grid .project-card h2,
+.work-page #work-grid .project-card h3 {
   font-size: 1.4rem;
   margin: 0.3rem 0 0.2rem;
 }
@@ -736,6 +991,19 @@ li.tag-creative,
 .work-page #work-grid .links a {
   font-size: var(--fs-m);
   font-weight: 500;
+  position: relative;
+  z-index: 1;
+}
+
+/* Primary button ::before so it sits above thread, AAA contrast */
+.work-page #work-grid .links .case-study-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: inherit;
+  border-radius: inherit;
 }
 
 .links a:hover {
@@ -936,14 +1204,14 @@ li.tag-creative,
   min-width: 0;
   max-width: 480px;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 0;
 }
 
 .about-bottom-images img {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 0;
   display: block;
   transition: transform 0.4s ease;
 }
@@ -966,7 +1234,7 @@ li.tag-creative,
 .gallery-item img {
   width: 100%;
   display: block;
-  border-radius: 10px;
+  border-radius: 0;
   object-fit: cover;
   aspect-ratio: 4 / 3;
 }
@@ -1139,28 +1407,333 @@ html.dark .gallery-item img {
   }
 }
 
-@media (max-width: 720px) {
-  .site-header .nav {
-    padding-inline: 1rem;
+@media (max-width: 768px) {
+  /* Task 1: Allow content to expand — remove 100vh; no fixed wrappers (audited: none on main, #main-content) */
+  main,
+  #main-content {
+    position: relative;
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+    contain: none;
   }
 
-  .nav ul {
-    gap: 1rem;
+  /* Task 2: Force scroll behavior at root — prevent overflow inheritance traps */
+  html,
+  body {
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Task 2: Thread container must not clip content */
+  .work-page,
+  .work-section {
+    overflow: visible;
+  }
+
+  /* Task 3: No contain:paint or display:clip on content parents — all pages */
+  section,
+  .work-page,
+  .work-section,
+  #work-grid,
+  #feature-grid,
+  .work-page #work-grid .project-card {
+    contain: none;
+  }
+
+  /* Task 4: Thread line — ensure parent grows; thread uses top/bottom, not height:100% */
+  .work-section {
+    min-height: fit-content;
+  }
+
+  .work-section::before {
+    top: 0;
+    bottom: 0;
+    height: auto;
+  }
+
+  /* Task 1: Header — max separation, 8pt grid */
+  .site-header {
+    position: sticky;
+    top: 0;
+    padding: 16px 24px;
+    overflow: visible;
+    box-sizing: border-box;
+  }
+
+  .site-header .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-inline: 0;
+  }
+
+  .nav .logo {
+    font-size: 14px;
+  }
+
+  .nav .nav__links {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    min-width: 42px;
+    padding: 8px 16px;
+    background: transparent;
+    border: 1px solid currentColor;
+    border-radius: 2px;
+    font-family: 'Inter', var(--font-sans), monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: var(--text);
+  }
+
+  /* Task 3: Dropdown — 24px left axis, 32px vertical gap */
+  .nav-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 100vh;
+    overflow-y: auto;
+    background: var(--bg-elevated);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 40px 24px;
+    z-index: 1000;
+    flex-direction: column;
+    gap: 32px;
+    text-align: left;
+    align-items: flex-start;
+    box-sizing: border-box;
+  }
+
+  .nav-dropdown a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: var(--fs-m);
+    padding: 8px 0;
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .nav-dropdown a:hover {
+    opacity: 0.8;
+  }
+
+  /* Task 2: Architectural Resume button */
+  .nav-dropdown .nav__resume {
+    width: fit-content;
+    min-height: 42px;
+    min-width: 42px;
+    padding: 16px 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    border: 1px solid currentColor;
+    color: var(--text);
+    border-radius: 2px;
+  }
+
+  .nav-dropdown .nav__resume::after {
+    content: ' ↓';
+    font-size: 10px;
+    opacity: 0.8;
+  }
+
+  .nav-dropdown .nav__resume:hover {
+    opacity: 1;
+  }
+
+  /* Task 2: Work hero & filters */
+  .work-page .work-intro {
+    padding-top: 32px;
+  }
+
+  .work-page .work-filters {
+    margin-bottom: 48px;
+  }
+
+  .work-page .category-filters {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 8px;
+    padding-bottom: 16px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .work-page .filter-btn {
+    white-space: nowrap;
+    min-height: 42px;
+    min-width: 42px;
+    padding: 6px 16px;
+    flex-shrink: 0;
+  }
+
+  /* Task 3: Spine & scroll hint at 24px */
+  .work-section::before,
+  .scroll-progress-line {
+    left: 24px;
+  }
+
+  .work-scroll-hint {
+    margin-left: 24px;
+  }
+
+  .work-scroll-hint__text {
+    font-size: 8px;
+  }
+
+  /* Task 4: Theme toggle — fixed FAB bottom-right */
+  [data-theme-toggle-container] {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 100;
+  }
+
+  .theme-toggle {
+    min-height: 42px;
+    min-width: 42px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  :root.dark .theme-toggle {
+    background: rgba(5, 8, 22, 0.9);
+  }
+
+  :root.environment .theme-toggle {
+    background: rgba(240, 247, 240, 0.9);
+  }
+
+  /* Task 5: 8pt scale-down — 120→64, 80→48, 48→24 */
+  section {
+    padding-block: 64px;
   }
 
   main {
-    width: min(100% - 1.5rem, var(--max-width));
-    padding-block: 2rem;
+    padding-block: 24px;
+  }
+
+  .work-page {
+    padding-block: 24px 24px;
+  }
+
+  .work-scroll-hint {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  /* Accessible 42px tap targets for all mobile buttons */
+  .btn,
+  .links a,
+  .links .case-study-link {
+    min-height: 42px;
+    min-width: 42px;
+  }
+
+  /* Nature theme mobile legibility — dark green on pale green needs sharper weight */
+  [data-theme="nature"] .work-page #work-grid .project-card h2,
+  [data-theme="nature"] .work-page #work-grid .project-card h3,
+  [data-theme="nature"] .work-page #work-grid .project-card .project-desc,
+  [data-theme="nature"] .work-page .work-intro p,
+  [data-theme="nature"] .project-card h2,
+  [data-theme="nature"] .project-card .project-desc,
+  [data-theme="nature"] .case-study-page .case-study-title,
+  [data-theme="nature"] .case-study-page .case-study-overview,
+  [data-theme="nature"] .case-study-page .case-study-section-content,
+  [data-theme="nature"] .case-study-page .case-study-section-content p,
+  [data-theme="nature"] .case-study-page .case-study-section-content li {
+    font-weight: 500;
+  }
+
+  /* Nature: VIEW CASE STUDY — AAA contrast border + text */
+  [data-theme="nature"] .links .case-study-link {
+    background-color: #0d3d0d;
+    border: 2px solid #0d3d0d;
+    color: #ffffff;
+  }
+
+  [data-theme="nature"] .links .case-study-link:hover {
+    background-color: transparent;
+    border: 2px solid #0d3d0d;
+    color: #0d3d0d;
+  }
+
+  /* 8pt grid audit: mobile header/footer */
+  .site-footer {
+    padding-block: 16px;
+    min-height: 80px;
+  }
+
+  .footer-inner {
+    padding-inline: 24px;
+    gap: 16px;
+  }
+
+  .footer-nav {
+    gap: 16px;
+  }
+
+  /* Case study nav: stack vertically, center on spine */
+  .case-study-nav-inner {
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    margin-top: 64px;
+  }
+
+  .nav-link-wrap-prev,
+  .nav-link-wrap-all,
+  .nav-link-wrap-next {
+    text-align: center;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-header .nav {
+    padding-inline: 24px;
+  }
+
+  .site-header {
+    padding: 16px 24px;
+  }
+
+  .nav ul {
+    gap: 24px;
+  }
+
+  main {
+    width: min(calc(100% - 32px), var(--max-width));
+    padding-block: 32px;
   }
 
   .hero {
-    padding: 1.25rem 1.25rem;
+    padding: 24px 24px;
     border-radius: 16px;
     border: 1px solid rgba(15, 23, 42, 0.12);
   }
 
   .work-intro {
-    margin-bottom: 2.5rem;
+    margin-bottom: 0;
   }
 
   .work-intro h1 {
@@ -1168,23 +1741,25 @@ html.dark .gallery-item img {
   }
 
   #work-grid {
-    gap: 1.5rem;
+    gap: 24px;
   }
 
   .work-page #work-grid .project-card {
-    padding: 1.5rem 1.5rem;
+    padding: 0;
   }
 
   .work-filters {
-    margin-bottom: 2rem;
-    gap: 1.5rem;
+    margin-bottom: 32px;
+    gap: 24px;
   }
 
   .category-filters {
-    gap: 0.5rem;
+    gap: 8px;
   }
 
   .filter-btn {
+    min-height: 42px;
+    min-width: 42px;
     padding: 7px 14px;
     font-size: 11px;
   }
@@ -1238,8 +1813,15 @@ html.dark .gallery-item img {
   }
 
   .theme-toggle {
+    min-height: 42px;
+    min-width: 42px;
     padding: 6px 12px;
     font-size: 9px;
+  }
+
+  .filter-btn {
+    min-height: 42px;
+    min-width: 42px;
   }
 }
 
@@ -1530,7 +2112,7 @@ html.dark .gallery-item img {
   opacity: 0.92;
 }
 
-/* Wrapper enforces strict 16:9 so image never stretches */
+/* Wrapper: strict 16:9, no stretch */
 .home-main .case-studies-grid .case-study-card__image-wrap {
   position: relative;
   display: block;
@@ -1538,7 +2120,7 @@ html.dark .gallery-item img {
   aspect-ratio: 16 / 9;
   border-radius: 0;
   overflow: hidden;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
   flex-shrink: 0;
 }
 
@@ -1548,8 +2130,9 @@ html.dark .gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top center;
+  object-position: top;
   display: block;
+  border-radius: 0;
   transition: transform 0.4s ease;
 }
 
@@ -1559,10 +2142,13 @@ html.dark .gallery-item img {
 
 .home-main .case-study-card__body {
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .home-main .case-study-card__title {
-  margin: 0 0 0.35rem;
+  margin: 0;
   font-size: 1.15rem;
   font-weight: 700;
   letter-spacing: -0.01em;
@@ -1571,7 +2157,7 @@ html.dark .gallery-item img {
 }
 
 .home-main .case-study-card__subtitle {
-  margin: 0 0 0.6rem;
+  margin: 0;
   font-size: var(--fs-s);
   font-weight: 500;
   color: var(--text-muted);
@@ -1581,8 +2167,14 @@ html.dark .gallery-item img {
 .home-main .case-study-card__description {
   margin: 0;
   font-size: var(--fs-m);
-  line-height: 1.65;
+  line-height: 1.5;
   color: var(--text);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Section 4: CTA */
@@ -1650,10 +2242,11 @@ html.dark .gallery-item img {
 
 /* ----- 3-theme overrides: primary buttons & status tag ----- */
 
-/* Dark mode: primary buttons (View Work, View Case Study, Send an Email) – punched out on navy */
+/* Dark mode: primary buttons (View Work, View Case Study, Live Demo, GitHub Repo, Send an Email) – punched out on navy */
 [data-theme="dark"] .home-main .hero__actions .btn,
 [data-theme="dark"] .cta__link,
-[data-theme="dark"] .links .case-study-link {
+[data-theme="dark"] .links .case-study-link,
+[data-theme="dark"] .case-study-links .btn {
   background-color: #ffffff;
   color: #0a0f1c;
   border: 1px solid #ffffff;
@@ -1661,7 +2254,8 @@ html.dark .gallery-item img {
 
 [data-theme="dark"] .home-main .hero__actions .btn:hover,
 [data-theme="dark"] .cta__link:hover,
-[data-theme="dark"] .links .case-study-link:hover {
+[data-theme="dark"] .links .case-study-link:hover,
+[data-theme="dark"] .case-study-links .btn:hover {
   background-color: transparent;
   color: #ffffff;
   border-color: #ffffff;
@@ -1670,7 +2264,8 @@ html.dark .gallery-item img {
 /* Nature mode: primary buttons – dark green from theme */
 [data-theme="nature"] .home-main .hero__actions .btn,
 [data-theme="nature"] .cta__link,
-[data-theme="nature"] .links .case-study-link {
+[data-theme="nature"] .links .case-study-link,
+[data-theme="nature"] .case-study-links .btn {
   background-color: var(--accent-dark, #1f5a1f);
   border: 1px solid var(--accent-dark, #1f5a1f);
   color: #ffffff;
@@ -1678,7 +2273,8 @@ html.dark .gallery-item img {
 
 [data-theme="nature"] .home-main .hero__actions .btn:hover,
 [data-theme="nature"] .cta__link:hover,
-[data-theme="nature"] .links .case-study-link:hover {
+[data-theme="nature"] .links .case-study-link:hover,
+[data-theme="nature"] .case-study-links .btn:hover {
   background-color: transparent;
   color: var(--text, #1a3a1a);
   border-color: var(--text, #1a3a1a);
@@ -1736,7 +2332,7 @@ html.dark .gallery-item img {
 .case-study-image {
   margin: 0;
   width: 100%;
-  border-radius: var(--radius-m);
+  border-radius: 0;
   overflow: hidden;
   box-shadow: var(--shadow-soft);
 }
@@ -1747,6 +2343,12 @@ html.dark .gallery-item img {
   aspect-ratio: 16 / 9;
   display: block;
   object-fit: cover;
+  border-radius: 0;
+}
+
+.case-study-page img,
+.case-study-section-content img {
+  border-radius: 0;
 }
 
 .case-study-title-section {
@@ -1822,7 +2424,7 @@ html.dark .gallery-item img {
 }
 
 .case-study-section-content p {
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.5rem;
 }
 
 .case-study-section-content p:last-child {
@@ -1910,7 +2512,7 @@ html.dark .gallery-item img {
   min-height: 200px;
   background: var(--bg-subtle);
   border: 2px dashed var(--border-subtle);
-  border-radius: var(--radius-s);
+  border-radius: 0;
   color: var(--text-muted);
   font-size: var(--fs-s);
 }
@@ -1963,6 +2565,18 @@ html.dark .gallery-item img {
   margin: 0;
   line-height: 1.3;
   color: var(--text);
+}
+
+.case-study-code-section--minimal {
+  margin-top: 32px;
+  gap: 16px;
+}
+
+.case-study-code-section--minimal .case-study-code-block {
+  padding: 24px;
+  border-radius: 4px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-subtle);
 }
 
 .code-snippet-description {
@@ -2038,32 +2652,54 @@ html.dark .gallery-item img {
   margin-top: 2.5rem;
   padding-top: 2rem;
   border-top: 1px solid var(--border-subtle);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  align-items: center;
 }
 
 .case-study-nav-bottom .btn {
   text-decoration: none;
 }
 
-/* Case study nav: minimalist text links */
+/* Case study nav: three-column layout (8pt grid) */
 .case-study-nav-bottom.case-study-nav {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.case-study-nav-inner {
   display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 80px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 80px auto 0;
   font-family: inherit;
+}
+
+.nav-link-wrap {
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.nav-link-wrap-prev {
+  text-align: left;
+}
+
+.nav-link-wrap-all {
+  text-align: center;
+}
+
+.nav-link-wrap-next {
+  text-align: right;
 }
 
 .case-study-nav .nav-link {
   text-decoration: none;
   color: #333;
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
   position: relative;
-  padding-bottom: 4px;
+  padding-bottom: 8px;
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
   display: inline-block;
   background: none;
@@ -2072,8 +2708,22 @@ html.dark .gallery-item img {
   box-shadow: none;
 }
 
+.case-study-nav .nav-link-placeholder {
+  opacity: 0.35;
+  cursor: default;
+  pointer-events: none;
+}
+
+.case-study-nav .nav-link-placeholder::after {
+  display: none;
+}
+
 :root.dark .case-study-nav .nav-link {
   color: rgba(255, 255, 255, 0.85);
+}
+
+:root.dark .case-study-nav .nav-link-placeholder {
+  opacity: 0.25;
 }
 
 .case-study-nav .nav-link::after {
@@ -2082,18 +2732,28 @@ html.dark .gallery-item img {
   width: 100%;
   height: 1px;
   bottom: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
   background-color: currentColor;
-  transform: scaleX(1);
   transition: transform 0.3s ease-in-out;
+}
+
+.case-study-nav .nav-link:hover::after,
+.case-study-nav .nav-link:focus-visible::after {
+  transform: translateX(-50%) scaleX(1);
 }
 
 .case-study-nav .nav-link-next:hover {
   transform: translateX(8px);
 }
 
-.case-study-nav .nav-link-back:hover {
+.case-study-nav .nav-link-prev:hover {
   transform: translateX(-8px);
+}
+
+.case-study-nav .nav-link-all:hover {
+  transform: none;
 }
 
 .case-study-nav .nav-link:hover {
@@ -2109,10 +2769,9 @@ html.dark .gallery-item img {
   outline-offset: 4px;
 }
 
-/* Case study buttons: matte charcoal, chic aesthetic */
+/* Case study nav bottom + legacy .btn-case-study: matte charcoal (excludes .case-study-links .btn) */
 .btn-case-study,
-.case-study-nav-bottom .btn,
-.case-study-links .btn {
+.case-study-nav-bottom .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2141,8 +2800,7 @@ html.dark .gallery-item img {
 }
 
 .btn-case-study::after,
-.case-study-nav-bottom .btn::after,
-.case-study-links .btn::after {
+.case-study-nav-bottom .btn::after {
   content: '';
   position: absolute;
   top: -1px;
@@ -2156,8 +2814,7 @@ html.dark .gallery-item img {
 }
 
 .btn-case-study:hover,
-.case-study-nav-bottom .btn:hover,
-.case-study-links .btn:hover {
+.case-study-nav-bottom .btn:hover {
   background-color: #404040;
   box-shadow:
     inset 0 0 0 1px rgba(255, 255, 255, 0.08),
@@ -2166,8 +2823,7 @@ html.dark .gallery-item img {
 }
 
 .btn-case-study:active,
-.case-study-nav-bottom .btn:active,
-.case-study-links .btn:active {
+.case-study-nav-bottom .btn:active {
   box-shadow:
     inset 0 0 2px rgba(0, 0, 0, 0.5),
     0 0 1px 1px rgba(160, 160, 160, 0.4);
@@ -2175,15 +2831,15 @@ html.dark .gallery-item img {
 }
 
 .btn-case-study:focus-visible,
-.case-study-nav-bottom .btn:focus-visible,
-.case-study-links .btn:focus-visible {
+.case-study-nav-bottom .btn:focus-visible {
   outline: 2px solid rgba(192, 192, 192, 0.8);
   outline-offset: 2px;
 }
 
-/* View Case Study + hero buttons: jet black (same as View Work) */
+/* View Case Study + hero buttons + case study Live Demo/GitHub: jet black (same as View Work) */
 .links .case-study-link,
-.home-main .hero__actions .btn {
+.home-main .hero__actions .btn,
+.case-study-links .btn {
   background-color: #141414;
   color: #ffffff;
   font-size: 11px;
@@ -2198,12 +2854,14 @@ html.dark .gallery-item img {
 }
 
 .links .case-study-link::after,
-.home-main .hero__actions .btn::after {
+.home-main .hero__actions .btn::after,
+.case-study-links .btn::after {
   display: none;
 }
 
 .links .case-study-link:hover,
-.home-main .hero__actions .btn:hover {
+.home-main .hero__actions .btn:hover,
+.case-study-links .btn:hover {
   background-color: #2a2a2a;
   border-color: #2a2a2a;
   color: #ffffff;

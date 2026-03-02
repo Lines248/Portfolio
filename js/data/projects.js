@@ -1,5 +1,21 @@
 export const projects = [
   {
+    id: "inline-access",
+    title: "This Portfolio",
+    type: "A study in architectural layout and Vanilla JS",
+    image: "/assets/images/portfolio-site.avif",
+    alt: "Screenshot of the InLine Access Studio portfolio site showcasing the 3-theme design system.",
+    description:
+        "This site is the project. Instead of reaching for a template, I built a custom 3-theme design system from scratch using Vanilla JavaScript. It's a study in restraint and architectural layout: staying locked to a strict 8pt grid while making sure every mode (Light, Nature, or Dark) stays fully accessible. No heavy libraries, just clean code and intentional geometry.",
+    stack: ["VANILLA JS", "SYSTEM DESIGN", "WCAG 2.2", "UI ARCHITECTURE"],
+    links: {
+      live: "https://inlineaccess.studio/",
+      repo: "https://github.com/Lines248/portfolio-site",
+    },
+    featured: true,
+    category: "development",
+  },
+  {
     id: "nomin-eat",
     title: "NominEat - Full-Stack Group Voting Web App",
     type: "Java Spring Boot / PostgreSQL / Vue.js / Yelp Fusion API",
@@ -61,22 +77,6 @@ export const projects = [
       repo: "https://github.com/Lines248/own-your-data",
     },
     featured: false,
-    category: "development",
-  },
-  {
-    id: "inline-access",
-    title: "Inline Access Studio Portfolio",
-    type: "Front-End Development | UX/UI",
-    image: "/assets/images/portfolio-site.avif",
-    alt: "Screenshot of the Inline Access Studio portfolio website",
-    description:
-        "Personal portfolio site designed and built to showcase accessible, modern front-end work. Created with a clean visual system, calm interactions, and a structure that highlights both design thinking and engineering skill. The site acts as a living workspace that scales as new case studies and client projects are added.",
-    stack: ["HTML", "CSS", "JavaScript", "Accessibility", "Responsive UI"],
-    links: {
-      live: "https://inlineaccess.studio/",
-      repo: "https://github.com/Lines248/portfolio-site",
-    },
-    featured: true,
     category: "development",
   },
   {
