@@ -1536,7 +1536,7 @@ html.dark .gallery-item img {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: 8px;
+  border-radius: 0;
   overflow: hidden;
   margin-bottom: 1.25rem;
   flex-shrink: 0;
