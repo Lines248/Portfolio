@@ -34,7 +34,7 @@ export const projects = [
   {
     id: "accex",
     title: "ACCEX",
-    type: "Front-End Development | Web Performance",
+    type: "Full-Stack Logic Meets Digital Inclusion",
     image: "/assets/images/accex.avif",
     alt: "Screenshot of the ACCEX website",
     description:

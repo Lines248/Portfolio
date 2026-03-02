@@ -175,59 +175,27 @@ export const caseStudies = {
     }
   },
   "accex": {
-    overview: `A clean, high-performance web experience designed for modern accessibility and dynamic interaction. Built with Vite and deployed on Vercel, it offers smooth transitions, responsive layouts, and clear content prioritisation.`,
-    
+    overview: ``,
+
     sections: [
       {
         title: "Context & Objective",
         content: `<hr class="case-study-divider" aria-hidden="true" />
-                
-        <p><strong>Goal:</strong> To deliver a clean, editorial-style site that feels both professional and approachable, uses modern tooling, and ensures high performance and accessibility. The site should load quickly, look great on mobile and desktop, and give the user a seamless experience.</p>
-`
+        <p>ACCEX isn't just a <strong>color checker</strong>; it's a sandbox for understanding <strong>digital inclusion</strong>. I built this to bridge the gap between high-level <strong>color theory</strong> and the strict requirements of <strong>WCAG 2.2 accessibility standards</strong>. The goal was to create a <strong>reactive tool</strong> where users learn accessibility through exploration.</p>`
       },
-  
       {
-        title: "Implementation",
+        title: "Implementation / Technical Flexes",
         content: `<hr class="case-study-divider" aria-hidden="true" />
-        
-        <p><strong>Tech stack:</strong> Vite, HTML, CSS, JavaScript, Vue, CSS modules, deployed on Vercel.</p>
-        
-        <p><strong>Workflow:</strong></p>
         <ul>
-          <li>Initialize project (vite init) → folder structure → baseline styling → hero component → project grid → CMS/data load (if any)</li>
-          <li>Use Git (set up in repo) and CI/CD via Vercel for zero-config deployment</li>
-        </ul>
-        
-        <p><strong>Performance optimisations:</strong></p>
-        <ul>
-          <li>Code-splitting, lazy-loading components, tree-shaking</li>
-          <li>Image optimisation: WebP, responsive picture tags</li>
-          <li>Minified CSS & JS via Vite's production build</li>
-        </ul>
-        
-        <p><strong>Accessibility touches:</strong></p>
-        <ul>
-          <li>aria-labels where needed</li>
-          <li>Logical tab order</li>
-          <li>High contrast colour scheme and clear focus outlines</li>
-        </ul>
-        
-        <p><strong>Deployment:</strong></p>
-        <ul>
-          <li>Connected repo to Vercel → automatic builds on push → global CDN for fast load times worldwide</li>
-          <li>Verified mobile and desktop performance using Lighthouse</li>
+          <li><strong>State persistence:</strong> Integrated <strong>local storage</strong> and <strong>reactive state</strong> so selections remain consistent across sessions, encouraging long-term experimentation.</li>
+          <li><strong>Color theory logic:</strong> Leveraged my background in fine arts to implement <strong>contrast algorithms</strong> that go beyond simple Pass/Fail metrics.</li>
+          <li><strong>Clean architecture:</strong> Built with a <strong>modular component structure</strong> (Vite + JavaScript) for maximum performance and a <strong>sub-100ms load time</strong>.</li>
         </ul>`
       },
       {
-        title: "Key Learnings & Next Steps",
+        title: "Fine Art Tidbit",
         content: `<hr class="case-study-divider" aria-hidden="true" />
-        
-        <p><strong>Learnings:</strong></p>
-        <ul>
-          <li>Starting with performance in mind from day one saves more effort than retrofitting later</li>
-          <li>Even "simple" aesthetics require careful attention to spacing, typography, and responsiveness</li>
-          <li>Accessibility is often an afterthought, but integrating it up front improves UX for everyone</li>
-        </ul>`
+        <p>In the studio, I learned that <strong>color is never static</strong>—it's always relative to what's next to it. ACCEX is the <strong>digital extension</strong> of that lesson. It's my way of ensuring that <strong>aesthetic choices</strong> never come at the cost of a user's ability to actually see and use the web.</p>`
       }
     ]
   }
