@@ -258,7 +258,7 @@ section {
   font-weight: 700;
   font-size: 0.95rem;
   letter-spacing: 0.06em;
-  text-transform: none;
+  text-transform: uppercase;
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -329,18 +329,59 @@ section {
   display: none;
 }
 
+.mobile-menu-toggle:focus-visible,
+.nav a:focus-visible,
+.nav__resume:focus-visible,
+.nav-dropdown a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 .nav-dropdown {
   display: none;
 }
 
-/* Resume: minimalist outlined button (8pt), inverts on hover */
+/* Resume: compact black outlined button for header (desktop – fits nav bar) */
 .nav__resume {
-  border: 1px solid currentColor;
-  padding: 4px 12px;
+  position: relative;
+  border: 1px solid #141414;
+  color: #141414;
+  background: transparent;
+  padding: 6px 14px;
   border-radius: 2px;
   font-size: 10px;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Instant tooltip on hover – no browser delay */
+.nav__resume[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  background: #141414;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  white-space: nowrap;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+}
+.nav__resume[data-tooltip]:hover::before {
+  opacity: 1;
 }
 
 .nav__resume::after {
@@ -348,8 +389,9 @@ section {
 }
 
 .nav__resume:hover {
-  background: currentColor;
-  color: var(--bg);
+  background: #141414;
+  color: #fff;
+  border-color: #141414;
 }
 
 .hero {
@@ -1492,6 +1534,9 @@ html.dark .gallery-item img {
 
   .nav .logo {
     font-size: 14px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
   }
 
   .nav .nav__links {
@@ -1502,9 +1547,9 @@ html.dark .gallery-item img {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 42px;
-    min-width: 42px;
-    padding: 8px 16px;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 10px 18px;
     background: transparent;
     border: 1px solid currentColor;
     border-radius: 2px;
@@ -1540,8 +1585,8 @@ html.dark .gallery-item img {
     color: var(--text);
     text-decoration: none;
     font-size: var(--fs-m);
-    padding: 8px 0;
-    min-height: 42px;
+    padding: 12px 0;
+    min-height: 44px;
     display: inline-flex;
     align-items: center;
   }
@@ -1550,20 +1595,18 @@ html.dark .gallery-item img {
     opacity: 0.8;
   }
 
-  /* Task 2: Architectural Resume button */
+  /* Task 2: Architectural Resume button – inherits black border/text from .nav__resume */
   .nav-dropdown .nav__resume {
     width: fit-content;
-    min-height: 42px;
-    min-width: 42px;
-    padding: 16px 24px;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px 24px;
     display: inline-flex;
     align-items: center;
     gap: 12px;
     font-size: 10px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    border: 1px solid currentColor;
-    color: var(--text);
     border-radius: 2px;
   }
 
@@ -2323,6 +2366,36 @@ html.dark .gallery-item img {
   background-color: rgba(255, 255, 255, 0.65);
   border: 1px solid rgba(27, 67, 50, 0.15);
   color: var(--text, #1a3a1a);
+}
+
+/* Nav resume tooltip: theme overrides */
+[data-theme="dark"] .nav__resume[data-tooltip]::before {
+  background: #fff;
+  color: #0a0f1c;
+}
+[data-theme="nature"] .nav__resume[data-tooltip]::before {
+  background: #1a3a1a;
+  color: #fff;
+}
+
+/* Nav resume button: theme overrides for visibility */
+[data-theme="dark"] .nav__resume {
+  border-color: #fff;
+  color: #fff;
+}
+[data-theme="dark"] .nav__resume:hover {
+  background: #fff;
+  color: #0a0f1c;
+  border-color: #fff;
+}
+[data-theme="nature"] .nav__resume {
+  border-color: #1a3a1a;
+  color: #1a3a1a;
+}
+[data-theme="nature"] .nav__resume:hover {
+  background: #1a3a1a;
+  color: #fff;
+  border-color: #1a3a1a;
 }
 
 @media (max-width: 640px) {
