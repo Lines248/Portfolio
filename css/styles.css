@@ -257,8 +257,9 @@ section {
 .nav .logo {
   font-weight: 700;
   font-size: 0.95rem;
-  letter-spacing: 0.18rem;
-  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  white-space: nowrap;
 }
 
 .nav ul {
@@ -1786,6 +1787,11 @@ html.dark .gallery-item img {
 }
 
 @media (max-width: 480px) {
+  .nav .logo {
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+
   .nav ul {
     font-size: var(--fs-xs);
   }
