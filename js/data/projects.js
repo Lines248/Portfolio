@@ -2,18 +2,18 @@ export const projects = [
   {
     id: "inline-access",
     title: "This Portfolio",
-    type: "A study in architectural layout and Vanilla JS",
+    type: "Front-End Engineering | Vanilla JS & Design System",
     image: "/assets/images/portfolio-site.avif",
     alt: "Screenshot of the InLine Access Studio portfolio site showcasing the 3-theme design system.",
     description:
-        "This site is the project. Instead of reaching for a template, I built a custom 3-theme design system from scratch using Vanilla JavaScript. It's a study in restraint and architectural layout: staying locked to a strict 8pt grid while making sure every mode (Light, Nature, or Dark) stays fully accessible. No heavy libraries, just clean code and intentional geometry.",
+        "This site is the project. Instead of reaching for a template, I built a custom 3-theme design system from scratch using Vanilla JavaScript. It's a study in restraint and architectural layout: staying locked to a strict 8pt grid while making sure every mode (Light, Nature, or Dark) stays fully accessible. Front-end only—no backend or database.",
     stack: ["VANILLA JS", "SYSTEM DESIGN", "WCAG 2.2", "UI ARCHITECTURE"],
     links: {
       live: "https://inlineaccess.studio/",
       repo: "https://github.com/Lines248/portfolio-site",
     },
     featured: true,
-    category: "development",
+    category: "design",
   },
   {
     id: "nomin-eat",
@@ -50,18 +50,18 @@ export const projects = [
   {
     id: "accex",
     title: "ACCEX",
-    type: "Full-Stack Logic Meets Digital Inclusion",
+    type: "Front-End Engineering | Accessibility Tool",
     image: "/assets/images/accex.avif",
     alt: "Screenshot of the ACCEX website",
     description:
-        "ACCEX is an accessibility tool that checks color contrast for WCAG compliance. Fast, accessible front-end build created with Vite. Designed with clean structure, smooth interaction, and a minimal UI that scales easily as new sections and projects are added.",
+        "ACCEX is an accessibility tool that checks color contrast for WCAG compliance. Fast, accessible front-end build created with Vite. Designed with clean structure, smooth interaction, and a minimal UI that scales easily as new sections and projects are added. Front-end only—no backend or database.",
     stack: ["HTML", "CSS", "JavaScript", "Vue", "Vite", "CSS Modules", "Vercel"],
     links: {
       live: "https://accex.vercel.app/",
       repo: "https://github.com/Lines248/Accex",
     },
     featured: true,
-    category: "development",
+    category: "design",
   },
   {
     id: "claim-your-signal",
@@ -70,14 +70,14 @@ export const projects = [
     image: "/assets/own-your-data.avif",
     alt: "Screenshot of the Claim Your Signal prototype",
     description:
-        "Interactive Next.js prototype exploring authorship and ownership through accessible motion, sound, and one-way claim semantics.",
+        "Interactive Next.js prototype exploring authorship and ownership through accessible motion, sound, and one-way claim semantics. Front-end only—no backend or database.",
     stack: ["Next.js", "Tailwind v4", "Framer Motion", "Typescript", "Vercel"],
     links: {
       live: "https://own-your-data.vercel.app/",
       repo: "https://github.com/Lines248/own-your-data",
     },
     featured: false,
-    category: "development",
+    category: "design",
   },
   {
     id: "deroche-projects",
