@@ -260,14 +260,17 @@ section {
   letter-spacing: 0.06em;
   text-transform: none;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.nav ul {
+.nav ul,
+.nav .nav__links {
   list-style: none;
   display: flex;
   gap: 32px;
   padding: 0;
   margin: 0;
+  flex-shrink: 0;
 }
 
 .nav li a {
@@ -494,6 +497,12 @@ section {
 
 @media (prefers-reduced-motion: reduce) {
   .work-scroll-hint__line {
+    animation: none;
+  }
+
+  .nav li a {
+    opacity: 1;
+    transform: none;
     animation: none;
   }
 }
@@ -1715,6 +1724,13 @@ html.dark .gallery-item img {
   .nav-link-wrap-all,
   .nav-link-wrap-next {
     text-align: center;
+  }
+}
+
+/* Ensure nav links stay visible when logo is long (769px–950px desktop) */
+@media (max-width: 950px) and (min-width: 769px) {
+  .nav .logo {
+    font-size: 0.82rem;
   }
 }
 
