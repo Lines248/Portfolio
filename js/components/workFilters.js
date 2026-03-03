@@ -12,9 +12,20 @@ export class WorkFilters {
     this.renderProjects();
   }
 
+  getCategoryCounts() {
+    const counts = {
+      all: projects.length,
+      development: projects.filter(p => p.category === 'development').length,
+      design: projects.filter(p => p.category === 'design').length,
+    };
+    return counts;
+  }
+
   renderFilters() {
     const container = document.querySelector('[data-work-filters]');
     if (!container) return;
+
+    const counts = this.getCategoryCounts();
 
     container.innerHTML = `
       <div class="work-filters">
@@ -24,21 +35,21 @@ export class WorkFilters {
             data-category="all"
             aria-pressed="${this.selectedCategory === 'all'}"
           >
-            All
+            All<span class="filter-count">${counts.all}</span>
           </button>
           <button 
             class="filter-btn ${this.selectedCategory === 'development' ? 'active' : ''}" 
             data-category="development"
             aria-pressed="${this.selectedCategory === 'development'}"
           >
-            Full-Stack
+            Full-Stack<span class="filter-count">${counts.development}</span>
           </button>
           <button 
             class="filter-btn ${this.selectedCategory === 'design' ? 'active' : ''}" 
             data-category="design"
             aria-pressed="${this.selectedCategory === 'design'}"
           >
-            Front-End
+            Front-End<span class="filter-count">${counts.design}</span>
           </button>
         </div>
       </div>

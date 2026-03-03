@@ -640,6 +640,28 @@ section {
   outline-offset: 2px;
 }
 
+/* Filter count badge: bottom corner, visible only on interaction */
+.category-filters .filter-btn {
+  position: relative;
+}
+
+.category-filters .filter-count {
+  position: absolute;
+  bottom: 4px;
+  right: 8px;
+  font-size: 10px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.category-filters .filter-btn:hover .filter-count,
+.category-filters .filter-btn:focus .filter-count,
+.category-filters .filter-btn:focus-visible .filter-count,
+.category-filters .filter-btn.active .filter-count {
+  opacity: 0.9;
+}
+
 /* Tag color-coding: backend / frontend / creative */
 li.tag-backend,
 .tag-backend {
