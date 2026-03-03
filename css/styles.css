@@ -215,7 +215,7 @@ section {
   margin-bottom: 0;
 }
 
-/* Header: 8pt grid, 24px vertical, 48px horizontal */
+/* Header: 8pt grid, 32px vertical, 48px horizontal */
 .site-header {
   position: sticky;
   top: 0;
@@ -224,7 +224,7 @@ section {
   border-bottom: 1px solid var(--border-subtle);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  padding: 24px 48px;
+  padding: 32px 48px;
   min-height: 64px;
   contain: layout;
   transition: border-color 0.25s ease, background-color 0.22s ease, backdrop-filter 0.22s ease;
@@ -1459,9 +1459,17 @@ html.dark .gallery-item img {
   .site-header {
     position: sticky;
     top: 0;
-    padding: 16px 24px;
+    padding: 24px 24px;
     overflow: visible;
     box-sizing: border-box;
+  }
+
+  /* Nature theme: header text legible on mobile */
+  [data-theme="nature"] .site-header .nav .logo,
+  [data-theme="nature"] .nav-dropdown a,
+  :root.environment .site-header .nav .logo,
+  :root.environment .nav-dropdown a {
+    font-weight: 500;
   }
 
   .site-header .nav {
