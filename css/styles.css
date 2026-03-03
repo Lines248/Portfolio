@@ -1446,6 +1446,42 @@ html.dark .gallery-item img {
   color: var(--text);
 }
 
+/* Footer Resume: same instant "Click to download PDF" tooltip as header */
+.site-footer a[data-tooltip] {
+  position: relative;
+}
+.site-footer a[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  background: #141414;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  white-space: nowrap;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+}
+.site-footer a[data-tooltip]:hover::before {
+  opacity: 1;
+}
+[data-theme="dark"] .site-footer a[data-tooltip]::before {
+  background: #fff;
+  color: #0a0f1c;
+}
+[data-theme="nature"] .site-footer a[data-tooltip]::before {
+  background: #1a3a1a;
+  color: #fff;
+}
+
 .fade-in {
   opacity: 0;
   transform: translateY(12px);
@@ -2437,11 +2473,20 @@ html.dark .gallery-item img {
   }
 }
 
+/* Case study page: no inner scrollbar – content flows, document scrolls */
+main.case-study-page {
+  flex: 0 0 auto;
+  overflow: visible;
+  min-height: auto;
+}
+
 .case-study-page {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 2rem 1.5rem 4rem;
   overflow-x: hidden;
+  overflow-y: visible;
+  min-height: auto;
 }
 
 .case-study-page [data-case-study] {
