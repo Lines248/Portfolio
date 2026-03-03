@@ -86,7 +86,7 @@ export const projects = [
     image: "/assets/own-your-data.avif",
     alt: "Screenshot of the Claim Your Signal prototype",
     description:
-        "Interactive Next.js prototype exploring authorship and ownership through accessible motion, sound, and one-way claim semantics. Front-end only—no backend or database.",
+        "Interactive Next.js prototype exploring authorship and ownership through accessible motion, sound, and one-way claim semantics. Front-end only, no backend or database.",
     stack: ["Next.js", "Tailwind v4", "Framer Motion", "Typescript", "Vercel"],
     links: {
       live: "https://own-your-data.vercel.app/",
