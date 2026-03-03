@@ -266,7 +266,10 @@ export const caseStudies = {
     sections: [
       {
         title: "Context & Architecture",
-        content: `<p><strong>Goal:</strong> To architect a highly secure, data-driven web application capable of serving gated digital assets to unauthenticated clients, while providing a robust administrative dashboard for tenant operators.</p>
+        content: `<figure class="case-study-screenshot" style="margin-bottom: 2.5rem;">
+  <img src="assets/images/ia-desktop.jpg" alt="Desktop browser view of the secure Admin Console dashboard" loading="lazy" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+</figure>
+        <p><strong>Goal:</strong> To architect a highly secure, data-driven web application capable of serving gated digital assets to unauthenticated clients, while providing a robust administrative dashboard for tenant operators.</p>
         <p>The application relies on the Next.js App Router to enforce strict boundaries between Server Components (for optimized database querying) and Client Components (for complex, interactive UI). The entire codebase is written in strict TypeScript to ensure predictability and scalability.</p>
         <ul class="tech-stack-grid" role="list">
           <li class="tag-frontend">React 19</li>

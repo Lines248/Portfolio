@@ -14,7 +14,6 @@ export const projects = [
     },
     featured: true,
     category: "design",
-    hidden: true,
   },
   {
     id: "inline-access",
