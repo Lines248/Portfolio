@@ -1343,9 +1343,12 @@ html.dark .gallery-item img {
   align-items: center;
   gap: 10px;
   padding: 8px 16px;
-  background: transparent;
-  border: 1px solid var(--border-subtle, #d1d5db);
-  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   cursor: pointer;
   font-family: var(--font-sans), monospace;
   font-size: 10px;
@@ -1353,11 +1356,39 @@ html.dark .gallery-item img {
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--text, #141414);
-  transition: border-color 0.3s ease, color 0.3s ease;
+  transition: border-color 0.3s ease, color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .theme-toggle:hover {
-  border-color: currentColor;
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+:root.dark .theme-toggle,
+[data-theme="dark"] .theme-toggle {
+  background: rgba(10, 15, 28, 0.7);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+:root.dark .theme-toggle:hover,
+[data-theme="dark"] .theme-toggle:hover {
+  background: rgba(10, 15, 28, 0.85);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+:root.environment .theme-toggle,
+[data-theme="nature"] .theme-toggle {
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(26, 58, 26, 0.2);
+  box-shadow: 0 2px 12px rgba(26, 58, 26, 0.08);
+}
+:root.environment .theme-toggle:hover,
+[data-theme="nature"] .theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(26, 58, 26, 0.3);
+  box-shadow: 0 4px 16px rgba(26, 58, 26, 0.12);
 }
 
 .horizon-window {
@@ -1729,18 +1760,19 @@ html.dark .gallery-item img {
   .theme-toggle {
     min-height: 42px;
     min-width: 42px;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    background: rgba(255, 255, 255, 0.85);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 8px;
   }
 
-  :root.dark .theme-toggle {
-    background: rgba(5, 8, 22, 0.9);
+  :root.dark .theme-toggle,
+  [data-theme="dark"] .theme-toggle {
+    background: rgba(10, 15, 28, 0.75);
   }
 
-  :root.environment .theme-toggle {
-    background: rgba(240, 247, 240, 0.9);
+  :root.environment .theme-toggle,
+  [data-theme="nature"] .theme-toggle {
+    background: rgba(255, 255, 255, 0.55);
   }
 
   /* Task 5: 8pt scale-down, 120→64, 80→48, 48→24 */
