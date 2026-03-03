@@ -60,7 +60,7 @@ export const projects = [
       live: "",
       repo: "https://github.com/Lines248/vending_machine_webapp",
     },
-    featured: true,
+    featured: false,
     category: "development",
   },
   {
