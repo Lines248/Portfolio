@@ -336,7 +336,7 @@ export async function createDigitalAsset(data: z.infer<typeof assetSchema>) {
         title: "The Solution",
         content: `<hr class="case-study-divider" aria-hidden="true" />
         <figure class="case-study-screenshot" style="margin-bottom: 2.5rem;">
-          <img src="assets/images/portfolio-site-mobile.avif" alt="Mobile responsive view of the portfolio website" loading="lazy" style="max-width: 100%; width: 420px; height: auto; display: block;" />
+          <img src="assets/images/portfolio-site.avif" alt="Desktop view of the portfolio website" loading="lazy" style="max-width: 100%; width: 420px; height: auto; display: block;" />
         </figure>
         <p>I engineered a lightweight system using Vanilla JavaScript to drive a tri-state theme ecosystem. By centering the entire build around an 8pt grid and the Intersection Observer API, the site remains stable, inclusive, and fast across all viewports.</p>`
       },
