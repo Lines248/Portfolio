@@ -262,17 +262,11 @@ export const caseStudies = {
     ]
   },
   "ia-studio": {
-    overview: "A multi-tenant SaaS platform engineered to securely host and present premium digital assets. Built with Next.js 15, React 19, and strict TypeScript, it features role-based access controls and a fully type-safe data mutation pipeline.",
+    overview: "A multi-user SaaS platform engineered to securely host and present premium digital assets. Built with Next.js 15, React 19, and strict TypeScript, it features role-based access controls and a fully type-safe data mutation pipeline.",
     sections: [
       {
         title: "Context & Architecture",
-        content: `<figure class="case-study-screenshot mockup-showcase" style="margin-bottom: 2.5rem;">
-  <div style="display: flex; gap: 1rem; align-items: flex-start; flex-wrap: wrap;">
-    <img src="assets/images/ia-desktop.jpg" alt="Desktop browser view showing the secure digital asset platform dashboard" style="flex: 1 1 60%; max-width: 100%; height: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" loading="lazy" />
-    <img src="assets/images/ia-mobile.jpg" alt="Mobile view showing the responsive layout of the asset platform" style="flex: 1 1 30%; max-width: 100%; height: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" loading="lazy" />
-  </div>
-</figure>
-        <p><strong>Goal:</strong> To architect a highly secure, data-driven web application capable of serving gated digital assets to unauthenticated clients, while providing a robust administrative dashboard for tenant operators.</p>
+        content: `<p><strong>Goal:</strong> To architect a highly secure, data-driven web application capable of serving gated digital assets to unauthenticated clients, while providing a robust administrative dashboard for tenant operators.</p>
         <p>The application relies on the Next.js App Router to enforce strict boundaries between Server Components (for optimized database querying) and Client Components (for complex, interactive UI). The entire codebase is written in strict TypeScript to ensure predictability and scalability.</p>
         <ul class="tech-stack-grid" role="list">
           <li class="tag-frontend">React 19</li>
@@ -290,10 +284,10 @@ export const caseStudies = {
           <li><strong>Role-Based Access:</strong> Constructed an administrative shell for operators to manage their asset inventory, alongside a cleanly separated, secure presentation layer for end-users.</li>
           <li><strong>Cryptographic Gating:</strong> Implemented a hashed access-code system allowing clients to securely view specific digital presentations without requiring full user accounts.</li>
         </ul>
-        <figure class="case-study-screenshot">
-          <div class="case-study-screenshot-placeholder" aria-hidden="true"><span>Diagram placeholder: Authenticated user flow and Next.js middleware</span></div>
-          <figcaption>Secure middleware intercepts and validates sessions before exposing the asset viewer.</figcaption>
-        </figure>`
+        <figure class="case-study-screenshot" style="margin: 2.5rem 0; text-align: center;">
+  <img src="assets/images/ia-architecture.png" alt="System architecture flowchart showing Next.js Edge Middleware intercepting unauthenticated requests and routing them through a Bcrypt hash check before securely fetching data from PostgreSQL." loading="lazy" style="width: 100%; max-width: 800px; height: auto; border-radius: 8px; background: transparent;" />
+  <figcaption>Secure middleware intercepts and validates sessions before exposing the presentation layer.</figcaption>
+</figure>`
       },
       {
         title: "Type-Safe Data & Complex State",
