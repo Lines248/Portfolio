@@ -22,7 +22,7 @@ export const projects = [
     image: "/assets/images/portfolio-site-mobile.avif",
     alt: "Mobile view of the InLine Access Studio portfolio site showcasing the 3-theme design system.",
     description:
-        "This site is the project. Instead of reaching for a template, I built a custom 3-theme design system from scratch using Vanilla JavaScript. It's a study in restraint and architectural layout: staying locked to a strict 8pt grid while making sure every mode (Light, Nature, or Dark) stays fully accessible. Front-end only—no backend or database.",
+        "This site is the project. Instead of reaching for a template, I built a custom 3-theme design system from scratch using Vanilla JavaScript. It's a study in restraint and architectural layout: staying locked to a strict 8pt grid while making sure every mode (Light, Nature, or Dark) stays fully accessible. Front-end only, no backend or database.",
     stack: ["VANILLA JS", "SYSTEM DESIGN", "WCAG 2.2", "UI ARCHITECTURE"],
     links: {
       live: "https://inlineaccess.studio/",
