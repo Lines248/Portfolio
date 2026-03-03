@@ -261,6 +261,71 @@ export const caseStudies = {
       }
     ]
   },
+  "ia-studio": {
+    overview: "A multi-tenant SaaS platform engineered to securely host and present premium digital assets. Built with Next.js 15, React 19, and strict TypeScript, it features role-based access controls and a fully type-safe data mutation pipeline.",
+    sections: [
+      {
+        title: "Context & Architecture",
+        content: `<figure class="case-study-screenshot mockup-showcase" style="margin-bottom: 2.5rem;">
+  <div style="display: flex; gap: 1rem; align-items: flex-start; flex-wrap: wrap;">
+    <img src="assets/images/ia-desktop.jpg" alt="Desktop browser view showing the secure digital asset platform dashboard" style="flex: 1 1 60%; max-width: 100%; height: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" loading="lazy" />
+    <img src="assets/images/ia-mobile.jpg" alt="Mobile view showing the responsive layout of the asset platform" style="flex: 1 1 30%; max-width: 100%; height: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" loading="lazy" />
+  </div>
+</figure>
+        <p><strong>Goal:</strong> To architect a highly secure, data-driven web application capable of serving gated digital assets to unauthenticated clients, while providing a robust administrative dashboard for tenant operators.</p>
+        <p>The application relies on the Next.js App Router to enforce strict boundaries between Server Components (for optimized database querying) and Client Components (for complex, interactive UI). The entire codebase is written in strict TypeScript to ensure predictability and scalability.</p>
+        <ul class="tech-stack-grid" role="list">
+          <li class="tag-frontend">React 19</li>
+          <li class="tag-frontend">Next.js 15</li>
+          <li class="tag-backend">TypeScript</li>
+          <li class="tag-backend">PostgreSQL</li>
+          <li class="tag-backend">Zod</li>
+        </ul>`
+      },
+      {
+        title: "Secure Authentication & User Journeys",
+        content: `<hr class="case-study-divider" aria-hidden="true" />
+        <p>Managing access to premium digital assets requires rigorous security flows. I bypassed out-of-the-box auth libraries to engineer a custom authentication and gating system using <code>bcryptjs</code> and secure <code>httpOnly</code> cookies.</p>
+        <ul>
+          <li><strong>Role-Based Access:</strong> Constructed an administrative shell for operators to manage their asset inventory, alongside a cleanly separated, secure presentation layer for end-users.</li>
+          <li><strong>Cryptographic Gating:</strong> Implemented a hashed access-code system allowing clients to securely view specific digital presentations without requiring full user accounts.</li>
+        </ul>
+        <figure class="case-study-screenshot">
+          <div class="case-study-screenshot-placeholder" aria-hidden="true"><span>Diagram placeholder: Authenticated user flow and Next.js middleware</span></div>
+          <figcaption>Secure middleware intercepts and validates sessions before exposing the asset viewer.</figcaption>
+        </figure>`
+      },
+      {
+        title: "Type-Safe Data & Complex State",
+        content: `<p>To guarantee data integrity across the platform, I implemented an end-to-end type-safe mutation pipeline. By pairing Next.js Server Actions with Zod schemas, the application seamlessly validates form data via <code>react-hook-form</code> on the client side, while simultaneously securing the backend before any writes hit the PostgreSQL database.</p>
+        <p>For the administrative interface, I managed complex client-side state using TanStack Table. This architecture allows for lightning-fast sorting, filtering, and pagination of extensive digital asset inventories without triggering redundant network requests.</p>`
+      }
+    ],
+    codeSnippet: {
+      title: "Type-Safe Server Action Pipeline",
+      description: "Utilizing Zod to validate client inputs and infer strict TypeScript interfaces before interacting with the database.",
+      code: `'use server'
+import { z } from 'zod';
+import { createClient } from '@/lib/supabase/server';
+const assetSchema = z.object({
+  title: z.string().min(1, "Title is required"),
+  price: z.number().positive(),
+  status: z.enum(['available', 'reserved', 'sold'])
+});
+
+export async function createDigitalAsset(data: z.infer<typeof assetSchema>) {
+  const parsed = assetSchema.safeParse(data);
+
+  if (!parsed.success) return { error: 'Invalid asset data.' };
+
+  const supabase = await createClient();
+  const { error } = await supabase.from('inventory').insert(parsed.data);
+
+  return error ? { error: error.message } : { success: true };
+}`,
+      minimal: false
+    }
+  },
   "inline-access": {
     overview: `This site is a functional demonstration of first-principles UI engineering and state management. I built it to explore how a custom, zero-dependency engine can handle complex theme logic and architectural layouts without the overhead of a modern framework.`,
 
@@ -273,6 +338,9 @@ export const caseStudies = {
       {
         title: "The Solution",
         content: `<hr class="case-study-divider" aria-hidden="true" />
+        <figure class="case-study-screenshot" style="margin-bottom: 2.5rem;">
+          <img src="assets/images/portfolio-site-mobile.avif" alt="Mobile responsive view of the portfolio website" loading="lazy" style="max-width: 100%; width: 420px; height: auto; display: block;" />
+        </figure>
         <p>I engineered a lightweight system using Vanilla JavaScript to drive a tri-state theme ecosystem. By centering the entire build around an 8pt grid and the Intersection Observer API, the site remains stable, inclusive, and fast across all viewports.</p>`
       },
       {

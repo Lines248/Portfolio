@@ -80,6 +80,9 @@ export class CaseStudy {
             <h1 class="case-study-title">${this.project.title}</h1>
             <p class="case-study-type">${this.project.type}</p>
             ${this.caseStudyContent && this.caseStudyContent.overview ? `<p class="case-study-overview">${this.caseStudyContent.overview}</p>` : ""}
+            <ul class="stack-list tech-stack-grid" role="list" aria-label="Technologies">
+              ${stackList}
+            </ul>
           </div>
         </header>
 
@@ -106,6 +109,7 @@ export class CaseStudy {
 
   buildCaseStudyNavBottom() {
     const caseStudyOrder = [
+      { id: "ia-studio", url: "/ia-studio.html", title: "Authenticated Digital Asset Platform" },
       { id: "inline-access", url: "/portfolio-site.html", title: "This Portfolio" },
       { id: "nomin-eat", url: "/nomineat.html", title: "NominEat" },
       { id: "vending-machine", url: "/vending-machine.html", title: "Vending Machine" },

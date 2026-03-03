@@ -1,10 +1,27 @@
 export const projects = [
   {
+    id: "ia-studio",
+    title: "Authenticated Digital Asset Platform",
+    type: "Front-End Engineering | Next.js 15 / React 19 / TypeScript",
+    image: "assets/images/ia-desktop.jpg",
+    alt: "Screenshot of the Authenticated Digital Asset Platform interface",
+    description:
+        "A secure, multi-tenant SaaS platform built with Next.js 15, React 19, and strict TypeScript. Features role-based access controls and a fully type-safe data mutation pipeline.",
+    stack: ["Next.js", "React", "TypeScript", "PostgreSQL"],
+    links: {
+      live: "",
+      repo: "",
+    },
+    featured: true,
+    category: "design",
+    hidden: true,
+  },
+  {
     id: "inline-access",
     title: "This Portfolio",
     type: "Front-End Engineering | Vanilla JS & Design System",
-    image: "/assets/images/portfolio-site.avif",
-    alt: "Screenshot of the InLine Access Studio portfolio site showcasing the 3-theme design system.",
+    image: "/assets/images/portfolio-site-mobile.avif",
+    alt: "Mobile view of the InLine Access Studio portfolio site showcasing the 3-theme design system.",
     description:
         "This site is the project. Instead of reaching for a template, I built a custom 3-theme design system from scratch using Vanilla JavaScript. It's a study in restraint and architectural layout: staying locked to a strict 8pt grid while making sure every mode (Light, Nature, or Dark) stays fully accessible. Front-end only—no backend or database.",
     stack: ["VANILLA JS", "SYSTEM DESIGN", "WCAG 2.2", "UI ARCHITECTURE"],

@@ -2744,6 +2744,31 @@ main.case-study-page {
   color: var(--text-muted);
 }
 
+/* Responsive device mockup showcase: desktop + mobile side-by-side */
+.mockup-showcase {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  gap: 1rem;
+  align-items: start;
+}
+
+.mockup-showcase figcaption {
+  grid-column: 1 / -1;
+}
+
+.mockup-showcase img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .mockup-showcase {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
 .tech-stack-grid {
   display: flex;
   flex-wrap: wrap;

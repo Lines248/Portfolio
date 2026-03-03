@@ -18,12 +18,13 @@ function createProjectLink(url, label, projectTitle, linkType) {
 }
 
 function hasCaseStudy(project) {
-    const caseStudyProjects = ["inline-access", "nomin-eat", "vending-machine", "accex"];
+    const caseStudyProjects = ["ia-studio", "inline-access", "nomin-eat", "vending-machine", "accex"];
     return caseStudyProjects.includes(project.id);
 }
 
 function getCaseStudyUrl(project) {
     const caseStudyPaths = {
+        "ia-studio": "/ia-studio.html",
         "inline-access": "/portfolio-site.html",
         "nomin-eat": "/nomineat.html",
         "vending-machine": "/vending-machine.html",

@@ -9,7 +9,7 @@ const BACKEND = [
 
 const FRONTEND = [
   "react", "vue", "vue.js", "javascript", "typescript", "html", "semantic html",
-  "css", "tailwind", "vite", "css modules", "next.js", "framer motion", "vercel"
+  "css", "tailwind", "vite", "css modules", "next.js", "framer motion", "vercel", "zod"
 ];
 
 const CREATIVE = [

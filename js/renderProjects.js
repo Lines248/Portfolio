@@ -18,9 +18,9 @@ export async function renderProjects({ containerId, filter = null, filteredList 
     if (filteredList) {
         list = filteredList;
     } else if (filter === "featured") {
-        list = projects.filter((p) => p.featured);
+        list = projects.filter((p) => p.featured && !p.hidden);
     } else {
-        list = projects;
+        list = projects.filter((p) => !p.hidden);
     }
     
     const seenIds = new Set();

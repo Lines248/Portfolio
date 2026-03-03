@@ -13,10 +13,11 @@ export class WorkFilters {
   }
 
   getCategoryCounts() {
+    const visible = projects.filter(p => !p.hidden);
     const counts = {
-      all: projects.length,
-      development: projects.filter(p => p.category === 'development').length,
-      design: projects.filter(p => p.category === 'design').length,
+      all: visible.length,
+      development: visible.filter(p => p.category === 'development').length,
+      design: visible.filter(p => p.category === 'design').length,
     };
     return counts;
   }
@@ -84,10 +85,11 @@ export class WorkFilters {
   }
 
   getFilteredProjects() {
+    const visible = projects.filter(p => !p.hidden);
     if (this.selectedCategory === 'all') {
-      return [...projects];
+      return [...visible];
     }
-    return projects.filter(p => p.category === this.selectedCategory);
+    return visible.filter(p => p.category === this.selectedCategory);
   }
 
   async renderProjects() {
