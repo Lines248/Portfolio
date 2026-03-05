@@ -1,4 +1,5 @@
 import { getTagClass } from "../utils/tagClass.js";
+import { caseStudies } from "../data/caseStudies.js";
 
 function isValidLink(url) {
     if (!url) return false;
@@ -70,7 +71,12 @@ function buildProjectLinks(project) {
     return html;
 }
 
-export function ProjectCard(project, index = 0) {
+export function ProjectCard(project, index = 0, options = {}) {
+    const { useDiagramImage = false } = options;
+    const diagram = useDiagramImage && caseStudies[project.id]?.featuredDiagram;
+    const imageSrc = diagram?.src ?? project.image;
+    const imageAlt = diagram?.alt ?? project.alt;
+
     const stackList = project.stack
         .map((item) => `<li class="${getTagClass(item)}">${item}</li>`)
         .join("");
@@ -84,8 +90,8 @@ export function ProjectCard(project, index = 0) {
     const caseStudyUrl = hasCaseStudy(project) ? getCaseStudyUrl(project) : null;
     const imageBlock = caseStudyUrl
         ? `<a href="${caseStudyUrl}" class="project-card__image-link" aria-label="View ${project.title} case study"><img
-                src="${project.image}"
-                alt="${project.alt}"
+                src="${imageSrc}"
+                alt="${imageAlt}"
                 loading="${loadingAttr}"
                 fetchpriority="${fetchPriority}"
                 width="800"
@@ -93,8 +99,8 @@ export function ProjectCard(project, index = 0) {
                 decoding="async"
             /></a>`
         : `<span class="project-card__image-wrap"><img
-                src="${project.image}"
-                alt="${project.alt}"
+                src="${imageSrc}"
+                alt="${imageAlt}"
                 loading="${loadingAttr}"
                 fetchpriority="${fetchPriority}"
                 width="800"
