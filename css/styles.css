@@ -2538,6 +2538,24 @@ main.case-study-page {
   gap: 2rem;
 }
 
+/* Featured Diagram Layout */
+.featured-diagram {
+  width: 100%;
+  margin: 48px 0; /* 8pt grid spacing */
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.featured-diagram img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 4px; /* Optional: gives a slight polished edge */
+  object-fit: contain;
+}
+
 .case-study-image {
   margin: 0;
   width: 100%;
@@ -2587,10 +2605,13 @@ main.case-study-page {
   word-wrap: break-word;
 }
 
+/* Ensure the main content stays readable while the image goes wide */
 .case-study-content {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3rem;
+  gap: 48px;
+  max-width: 1200px;
+  margin: 0 auto;
   min-width: 0;
 }
 
@@ -3166,7 +3187,7 @@ main.case-study-page {
   color: #f0f0f0;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 768px) {
   .case-study-header {
     flex-direction: row;
     align-items: flex-start;
@@ -3183,13 +3204,13 @@ main.case-study-page {
   }
 
   .case-study-content {
-    grid-template-columns: 1.5fr 1fr;
+    grid-template-columns: 2fr 1fr; /* Main text / sticky sidebar split */
     align-items: start;
   }
 
   .case-study-details {
     position: sticky;
-    top: 2rem;
+    top: 80px; /* Adjust based on site header height */
   }
 }
 

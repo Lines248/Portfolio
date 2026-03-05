@@ -18,6 +18,7 @@ export class WorkFilters {
       all: visible.length,
       development: visible.filter(p => p.category === 'development').length,
       design: visible.filter(p => p.category === 'design').length,
+      "ui-ux": visible.filter(p => p.category === 'ui-ux').length,
     };
     return counts;
   }
@@ -51,6 +52,13 @@ export class WorkFilters {
             aria-pressed="${this.selectedCategory === 'design'}"
           >
             Front-End<span class="filter-count">${counts.design}</span>
+          </button>
+          <button 
+            class="filter-btn ${this.selectedCategory === 'ui-ux' ? 'active' : ''}" 
+            data-category="ui-ux"
+            aria-pressed="${this.selectedCategory === 'ui-ux'}"
+          >
+            UI UX<span class="filter-count">${counts["ui-ux"]}</span>
           </button>
         </div>
       </div>

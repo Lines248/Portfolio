@@ -108,6 +108,6 @@ export const projects = [
       live: "https://derocheprojects.com/",
     },
     featured: false,
-    category: "design",
+    category: "ui-ux",
   },
 ];
