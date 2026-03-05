@@ -33,9 +33,10 @@ export async function renderProjects({ containerId, filter = null, filteredList 
         return true;
     });
     
-    const useDiagramImage = containerId === "feature-grid";
+    const useDiagramImage = containerId === "feature-grid" || containerId === "work-grid";
+    const stackUnderImage = containerId === "work-grid";
     const cardsHTML = uniqueList.map((project, index) =>
-        ProjectCard(project, index, { useDiagramImage })
+        ProjectCard(project, index, { useDiagramImage, stackUnderImage })
     ).join("");
     container.innerHTML = cardsHTML;
     container.removeAttribute("aria-busy");

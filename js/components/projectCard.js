@@ -72,8 +72,9 @@ function buildProjectLinks(project) {
 }
 
 export function ProjectCard(project, index = 0, options = {}) {
-    const { useDiagramImage = false } = options;
-    const diagram = useDiagramImage && caseStudies[project.id]?.featuredDiagram;
+    const { useDiagramImage = false, stackUnderImage = false } = options;
+    const useDiagramForThis = useDiagramImage && project.id !== "deroche-projects";
+    const diagram = useDiagramForThis && caseStudies[project.id]?.featuredDiagram;
     const imageSrc = diagram?.src ?? project.image;
     const imageAlt = diagram?.alt ?? project.alt;
 
@@ -107,6 +108,22 @@ export function ProjectCard(project, index = 0, options = {}) {
                 height="450"
                 decoding="async"
             /></span>`;
+
+    if (stackUnderImage) {
+        return `
+        <article class="project-card project-card--stack-under-image${caseStudyClass}">
+            <div class="project-card__media-col">
+                ${imageBlock}
+                <ul class="project-points" aria-label="Technologies used">${stackList}</ul>
+            </div>
+            <div class="project-card__body">
+                <h3>${project.title}</h3>
+                <p class="project-desc">${project.description}</p>
+                ${projectLinks}
+            </div>
+        </article>
+    `;
+    }
 
     return `
         <article class="project-card${caseStudyClass}">
