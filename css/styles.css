@@ -645,6 +645,7 @@ section {
 }
 
 .diagram-lightbox__image-wrap {
+  position: relative;
   flex: 1;
   display: flex;
   align-items: center;
@@ -664,6 +665,28 @@ section {
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
 }
 
+.diagram-lightbox__image-wrap .diagram-lightbox__case-study-link {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  margin-top: 0;
+  padding: 0.5rem 0.75rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  text-underline-offset: 3px;
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.diagram-lightbox__image-wrap .diagram-lightbox__case-study-link:hover {
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  opacity: 1;
+}
+
 .diagram-lightbox__caption {
   margin: 1rem 0 0;
   font-size: 0.875rem;
@@ -673,22 +696,6 @@ section {
   max-width: 60ch;
 }
 
-.diagram-lightbox__case-study-link {
-  align-self: flex-end;
-  margin-top: 1rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #fff;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  padding: 0.5rem 0;
-  transition: opacity 0.2s ease;
-}
-
-.diagram-lightbox__case-study-link:hover {
-  opacity: 0.9;
-  color: #fff;
-}
 
 .diagram-lightbox__arrow {
   position: fixed;
@@ -726,6 +733,32 @@ section {
 
 .diagram-lightbox__next {
   right: 1rem;
+}
+
+@media (max-width: 768px) {
+  .diagram-lightbox {
+    background: rgba(30, 58, 138, 0.95);
+    padding: 1rem;
+  }
+
+  .diagram-lightbox__image-wrap {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .diagram-lightbox__image {
+    max-width: none;
+    max-height: 60vh;
+    width: auto;
+    min-width: min-content;
+    object-fit: contain;
+    object-position: left top;
+  }
 }
 
 .work-page .category-filters {
@@ -2772,6 +2805,7 @@ main.case-study-page {
   width: 100%;
   margin: 48px 0; /* 8pt grid spacing */
   padding: 0;
+  cursor: pointer;
   display: flex;
   justify-content: center;
   background-color: transparent;

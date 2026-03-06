@@ -1,6 +1,15 @@
 import { projects } from "../data/projects.js";
 import { caseStudies } from "../data/caseStudies.js";
 import { getTagClass } from "../utils/tagClass.js";
+import { open as openDiagramLightbox, diagramLightbox } from "./diagramLightbox.js";
+
+const CASE_STUDY_ORDER = [
+  { id: "ia-studio", url: "/ia-studio.html", title: "Authenticated Digital Asset Platform" },
+  { id: "inline-access", url: "/portfolio-site.html", title: "This Portfolio" },
+  { id: "nomin-eat", url: "/nomineat.html", title: "NominEat" },
+  { id: "vending-machine", url: "/vending-machine.html", title: "Vending Machine" },
+  { id: "accex", url: "/accex.html", title: "ACCEX" },
+];
 
 export class CaseStudy {
   constructor() {
@@ -20,8 +29,31 @@ export class CaseStudy {
     } else {
       this.caseStudyContent = null;
     }
-    
+
     this.render();
+    this.attachDiagramLightbox();
+  }
+
+  attachDiagramLightbox() {
+    diagramLightbox.ensureDOM();
+    const container = document.querySelector("[data-case-study]");
+    if (!container) return;
+    container.addEventListener("click", (e) => {
+      if (!e.target.closest(".featured-diagram")) return;
+      e.preventDefault();
+      const index = CASE_STUDY_ORDER.findIndex((p) => p.id === this.project.id);
+      if (index === -1) return;
+      const getImageInfo = (item) => {
+        const diagram = caseStudies[item.id]?.featuredDiagram;
+        return {
+          src: diagram?.src ?? "",
+          alt: diagram?.alt ?? "",
+          title: item.title,
+          caseStudyUrl: item.url,
+        };
+      };
+      openDiagramLightbox(CASE_STUDY_ORDER, index, getImageInfo);
+    });
   }
 
   getProjectIdFromUrl() {
@@ -134,16 +166,9 @@ export class CaseStudy {
   }
 
   buildCaseStudyNav(position = "bottom") {
-    const caseStudyOrder = [
-      { id: "ia-studio", url: "/ia-studio.html", title: "Authenticated Digital Asset Platform" },
-      { id: "inline-access", url: "/portfolio-site.html", title: "This Portfolio" },
-      { id: "nomin-eat", url: "/nomineat.html", title: "NominEat" },
-      { id: "vending-machine", url: "/vending-machine.html", title: "Vending Machine" },
-      { id: "accex", url: "/accex.html", title: "ACCEX" }
-    ];
-    const currentIndex = caseStudyOrder.findIndex((p) => p.id === this.project.id);
-    const prevProject = currentIndex > 0 ? caseStudyOrder[currentIndex - 1] : null;
-    const nextProject = currentIndex >= 0 && currentIndex < caseStudyOrder.length - 1 ? caseStudyOrder[currentIndex + 1] : null;
+    const currentIndex = CASE_STUDY_ORDER.findIndex((p) => p.id === this.project.id);
+    const prevProject = currentIndex > 0 ? CASE_STUDY_ORDER[currentIndex - 1] : null;
+    const nextProject = currentIndex >= 0 && currentIndex < CASE_STUDY_ORDER.length - 1 ? CASE_STUDY_ORDER[currentIndex + 1] : null;
 
     const prevLink = prevProject ? `<a href="${prevProject.url}" class="nav-link nav-link-prev">SEE PREVIOUS CASE STUDY</a>` : `<span class="nav-link nav-link-placeholder">SEE PREVIOUS CASE STUDY</span>`;
     const allLink = '<a href="/work.html" class="nav-link nav-link-all">ALL WORK</a>';
