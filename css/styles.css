@@ -605,10 +605,11 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 95vw;
-  max-height: 95vh;
+  max-width: 100%;
   width: 100%;
+  max-height: 95vh;
   color: #fff;
+  padding: 0 1rem;
 }
 
 .diagram-lightbox__close {
@@ -638,10 +639,17 @@ section {
 
 .diagram-lightbox__title {
   margin: 0 0 1rem;
+  padding: 0 1rem;
   font-size: 1.25rem;
   font-weight: 600;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 769px) {
+  .diagram-lightbox__title {
+    font-size: 1.5rem;
+  }
 }
 
 .diagram-lightbox__image-wrap {
@@ -651,15 +659,17 @@ section {
   align-items: center;
   justify-content: center;
   min-height: 0;
+  width: 100%;
   max-width: 100%;
 }
 
 .diagram-lightbox__image {
+  width: 100%;
   max-width: 100%;
-  max-height: 70vh;
-  width: auto;
   height: auto;
+  max-height: 75vh;
   object-fit: contain;
+  object-position: center;
   display: block;
   border-radius: 4px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
@@ -689,8 +699,9 @@ section {
 
 .diagram-lightbox__caption {
   margin: 1rem 0 0;
+  padding: 0 1rem;
   font-size: 0.875rem;
-  line-height: 1.4;
+  line-height: 1.5;
   text-align: center;
   opacity: 0.95;
   max-width: 60ch;
@@ -738,26 +749,93 @@ section {
 @media (max-width: 768px) {
   .diagram-lightbox {
     background: rgba(30, 58, 138, 0.95);
-    padding: 1rem;
+    padding: 2rem 1.5rem;
+  }
+
+  .diagram-lightbox__panel {
+    padding: 0;
+  }
+
+  .diagram-lightbox__close {
+    top: 1.5rem;
+    right: 1.5rem;
+    min-width: 44px;
+    min-height: 44px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .diagram-lightbox__title {
+    font-size: 1.25rem;
+    padding: 0 0.5rem;
+    margin-bottom: 1.25rem;
   }
 
   .diagram-lightbox__image-wrap {
+    flex-direction: column;
     overflow-x: auto;
-    overflow-y: hidden;
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: stretch;
     width: 100%;
     max-width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 0;
   }
 
   .diagram-lightbox__image {
-    max-width: none;
-    max-height: 60vh;
+    max-width: 100%;
+    max-height: 50vh;
     width: auto;
-    min-width: min-content;
+    height: auto;
+    min-width: 0;
     object-fit: contain;
-    object-position: left top;
+    object-position: center;
+  }
+
+  .diagram-lightbox__image-wrap .diagram-lightbox__case-study-link {
+    position: static;
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .diagram-lightbox__caption {
+    line-height: 1.6;
+    margin-top: 1rem;
+  }
+
+  .diagram-lightbox__arrow {
+    top: auto;
+    bottom: 1.5rem;
+    transform: none;
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+    background: rgba(0, 0, 0, 0.25);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .diagram-lightbox__prev {
+    left: 25%;
+    transform: translateX(-50%);
+  }
+
+  .diagram-lightbox__next {
+    right: auto;
+    left: 75%;
+    transform: translateX(-50%);
+  }
+
+  .diagram-lightbox__arrow:hover:not(:disabled) {
+    background: rgba(0, 0, 0, 0.4);
   }
 }
 
@@ -1946,7 +2024,6 @@ html.dark .gallery-item img {
     opacity: 0.8;
   }
 
-  /* Task 2: Architectural Resume button – inherits black border/text from .nav__resume */
   .nav-dropdown .nav__resume {
     width: fit-content;
     min-height: 44px;
@@ -1971,7 +2048,6 @@ html.dark .gallery-item img {
     opacity: 1;
   }
 
-  /* Task 2: Work hero & filters */
   .work-page .work-intro {
     padding-top: 32px;
   }
@@ -1982,11 +2058,8 @@ html.dark .gallery-item img {
 
   .work-page .category-filters {
     display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
+    flex-wrap: wrap;
     gap: 8px;
-    padding-bottom: 16px;
-    -webkit-overflow-scrolling: touch;
   }
 
   .work-page .filter-btn {
@@ -1994,7 +2067,6 @@ html.dark .gallery-item img {
     min-height: 42px;
     min-width: 42px;
     padding: 6px 16px;
-    flex-shrink: 0;
   }
 
   /* Task 3: Spine & scroll hint at 24px */
@@ -2055,7 +2127,6 @@ html.dark .gallery-item img {
     margin-bottom: 24px;
   }
 
-  /* Accessible 42px tap targets for all mobile buttons */
   .btn,
   .links a,
   .links .case-study-link {
