@@ -89,8 +89,11 @@ export function ProjectCard(project, index = 0, options = {}) {
     const loadingAttr = isFirstCard ? "eager" : "lazy";
     const caseStudyClass = hasCaseStudy(project) ? " project-card--has-case-study" : "";
     const caseStudyUrl = hasCaseStudy(project) ? getCaseStudyUrl(project) : null;
+    const lightboxAttrs = stackUnderImage && caseStudyUrl
+        ? ` data-lightbox="true" data-lightbox-title="${String(project.title).replace(/"/g, "&quot;")}" data-lightbox-id="${String(project.id).replace(/"/g, "&quot;")}"`
+        : "";
     const imageBlock = caseStudyUrl
-        ? `<a href="${caseStudyUrl}" class="project-card__image-link" aria-label="View ${project.title} case study"><img
+        ? `<a href="${caseStudyUrl}" class="project-card__image-link"${lightboxAttrs} aria-label="View ${project.title} case study"><img
                 src="${imageSrc}"
                 alt="${imageAlt}"
                 loading="${loadingAttr}"

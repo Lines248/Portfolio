@@ -1,4 +1,13 @@
 import { projects } from "../data/projects.js";
+import { caseStudies } from "../data/caseStudies.js";
+
+const CASE_STUDY_PATHS = {
+  "ia-studio": "/ia-studio.html",
+  "inline-access": "/portfolio-site.html",
+  "nomin-eat": "/nomineat.html",
+  "vending-machine": "/vending-machine.html",
+  "accex": "/accex.html",
+};
 
 export class WorkFilters {
   constructor() {
@@ -10,6 +19,8 @@ export class WorkFilters {
   init() {
     this.renderFilters();
     this.attachEventListeners();
+    this.ensureLightbox();
+    this.attachLightboxListeners();
     this.renderProjects();
   }
 
@@ -85,6 +96,145 @@ export class WorkFilters {
         this.setImageView(view);
       });
     });
+  }
+
+  getCaseStudyUrl(project) {
+    return CASE_STUDY_PATHS[project.id] || `/${project.id}.html`;
+  }
+
+  getProjectImageInfo(project) {
+    const useDiagram = this.imageView !== "image" && project.id !== "deroche-projects";
+    const diagram = useDiagram && caseStudies[project.id]?.featuredDiagram;
+    return {
+      src: diagram?.src ?? project.image,
+      alt: diagram?.alt ?? project.alt,
+      caseStudyUrl: this.getCaseStudyUrl(project),
+    };
+  }
+
+  ensureLightbox() {
+    if (document.getElementById('diagram-lightbox')) return;
+    const box = document.createElement('div');
+    box.id = 'diagram-lightbox';
+    box.className = 'diagram-lightbox';
+    box.setAttribute('aria-hidden', 'true');
+    box.innerHTML = `
+      <div class="diagram-lightbox__backdrop" data-lightbox-close></div>
+      <button type="button" class="diagram-lightbox__close" aria-label="Close" data-lightbox-close>×</button>
+      <button type="button" class="diagram-lightbox__arrow diagram-lightbox__prev" aria-label="Previous project" data-lightbox-prev>←</button>
+      <button type="button" class="diagram-lightbox__arrow diagram-lightbox__next" aria-label="Next project" data-lightbox-next>→</button>
+      <div class="diagram-lightbox__panel">
+        <h2 class="diagram-lightbox__title"></h2>
+        <div class="diagram-lightbox__image-wrap">
+          <img class="diagram-lightbox__image" src="" alt="" />
+        </div>
+        <p class="diagram-lightbox__caption"></p>
+        <a href="#" class="diagram-lightbox__case-study-link" data-lightbox-case-study>View Case Study</a>
+      </div>
+    `;
+    document.body.appendChild(box);
+  }
+
+  attachLightboxListeners() {
+    const grid = document.getElementById('work-grid');
+    if (!grid) return;
+    grid.addEventListener('click', (e) => {
+      const link = e.target.closest('.project-card__image-link[data-lightbox="true"]');
+      if (!link) return;
+      e.preventDefault();
+      const img = link.querySelector('img');
+      if (!img) return;
+      const projectId = link.getAttribute('data-lightbox-id') || '';
+      const list = this.getFilteredProjects();
+      const projectIndex = list.findIndex((p) => p.id === projectId);
+      if (projectIndex === -1) return;
+      this.openLightbox(projectIndex);
+    });
+
+    const lightbox = document.getElementById('diagram-lightbox');
+    if (!lightbox) return;
+    lightbox.querySelectorAll('[data-lightbox-close]').forEach((el) => {
+      el.addEventListener('click', () => this.closeLightbox());
+    });
+    lightbox.querySelector('[data-lightbox-prev]')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.goToPrevLightbox();
+    });
+    lightbox.querySelector('[data-lightbox-next]')?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      this.goToNextLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('diagram-lightbox--open')) {
+        this.closeLightbox();
+      }
+      if (lightbox.classList.contains('diagram-lightbox--open')) {
+        if (e.key === 'ArrowLeft') this.goToPrevLightbox();
+        if (e.key === 'ArrowRight') this.goToNextLightbox();
+      }
+    });
+  }
+
+  openLightbox(projectIndex) {
+    this.lightboxProjects = this.getFilteredProjects();
+    this.lightboxProjectIndex = projectIndex;
+    this.updateLightboxContent();
+    const box = document.getElementById('diagram-lightbox');
+    if (!box) return;
+    box.classList.add('diagram-lightbox--open');
+    box.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  updateLightboxContent() {
+    const box = document.getElementById('diagram-lightbox');
+    if (!box || this.lightboxProjects == null || this.lightboxProjectIndex == null) return;
+    const project = this.lightboxProjects[this.lightboxProjectIndex];
+    if (!project) return;
+    const info = this.getProjectImageInfo(project);
+    box.querySelector('.diagram-lightbox__title').textContent = project.title;
+    const img = box.querySelector('.diagram-lightbox__image');
+    img.setAttribute('src', info.src);
+    img.setAttribute('alt', info.alt);
+    box.querySelector('.diagram-lightbox__caption').textContent = info.alt;
+    const caseStudyLink = box.querySelector('.diagram-lightbox__case-study-link');
+    if (caseStudyLink) {
+      caseStudyLink.href = info.caseStudyUrl;
+    }
+    const prevBtn = box.querySelector('[data-lightbox-prev]');
+    const nextBtn = box.querySelector('[data-lightbox-next]');
+    if (prevBtn) {
+      prevBtn.disabled = this.lightboxProjectIndex === 0;
+      prevBtn.setAttribute('aria-disabled', this.lightboxProjectIndex === 0);
+    }
+    if (nextBtn) {
+      nextBtn.disabled = this.lightboxProjectIndex === this.lightboxProjects.length - 1;
+      nextBtn.setAttribute('aria-disabled', this.lightboxProjectIndex === this.lightboxProjects.length - 1);
+    }
+  }
+
+  goToPrevLightbox() {
+    if (this.lightboxProjectIndex > 0) {
+      this.lightboxProjectIndex--;
+      this.updateLightboxContent();
+    }
+  }
+
+  goToNextLightbox() {
+    if (this.lightboxProjects && this.lightboxProjectIndex < this.lightboxProjects.length - 1) {
+      this.lightboxProjectIndex++;
+      this.updateLightboxContent();
+    }
+  }
+
+  closeLightbox() {
+    const box = document.getElementById('diagram-lightbox');
+    if (!box) return;
+    box.classList.remove('diagram-lightbox--open');
+    box.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    this.lightboxProjects = null;
+    this.lightboxProjectIndex = null;
   }
 
   setCategory(category) {
