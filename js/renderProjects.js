@@ -1,4 +1,4 @@
-export async function renderProjects({ containerId, filter = null, filteredList = null }) {
+export async function renderProjects({ containerId, filter = null, filteredList = null, imageView = null }) {
     const container = document.getElementById(containerId);
 
     if (!container) {
@@ -33,7 +33,9 @@ export async function renderProjects({ containerId, filter = null, filteredList 
         return true;
     });
     
-    const useDiagramImage = containerId === "feature-grid" || containerId === "work-grid";
+    const useDiagramImage = containerId === "work-grid"
+        ? (imageView !== "image")
+        : (containerId === "feature-grid");
     const stackUnderImage = containerId === "work-grid";
     const cardsHTML = uniqueList.map((project, index) =>
         ProjectCard(project, index, { useDiagramImage, stackUnderImage })

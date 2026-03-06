@@ -558,6 +558,20 @@ section {
   position: relative;
   z-index: 1;
   margin-bottom: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.work-page .work-view-toggle {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.work-page .work-view-toggle .filter-btn--view {
+  padding: 12px 20px;
+  font-size: 10px;
 }
 
 .work-page .category-filters {

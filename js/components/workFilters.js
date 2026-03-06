@@ -3,6 +3,7 @@ import { projects } from "../data/projects.js";
 export class WorkFilters {
   constructor() {
     this.selectedCategory = "all";
+    this.imageView = "diagram"; // "diagram" | "image" for work page project thumbnails
     this.isRendering = false;
   }
 
@@ -61,6 +62,10 @@ export class WorkFilters {
             UI UX<span class="filter-count">${counts["ui-ux"]}</span>
           </button>
         </div>
+        <div class="work-view-toggle" role="group" aria-label="Project image view">
+          <button type="button" class="filter-btn filter-btn--view ${this.imageView === 'diagram' ? 'active' : ''}" data-image-view="diagram" aria-pressed="${this.imageView === 'diagram'}">Diagrams</button>
+          <button type="button" class="filter-btn filter-btn--view ${this.imageView === 'image' ? 'active' : ''}" data-image-view="image" aria-pressed="${this.imageView === 'image'}">Images</button>
+        </div>
       </div>
     `;
   }
@@ -73,6 +78,13 @@ export class WorkFilters {
         this.setCategory(category);
       });
     });
+    const viewButtons = document.querySelectorAll('[data-image-view]');
+    viewButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const view = btn.getAttribute('data-image-view');
+        this.setImageView(view);
+      });
+    });
   }
 
   setCategory(category) {
@@ -80,6 +92,23 @@ export class WorkFilters {
     this.selectedCategory = category;
     this.updateCategoryButtons();
     this.renderProjects();
+  }
+
+  setImageView(view) {
+    if (view === this.imageView) return;
+    this.imageView = view;
+    this.updateImageViewButtons();
+    this.renderProjects();
+  }
+
+  updateImageViewButtons() {
+    const buttons = document.querySelectorAll('[data-image-view]');
+    buttons.forEach(btn => {
+      const view = btn.getAttribute('data-image-view');
+      const isActive = view === this.imageView;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-pressed', isActive);
+    });
   }
 
   updateCategoryButtons() {
@@ -126,7 +155,8 @@ export class WorkFilters {
       const { renderProjects } = await import("../renderProjects.js");
       await renderProjects({
         containerId: 'work-grid',
-        filteredList: filteredProjects
+        filteredList: filteredProjects,
+        imageView: this.imageView
       });
 
       this.initScrollProgressLine();
