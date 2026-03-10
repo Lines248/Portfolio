@@ -1203,6 +1203,11 @@ li.tag-creative,
   list-style: none;
 }
 
+.work-page #work-grid .project-card__media-col .project-card__metrics {
+  padding: 0 48px 0;
+  margin-left: 0;
+}
+
 .work-page #work-grid .project-card__media-col .project-points li {
   font-size: 0.75rem;
   padding: 0.25rem 0.5rem;
@@ -1255,6 +1260,12 @@ li.tag-creative,
   gap: 16px;
   margin: 0;
   margin-top: 24px;
+  padding-left: 0;
+}
+
+.work-page #work-grid .project-card__body .project-card__metrics {
+  padding-left: 0;
+  margin-left: 0;
 }
 
 .work-page #work-grid .project-card__body .links {
@@ -1286,6 +1297,11 @@ li.tag-creative,
 
   .work-page #work-grid .project-card .project-card__media-col .project-points {
     padding: 0 24px 1rem;
+  }
+
+  .work-page #work-grid .project-card .project-card__media-col .project-card__metrics {
+    padding: 0 24px 0;
+    margin-left: 0;
   }
 
   .work-page #work-grid .project-card > .project-card__image-link img,
@@ -1377,9 +1393,67 @@ li.tag-creative,
   list-style: none;
   padding: 0;
   margin: 0.25rem 0 0;
+  margin-left: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+}
+
+.project-card__metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  margin-left: 0;
+  padding-left: 0;
+  align-items: flex-start;
+}
+
+.metric-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 4px 10px 4px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(34, 197, 94, 0.45);
+  background: rgba(34, 197, 94, 0.08);
+  color: var(--text);
+}
+
+.metric-pill::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+  animation: metric-pulse 2s ease-in-out infinite;
+}
+
+@keyframes metric-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+  50% { box-shadow: 0 0 0 4px rgba(34, 197, 94, 0); }
+}
+
+:root.dark .metric-pill {
+  border-color: rgba(34, 197, 94, 0.35);
+  background: rgba(34, 197, 94, 0.12);
+}
+
+:root.dark .metric-pill::before {
+  background: #4ade80;
+}
+
+:root.environment .metric-pill {
+  border-color: rgba(34, 163, 80, 0.5);
+  background: rgba(34, 163, 80, 0.1);
+}
+
+:root.environment .metric-pill::before {
+  background: #16a34a;
 }
 
 .links {

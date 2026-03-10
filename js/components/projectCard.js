@@ -83,6 +83,10 @@ export function ProjectCard(project, index = 0, options = {}) {
         .map((item) => `<li class="${getTagClass(item)}">${item}</li>`)
         .join("");
 
+    const metricsHTML = project.metrics && Array.isArray(project.metrics) && project.metrics.length > 0
+        ? `<div class="project-card__metrics">${project.metrics.map((m) => `<span class="metric-pill">${m}</span>`).join("")}</div>`
+        : "";
+
     const projectLinks = buildProjectLinks(project);
 
     const isFirstCard = project.featured && index === 0;
@@ -119,6 +123,7 @@ export function ProjectCard(project, index = 0, options = {}) {
             <div class="project-card__media-col">
                 ${imageBlock}
                 <ul class="project-points" aria-label="Technologies used">${stackList}</ul>
+                ${metricsHTML}
             </div>
             <div class="project-card__body">
                 <h3>${project.title}</h3>
@@ -138,6 +143,7 @@ export function ProjectCard(project, index = 0, options = {}) {
                 <ul class="project-points" aria-label="Technologies used">
                     ${stackList}
                 </ul>
+                ${metricsHTML}
                 ${projectLinks}
             </div>
         </article>

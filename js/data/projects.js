@@ -8,6 +8,7 @@ export const projects = [
     description:
         "A secure, multi-tenant SaaS platform built with Next.js 15, React 19, and strict TypeScript. Features role-based access controls and a fully type-safe data mutation pipeline.",
     stack: ["Next.js", "React", "TypeScript", "PostgreSQL"],
+    metrics: ["98 Performance", "98% Task Success"],
     links: {
       live: "",
       repo: "",
@@ -72,6 +73,7 @@ export const projects = [
     description:
         "ACCEX is an accessibility tool that checks color contrast for WCAG compliance. Fast, accessible front-end build created with Vite. Designed with clean structure, smooth interaction, and a minimal UI that scales easily as new sections and projects are added. Front-end only, no backend or database.",
     stack: ["HTML", "CSS", "JavaScript", "Vue", "Vite", "CSS Modules", "Vercel"],
+    metrics: ["100 Accessibility", "99 Performance"],
     links: {
       live: "https://accex.vercel.app/",
       repo: "https://github.com/Lines248/Accex",
@@ -104,6 +106,7 @@ export const projects = [
     alt: "DeRoche Projects architectural portfolio interface",
     description: "Translating an architectural 'drawing board' concept into a dense, high-performance digital portfolio.",
     stack: ["Figma", "Information Architecture", "UI/UX", "Design Systems"],
+    metrics: ["Design System Verified"],
     links: {
       live: "https://derocheprojects.com/",
     },
