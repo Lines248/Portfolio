@@ -37,22 +37,6 @@ export const projects = [
     category: "design",
   },
   {
-    id: "nomin-eat",
-    title: "NominEat - Full-Stack Group Voting Web App",
-    type: "Java Spring Boot / PostgreSQL / Vue.js / Yelp Fusion API",
-    image: "/assets/images/nomineat-cover.avif",
-    alt: "Screenshot of the NominEat group voting web application.",
-    description:
-        "Designed and developed a full-stack web app that helps groups vote on where to eat. Users can create rooms, submit restaurant options, and vote in real time. Built with a Java backend, Vue front-end, PostgreSQL database, and the Yelp API for live restaurant data. Developed as my final capstone project at Tech Elevator, demonstrating end-to-end architecture, API integration, and a collaborative Agile workflow.",
-    stack: ["Java", "JavaScript", "Vue", "PostgreSQL", "REST APIs", "YELP API"],
-    links: {
-      live: "",
-      repo: "https://github.com/Lines248/TE-Capstone_",
-    },
-    featured: true,
-    category: "development",
-  },
-  {
     id: "accex",
     title: "ACCEX",
     type: "Front-End Engineering | Accessibility Tool",
@@ -104,6 +88,22 @@ export const projects = [
     featured: true,
     category: "ui-ux",
     hidden: false
+  },
+  {
+    id: "nomin-eat",
+    title: "NominEat - Full-Stack Group Voting Web App",
+    type: "Java Spring Boot / PostgreSQL / Vue.js / Yelp Fusion API",
+    image: "/assets/images/nomineat-cover.avif",
+    alt: "Screenshot of the NominEat group voting web application.",
+    description:
+        "Designed and developed a full-stack web app that helps groups vote on where to eat. Users can create rooms, submit restaurant options, and vote in real time. Built with a Java backend, Vue front-end, PostgreSQL database, and the Yelp API for live restaurant data. Developed as my final capstone project at Tech Elevator, demonstrating end-to-end architecture, API integration, and a collaborative Agile workflow.",
+    stack: ["Java", "JavaScript", "Vue", "PostgreSQL", "REST APIs", "YELP API"],
+    links: {
+      live: "",
+      repo: "https://github.com/Lines248/TE-Capstone_",
+    },
+    featured: true,
+    category: "development",
   },
   {
     id: "vending-machine",
