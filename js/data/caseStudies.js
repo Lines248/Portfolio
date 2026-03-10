@@ -22,6 +22,10 @@ export const caseStudies = {
         },
         title: "Data Verification Pipeline",
         content: "<p>To ensure data integrity, I built a pipeline that verifies information twice. Using Next.js Server Actions and Zod, the application checks form data on the front end as the user types, and then secures it again on the back end before any data reaches the PostgreSQL database. This prevents bad data from causing system errors.</p>"
+      },
+      {
+        title: "Evaluative Research & Iteration",
+        content: "<p>Balancing complex business objectives with a frictionless end-user experience required a rigorous, data-driven approach. During the initial prototyping phase, I conducted targeted focus groups and A/B tests to gather qualitative feedback on the gated viewing flow.</p><p>To track quantitative performance without compromising security, I integrated Clarity analytics directly into the application architecture. Analyzing live user sessions and heatmaps allowed me to rapidly identify UX friction points and iterate on the interface. This ensured a seamless, high-conversion experience for invited end-users while delivering actionable management tools to platform administrators.</p>"
       }
     ]
   },
@@ -122,6 +126,14 @@ export const caseStudies = {
       {
         title: "Performance & Themes",
         content: "<p>The site uses CSS variables and local browser storage to manage light and dark modes. The JavaScript prioritizes rendering the user's preferred theme before the screen even paints. This prevents the website from flashing bright white before loading the dark theme.</p>"
+      },
+      {
+        title: "Portfolio in Practice",
+        image: {
+          src: "/assets/images/portfolio-site.avif",
+          alt: "This portfolio site showcasing the 3-theme design system and responsive layout."
+        },
+        content: "<p>This portfolio is the project—a first-principles UI engine with a custom 3-theme design system, 8pt grid, and zero-dependency architecture.</p>"
       }
     ]
   },

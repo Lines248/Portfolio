@@ -74,16 +74,22 @@
 
         <main id="main-content" class="about-page" role="main">
             <section class="about-intro" aria-labelledby="about-heading">
-                <h1 id="about-heading">About</h1>
-                <p>Hi, I'm Caroline (Lines) Sultzer, a full-stack, frontend focused software engineer based in Brooklyn.</p>
-
-<p>My path to engineering started in visual design and physical fabrication. However, a life-changing injury shifted my entire trajectory. Navigating the world with a disability gave me a firsthand understanding of how critical accessible design truly is. That experience drove me to code. I wanted to build helpful technology, ed-tech tools, and digital spaces that actually work for everyone.</p>
-<ul>
-<li><strong>Full-Stack Foundation:</strong> Trained in an intensive Java program, I have a strong grasp of backend architecture, PostgreSQL, and API design. I love the logic of the backend just as much as front-end problem solving.</li>
-<li><strong>Accessible & Design-Driven UI:</strong> Working with React, Vue, and modern JavaScript, my background allows me to accurately translate Figma files into strict semantic HTML. Building WCAG compliant interfaces is not an afterthought for me. It is my baseline standard.</li>
-<li><strong>Proven Independence:</strong> For the past two years, I have worked as a freelance developer building projects from start to finish. My early hands-on fabrication work taught me how to troubleshoot complex systems step by step. I bring that exact mindset to every codebase.</li>
-</ul>
-                </section>
+                <h1 id="about-heading" class="about-intro__title">About</h1>
+                <div class="about-intro__inner">
+                    <div class="about-intro__bio">
+                        <p>I build digital experiences that look great and work perfectly under the hood. Coming from a background in interactive design and full-stack Java, I bring a system-level mindset to product development. I thrive in Agile environments, collaborating cross-functionally with PMs, engineers, and stakeholders to take products from wireframes to production-ready code.</p>
+                        <p>My path to engineering started in visual design and physical fabrication. However, a life-changing injury shifted my entire trajectory. Navigating the world with a disability gave me a firsthand understanding of how critical accessible design truly is. That experience drove me to code. I wanted to build helpful technology, ed-tech tools, and digital spaces that actually work for everyone.</p>
+                        <ul>
+                            <li><strong>Full-Stack Foundation:</strong> Trained in an intensive Java program, I have a strong grasp of backend architecture, PostgreSQL, and API design. I love the logic of the backend just as much as front-end problem solving.</li>
+                            <li><strong>Accessible &amp; Design-Driven UI:</strong> Working with React, Vue, and modern JavaScript, my background allows me to accurately translate Figma files into strict semantic HTML. Building WCAG compliant interfaces is not an afterthought for me. It is my baseline standard.</li>
+                            <li><strong>Proven Independence:</strong> For the past two years, I have worked as a freelance developer building projects from start to finish. My early hands-on fabrication work taught me how to troubleshoot complex systems step by step. I bring that exact mindset to every codebase.</li>
+                        </ul>
+                    </div>
+                    <figure class="about-intro__portrait fade-in-image">
+                        <img src="/assets/images/lines-portrait.jpeg" alt="Lines sitting at desk with an ergonomic split keyboard and mountain projection on the wall" loading="eager" />
+                    </figure>
+                </div>
+            </section>
 
             <section class="skills" aria-labelledby="skills-heading">
                 <h2 id="skills-heading">Technical Skills</h2>
@@ -128,30 +134,21 @@
                             <li><span class="skill-tag">Axe</span></li>
                         </ul>
                     </li>
+                    <li class="skills__category">
+                        <strong class="skills__heading">AI &amp; Data</strong>
+                        <ul class="skills__tags" aria-label="AI and Data">
+                            <li><span class="skill-tag">Generative AI</span></li>
+                            <li><span class="skill-tag">LLM Integration</span></li>
+                            <li><span class="skill-tag">Data Analytics (Clarity)</span></li>
+                        </ul>
+                    </li>
                 </ul>
             </section>
 
             <aside class="about-bottom-images" aria-labelledby="workspace-heading">
-                <h2 id="workspace-heading" class="visually-hidden">Workspace Gallery</h2>
-                <figure class="gallery-item">
-                    <img
-                        class="fade-in-image"
-                        src="assets/images/desk-setup-01.avif"
-                        alt="Coding desk with laptop, monitor, notebooks, and Java code open in the IDE."
-                        loading="lazy"
-                        width="600"
-                        height="450"
-                    />
-                </figure>
-                <figure class="gallery-item">
-                    <img
-                        class="fade-in-image"
-                        src="assets/images/studio-01.avif"
-                        alt="My workspace with plants, natural light, and my laptop and monitor."
-                        loading="lazy"
-                        width="600"
-                        height="450"
-                    />
+                <h2 id="workspace-heading" class="visually-hidden">Workspace</h2>
+                <figure class="about-bottom-images__desk fade-in-image">
+                    <img src="/assets/images/lines-workspace.jpeg" alt="Remote workspace setup with dual monitors, laptop, drawing tablet, and code editor open" loading="lazy" />
                 </figure>
             </aside>
 
