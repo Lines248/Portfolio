@@ -5,6 +5,7 @@ export const caseStudies = {
     subtitle: "A secure, high-performance digital viewing platform for protected assets.",
     roles: ["Product Designer", "Full-Stack Engineer", "Project Manager"],
     context: "Founder / Lead Developer",
+    stack: ["Next.js", "React", "TypeScript", "PostgreSQL", "Supabase", "Stripe"],
     featuredDiagram: {
       src: "/assets/images/ia-studio-user-flow.svg",
       alt: "IA Studio user flow diagram mapping the secure authentication sequence and data tracking points."
