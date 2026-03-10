@@ -6,6 +6,10 @@
  * multiple of 8 unless explicitly specified otherwise.
  */
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --max-width: 960px;
   --radius-s: 6px;
@@ -1454,6 +1458,25 @@ li.tag-creative,
 
 :root.environment .metric-pill::before {
   background: #16a34a;
+}
+
+.metric-pill--link {
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+  color: inherit;
+}
+
+.metric-pill--link:hover {
+  transform: translateY(-1px);
+  border-color: var(--primary-color, var(--accent, #000));
+}
+
+.case-study-header-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
 }
 
 .links {
@@ -3232,6 +3255,11 @@ main.case-study-page {
   min-width: 0;
 }
 
+/* Hash targets: scroll into view below sticky header (e.g. #proof-section from green pills) */
+.case-study-section[id] {
+  scroll-margin-top: 6rem;
+}
+
 .case-study-section--hidden {
   display: none;
 }
@@ -3364,6 +3392,32 @@ main.case-study-page {
   color: var(--text-muted);
   margin-top: 0.75rem;
   margin-bottom: 0;
+}
+
+/* Specially target the media container within the a11y proof section */
+#a11y-proof .case-study-media {
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Ensure the image inside scales to fit the container precisely */
+#a11y-proof .case-study-media img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  padding: 20px;
+}
+
+/* Caption on black card: use light text for readable contrast */
+#a11y-proof .case-study-media-caption {
+  color: rgba(255, 255, 255, 0.92);
+  padding: 0 20px 20px;
 }
 
 .case-study-context {

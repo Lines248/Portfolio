@@ -84,7 +84,15 @@ export function ProjectCard(project, index = 0, options = {}) {
         .join("");
 
     const metricsHTML = project.metrics && Array.isArray(project.metrics) && project.metrics.length > 0
-        ? `<div class="project-card__metrics">${project.metrics.map((m) => `<span class="metric-pill">${m}</span>`).join("")}</div>`
+        ? `<div class="project-card__metrics">${project.metrics.map((m) => {
+            const label = typeof m === "string" ? m : (m && m.label ? m.label : "");
+            const anchor = typeof m === "object" && m && m.anchor ? m.anchor : "";
+            if (anchor && hasCaseStudy(project)) {
+              const caseStudyUrl = getCaseStudyUrl(project);
+              return `<a href="${caseStudyUrl}#${String(anchor).replace(/"/g, "&quot;")}" class="metric-pill metric-pill--link">${label}</a>`;
+            }
+            return `<span class="metric-pill">${label}</span>`;
+          }).join("")}</div>`
         : "";
 
     const projectLinks = buildProjectLinks(project);

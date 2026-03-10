@@ -1,22 +1,5 @@
 export const projects = [
   {
-    id: "ia-studio",
-    title: "Authenticated Digital Asset Platform",
-    type: "Front-End Engineering | Next.js 15 / React 19 / TypeScript",
-    image: "assets/images/ia-desktop.jpg",
-    alt: "Screenshot of the Authenticated Digital Asset Platform interface",
-    description:
-        "A secure, multi-tenant SaaS platform built with Next.js 15, React 19, and strict TypeScript. Features role-based access controls and a fully type-safe data mutation pipeline.",
-    stack: ["Next.js", "React", "TypeScript", "PostgreSQL"],
-    metrics: ["98 Performance", "98% Task Success"],
-    links: {
-      live: "",
-      repo: "",
-    },
-    featured: true,
-    category: "design",
-  },
-  {
     id: "inline-access",
     title: "This Portfolio",
     type: "Front-End Engineering | Vanilla JS & Design System",
@@ -25,9 +8,26 @@ export const projects = [
     description:
         "This site is the project. Instead of reaching for a template, I built a custom 3-theme design system from scratch using Vanilla JavaScript. Front-end only, no backend or database.",
     stack: ["VANILLA JS", "SYSTEM DESIGN", "WCAG 2.2", "UI ARCHITECTURE"],
+    metrics: [{ label: "100 Lighthouse", anchor: "proof-section" }, { label: "Clarity Validated", anchor: "proof-section" }],
     links: {
       live: "https://inlineaccess.studio/",
       repo: "https://github.com/Lines248/portfolio-site",
+    },
+    featured: true,
+    category: "design",
+  },
+  {
+    id: "ia-studio",
+    title: "Authenticated Digital Asset Platform",
+    type: "Front-End Engineering | Next.js 15 / React 19 / TypeScript",
+    image: "assets/images/ia-desktop.jpg",
+    alt: "Screenshot of the Authenticated Digital Asset Platform interface",
+    description:
+        "A secure, multi-tenant SaaS platform built with Next.js 15, React 19, and strict TypeScript. Features role-based access controls and a fully type-safe data mutation pipeline.",
+    stack: ["Next.js", "React", "TypeScript", "PostgreSQL"],
+    links: {
+      live: "",
+      repo: "",
     },
     featured: true,
     category: "design",
@@ -73,7 +73,10 @@ export const projects = [
     description:
         "ACCEX is an accessibility tool that checks color contrast for WCAG compliance. Fast, accessible front-end build created with Vite. Designed with clean structure, smooth interaction, and a minimal UI that scales easily as new sections and projects are added. Front-end only, no backend or database.",
     stack: ["HTML", "CSS", "JavaScript", "Vue", "Vite", "CSS Modules", "Vercel"],
-    metrics: ["100 Accessibility", "99 Performance"],
+    metrics: [
+      { label: "100 Accessibility", anchor: "a11y-proof" },
+      { label: "WCAG 2.2 AA", anchor: "a11y-proof" }
+    ],
     links: {
       live: "https://accex.vercel.app/",
       repo: "https://github.com/Lines248/Accex",

@@ -32,7 +32,38 @@ export class CaseStudy {
     }
 
     this.render();
+    this.scrollToHashTarget();
     this.attachDiagramLightbox();
+  }
+
+  /**
+   * After content is rendered, scroll to the URL hash target (e.g. #proof-section)
+   * so green metric pill links from the work page land in the right place. Waits for
+   * layout to settle, then scrolls with explicit offset so the section lands below the sticky header.
+   */
+  scrollToHashTarget() {
+    const hash = window.location.hash;
+    if (!hash || hash.length < 2) return;
+    const id = hash.slice(1).replace(/["'<>]/g, "");
+    if (!id) return;
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    const scrollToTarget = () => {
+      const headerOffset = 88;
+      const top = el.getBoundingClientRect().top + window.scrollY - headerOffset;
+      window.scrollTo({ top, behavior: "smooth" });
+      el.setAttribute("tabindex", "-1");
+      if (typeof el.focus === "function") {
+        el.focus({ preventScroll: true });
+      }
+    };
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        scrollToTarget();
+      });
+    });
   }
 
   attachDiagramLightbox() {
@@ -86,7 +117,7 @@ export class CaseStudy {
   buildCaseStudyHTML() {
     const stackList = this.buildStackList();
     const links = this.buildLinks();
-    const featuredDiagram = this.isNewSchema() ? "" : this.buildFeaturedDiagram();
+    const featuredDiagram = (this.project && this.project.id === "inline-access") ? "" : (this.isNewSchema() ? "" : this.buildFeaturedDiagram());
     const mainContent = this.buildMainContent();
     const metaHTML = this.buildMetaContent();
     const title = this.isNewSchema() && this.caseStudyContent.title ? this.caseStudyContent.title : this.project.title;
@@ -100,6 +131,7 @@ export class CaseStudy {
             <h1 class="case-study-title">${this.escapeHtml(title)}</h1>
             ${this.caseStudyContent && this.caseStudyContent.subtitle ? `<p class="case-study-subtitle">${this.escapeHtml(this.caseStudyContent.subtitle)}</p>` : ""}
             ${metaHTML}
+            ${this.buildHeaderMetrics()}
             ${!this.isNewSchema() && this.caseStudyContent && this.caseStudyContent.overview ? `<p class="case-study-overview">${this.caseStudyContent.overview}</p>` : ""}
           </div>
         </header>
@@ -166,6 +198,21 @@ export class CaseStudy {
         ${roleTags}
       </ul>
     `;
+  }
+
+  buildHeaderMetrics() {
+    if (!this.caseStudyContent || !this.caseStudyContent.metrics || !Array.isArray(this.caseStudyContent.metrics) || this.caseStudyContent.metrics.length === 0) {
+      return "";
+    }
+    const pills = this.caseStudyContent.metrics
+      .map((m) => {
+        const label = typeof m === "string" ? m : (m.label || "");
+        const anchor = typeof m === "object" && m && m.anchor ? m.anchor : "";
+        if (!anchor) return `<span class="metric-pill">${this.escapeHtml(label)}</span>`;
+        return `<a href="#${this.escapeAttr(anchor)}" class="metric-pill metric-pill--link">${this.escapeHtml(label)}</a>`;
+      })
+      .join("");
+    return `<div class="case-study-header-metrics">${pills}</div>`;
   }
 
   buildFeaturedDiagram() {
@@ -297,8 +344,10 @@ export class CaseStudy {
         `;
       }
 
+      const sectionIdAttr = section.id ? ` id="${this.escapeAttr(section.id)}"` : "";
+      const sectionTabindexAttr = section.id ? ' tabindex="-1"' : "";
       sectionsHTML += `
-        <section class="case-study-section" aria-labelledby="${sectionId}">
+        <section class="case-study-section"${sectionIdAttr}${sectionTabindexAttr} aria-labelledby="${sectionId}">
           <h2 id="${sectionId}">${this.escapeHtml(sectionTitle)}</h2>
           <div class="case-study-section-content">
             ${sectionBody}

@@ -5,32 +5,26 @@ export const caseStudies = {
     subtitle: "A secure, high-performance digital viewing platform for protected assets.",
     roles: ["Product Designer", "Full-Stack Engineer", "Project Manager"],
     context: "Founder / Lead Developer",
+    featuredDiagram: {
+      src: "/assets/images/ia-studio-user-flow.svg",
+      alt: "IA Studio user flow diagram mapping the secure authentication sequence and data tracking points."
+    },
     sections: [
       {
         heading: "The Problem & The Solution",
         body: "<p><strong>The Problem:</strong> Sharing secure digital files usually forces clients to create accounts and remember passwords, adding significant friction to the user experience.</p><p><strong>The Solution:</strong> A custom Next.js application that separates secure server operations from the user interface. Instead of full account logins, it uses secure hashed access codes to grant entry to specific gated viewing environments.</p>",
-        media: []
+        media: [{ type: "image", src: "/assets/images/ia-studio-hero.png", caption: "The platform's core interface: Balancing high-security asset protection with a minimalist, high-end user experience." }]
       },
       {
         heading: "Data Verification Pipeline",
         body: "<p>To ensure data integrity without sacrificing usability, I built a dual-layer verification pipeline using Next.js Server Actions and Zod. The application validates form data on the front-end as the user types, providing instant, zero-latency feedback that eliminates frustrating form-submission errors. A secondary validation layer then secures the data on the back-end before it reaches the PostgreSQL database, protecting business logic without compromising the seamless user experience.</p>",
-        media: [
-          {
-            type: "image",
-            src: "/assets/images/ia-studio-architecture.svg",
-            caption: "System architecture mapping the data lifecycle from client-side input to secure PostgreSQL mutation."
-          }
-        ]
+        media: [{ type: "image", src: "/assets/images/ia-studio-architecture.svg", caption: "System architecture mapping the data lifecycle from client-side input to secure PostgreSQL mutation." }]
       },
       {
         heading: "Evaluative Research & Iteration",
         body: "<p>Balancing complex business objectives with a frictionless end-user experience required a rigorous, data-driven approach. During the initial prototyping phase, I conducted targeted focus groups and A/B tests to gather qualitative feedback on the gated viewing flow.</p><p>To track quantitative performance without compromising security, I integrated Clarity analytics directly into the application architecture. Analyzing live user sessions and heatmaps allowed me to rapidly identify UX friction points and iterate on the interface.</p>",
         media: [
-          {
-            type: "image",
-            src: "/assets/images/ia-studio-user-flow.svg",
-            caption: "Abstracted user flow mapping the secure authentication sequence and quantitative data tracking points."
-          }
+          { type: "image", src: "/assets/images/ia-studio-user-flow.svg", caption: "Abstracted user flow mapping the secure authentication sequence." }
         ]
       },
       {
@@ -75,18 +69,26 @@ export const caseStudies = {
       src: "/assets/images/accex-architecture.svg",
       alt: "Data Flow architecture for ACCEX."
     },
+    metrics: [
+      { label: "100 Accessibility", anchor: "a11y-proof" },
+      { label: "WCAG 2.2 AA", anchor: "a11y-proof" }
+    ],
     sections: [
       {
         title: "The Problem & The Solution",
         content: "<p><strong>The Problem:</strong> Checking color contrast usually requires designers and developers to leave their work environment and use an external website or sandbox.</p><p><strong>The Solution:</strong> A Vue 3 application that calculates WCAG compliance instantly as users type. It uses a clean data flow to run accessibility math without slowing down the browser.</p>"
       },
       {
-        image: {
-          src: "/assets/images/accex.avif",
-          alt: "User Interface of ACCEX showing the live CSS injection."
-        },
         title: "Live CSS Updates",
         content: "<p>Instead of showing a small preview window, the application applies the selected colors to the entire website interface in real time. It does this by updating CSS custom properties directly on the document root, turning the tool itself into a live accessibility demonstration.</p>"
+      },
+      {
+        id: "a11y-proof",
+        heading: "Accessibility & Validation",
+        body: "<ul><li><strong>100/100 Lighthouse Score:</strong> Automated auditing confirms a perfect baseline for semantic HTML and ARIA implementation.</li><li><strong>100% Keyboard Navigability:</strong> Conducted manual testing to ensure zero focus traps, full modal trapping, and complete operability without a mouse.</li><li><strong>WCAG 2.2 AA Compliance:</strong> Mathematically verified that all UI elements and typography scales exceed the strict 4.5:1 contrast ratio threshold.</li></ul>",
+        media: [
+          { type: "image", src: "/assets/images/accex-lighthouse-proof.png", caption: "Lighthouse audit confirming a perfect 100/100 Accessibility score." }
+        ]
       }
     ]
   },
@@ -129,22 +131,30 @@ export const caseStudies = {
       src: "/assets/images/portfolio-architecture.svg",
       alt: "System architecture diagram for the Portfolio Site."
     },
+    metrics: [
+      { label: "100 Lighthouse", anchor: "proof-section" },
+      { label: "Clarity Validated", anchor: "proof-section" }
+    ],
     sections: [
       {
         title: "The Problem & The Solution",
-        content: "<p><strong>The Problem:</strong> Modern web frameworks like React are powerful, but they can be heavy and slow down simple websites.</p><p><strong>The Solution:</strong> A custom Vanilla JavaScript engine that loads content dynamically. It manages page routing and themes without relying on a backend server or complex build tools.</p>"
+        content: "<p><strong>The Problem:</strong> Modern web frameworks like React are powerful, but they can be heavy and slow down simple websites.</p><p><strong>The Solution:</strong> A custom Vanilla JavaScript engine that loads content dynamically. It manages page routing and themes without relying on a backend server or complex build tools.</p>",
+        media: [{ type: "image", src: "/assets/images/portfolio-architecture.svg", caption: "System architecture diagram for the Portfolio Site." }]
       },
       {
-        title: "Performance & Themes",
-        content: "<p>The site uses CSS variables and local browser storage to manage light and dark modes. The JavaScript prioritizes rendering the user's preferred theme before the screen even paints. This prevents the website from flashing bright white before loading the dark theme.</p>"
+        heading: "A First-Principles UI Engine",
+        body: "<p>This portfolio is the project itself, a first-principles UI engine built with a zero-dependency architecture. It features a custom 3-theme design system anchored to a strict 8pt grid.</p><p>To ensure a premium user experience, the site leverages CSS variables and local browser storage to manage these themes. The JavaScript is heavily optimized to prioritize and render the user's preferred theme before the initial paint, completely eliminating jarring white flashes during load.</p>",
+        media: []
       },
       {
-        title: "Portfolio in Practice",
-        image: {
-          src: "/assets/images/portfolio-site.avif",
-          alt: "This portfolio site showcasing the 3-theme design system and responsive layout."
-        },
-        content: "<p>This portfolio is the project—a first-principles UI engine with a custom 3-theme design system, 8pt grid, and zero-dependency architecture.</p>"
+        id: "proof-section",
+        heading: "Engineering Standards & Analytics",
+        body: "<p>To ensure this portfolio performs at an enterprise level, I rigorously audited the architecture and tracked real-world user behavior. The site achieves a perfect 100/100 across all Lighthouse metrics. Additionally, integrating Microsoft Clarity allowed me to validate my system-level navigation, confirming high engagement on the categorical filters and tracking successful routing to the case studies.</p>",
+        media: [
+          { type: "image", src: "/assets/images/portfolio-lighthouse-proof.png", caption: "Lighthouse audit confirming perfect 100 scores across Performance, Accessibility, Best Practices, and SEO." },
+          { type: "image", src: "/assets/images/ia-behavior-proof.png", caption: "Microsoft Clarity session analysis highlighting high-engagement filter zones on the Work page." },
+          { type: "image", src: "/assets/images/ia-conversion-proof.png", caption: "Quantitative click-tracking confirming successful conversion rates to individual case studies." }
+        ]
       }
     ]
   },
