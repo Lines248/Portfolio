@@ -247,30 +247,43 @@ export class CaseStudy {
   }
 
   buildMainContent() {
-    if (this.isNewSchema()) {
-      return this.buildMainContentNew();
-    }
     if (!this.caseStudyContent || !this.caseStudyContent.sections || !this.caseStudyContent.sections.length) {
       return `
         <div class="case-study-description">
           <h2 class="visually-hidden">Project Description</h2>
-          <p>${this.project.description}</p>
+          <p>${this.escapeHtml(this.project.description)}</p>
         </div>
       `;
     }
 
-    let sectionsHTML = "";
     const sectionsArray = this.caseStudyContent.sections;
+    let sectionsHTML = "";
 
     for (let i = 0; i < sectionsArray.length; i++) {
       const section = sectionsArray[i];
       const sectionId = "section-" + (i + 1);
 
-      let imageHTML = "";
-      if (section.image && section.image.src) {
-        imageHTML = `
-          <figure class="section-image" style="margin-bottom: 2rem;">
-            <img src="${section.image.src}" alt="${this.escapeAttr(section.image.alt)}" loading="lazy" style="width: 100%; height: auto; border-radius: 4px;" />
+      // Support both New Schema (heading, body, media[]) and legacy (title, content, image)
+      const sectionTitle = (section.heading !== undefined && section.heading !== null)
+        ? section.heading
+        : section.title;
+      const sectionBodyRaw = (section.body !== undefined && section.body !== null)
+        ? section.body
+        : section.content;
+      const sectionBody = sectionBodyRaw != null && String(sectionBodyRaw).trim() !== ""
+        ? (/^<[\s\S]*>/.test(String(sectionBodyRaw).trim()) ? sectionBodyRaw : `<p>${this.escapeHtml(sectionBodyRaw)}</p>`)
+        : (section.content != null ? section.content : "");
+
+      // Media: New Schema uses section.media[] (loop); legacy uses single section.image
+      let mediaHTML = "";
+      if (section.media && Array.isArray(section.media) && section.media.length > 0) {
+        mediaHTML = section.media.map((m) => this.buildSectionMedia(m)).join("");
+      } else if (section.image && section.image.src) {
+        const alt = section.image.alt || section.image.caption || sectionTitle;
+        mediaHTML = `
+          <figure class="case-study-media case-study-media--image" style="margin-bottom: 2rem;">
+            <img src="${this.escapeAttr(section.image.src)}" alt="${this.escapeAttr(alt)}" loading="lazy" class="section-image" style="width: 100%; height: auto; border-radius: 4px;" />
+            ${section.image.caption ? `<figcaption class="case-study-media-caption">${this.escapeHtml(section.image.caption)}</figcaption>` : ""}
           </figure>
         `;
       }
@@ -286,11 +299,11 @@ export class CaseStudy {
 
       sectionsHTML += `
         <section class="case-study-section" aria-labelledby="${sectionId}">
-          ${imageHTML}
-          <h2 id="${sectionId}">${section.title}</h2>
+          <h2 id="${sectionId}">${this.escapeHtml(sectionTitle)}</h2>
           <div class="case-study-section-content">
-            ${section.content}
+            ${sectionBody}
           </div>
+          ${mediaHTML}
           ${embedHTML}
         </section>
       `;
@@ -299,55 +312,36 @@ export class CaseStudy {
     return sectionsHTML;
   }
 
-  /** Renders sections for new schema: heading, body, media[] (image | figma-embed | video) */
-  buildMainContentNew() {
-    const sections = this.caseStudyContent.sections || [];
-    if (!sections.length) {
-      return `<div class="case-study-description"><p>${this.escapeHtml(this.project.description)}</p></div>`;
-    }
-
-    let html = "";
-    for (let i = 0; i < sections.length; i++) {
-      const section = sections[i];
-      const sectionId = "section-" + (i + 1);
-      const mediaHTML = (section.media || []).map((m) => this.buildSectionMedia(m)).join("");
-      const bodyHtml = section.body && /^<[\s\S]*>/.test(section.body.trim()) ? section.body : `<p>${this.escapeHtml(section.body)}</p>`;
-      html += `
-        <section class="case-study-section" aria-labelledby="${sectionId}">
-          <h2 id="${sectionId}">${this.escapeHtml(section.heading)}</h2>
-          <div class="case-study-section-content">
-            ${bodyHtml}
-          </div>
-          ${mediaHTML}
-        </section>
-      `;
-    }
-    return html;
-  }
-
   buildSectionMedia(media) {
-    const caption = media.caption ? `<figcaption class="case-study-media-caption">${this.escapeHtml(media.caption)}</figcaption>` : "";
+    const captionHtml = media.caption
+      ? `<figcaption class="case-study-media-caption">${this.escapeHtml(media.caption)}</figcaption>`
+      : "";
     const isPlaceholder = !media.src || media.src === "PLACEHOLDER_URL";
+    const type = media.type || (media.src ? "image" : "");
 
-    if (media.type === "image") {
+    if (type === "image") {
       if (isPlaceholder) {
-        return `<figure class="case-study-media case-study-media--image"><div class="case-study-embed figma-embed-wrapper case-study-media-placeholder" aria-label="Image placeholder"><!-- Replace with img or set src in data --></div>${caption}</figure>`;
+        return `<figure class="case-study-media case-study-media--image" style="margin-bottom: 2rem;"><div class="case-study-embed figma-embed-wrapper case-study-media-placeholder" aria-label="Image placeholder"><!-- Replace with img or set src in data --></div>${captionHtml}</figure>`;
       }
-      return `<figure class="case-study-media case-study-media--image"><img src="${this.escapeAttr(media.src)}" alt="${this.escapeAttr(media.caption)}" loading="lazy" class="section-image" />${caption}</figure>`;
+      const alt = media.alt || media.caption || "";
+      return `<figure class="case-study-media case-study-media--image" style="margin-bottom: 2rem;">
+            <img src="${this.escapeAttr(media.src)}" alt="${this.escapeAttr(alt)}" loading="lazy" class="section-image" style="width: 100%; height: auto; border-radius: 4px;" />
+            ${captionHtml}
+          </figure>`;
     }
 
     if (media.type === "figma-embed") {
       const iframePart = isPlaceholder
         ? "<!-- Paste Figma iframe here -->"
         : `<iframe src="${this.escapeAttr(media.src)}" title="${this.escapeAttr(media.caption)}" class="figma-embed-iframe"></iframe>`;
-      return `<figure class="case-study-media case-study-media--figma"><div class="case-study-embed figma-embed-wrapper" aria-label="Figma embed">${iframePart}</div>${caption}</figure>`;
+      return `<figure class="case-study-media case-study-media--figma"><div class="case-study-embed figma-embed-wrapper" aria-label="Figma embed">${iframePart}</div>${captionHtml}</figure>`;
     }
 
     if (media.type === "video") {
       const videoPart = isPlaceholder
         ? "<!-- Paste video path in data -->"
         : `<video class="case-study-video" autoplay loop muted playsinline aria-label="${this.escapeAttr(media.caption)}"><source src="${this.escapeAttr(media.src)}" type="video/mp4" /></video>`;
-      return `<figure class="case-study-media case-study-media--video"><div class="case-study-embed figma-embed-wrapper case-study-video-wrap">${videoPart}</div>${caption}</figure>`;
+      return `<figure class="case-study-media case-study-media--video"><div class="case-study-embed figma-embed-wrapper case-study-video-wrap">${videoPart}</div>${captionHtml}</figure>`;
     }
 
     return "";

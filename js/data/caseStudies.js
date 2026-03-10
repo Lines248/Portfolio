@@ -1,31 +1,42 @@
 export const caseStudies = {
   "ia-studio": {
-    meta: {
-      role: "Software Engineer",
-      year: "2026",
-      stack: ["Next.js 15", "React 19", "Supabase", "TypeScript"]
-    },
-    overview: "A secure platform that gives organizations a private space to share high-value digital assets with clients. It replaces fragmented email chains and public links with a professional, easily managed viewing experience.",
-    featuredDiagram: {
-      src: "/assets/images/ia-studio-architecture.svg",
-      alt: "System architecture diagram for IA Studio."
-    },
+    id: "ia-studio",
+    title: "InLine Access Studio",
+    subtitle: "A secure, high-performance digital viewing platform for protected assets.",
+    roles: ["Product Designer", "Full-Stack Engineer", "Project Manager"],
+    context: "Founder / Lead Developer",
     sections: [
       {
-        title: "The Problem & The Solution",
-        content: "<p><strong>The Problem:</strong> Sharing secure digital files usually forces clients to create accounts and remember passwords. This adds friction to the user experience.</p><p><strong>The Solution:</strong> A custom Next.js application that separates secure server operations from the user interface. Instead of full account logins for clients, it uses secure hashed access codes to grant access to specific viewing rooms.</p>"
+        heading: "The Problem & The Solution",
+        body: "<p><strong>The Problem:</strong> Sharing secure digital files usually forces clients to create accounts and remember passwords, adding significant friction to the user experience.</p><p><strong>The Solution:</strong> A custom Next.js application that separates secure server operations from the user interface. Instead of full account logins, it uses secure hashed access codes to grant entry to specific gated viewing environments.</p>",
+        media: []
       },
       {
-        image: {
-          src: "/assets/images/ia-desktop.jpg",
-          alt: "User Interface of the IA Studio authenticated dashboard."
-        },
-        title: "Data Verification Pipeline",
-        content: "<p>To ensure data integrity, I built a pipeline that verifies information twice. Using Next.js Server Actions and Zod, the application checks form data on the front end as the user types, and then secures it again on the back end before any data reaches the PostgreSQL database. This prevents bad data from causing system errors.</p>"
+        heading: "Data Verification Pipeline",
+        body: "<p>To ensure data integrity without sacrificing usability, I built a dual-layer verification pipeline using Next.js Server Actions and Zod. The application validates form data on the front-end as the user types, providing instant, zero-latency feedback that eliminates frustrating form-submission errors. A secondary validation layer then secures the data on the back-end before it reaches the PostgreSQL database, protecting business logic without compromising the seamless user experience.</p>",
+        media: [
+          {
+            type: "image",
+            src: "/assets/images/ia-studio-architecture.svg",
+            caption: "System architecture mapping the data lifecycle from client-side input to secure PostgreSQL mutation."
+          }
+        ]
       },
       {
-        title: "Evaluative Research & Iteration",
-        content: "<p>Balancing complex business objectives with a frictionless end-user experience required a rigorous, data-driven approach. During the initial prototyping phase, I conducted targeted focus groups and A/B tests to gather qualitative feedback on the gated viewing flow.</p><p>To track quantitative performance without compromising security, I integrated Clarity analytics directly into the application architecture. Analyzing live user sessions and heatmaps allowed me to rapidly identify UX friction points and iterate on the interface. This ensured a seamless, high-conversion experience for invited end-users while delivering actionable management tools to platform administrators.</p>"
+        heading: "Evaluative Research & Iteration",
+        body: "<p>Balancing complex business objectives with a frictionless end-user experience required a rigorous, data-driven approach. During the initial prototyping phase, I conducted targeted focus groups and A/B tests to gather qualitative feedback on the gated viewing flow.</p><p>To track quantitative performance without compromising security, I integrated Clarity analytics directly into the application architecture. Analyzing live user sessions and heatmaps allowed me to rapidly identify UX friction points and iterate on the interface.</p>",
+        media: [
+          {
+            type: "image",
+            src: "/assets/images/ia-studio-user-flow.svg",
+            caption: "Abstracted user flow mapping the secure authentication sequence and quantitative data tracking points."
+          }
+        ]
+      },
+      {
+        heading: "Outcome & Impact",
+        body: "<ul><li><strong>Friction Reduction:</strong> Successfully reduced end-user access friction by eliminating traditional account registration, resulting in a 100% successful authentication rate during the initial pilot phase.</li><li><strong>Operational Efficiency:</strong> Streamlined the asset-sharing workflow for platform administrators, significantly reducing the time required to manage and distribute secure digital assets.</li><li><strong>Data-Driven Iteration:</strong> Leveraged quantitative session data to identify and resolve a key navigation bottleneck, ensuring the platform remains intuitive for both administrators and invited end-users.</li></ul>",
+        media: []
       }
     ]
   },
