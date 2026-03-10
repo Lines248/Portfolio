@@ -17,22 +17,6 @@ export const projects = [
     category: "design",
   },
   {
-    id: "deroche-projects",
-    title: "DeRoche Projects",
-    type: "Digital Identity & UI/UX",
-    image: "/assets/images/deroche.avif",
-    alt: "DeRoche Projects architectural portfolio interface",
-    description: "Translating an architectural 'drawing board' concept into a dense, high-performance digital portfolio.",
-    stack: ["Figma", "Information Architecture", "UI/UX", "Design Systems"],
-    metrics: ["Design System Verified"],
-    links: {
-      live: "https://derocheprojects.com/",
-    },
-    featured: true,
-    category: "ui-ux",
-    hidden: false
-  },
-  {
     id: "ia-studio",
     title: "Authenticated Digital Asset Platform",
     type: "Front-End Engineering | Next.js 15 / React 19 / TypeScript",
@@ -71,6 +55,21 @@ export const projects = [
     },
     featured: true,
     category: "design",
+  },
+  {
+    id: "deroche-projects",
+    title: "DeRoche Projects",
+    type: "Digital Identity & UI/UX",
+    image: "/assets/images/deroche.avif",
+    alt: "DeRoche Projects architectural portfolio interface",
+    description: "Translating an architectural 'drawing board' concept into a dense, high-performance digital portfolio.",
+    stack: ["Figma", "Information Architecture", "UI/UX", "Design Systems"],
+    links: {
+      live: "https://derocheprojects.com/",
+    },
+    featured: true,
+    category: "ui-ux",
+    hidden: false
   },
   {
     id: "claim-your-signal",
