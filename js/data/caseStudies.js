@@ -9,11 +9,15 @@ export const caseStudies = {
       src: "/assets/images/ia-studio-user-flow.svg",
       alt: "IA Studio user flow diagram mapping the secure authentication sequence and data tracking points."
     },
+    metrics: [
+      { label: "6ms Auth Response", anchor: "performance-proof" },
+      { label: "WebP Optimized", anchor: "performance-proof" }
+    ],
     sections: [
       {
         heading: "The Problem & The Solution",
         body: "<p><strong>The Problem:</strong> Sharing secure digital files usually forces clients to create accounts and remember passwords, adding significant friction to the user experience.</p><p><strong>The Solution:</strong> A custom Next.js application that separates secure server operations from the user interface. Instead of full account logins, it uses secure hashed access codes to grant entry to specific gated viewing environments.</p>",
-        media: [{ type: "image", src: "/assets/images/ia-studio-hero.png", caption: "The platform's core interface: Balancing high-security asset protection with a minimalist, high-end user experience." }]
+        media: [{ type: "image", src: "/assets/images/ia-ui-portal.png", caption: "The platform's core interface: the minimalist, high-conversion entry portal for InLine Access Studio." }]
       },
       {
         heading: "Data Verification Pipeline",
@@ -31,6 +35,15 @@ export const caseStudies = {
         heading: "Outcome & Impact",
         body: "<ul><li><strong>Friction Reduction:</strong> Successfully reduced end-user access friction by eliminating traditional account registration, resulting in a 100% successful authentication rate during the initial pilot phase.</li><li><strong>Operational Efficiency:</strong> Streamlined the asset-sharing workflow for platform administrators, significantly reducing the time required to manage and distribute secure digital assets.</li><li><strong>Data-Driven Iteration:</strong> Leveraged quantitative session data to identify and resolve a key navigation bottleneck, ensuring the platform remains intuitive for both administrators and invited end-users.</li></ul>",
         media: []
+      },
+      {
+        id: "performance-proof",
+        heading: "Performance & Security Metrics",
+        body: "<ul><li><strong>Near-Instant Server Actions:</strong> Production network logs confirm a 6ms response time for secure authentication, ensuring a frictionless experience for high-stakes gallery clients.</li><li><strong>Next-Gen Payload Optimization:</strong> Automatically serve WebP assets via Next.js Image optimization, reducing high-fidelity gallery images to ~40kB for instant visual rendering.</li><li><strong>Bespoke Security Architecture:</strong> Designed a 'Private by Design' entry system that eliminates traditional account overhead while maintaining strict cryptographic asset protection.</li></ul>",
+        media: [
+          { type: "image", src: "/assets/images/ia-auth-proof.png", caption: "Next.js Server Action confirming a 6ms secure authentication response." },
+          { type: "image", src: "/assets/images/ia-payload-proof.png", caption: "Automatic WebP compression reducing gallery assets by over 80%." }
+        ]
       }
     ]
   },

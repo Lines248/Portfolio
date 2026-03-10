@@ -25,6 +25,10 @@ export const projects = [
     description:
         "A secure, multi-tenant SaaS platform built with Next.js 15, React 19, and strict TypeScript. Features role-based access controls and a fully type-safe data mutation pipeline.",
     stack: ["Next.js", "React", "TypeScript", "PostgreSQL"],
+    metrics: [
+      { label: "6ms Auth Response", anchor: "performance-proof" },
+      { label: "WebP Optimized", anchor: "performance-proof" }
+    ],
     links: {
       live: "",
       repo: "",

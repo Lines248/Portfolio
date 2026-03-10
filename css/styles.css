@@ -3394,30 +3394,47 @@ main.case-study-page {
   margin-bottom: 0;
 }
 
-/* Specially target the media container within the a11y proof section */
-#a11y-proof .case-study-media {
-  max-width: 650px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  background: #000;
+/* Premium technical dashboard / receipt styling: a11y proof (ACCEX) and performance proof (IA Studio) */
+#a11y-proof .case-study-media,
+#performance-proof .case-study-media {
+  max-width: 700px;
+  margin: 2.5rem auto;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #0b0b0b;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
 }
 
-/* Ensure the image inside scales to fit the container precisely */
-#a11y-proof .case-study-media img {
+#a11y-proof .case-study-media img,
+#performance-proof .case-study-media img {
   width: 100%;
   height: auto;
-  object-fit: contain;
-  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Caption on black card: use light text for readable contrast */
-#a11y-proof .case-study-media-caption {
+#a11y-proof .case-study-media img:last-child,
+#performance-proof .case-study-media img:last-child {
+  margin-bottom: 0;
+}
+
+/* Caption on dark card: use light text for readable contrast */
+#a11y-proof .case-study-media-caption,
+#performance-proof .case-study-media-caption {
   color: rgba(255, 255, 255, 0.92);
-  padding: 0 20px 20px;
+  padding: 0.5rem 0 0;
+}
+
+/* IA Studio stats screenshots: wider container so DevTools/network proof images are readable */
+#performance-proof .case-study-media {
+  max-width: min(960px, 95vw);
+  padding: 1.25rem;
+}
+
+#performance-proof .case-study-media img {
+  object-fit: contain;
 }
 
 .case-study-context {
