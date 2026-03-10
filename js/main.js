@@ -5,7 +5,7 @@ import { analyticsConfig } from "./config/analytics.js";
 const app = new App();
 app.init();
 
-if (analyticsManager.shouldLoadAnalytics()) {
+if (window.location.hostname !== '127.0.0.1' && window.location.hostname !== 'localhost' && analyticsManager.shouldLoadAnalytics()) {
   const loadVercelAnalytics = () => {
     const insightsScript = document.createElement("script");
     insightsScript.src = "/_vercel/insights/script.js";
@@ -23,14 +23,14 @@ if (analyticsManager.shouldLoadAnalytics()) {
   } else {
     setTimeout(loadVercelAnalytics, 2000);
   }
+}
 
-  if (analyticsConfig.clarity.enabled && analyticsConfig.clarity.projectId) {
-    if (document.readyState === 'complete') {
+if (analyticsConfig.clarity.enabled && analyticsConfig.clarity.projectId && analyticsManager.shouldLoadAnalytics()) {
+  if (document.readyState === 'complete') {
+    analyticsManager.loadClarity(analyticsConfig.clarity.projectId, analyticsConfig.clarity);
+  } else {
+    window.addEventListener('load', () => {
       analyticsManager.loadClarity(analyticsConfig.clarity.projectId, analyticsConfig.clarity);
-    } else {
-      window.addEventListener('load', () => {
-        analyticsManager.loadClarity(analyticsConfig.clarity.projectId, analyticsConfig.clarity);
-      }, { once: true });
-    }
+    }, { once: true });
   }
 }

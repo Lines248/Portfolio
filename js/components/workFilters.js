@@ -8,6 +8,7 @@ const CASE_STUDY_PATHS = {
   "nomin-eat": "/nomineat.html",
   "vending-machine": "/vending-machine.html",
   "accex": "/accex.html",
+  "deroche-projects": "/deroche.html",
 };
 
 export class WorkFilters {

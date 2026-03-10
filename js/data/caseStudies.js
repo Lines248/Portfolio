@@ -125,29 +125,46 @@ export const caseStudies = {
       }
     ]
   },
-  "deroche": {
-    meta: {
-      role: "UI/UX Designer",
-      year: "2025", 
-      stack: ["UI/UX Design", "Responsive Layouts", "Image Processing", "CMS Setup"] 
-    },
-    overview: "A dynamic architecture portfolio featuring a responsive, randomized image grid that creates a unique discovery experience on every visit.",
-    featuredDiagram: {
-      src: "/assets/images/deroche-grid-annotated.png", 
-      alt: "Annotated UI of the DeRoche homepage grid showing randomization and responsive behavior."
-    },
+  /* New schema: id, title, subtitle, roles, context, sections (heading, body, media[]). See js/types/caseStudy.d.ts */
+  "deroche-projects": {
+    id: "deroche-projects",
+    title: "DeRoche Projects",
+    subtitle: "Translating an architectural 'drawing board' concept into a dense, high-performance digital portfolio.",
+    roles: ["Information Architect", "UI/UX Designer", "Creative Technologist"],
+    context: "Contracted via Digital Counsel",
     sections: [
       {
-        title: "The Problem & The Solution",
-        content: "<p><strong>The Problem:</strong> Traditional architecture portfolios often rely on stiff, predictable layouts. A standard static grid can feel sterile and fails to invite organic exploration from the user.</p><p><strong>The Solution:</strong> I designed a playful, dynamic index page. Every time a user enters the site, the layout generates a completely unique assortment of images, turning a simple directory into an engaging discovery experience.</p>"
+        heading: "The Problem & The Solution",
+        body: "<p><strong>The Problem:</strong> The client needed to display a massive, dense archive of architectural work without the interface feeling cluttered or overwhelming to the user.</p><p><strong>The Solution:</strong> I engineered a deterministic, three-tier responsive grid system in Figma. By strictly pinning every component and spacing value to an 8pt grid, the design handles a high density of visual data with perfect alignment across all viewports.</p>",
+        media: [
+          {
+            type: "image",
+            src: "/assets/images/deroche-grid-system.avif",
+            caption: "Managing complex column logic with a 12/4 mobile-to-desktop transition, allowing users to switch between [SM], [MD], and [LG] scales."
+          }
+        ]
       },
       {
-        image: {
-          src: "/assets/images/deroche.avif",
-          alt: "Clean view of the DeRoche image grid."
-        },
-        title: "Image Processing & Responsive Portals",
-        content: "<p>To make this randomized layout work, I carefully processed the studio's imagery so it would fit seamlessly into a scalable grid that responds fluidly to any screen size. Instead of just acting as a static gallery, each image serves as a functional portal, routing the user directly into deeper, detailed project pages.</p>"
+        heading: "State Logic & Interactive Filtering",
+        body: "<p>The goal was to make the portfolio function like an interactive architectural workspace rather than a static webpage. I mapped out the logic for how the UI responds to user intent, collaborating closely with the development team to translate complex archival needs into a robust data-sorting system. The interface allows users to filter the archive by Location, Type, and Completion, or sort the view by Random, Scale, and Chronological order, while a global project index provides instant access to isolate specific collections.</p>",
+        media: [
+          {
+            type: "image",
+            src: "/assets/images/deroche-interaction.avif",
+            caption: "Multi-level hover and selection states provide immediate feedback, ensuring a 1:1 translation from the modular Figma library to production code."
+          }
+        ]
+      },
+      {
+        heading: "Contextual Lightbox Viewing",
+        body: "<p>To balance the dense, data-heavy index with focused viewing, I designed a high-opacity lightbox experience. This isolates specific project details and media while keeping the broader 'drawing board' context visible in the background, bridging the gap between macro and micro navigation.</p>",
+        media: [
+          {
+            type: "image",
+            src: "/assets/images/deroche-lightroom.avif",
+            caption: "Active visual translation—ensuring the front-end layout perfectly mirrors the backend data structure of the archive."
+          }
+        ]
       }
     ]
   },

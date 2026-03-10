@@ -21,7 +21,7 @@ function ensureDOM() {
     <div class="diagram-lightbox__panel">
       <h2 class="diagram-lightbox__title"></h2>
       <div class="diagram-lightbox__image-wrap">
-        <img class="diagram-lightbox__image" src="" alt="" />
+        <img class="diagram-lightbox__image" src="" alt="" decoding="async" />
         <a href="#" class="diagram-lightbox__case-study-link" data-lightbox-case-study>View Case Study</a>
       </div>
       <p class="diagram-lightbox__caption"></p>

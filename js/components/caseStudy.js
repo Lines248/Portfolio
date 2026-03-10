@@ -9,6 +9,7 @@ const CASE_STUDY_ORDER = [
   { id: "nomin-eat", url: "/nomineat.html", title: "NominEat" },
   { id: "vending-machine", url: "/vending-machine.html", title: "Vending Machine" },
   { id: "accex", url: "/accex.html", title: "ACCEX" },
+  { id: "deroche-projects", url: "/deroche.html", title: "DeRoche Projects" },
 ];
 
 export class CaseStudy {
@@ -64,6 +65,7 @@ export class CaseStudy {
     let projectId = pathParts[pathParts.length - 1].replace(".html", "");
     if (projectId === "portfolio-site") projectId = "inline-access";
     if (projectId === "nomineat") projectId = "nomin-eat";
+    if (projectId === "deroche") projectId = "deroche-projects";
     return projectId;
   }
 
@@ -76,24 +78,33 @@ export class CaseStudy {
     if (container) container.innerHTML = this.buildCaseStudyHTML();
   }
 
+  /** True when case study uses new schema: roles[], context, sections[].heading/body/media[] */
+  isNewSchema() {
+    return this.caseStudyContent && Array.isArray(this.caseStudyContent.roles) && typeof this.caseStudyContent.context === "string";
+  }
+
   buildCaseStudyHTML() {
     const stackList = this.buildStackList();
     const links = this.buildLinks();
-    const featuredDiagram = this.buildFeaturedDiagram();
+    const featuredDiagram = this.isNewSchema() ? "" : this.buildFeaturedDiagram();
     const mainContent = this.buildMainContent();
     const metaHTML = this.buildMetaContent();
+    const title = this.isNewSchema() && this.caseStudyContent.title ? this.caseStudyContent.title : this.project.title;
 
     return `
       <article class="case-study" role="article">
+        ${this.buildCaseStudyNav("top")}
+
         <header class="case-study-header">
           <div class="case-study-title-section">
-            <h1 class="case-study-title">${this.project.title}</h1>
+            <h1 class="case-study-title">${this.escapeHtml(title)}</h1>
+            ${this.caseStudyContent && this.caseStudyContent.subtitle ? `<p class="case-study-subtitle">${this.escapeHtml(this.caseStudyContent.subtitle)}</p>` : ""}
             ${metaHTML}
-            ${this.caseStudyContent && this.caseStudyContent.overview ? `<p class="case-study-overview">${this.caseStudyContent.overview}</p>` : ""}
+            ${!this.isNewSchema() && this.caseStudyContent && this.caseStudyContent.overview ? `<p class="case-study-overview">${this.caseStudyContent.overview}</p>` : ""}
           </div>
         </header>
 
-        ${this.buildCaseStudyNav("top")}
+        ${this.buildSplashImage()}
 
         ${featuredDiagram}
 
@@ -117,6 +128,9 @@ export class CaseStudy {
   }
 
   buildMetaContent() {
+    if (this.isNewSchema()) {
+      return this.buildMetaContentNew();
+    }
     if (!this.caseStudyContent || !this.caseStudyContent.meta) {
       // Fallback to project type and standard stack list if no meta object exists
       return `
@@ -142,6 +156,18 @@ export class CaseStudy {
     `;
   }
 
+  buildMetaContentNew() {
+    const roles = this.caseStudyContent.roles || [];
+    const context = this.caseStudyContent.context || "";
+    const roleTags = roles.map((r) => `<li class="meta-tag ${getTagClass(r)}" role="listitem">${this.escapeHtml(r)}</li>`).join("");
+    return `
+      <ul class="case-study-meta tech-stack-grid" role="list">
+        ${context ? `<li class="case-study-context"><span class="case-study-context-label">Context</span><span class="case-study-context-value">${this.escapeHtml(context)}</span></li>` : ""}
+        ${roleTags}
+      </ul>
+    `;
+  }
+
   buildFeaturedDiagram() {
     if (!this.caseStudyContent || !this.caseStudyContent.featuredDiagram) return "";
     const { src, alt } = this.caseStudyContent.featuredDiagram;
@@ -149,6 +175,17 @@ export class CaseStudy {
     return `
       <figure class="featured-diagram">
         <img src="${src}" alt="${this.escapeAttr(alt)}" loading="lazy" />
+      </figure>
+    `;
+  }
+
+  buildSplashImage() {
+    if (!this.project || !this.project.image) return "";
+    const src = this.escapeAttr(this.project.image);
+    const alt = this.escapeAttr(this.project.alt || this.project.title);
+    return `
+      <figure class="case-study-splash" aria-hidden="true">
+        <img src="${src}" alt="${alt}" loading="eager" decoding="async" class="case-study-splash__img" />
       </figure>
     `;
   }
@@ -167,12 +204,35 @@ export class CaseStudy {
 
   buildCaseStudyNav(position = "bottom") {
     const currentIndex = CASE_STUDY_ORDER.findIndex((p) => p.id === this.project.id);
-    const prevProject = currentIndex > 0 ? CASE_STUDY_ORDER[currentIndex - 1] : null;
-    const nextProject = currentIndex >= 0 && currentIndex < CASE_STUDY_ORDER.length - 1 ? CASE_STUDY_ORDER[currentIndex + 1] : null;
+    const prevOrder = currentIndex > 0 ? CASE_STUDY_ORDER[currentIndex - 1] : null;
+    const nextOrder = currentIndex >= 0 && currentIndex < CASE_STUDY_ORDER.length - 1 ? CASE_STUDY_ORDER[currentIndex + 1] : null;
+    const prevProject = prevOrder ? this.findProjectById(prevOrder.id) : null;
+    const nextProject = nextOrder ? this.findProjectById(nextOrder.id) : null;
+    const isBottom = position === "bottom";
 
-    const prevLink = prevProject ? `<a href="${prevProject.url}" class="nav-link nav-link-prev">SEE PREVIOUS CASE STUDY</a>` : `<span class="nav-link nav-link-placeholder">SEE PREVIOUS CASE STUDY</span>`;
+    const prevLink = prevOrder
+      ? (isBottom && prevProject
+        ? `<a href="${this.escapeAttr(prevOrder.url)}" class="nav-link nav-link-prev case-study-nav-item" aria-label="See previous case study: ${this.escapeAttr(prevProject.title)}">
+            <span class="case-study-nav-item__label">SEE PREVIOUS CASE STUDY</span>
+            <span class="case-study-nav-item__thumb">
+              <img src="${this.escapeAttr(prevProject.image)}" alt="${this.escapeAttr(prevProject.alt || prevProject.title)}" loading="lazy" decoding="async" class="case-study-nav-item__img" width="200" height="113" />
+            </span>
+          </a>`
+        : `<a href="${this.escapeAttr(prevOrder.url)}" class="nav-link nav-link-prev">SEE PREVIOUS CASE STUDY</a>`)
+      : `<span class="nav-link nav-link-placeholder">SEE PREVIOUS CASE STUDY</span>`;
+
     const allLink = '<a href="/work.html" class="nav-link nav-link-all">ALL WORK</a>';
-    const nextLink = nextProject ? `<a href="${nextProject.url}" class="nav-link nav-link-next">SEE NEXT CASE STUDY</a>` : `<span class="nav-link nav-link-placeholder">SEE NEXT CASE STUDY</span>`;
+
+    const nextLink = nextOrder
+      ? (isBottom && nextProject
+        ? `<a href="${this.escapeAttr(nextOrder.url)}" class="nav-link nav-link-next case-study-nav-item" aria-label="See next case study: ${this.escapeAttr(nextProject.title)}">
+            <span class="case-study-nav-item__label">SEE NEXT CASE STUDY</span>
+            <span class="case-study-nav-item__thumb">
+              <img src="${this.escapeAttr(nextProject.image)}" alt="${this.escapeAttr(nextProject.alt || nextProject.title)}" loading="lazy" decoding="async" class="case-study-nav-item__img" width="200" height="113" />
+            </span>
+          </a>`
+        : `<a href="${this.escapeAttr(nextOrder.url)}" class="nav-link nav-link-next">SEE NEXT CASE STUDY</a>`)
+      : `<span class="nav-link nav-link-placeholder">SEE NEXT CASE STUDY</span>`;
 
     const positionClass = position === "top" ? "case-study-nav-top" : "case-study-nav-bottom";
     return `
@@ -187,6 +247,9 @@ export class CaseStudy {
   }
 
   buildMainContent() {
+    if (this.isNewSchema()) {
+      return this.buildMainContentNew();
+    }
     if (!this.caseStudyContent || !this.caseStudyContent.sections || !this.caseStudyContent.sections.length) {
       return `
         <div class="case-study-description">
@@ -212,6 +275,15 @@ export class CaseStudy {
         `;
       }
 
+      let embedHTML = "";
+      if (section.embed) {
+        embedHTML = `
+          <div class="case-study-embed figma-embed-wrapper" aria-label="Figma embed">
+            <!-- Paste Figma iframe here -->
+          </div>
+        `;
+      }
+
       sectionsHTML += `
         <section class="case-study-section" aria-labelledby="${sectionId}">
           ${imageHTML}
@@ -219,11 +291,66 @@ export class CaseStudy {
           <div class="case-study-section-content">
             ${section.content}
           </div>
+          ${embedHTML}
         </section>
       `;
     }
 
     return sectionsHTML;
+  }
+
+  /** Renders sections for new schema: heading, body, media[] (image | figma-embed | video) */
+  buildMainContentNew() {
+    const sections = this.caseStudyContent.sections || [];
+    if (!sections.length) {
+      return `<div class="case-study-description"><p>${this.escapeHtml(this.project.description)}</p></div>`;
+    }
+
+    let html = "";
+    for (let i = 0; i < sections.length; i++) {
+      const section = sections[i];
+      const sectionId = "section-" + (i + 1);
+      const mediaHTML = (section.media || []).map((m) => this.buildSectionMedia(m)).join("");
+      const bodyHtml = section.body && /^<[\s\S]*>/.test(section.body.trim()) ? section.body : `<p>${this.escapeHtml(section.body)}</p>`;
+      html += `
+        <section class="case-study-section" aria-labelledby="${sectionId}">
+          <h2 id="${sectionId}">${this.escapeHtml(section.heading)}</h2>
+          <div class="case-study-section-content">
+            ${bodyHtml}
+          </div>
+          ${mediaHTML}
+        </section>
+      `;
+    }
+    return html;
+  }
+
+  buildSectionMedia(media) {
+    const caption = media.caption ? `<figcaption class="case-study-media-caption">${this.escapeHtml(media.caption)}</figcaption>` : "";
+    const isPlaceholder = !media.src || media.src === "PLACEHOLDER_URL";
+
+    if (media.type === "image") {
+      if (isPlaceholder) {
+        return `<figure class="case-study-media case-study-media--image"><div class="case-study-embed figma-embed-wrapper case-study-media-placeholder" aria-label="Image placeholder"><!-- Replace with img or set src in data --></div>${caption}</figure>`;
+      }
+      return `<figure class="case-study-media case-study-media--image"><img src="${this.escapeAttr(media.src)}" alt="${this.escapeAttr(media.caption)}" loading="lazy" class="section-image" />${caption}</figure>`;
+    }
+
+    if (media.type === "figma-embed") {
+      const iframePart = isPlaceholder
+        ? "<!-- Paste Figma iframe here -->"
+        : `<iframe src="${this.escapeAttr(media.src)}" title="${this.escapeAttr(media.caption)}" class="figma-embed-iframe"></iframe>`;
+      return `<figure class="case-study-media case-study-media--figma"><div class="case-study-embed figma-embed-wrapper" aria-label="Figma embed">${iframePart}</div>${caption}</figure>`;
+    }
+
+    if (media.type === "video") {
+      const videoPart = isPlaceholder
+        ? "<!-- Paste video path in data -->"
+        : `<video class="case-study-video" autoplay loop muted playsinline aria-label="${this.escapeAttr(media.caption)}"><source src="${this.escapeAttr(media.src)}" type="video/mp4" /></video>`;
+      return `<figure class="case-study-media case-study-media--video"><div class="case-study-embed figma-embed-wrapper case-study-video-wrap">${videoPart}</div>${caption}</figure>`;
+    }
+
+    return "";
   }
 
   buildStackList() {

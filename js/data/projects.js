@@ -99,16 +99,13 @@ export const projects = [
   {
     id: "deroche-projects",
     title: "DeRoche Projects",
-    type: "UX/UI Design | CMS Implementation (Sanity)",
+    type: "Digital Identity & UI/UX",
     image: "/assets/images/deroche.avif",
-    alt: "Screenshot of the DeRoche architecture portfolio",
-    description:
-        "Designed the full UX/UI for an architecture studio website and uploaded the content system using Sanity CMS. Created custom schemas, modular content blocks, and a scalable design system used across case studies and imagery-heavy layouts. Contracted to work with Digital Counsel Agency who handeled the build and marketing.",
-    stack: ["Figma", "Sanity CMS", "Responsive UI"],
-    links: {
-      live: "https://derocheprojects.com/",
-    },
-    featured: false,
+    alt: "DeRoche Projects architectural portfolio interface",
+    description: "Translating an architectural 'drawing board' concept into a dense, high-performance digital portfolio.",
+    stack: ["Figma", "Information Architecture", "UI/UX", "Design Systems"],
+    featured: true,
     category: "ui-ux",
+    hidden: false
   },
 ];
