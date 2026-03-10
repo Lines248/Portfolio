@@ -104,6 +104,9 @@ export const projects = [
     alt: "DeRoche Projects architectural portfolio interface",
     description: "Translating an architectural 'drawing board' concept into a dense, high-performance digital portfolio.",
     stack: ["Figma", "Information Architecture", "UI/UX", "Design Systems"],
+    links: {
+      live: "https://derocheprojects.com/",
+    },
     featured: true,
     category: "ui-ux",
     hidden: false

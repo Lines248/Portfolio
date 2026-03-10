@@ -119,7 +119,7 @@ export class CaseStudy {
               ${stackList}
             </ul>
           </div>
-          ${links}
+          ${links ? `<div class="case-study-links-wrap"><h3 class="case-study-links-heading">Links</h3>${links}</div>` : ""}
         </footer>
 
         ${this.buildCaseStudyNav("bottom")}
@@ -359,11 +359,13 @@ export class CaseStudy {
 
   buildLinks() {
     const linksArray = [];
-    if (this.project.links && this.isValidLink(this.project.links.live)) {
-      linksArray.push(this.createLink(this.project.links.live, "Live Demo", "live"));
+    const liveUrl = this.project.links?.live || (this.project.id === "deroche-projects" ? "https://derocheprojects.com/" : "");
+    const repoUrl = this.project.links?.repo;
+    if (this.isValidLink(liveUrl)) {
+      linksArray.push(this.createLink(liveUrl, "Live Demo", "live"));
     }
-    if (this.project.links && this.isValidLink(this.project.links.repo)) {
-      linksArray.push(this.createLink(this.project.links.repo, "GitHub Repo", "repo"));
+    if (this.isValidLink(repoUrl)) {
+      linksArray.push(this.createLink(repoUrl, "GitHub Repo", "repo"));
     }
     if (linksArray.length === 0) return "";
     return `<nav class="case-study-links">${linksArray.join("")}</nav>`;
@@ -374,6 +376,6 @@ export class CaseStudy {
   }
 
   createLink(url, label, linkType) {
-    return `<a href="${url}" class="btn ${linkType === 'live' ? 'primary' : 'secondary'}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+    return `<a href="${this.escapeAttr(url)}" class="btn ${linkType === 'live' ? 'primary' : 'secondary'}" target="_blank" rel="noopener noreferrer">${label}</a>`;
   }
 }

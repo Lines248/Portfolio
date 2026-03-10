@@ -3427,6 +3427,18 @@ main.case-study-page {
   gap: 0.5rem;
 }
 
+.case-study-links-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.case-study-links-heading {
+  font-size: var(--fs-l);
+  margin: 0 0 0;
+  font-weight: 600;
+}
+
 .case-study-links {
   display: flex;
   flex-wrap: wrap;
