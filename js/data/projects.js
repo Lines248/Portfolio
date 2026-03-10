@@ -53,22 +53,6 @@ export const projects = [
     category: "development",
   },
   {
-    id: "vending-machine",
-    title: "Vending Machine Web App",
-    type: "Full-Stack Development",
-    image: "/assets/images/vending-machine.avif",
-    alt: "Screenshot of the Vending Machine app.",
-    description:
-        "Built as part of a backend engineering module at Tech Elevator. The original Java version was developed using Agile workflows and pair programming, after which I independently translated the full application into Python, re-implementing the architecture, logic, and transaction flow on my own. This CLI-based simulation highlights clean backend design, multi-language fluency, and the ability to refactor systems across stacks.",
-    stack: ["Python", "Java", "CLI", "REST APIs"],
-    links: {
-      live: "",
-      repo: "https://github.com/Lines248/vending_machine_webapp",
-    },
-    featured: false,
-    category: "development",
-  },
-  {
     id: "accex",
     title: "ACCEX",
     type: "Front-End Engineering | Accessibility Tool",
@@ -120,5 +104,21 @@ export const projects = [
     featured: true,
     category: "ui-ux",
     hidden: false
+  },
+  {
+    id: "vending-machine",
+    title: "Vending Machine Web App",
+    type: "Full-Stack Development",
+    image: "/assets/images/vending-machine.avif",
+    alt: "Screenshot of the Vending Machine app.",
+    description:
+        "Built as part of a backend engineering module at Tech Elevator. The original Java version was developed using Agile workflows and pair programming, after which I independently translated the full application into Python, re-implementing the architecture, logic, and transaction flow on my own. This CLI-based simulation highlights clean backend design, multi-language fluency, and the ability to refactor systems across stacks.",
+    stack: ["Python", "Java", "CLI", "REST APIs"],
+    links: {
+      live: "",
+      repo: "https://github.com/Lines248/vending_machine_webapp",
+    },
+    featured: false,
+    category: "development",
   },
 ];
