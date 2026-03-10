@@ -3,13 +3,14 @@ import { caseStudies } from "../data/caseStudies.js";
 import { getTagClass } from "../utils/tagClass.js";
 import { open as openDiagramLightbox, diagramLightbox } from "./diagramLightbox.js";
 
+/* Must match the order of projects on the work page (projects with case studies, excluding hidden) */
 const CASE_STUDY_ORDER = [
-  { id: "ia-studio", url: "/ia-studio.html", title: "Authenticated Digital Asset Platform" },
   { id: "inline-access", url: "/portfolio-site.html", title: "This Portfolio" },
-  { id: "nomin-eat", url: "/nomineat.html", title: "NominEat" },
-  { id: "vending-machine", url: "/vending-machine.html", title: "Vending Machine" },
+  { id: "ia-studio", url: "/ia-studio.html", title: "Authenticated Digital Asset Platform" },
   { id: "accex", url: "/accex.html", title: "ACCEX" },
   { id: "deroche-projects", url: "/deroche.html", title: "DeRoche Projects" },
+  { id: "nomin-eat", url: "/nomineat.html", title: "NominEat" },
+  { id: "vending-machine", url: "/vending-machine.html", title: "Vending Machine" },
 ];
 
 export class CaseStudy {
@@ -208,8 +209,8 @@ export class CaseStudy {
       .map((m) => {
         const label = typeof m === "string" ? m : (m.label || "");
         const anchor = typeof m === "object" && m && m.anchor ? m.anchor : "";
-        if (!anchor) return `<span class="metric-pill">${this.escapeHtml(label)}</span>`;
-        return `<a href="#${this.escapeAttr(anchor)}" class="metric-pill metric-pill--link">${this.escapeHtml(label)}</a>`;
+        if (!anchor) return `<span class="metric-pill"><span class="metric-pill__label">${this.escapeHtml(label)}</span></span>`;
+        return `<a href="#${this.escapeAttr(anchor)}" class="metric-pill metric-pill--link"><span class="metric-pill__label">${this.escapeHtml(label)}</span></a>`;
       })
       .join("");
     return `<div class="case-study-header-metrics">${pills}</div>`;

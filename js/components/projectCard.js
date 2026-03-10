@@ -89,9 +89,9 @@ export function ProjectCard(project, index = 0, options = {}) {
             const anchor = typeof m === "object" && m && m.anchor ? m.anchor : "";
             if (anchor && hasCaseStudy(project)) {
               const caseStudyUrl = getCaseStudyUrl(project);
-              return `<a href="${caseStudyUrl}#${String(anchor).replace(/"/g, "&quot;")}" class="metric-pill metric-pill--link">${label}</a>`;
+              return `<a href="${caseStudyUrl}#${String(anchor).replace(/"/g, "&quot;")}" class="metric-pill metric-pill--link"><span class="metric-pill__label">${label}</span></a>`;
             }
-            return `<span class="metric-pill">${label}</span>`;
+            return `<span class="metric-pill"><span class="metric-pill__label">${label}</span></span>`;
           }).join("")}</div>`
         : "";
 
