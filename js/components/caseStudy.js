@@ -5,12 +5,12 @@ import { open as openDiagramLightbox, diagramLightbox } from "./diagramLightbox.
 
 /* Must match the order of projects on the work page (projects with case studies, excluding hidden) */
 const CASE_STUDY_ORDER = [
-  { id: "inline-access", url: "/portfolio-site.html", title: "This Portfolio" },
-  { id: "ia-studio", url: "/ia-studio.html", title: "Authenticated Digital Asset Platform" },
-  { id: "accex", url: "/accex.html", title: "ACCEX" },
-  { id: "deroche-projects", url: "/deroche.html", title: "DeRoche Projects" },
-  { id: "nomin-eat", url: "/nomineat.html", title: "NominEat" },
-  { id: "vending-machine", url: "/vending-machine.html", title: "Vending Machine" },
+  { id: "inline-access", url: "/portfolio-site", title: "This Portfolio" },
+  { id: "ia-studio", url: "/ia-studio", title: "Authenticated Digital Asset Platform" },
+  { id: "accex", url: "/accex", title: "ACCEX" },
+  { id: "deroche-projects", url: "/deroche", title: "DeRoche Projects" },
+  { id: "nomin-eat", url: "/nomin-eat", title: "NominEat" },
+  { id: "vending-machine", url: "/vending-machine", title: "Vending Machine" },
 ];
 
 export class CaseStudy {
@@ -269,7 +269,7 @@ export class CaseStudy {
         : `<a href="${this.escapeAttr(prevOrder.url)}" class="nav-link nav-link-prev">SEE PREVIOUS CASE STUDY</a>`)
       : `<span class="nav-link nav-link-placeholder">SEE PREVIOUS CASE STUDY</span>`;
 
-    const allLink = '<a href="/work.html" class="nav-link nav-link-all">ALL WORK</a>';
+    const allLink = '<a href="/work" class="nav-link nav-link-all">ALL WORK</a>';
 
     const nextLink = nextOrder
       ? (isBottom && nextProject

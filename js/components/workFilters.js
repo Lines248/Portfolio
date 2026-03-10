@@ -3,12 +3,12 @@ import { caseStudies } from "../data/caseStudies.js";
 import { open as openDiagramLightbox, diagramLightbox } from "./diagramLightbox.js";
 
 const CASE_STUDY_PATHS = {
-  "ia-studio": "/ia-studio.html",
-  "inline-access": "/portfolio-site.html",
-  "nomin-eat": "/nomineat.html",
-  "vending-machine": "/vending-machine.html",
-  "accex": "/accex.html",
-  "deroche-projects": "/deroche.html",
+  "ia-studio": "/ia-studio",
+  "inline-access": "/portfolio-site",
+  "nomin-eat": "/nomin-eat",
+  "vending-machine": "/vending-machine",
+  "accex": "/accex",
+  "deroche-projects": "/deroche",
 };
 
 export class WorkFilters {
@@ -101,7 +101,7 @@ export class WorkFilters {
   }
 
   getCaseStudyUrl(project) {
-    return CASE_STUDY_PATHS[project.id] || `/${project.id}.html`;
+    return CASE_STUDY_PATHS[project.id] || `/${project.id}`;
   }
 
   getProjectImageInfo(project) {

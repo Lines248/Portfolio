@@ -25,12 +25,12 @@ function hasCaseStudy(project) {
 
 function getCaseStudyUrl(project) {
     const caseStudyPaths = {
-        "ia-studio": "/ia-studio.html",
-        "inline-access": "/portfolio-site.html",
-        "nomin-eat": "/nomineat.html",
-        "vending-machine": "/vending-machine.html",
-        "accex": "/accex.html",
-        "deroche-projects": "/deroche.html"
+        "ia-studio": "/ia-studio",
+        "inline-access": "/portfolio-site",
+        "nomin-eat": "/nomin-eat",
+        "vending-machine": "/vending-machine",
+        "accex": "/accex",
+        "deroche-projects": "/deroche"
     };
     return caseStudyPaths[project.id] || `/${project.id}`;
 }
