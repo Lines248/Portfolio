@@ -18,7 +18,7 @@ export const caseStudies = {
       {
         heading: "The Problem & The Solution",
         body: "<p><strong>The Problem:</strong> Sharing secure digital files usually forces clients to create accounts and remember passwords, adding significant friction to the user experience.</p><p><strong>The Solution:</strong> A custom Next.js application that separates secure server operations from the user interface. Instead of full account logins, it uses secure hashed access codes to grant entry to specific gated viewing environments.</p>",
-        media: [{ type: "image", src: "/assets/images/ia-ui-portal.png", caption: "The platform's core interface: the minimalist, high-conversion entry portal for InLine Access Studio." }]
+        media: [{ type: "image", src: "/assets/images/ia-ui-portal.png", caption: "The platform's core interface: the minimalist, high-conversion entry portal for InLine Access Studio.", className: "case-study-media--large" }]
       },
       {
         heading: "Data Verification Pipeline",

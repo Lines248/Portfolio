@@ -3443,6 +3443,17 @@ main.case-study-page {
   cursor: pointer;
 }
 
+/* Larger hero/portal image (e.g. IA Studio entry portal) */
+.case-study-media--large,
+.case-study-media--image.case-study-media--large {
+  max-width: min(920px, 94vw);
+}
+
+.case-study-media--large .case-study-media-caption,
+.case-study-media--large figcaption {
+  max-width: min(920px, 94vw);
+}
+
 /* Caption: dark text below image (same across site when no artifact box) */
 .case-study-media-caption,
 .section-media figcaption {
