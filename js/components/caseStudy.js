@@ -72,29 +72,13 @@ export class CaseStudy {
     const container = document.querySelector("[data-case-study]");
     if (!container) return;
     container.addEventListener("click", (e) => {
-      if (e.target.closest(".featured-diagram")) {
-        e.preventDefault();
-        const index = CASE_STUDY_ORDER.findIndex((p) => p.id === this.project.id);
-        if (index === -1) return;
-        const getImageInfo = (item) => {
-          const diagram = caseStudies[item.id]?.featuredDiagram;
-          return {
-            src: diagram?.src ?? "",
-            alt: diagram?.alt ?? "",
-            title: item.title,
-            caseStudyUrl: item.url,
-          };
-        };
-        openDiagramLightbox(CASE_STUDY_ORDER, index, getImageInfo);
-        return;
-      }
-      const sectionImg = e.target.closest(".case-study-media--lightbox img.section-image");
+      const sectionImg = e.target.closest(".case-study-media--lightbox img.section-image, .featured-diagram img, .case-study-splash img");
       if (sectionImg) {
         e.preventDefault();
-        const figures = container.querySelectorAll(".case-study-media--lightbox");
+        const figures = container.querySelectorAll(".featured-diagram, .case-study-splash, .case-study-media--lightbox");
         const images = [];
         figures.forEach((fig) => {
-          const img = fig.querySelector("img.section-image");
+          const img = fig.querySelector("img.section-image, .section-image, img");
           if (img && img.src) {
             images.push({
               src: img.currentSrc || img.getAttribute("src") || "",
@@ -103,7 +87,7 @@ export class CaseStudy {
             });
           }
         });
-        const clickedFigure = sectionImg.closest(".case-study-media--lightbox");
+        const clickedFigure = sectionImg.closest(".featured-diagram, .case-study-splash, .case-study-media--lightbox");
         const index = clickedFigure ? Array.from(figures).indexOf(clickedFigure) : 0;
         if (images.length) openDiagramLightboxImages(images, index);
       }
@@ -242,8 +226,8 @@ export class CaseStudy {
     const { src, alt } = this.caseStudyContent.featuredDiagram;
     if (!src || !alt) return "";
     return `
-      <figure class="featured-diagram">
-        <img src="${src}" alt="${this.escapeAttr(alt)}" loading="lazy" />
+      <figure class="featured-diagram case-study-media--lightbox">
+        <img src="${src}" alt="${this.escapeAttr(alt)}" loading="lazy" class="section-image" data-caption="${this.escapeAttr(alt)}" />
       </figure>
     `;
   }
@@ -253,8 +237,8 @@ export class CaseStudy {
     const src = this.escapeAttr(this.project.image);
     const alt = this.escapeAttr(this.project.alt || this.project.title);
     return `
-      <figure class="case-study-splash" aria-hidden="true">
-        <img src="${src}" alt="${alt}" loading="eager" decoding="async" class="case-study-splash__img" />
+      <figure class="case-study-splash case-study-media--lightbox" aria-hidden="true">
+        <img src="${src}" alt="${alt}" loading="eager" decoding="async" class="case-study-splash__img section-image" data-caption="${alt}" />
       </figure>
     `;
   }
@@ -349,9 +333,10 @@ export class CaseStudy {
         mediaHTML = section.media.map((m) => this.buildSectionMedia(m)).join("");
       } else if (section.image && section.image.src) {
         const alt = section.image.alt || section.image.caption || sectionTitle;
+        const captionAttr = section.image.caption ? ` data-caption="${this.escapeAttr(section.image.caption)}"` : "";
         mediaHTML = `
-          <figure class="case-study-media case-study-media--image" style="margin-bottom: 2rem;">
-            <img src="${this.escapeAttr(section.image.src)}" alt="${this.escapeAttr(alt)}" loading="lazy" class="section-image" style="width: 100%; height: auto; border-radius: 4px;" />
+          <figure class="case-study-media case-study-media--image case-study-media--lightbox" style="margin-bottom: 2rem;">
+            <img src="${this.escapeAttr(section.image.src)}" alt="${this.escapeAttr(alt)}" loading="lazy" class="section-image"${captionAttr} />
             ${section.image.caption ? `<figcaption class="case-study-media-caption">${this.escapeHtml(section.image.caption)}</figcaption>` : ""}
           </figure>
         `;
