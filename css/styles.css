@@ -38,6 +38,7 @@ html {
   --accent-dark: #3a55d2;
 
   --link: #2563eb;
+  --ease-expo-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 :root.dark {
@@ -70,7 +71,7 @@ html {
 *::before,
 *::after {
   box-sizing: border-box;
-  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  transition: background-color 0.25s var(--ease-expo-out), color 0.25s var(--ease-expo-out), border-color 0.25s var(--ease-expo-out);
 }
 
 *:focus-visible {
@@ -1133,6 +1134,8 @@ li.tag-creative,
 }
 
 .project-card {
+  --m-x: 0px;
+  --m-y: 0px;
   background: var(--bg-elevated);
   border-radius: var(--radius-m);
   border: 1px solid var(--border-subtle);
@@ -1141,9 +1144,14 @@ li.tag-creative,
   flex-direction: column;
   gap: 0.75rem;
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-  transform: translateY(0);
-  transition: box-shadow 0.22s ease, transform 0.22s ease,
-    border-color 0.22s ease, background-color 0.25s ease;
+  transform: translate3d(var(--m-x), var(--m-y), 0);
+  transition: translate 0.4s var(--ease-expo-out), transform 0.2s linear,
+    box-shadow 0.22s ease, border-color 0.22s ease, background-color 0.25s ease;
+  will-change: transform, translate;
+}
+
+.project-card:hover {
+  translate: 0 -8px;
 }
 
 /* Work page: architectural project rows (flush image + text blocks) */
@@ -1177,6 +1185,7 @@ li.tag-creative,
 .work-page #work-grid .project-card:hover {
   box-shadow: none;
   border-color: transparent;
+  translate: 0 0; /* no lift on work page rows; magnetic --m-x/--m-y still apply */
 }
 
 .work-page #work-grid .project-card:last-child {
@@ -1422,6 +1431,8 @@ li.tag-creative,
 }
 
 .metric-pill {
+  --m-x: 0px;
+  --m-y: 0px;
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -1434,6 +1445,8 @@ li.tag-creative,
   border: 1px solid rgba(34, 197, 94, 0.45);
   background: rgba(34, 197, 94, 0.08);
   color: var(--text);
+  transform: translate3d(var(--m-x), var(--m-y), 0);
+  transition: transform 0.2s linear, border-color 0.2s ease;
 }
 
 /* Ghost target: 44×44px AAA touch target; uses ::after (::before is the pulse dot) */
@@ -1493,7 +1506,7 @@ li.tag-creative,
 .metric-pill--link {
   cursor: pointer;
   text-decoration: none;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s linear, border-color 0.2s ease;
   color: inherit;
 }
 
@@ -2908,14 +2921,18 @@ html.dark .gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top;
+  object-position: center;
   display: block;
   border-radius: 0;
-  transition: transform 0.4s ease;
+  transition: transform 0.5s var(--ease-expo-out);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  backface-visibility: hidden;
 }
 
 .home-main .case-study-card:hover .case-study-card__image-wrap .case-study-card__image {
-  transform: scale(1.03);
+  transform: scale(1.28);
+  will-change: transform;
 }
 
 .home-main .case-study-card__body {
@@ -4207,5 +4224,71 @@ main.case-study-page {
 
   .case-study-title {
     font-size: 2.5rem;
+  }
+}
+
+/* ==========================================================================
+   2026-modern animation layer (respects prefers-reduced-motion)
+   ========================================================================== */
+@media (prefers-reduced-motion: no-preference) {
+  /* Scroll-driven reveal: fade-in + slide-up as elements enter viewport */
+  @keyframes scroll-reveal {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Project cards (work grid and feature grids): scroll reveal + magnetic/lift harmony */
+  .project-card,
+  .work-page #work-grid .project-card {
+    animation: scroll-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 40%;
+    transition: translate 0.4s var(--ease-expo-out), transform 0.2s linear,
+      box-shadow 0.32s var(--ease-expo-out), border-color 0.32s var(--ease-expo-out),
+      background-color 0.25s var(--ease-expo-out);
+  }
+
+  .work-page #work-grid .project-card:nth-child(1) { animation-delay: 0ms; }
+  .work-page #work-grid .project-card:nth-child(2) { animation-delay: 60ms; }
+  .work-page #work-grid .project-card:nth-child(3) { animation-delay: 120ms; }
+  .work-page #work-grid .project-card:nth-child(4) { animation-delay: 180ms; }
+  .work-page #work-grid .project-card:nth-child(5) { animation-delay: 240ms; }
+  .work-page #work-grid .project-card:nth-child(6) { animation-delay: 300ms; }
+  .work-page #work-grid .project-card:nth-child(n+7) { animation-delay: 360ms; }
+
+  /* Case study sections */
+  .case-study-section {
+    animation: scroll-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+
+  .case-study-section:nth-of-type(1) { animation-delay: 0ms; }
+  .case-study-section:nth-of-type(2) { animation-delay: 50ms; }
+  .case-study-section:nth-of-type(3) { animation-delay: 100ms; }
+  .case-study-section:nth-of-type(4) { animation-delay: 150ms; }
+  .case-study-section:nth-of-type(5) { animation-delay: 200ms; }
+  .case-study-section:nth-of-type(6) { animation-delay: 250ms; }
+  .case-study-section:nth-of-type(n+7) { animation-delay: 300ms; }
+
+  /* Refined transitions: expo curve on hovers and interactive elements */
+  .metric-pill,
+  .metric-pill--link,
+  .project-card,
+  .work-card,
+  .btn,
+  .case-study-card,
+  .diagram-lightbox__close,
+  .filter-btn,
+  .nav a {
+    transition: opacity 0.28s var(--ease-expo-out), transform 0.28s var(--ease-expo-out),
+      background-color 0.25s var(--ease-expo-out), color 0.25s var(--ease-expo-out),
+      border-color 0.25s var(--ease-expo-out), box-shadow 0.28s var(--ease-expo-out);
   }
 }

@@ -1,9 +1,17 @@
 import { App } from "./core/App.js";
 import { analyticsManager } from "./utils/analytics.js";
 import { analyticsConfig } from "./config/analytics.js";
+import { magneticHover } from "./utils/magneticHover.js";
 
 const app = new App();
 app.init();
+
+magneticHover.init();
+if (typeof requestIdleCallback !== "undefined") {
+  requestIdleCallback(() => magneticHover.updateElements(), { timeout: 2000 });
+} else {
+  setTimeout(() => magneticHover.updateElements(), 1500);
+}
 
 if (window.location.hostname !== '127.0.0.1' && window.location.hostname !== 'localhost' && analyticsManager.shouldLoadAnalytics()) {
   const loadVercelAnalytics = () => {
