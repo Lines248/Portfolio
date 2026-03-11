@@ -65,6 +65,7 @@ function updateContent() {
   if (!project) return;
   const info = _getImageInfo(project);
   if (!info) return;
+  box.classList.toggle("diagram-lightbox--single", _projects.length <= 1);
   box.querySelector(".diagram-lightbox__title").textContent = info.title ?? "";
   const img = box.querySelector(".diagram-lightbox__image");
   img.setAttribute("src", info.src ?? "");
@@ -73,6 +74,7 @@ function updateContent() {
   const caseStudyLink = box.querySelector(".diagram-lightbox__case-study-link");
   if (caseStudyLink) {
     caseStudyLink.href = info.caseStudyUrl ?? "#";
+    caseStudyLink.style.display = info.caseStudyUrl ? "" : "none";
   }
   const prevBtn = box.querySelector("[data-lightbox-prev]");
   const nextBtn = box.querySelector("[data-lightbox-next]");
@@ -101,6 +103,22 @@ export function open(projects, currentIndex, getImageInfo) {
   }
 }
 
+/**
+ * Open lightbox with a list of in-page images (e.g. case study section images).
+ * images: Array<{ src, alt, title? }>, currentIndex: number
+ */
+export function openImages(images, currentIndex) {
+  if (!images || !images.length) return;
+  const list = images.map((img) => ({ src: img.src, alt: img.alt ?? "", title: img.title ?? img.caption ?? "" }));
+  const getImageInfo = (item) => ({
+    src: item.src,
+    alt: item.alt,
+    title: item.title,
+    caseStudyUrl: "",
+  });
+  open(list, Math.max(0, Math.min(currentIndex, list.length - 1)), getImageInfo);
+}
+
 export function close() {
   const box = document.getElementById("diagram-lightbox");
   if (box) {
@@ -127,4 +145,4 @@ function goNext() {
   }
 }
 
-export const diagramLightbox = { ensureDOM, open, close };
+export const diagramLightbox = { ensureDOM, open, openImages, close };

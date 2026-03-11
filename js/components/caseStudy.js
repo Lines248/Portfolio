@@ -1,7 +1,7 @@
 import { projects } from "../data/projects.js";
 import { caseStudies } from "../data/caseStudies.js";
 import { getTagClass } from "../utils/tagClass.js";
-import { open as openDiagramLightbox, diagramLightbox } from "./diagramLightbox.js";
+import { open as openDiagramLightbox, openImages as openDiagramLightboxImages, diagramLightbox } from "./diagramLightbox.js";
 
 /* Must match the order of projects on the work page (projects with case studies, excluding hidden) */
 const CASE_STUDY_ORDER = [
@@ -72,20 +72,41 @@ export class CaseStudy {
     const container = document.querySelector("[data-case-study]");
     if (!container) return;
     container.addEventListener("click", (e) => {
-      if (!e.target.closest(".featured-diagram")) return;
-      e.preventDefault();
-      const index = CASE_STUDY_ORDER.findIndex((p) => p.id === this.project.id);
-      if (index === -1) return;
-      const getImageInfo = (item) => {
-        const diagram = caseStudies[item.id]?.featuredDiagram;
-        return {
-          src: diagram?.src ?? "",
-          alt: diagram?.alt ?? "",
-          title: item.title,
-          caseStudyUrl: item.url,
+      if (e.target.closest(".featured-diagram")) {
+        e.preventDefault();
+        const index = CASE_STUDY_ORDER.findIndex((p) => p.id === this.project.id);
+        if (index === -1) return;
+        const getImageInfo = (item) => {
+          const diagram = caseStudies[item.id]?.featuredDiagram;
+          return {
+            src: diagram?.src ?? "",
+            alt: diagram?.alt ?? "",
+            title: item.title,
+            caseStudyUrl: item.url,
+          };
         };
-      };
-      openDiagramLightbox(CASE_STUDY_ORDER, index, getImageInfo);
+        openDiagramLightbox(CASE_STUDY_ORDER, index, getImageInfo);
+        return;
+      }
+      const sectionImg = e.target.closest(".case-study-media--lightbox img.section-image");
+      if (sectionImg) {
+        e.preventDefault();
+        const figures = container.querySelectorAll(".case-study-media--lightbox");
+        const images = [];
+        figures.forEach((fig) => {
+          const img = fig.querySelector("img.section-image");
+          if (img && img.src) {
+            images.push({
+              src: img.currentSrc || img.getAttribute("src") || "",
+              alt: img.getAttribute("alt") || "",
+              title: img.getAttribute("data-caption") || "",
+            });
+          }
+        });
+        const clickedFigure = sectionImg.closest(".case-study-media--lightbox");
+        const index = clickedFigure ? Array.from(figures).indexOf(clickedFigure) : 0;
+        if (images.length) openDiagramLightboxImages(images, index);
+      }
     });
   }
 
@@ -375,8 +396,9 @@ export class CaseStudy {
         return `<figure class="case-study-media case-study-media--image${extraClass}" style="margin-bottom: 2rem;"><div class="case-study-embed figma-embed-wrapper case-study-media-placeholder" aria-label="Image placeholder"><!-- Replace with img or set src in data --></div>${captionHtml}</figure>`;
       }
       const alt = media.alt || media.caption || "";
-      return `<figure class="case-study-media case-study-media--image${extraClass}" style="margin-bottom: 2rem;">
-            <img src="${this.escapeAttr(media.src)}" alt="${this.escapeAttr(alt)}" loading="lazy" class="section-image" />
+      const captionAttr = media.caption ? ` data-caption="${this.escapeAttr(media.caption)}"` : "";
+      return `<figure class="case-study-media case-study-media--image case-study-media--lightbox${extraClass}" style="margin-bottom: 2rem;">
+            <img src="${this.escapeAttr(media.src)}" alt="${this.escapeAttr(alt)}" loading="lazy" class="section-image"${captionAttr} />
             ${captionHtml}
           </figure>`;
     }

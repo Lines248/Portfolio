@@ -588,7 +588,7 @@ section {
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  background: rgba(30, 58, 138, 0.75);
+  background: #1a1a1a;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.2s ease, visibility 0.2s ease;
@@ -640,6 +640,14 @@ section {
 .diagram-lightbox__close:hover {
   background: rgba(0, 0, 0, 0.6);
   color: #fff;
+}
+
+.diagram-lightbox--single .diagram-lightbox__arrow {
+  display: none;
+}
+
+.diagram-lightbox--single .diagram-lightbox__case-study-link {
+  display: none !important;
 }
 
 .diagram-lightbox__title {
@@ -754,7 +762,7 @@ section {
 
 @media (max-width: 768px) {
   .diagram-lightbox {
-    background: rgba(30, 58, 138, 0.95);
+    background: #1a1a1a;
     padding: 2rem 1.5rem;
   }
 
@@ -3425,6 +3433,14 @@ main.case-study-page {
   image-rendering: crisp-edges;
   border: none;
   border-radius: 0;
+}
+
+.case-study-media--lightbox {
+  cursor: pointer;
+}
+
+.case-study-media--lightbox img {
+  cursor: pointer;
 }
 
 /* Caption: dark text below image (same across site when no artifact box) */
