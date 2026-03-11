@@ -368,13 +368,14 @@ export class CaseStudy {
       : "";
     const isPlaceholder = !media.src || media.src === "PLACEHOLDER_URL";
     const type = media.type || (media.src ? "image" : "");
+    const extraClass = media.className ? ` ${media.className}` : "";
 
     if (type === "image") {
       if (isPlaceholder) {
-        return `<figure class="case-study-media case-study-media--image" style="margin-bottom: 2rem;"><div class="case-study-embed figma-embed-wrapper case-study-media-placeholder" aria-label="Image placeholder"><!-- Replace with img or set src in data --></div>${captionHtml}</figure>`;
+        return `<figure class="case-study-media case-study-media--image${extraClass}" style="margin-bottom: 2rem;"><div class="case-study-embed figma-embed-wrapper case-study-media-placeholder" aria-label="Image placeholder"><!-- Replace with img or set src in data --></div>${captionHtml}</figure>`;
       }
       const alt = media.alt || media.caption || "";
-      return `<figure class="case-study-media case-study-media--image" style="margin-bottom: 2rem;">
+      return `<figure class="case-study-media case-study-media--image${extraClass}" style="margin-bottom: 2rem;">
             <img src="${this.escapeAttr(media.src)}" alt="${this.escapeAttr(alt)}" loading="lazy" class="section-image" />
             ${captionHtml}
           </figure>`;

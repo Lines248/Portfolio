@@ -3159,7 +3159,7 @@ main.case-study-page {
   max-width: 100%;
   height: auto;
   display: block;
-  border-radius: 4px; /* Optional: gives a slight polished edge */
+  border-radius: 0;
   object-fit: contain;
 }
 
@@ -3385,22 +3385,29 @@ main.case-study-page {
   margin-top: 1.5rem;
   margin-bottom: 0;
   width: 100%;
-  max-width: 800px;
+  max-width: min(650px, calc(100vw - 2rem));
   min-width: 0;
   margin-inline: auto;
   align-self: start;
 }
 
-/* Alias for case study section media container (e.g. .section-media) */
+/* Case study section media: image on page, no box (diagrams and general images) */
 .section-media,
 .case-study-media--image {
-  max-width: 800px;
+  max-width: min(650px, calc(100vw - 2rem));
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  box-sizing: border-box;
 }
 
 .case-study-media--image img,
@@ -3408,19 +3415,19 @@ main.case-study-page {
 .section-media img {
   display: block;
   width: 100%;
-  max-width: 800px;
+  max-width: 100%;
   height: auto;
-  margin: 0 auto;
+  margin: 1.5rem auto 0;
   object-fit: contain;
   object-position: center;
-  /* Prevent upscaling blur; keep technical screenshots sharp */
+  max-inline-size: 100%;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
-  max-inline-size: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: none;
   border-radius: 0;
 }
 
+/* Caption: dark text below image (same across site when no artifact box) */
 .case-study-media-caption,
 .section-media figcaption {
   font-size: var(--fs-s);
@@ -3428,31 +3435,80 @@ main.case-study-page {
   color: var(--text-muted);
   margin-top: 0.75rem;
   margin-bottom: 0;
-  max-width: 800px;
+  max-width: 650px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
 
-/* Premium technical dashboard / receipt styling: a11y proof (ACCEX) and performance proof (IA Studio) */
+/* Small Artifact: UI panels / Clarity & technical screenshots (420px ceiling), no box – text on page */
+.data-artifact {
+  max-width: min(420px, calc(100vw - 2rem));
+  width: 100%;
+  margin: 1.5rem auto;
+  padding: 0;
+  display: block;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.data-artifact img,
+.data-artifact .section-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.data-artifact .case-study-media-caption,
+.data-artifact figcaption {
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* Scale to viewport: visible and readable without too big/blurry (e.g. conversion proof) */
+.data-artifact--compact img,
+.data-artifact--compact .section-image {
+  max-height: min(75vh, 720px);
+  max-width: min(95vw, 800px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.data-artifact--compact {
+  max-width: min(95vw, 800px);
+}
+
+/* Premium technical dashboard / receipt styling: a11y proof (ACCEX) and performance proof (IA Studio) – no box, text on page */
 #a11y-proof .case-study-media,
 #performance-proof .case-study-media {
-  max-width: 700px;
+  max-width: min(650px, calc(100vw - 2rem));
+  width: 100%;
   margin: 2.5rem auto;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: #0b0b0b;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
+  background: transparent;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  box-sizing: border-box;
 }
 
 #a11y-proof .case-study-media img,
 #performance-proof .case-study-media img {
   width: 100%;
+  max-width: 100%;
   height: auto;
-  border-radius: 6px;
+  border-radius: 0;
   margin-bottom: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: none;
 }
 
 #a11y-proof .case-study-media img:last-child,
@@ -3460,19 +3516,19 @@ main.case-study-page {
   margin-bottom: 0;
 }
 
-/* Caption on dark card: use light text for readable contrast; match container width */
+/* Caption: dark text on page */
 #a11y-proof .case-study-media-caption,
 #performance-proof .case-study-media-caption {
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--text-muted);
   padding: 0.5rem 0 0;
   max-width: 100%;
   text-align: center;
 }
 
-/* IA Studio stats screenshots: wider container so DevTools/network proof images are readable */
+/* Keep proof section container capped */
 #performance-proof .case-study-media {
-  max-width: min(960px, 95vw);
-  padding: 1.25rem;
+  max-width: min(650px, calc(100vw - 2rem));
+  padding: 0;
 }
 
 #performance-proof .case-study-media img {

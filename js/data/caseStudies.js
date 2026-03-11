@@ -166,8 +166,8 @@ export const caseStudies = {
         body: "<p>To ensure this portfolio performs at an enterprise level, I rigorously audited the architecture and tracked real-world user behavior. The site achieves a perfect 100/100 across all Lighthouse metrics. Additionally, integrating Microsoft Clarity allowed me to validate my system-level navigation, confirming high engagement on the categorical filters and tracking successful routing to the case studies.</p>",
         media: [
           { type: "image", src: "/assets/images/portfolio-lighthouse-proof.png", caption: "Lighthouse audit confirming perfect 100 scores across Performance, Accessibility, Best Practices, and SEO." },
-          { type: "image", src: "/assets/images/ia-behavior-proof.png", caption: "Microsoft Clarity session analysis highlighting high-engagement filter zones on the Work page." },
-          { type: "image", src: "/assets/images/ia-conversion-proof.png", caption: "Quantitative click-tracking confirming successful conversion rates to individual case studies." }
+          { type: "image", src: "/assets/images/ia-behavior-proof.png", caption: "Microsoft Clarity session analysis highlighting high-engagement filter zones on the Work page.", className: "data-artifact" },
+          { type: "image", src: "/assets/images/ia-conversion-proof.png", caption: "Quantitative click-tracking confirming successful conversion rates to individual case studies.", className: "data-artifact data-artifact--compact" }
         ]
       }
     ]
