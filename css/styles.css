@@ -3393,7 +3393,7 @@ main.case-study-page {
   margin-top: 1.5rem;
   margin-bottom: 0;
   width: 100%;
-  max-width: min(650px, calc(100vw - 2rem));
+  max-width: min(920px, 94vw);
   min-width: 0;
   margin-inline: auto;
   align-self: start;
@@ -3402,7 +3402,7 @@ main.case-study-page {
 /* Case study section media: image on page, no box (diagrams and general images) */
 .section-media,
 .case-study-media--image {
-  max-width: min(650px, calc(100vw - 2rem));
+  max-width: min(920px, 94vw);
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -3462,7 +3462,7 @@ main.case-study-page {
   color: var(--text-muted);
   margin-top: 0.75rem;
   margin-bottom: 0;
-  max-width: 650px;
+  max-width: min(920px, 94vw);
   margin-left: auto;
   margin-right: auto;
   text-align: center;
