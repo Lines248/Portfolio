@@ -3546,14 +3546,27 @@ main.case-study-page {
   text-align: center;
 }
 
-/* Keep proof section container capped */
+/* IA Studio: Performance & Security section – larger images, clearer outline */
 #performance-proof .case-study-media {
-  max-width: min(650px, calc(100vw - 2rem));
+  max-width: min(920px, 94vw);
   padding: 0;
+  border: 1px solid var(--border-subtle);
+  border-radius: 0;
+  padding: 1.25rem;
+  background: var(--bg-subtle);
+  box-sizing: border-box;
 }
 
 #performance-proof .case-study-media img {
   object-fit: contain;
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+#performance-proof .case-study-media-caption {
+  margin-top: 0.75rem;
 }
 
 .case-study-context {
