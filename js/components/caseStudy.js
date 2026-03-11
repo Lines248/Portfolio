@@ -375,7 +375,7 @@ export class CaseStudy {
       }
       const alt = media.alt || media.caption || "";
       return `<figure class="case-study-media case-study-media--image" style="margin-bottom: 2rem;">
-            <img src="${this.escapeAttr(media.src)}" alt="${this.escapeAttr(alt)}" loading="lazy" class="section-image" style="width: 100%; height: auto; border-radius: 4px;" />
+            <img src="${this.escapeAttr(media.src)}" alt="${this.escapeAttr(alt)}" loading="lazy" class="section-image" />
             ${captionHtml}
           </figure>`;
     }

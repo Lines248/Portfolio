@@ -3385,35 +3385,53 @@ main.case-study-page {
   margin-top: 1.5rem;
   margin-bottom: 0;
   width: 100%;
-  max-width: 100%;
+  max-width: 800px;
   min-width: 0;
-  margin-inline: 0;
+  margin-inline: auto;
   align-self: start;
 }
 
+/* Alias for case study section media container (e.g. .section-media) */
+.section-media,
 .case-study-media--image {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
 }
 
 .case-study-media--image img,
-.case-study-media--image .section-image {
+.case-study-media--image .section-image,
+.section-media img {
   display: block;
-  max-width: 100%;
   width: 100%;
+  max-width: 800px;
   height: auto;
+  margin: 0 auto;
   object-fit: contain;
-  object-position: left top;
+  object-position: center;
+  /* Prevent upscaling blur; keep technical screenshots sharp */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  max-inline-size: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
 }
 
-.case-study-media-caption {
+.case-study-media-caption,
+.section-media figcaption {
   font-size: var(--fs-s);
   line-height: 1.5;
   color: var(--text-muted);
   margin-top: 0.75rem;
   margin-bottom: 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 /* Premium technical dashboard / receipt styling: a11y proof (ACCEX) and performance proof (IA Studio) */
@@ -3442,11 +3460,13 @@ main.case-study-page {
   margin-bottom: 0;
 }
 
-/* Caption on dark card: use light text for readable contrast */
+/* Caption on dark card: use light text for readable contrast; match container width */
 #a11y-proof .case-study-media-caption,
 #performance-proof .case-study-media-caption {
   color: rgba(255, 255, 255, 0.92);
   padding: 0.5rem 0 0;
+  max-width: 100%;
+  text-align: center;
 }
 
 /* IA Studio stats screenshots: wider container so DevTools/network proof images are readable */

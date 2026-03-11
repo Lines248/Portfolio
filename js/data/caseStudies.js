@@ -188,6 +188,11 @@ export const caseStudies = {
             type: "image",
             src: "/assets/images/deroche-grid-system.avif",
             caption: "Managing complex column logic with a 12/4 mobile-to-desktop transition, allowing users to switch between [SM], [MD], and [LG] scales."
+          },
+          {
+            type: "image",
+            src: "/assets/images/deroche-tablet.avif",
+            caption: "Tablet view of the portfolio showing the responsive grid and dense archive at mid-viewport scale."
           }
         ]
       },
