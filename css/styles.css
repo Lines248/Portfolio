@@ -3460,10 +3460,24 @@ main.case-study-page {
   cursor: pointer;
 }
 
-/* Larger hero/portal image (e.g. IA Studio entry portal) */
+/* Larger hero/portal image (e.g. IA Studio entry portal) – show full image, no crop */
 .case-study-media--large,
 .case-study-media--image.case-study-media--large {
   max-width: min(920px, 94vw);
+  overflow: visible;
+}
+
+.case-study-media--large img,
+.case-study-media--large .section-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .case-study-media--large .case-study-media-caption,
