@@ -686,8 +686,6 @@ section {
   object-fit: contain;
   object-position: center;
   display: block;
-  border-radius: 4px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
 }
 
 .diagram-lightbox__image-wrap .diagram-lightbox__case-study-link {
@@ -796,9 +794,6 @@ section {
     width: 100%;
     max-width: 100%;
     aspect-ratio: 16 / 9;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 0.5rem 0;
   }
 
