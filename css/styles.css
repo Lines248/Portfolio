@@ -1,5 +1,5 @@
 /*
- * 8pt GRID SYSTEM - InLine Access Studio
+ * 8pt GRID SYSTEM - Lines Sultzer Portfolio
  * All spacing (margin, padding, gap) must use multiples of 8:
  *   8, 16, 24, 32, 40, 48, 64, 80, 120
  * When adding or editing margin/padding/gap, default to the nearest
@@ -580,7 +580,7 @@ section {
   font-size: 10px;
 }
 
-/* Diagram lightbox: fullscreen overlay with transparent blue bg */
+/* Diagram lightbox */
 .diagram-lightbox {
   position: fixed;
   inset: 0;
@@ -930,7 +930,7 @@ section {
   outline-offset: 2px;
 }
 
-/* Filter count badge: bottom corner, visible only on interaction */
+/* Filter counte */
 .category-filters .filter-btn {
   position: relative;
 }
