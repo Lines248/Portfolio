@@ -9,6 +9,7 @@ const CASE_STUDY_ORDER = [
   { id: "ia-studio", url: "/ia-studio", title: "Authenticated Digital Asset Platform" },
   { id: "accex", url: "/accex", title: "ACCEX" },
   { id: "deroche-projects", url: "/deroche", title: "DeRoche Projects" },
+  { id: "trust-circle", url: "/trust-circle", title: "Trust Circle" },
   { id: "nomin-eat", url: "/nomin-eat", title: "NominEat" },
   { id: "vending-machine", url: "/vending-machine", title: "Vending Machine" },
 ];

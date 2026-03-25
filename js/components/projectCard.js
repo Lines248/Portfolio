@@ -19,7 +19,7 @@ function createProjectLink(url, label, projectTitle, linkType) {
 }
 
 function hasCaseStudy(project) {
-    const caseStudyProjects = ["ia-studio", "inline-access", "nomin-eat", "vending-machine", "accex", "deroche-projects"];
+    const caseStudyProjects = ["ia-studio", "inline-access", "nomin-eat", "vending-machine", "accex", "deroche-projects", "trust-circle"];
     return caseStudyProjects.includes(project.id);
 }
 
@@ -30,7 +30,8 @@ function getCaseStudyUrl(project) {
         "nomin-eat": "/nomin-eat",
         "vending-machine": "/vending-machine",
         "accex": "/accex",
-        "deroche-projects": "/deroche"
+        "deroche-projects": "/deroche",
+        "trust-circle": "/trust-circle"
     };
     return caseStudyPaths[project.id] || `/${project.id}`;
 }

@@ -9,6 +9,7 @@ const CASE_STUDY_PATHS = {
   "vending-machine": "/vending-machine",
   "accex": "/accex",
   "deroche-projects": "/deroche",
+  "trust-circle": "/trust-circle",
 };
 
 export class WorkFilters {

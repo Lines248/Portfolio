@@ -220,4 +220,19 @@ export const caseStudies = {
       }
     ]
   },
+
+  "trust-circle": {
+    id: "trust-circle",
+    title: "Trust Circle",
+    subtitle: "Architecting a fully responsive visual identity and web production for a live startup using Framer.",
+    roles: ["UI/UX Designer", "Brand & Visual Designer", "Web Producer"],
+    context: "Live startup",
+    sections: [
+      {
+        heading: "Scope & outcomes",
+        body: "<ul><li>Led the end-to-end web production and branding for a live startup, designing the visual identity and translating it into a fully responsive site using Framer.</li><li>Managed all digital assets, typography, and graphic elements to ensure strict visual consistency and a highly polished user experience.</li></ul>",
+        media: []
+      }
+    ]
+  },
 };

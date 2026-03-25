@@ -120,4 +120,19 @@ export const projects = [
     featured: true,
     category: "development",
   },
+  {
+    id: "trust-circle",
+    title: "Trust Circle",
+    type: "UI/UX | Framer & Visual Identity",
+    image: "/assets/images/trust-circle.png",
+    alt: "Trust Circle startup website mockup and visual identity",
+    description:
+        "Architecting a fully responsive visual identity and web production for a live startup using Framer.",
+    stack: ["Framer", "UI/UX", "Brand", "Responsive Web", "Visual Identity"],
+    links: {
+      live: "https://www.trustcircle.work/",
+    },
+    featured: true,
+    category: "ui-ux",
+  },
 ];
