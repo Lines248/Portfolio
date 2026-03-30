@@ -147,11 +147,11 @@ export class CaseStudy {
 
         ${featuredDiagram}
 
-        <div class="case-study-main" style="margin-top: 3rem;">
+        <div class="case-study-main">
           ${mainContent}
         </div>
 
-        <footer class="case-study-details" aria-label="Project details" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+        <footer class="case-study-details" aria-label="Project details">
           <div class="case-study-stack">
             <h3>Technologies & Tools</h3>
             <ul class="stack-list tech-stack-grid" role="list">
@@ -336,7 +336,7 @@ export class CaseStudy {
         const alt = section.image.alt || section.image.caption || sectionTitle;
         const captionAttr = section.image.caption ? ` data-caption="${this.escapeAttr(section.image.caption)}"` : "";
         mediaHTML = `
-          <figure class="case-study-media case-study-media--image case-study-media--lightbox" style="margin-bottom: 2rem;">
+          <figure class="case-study-media case-study-media--image case-study-media--lightbox">
             <img src="${this.escapeAttr(section.image.src)}" alt="${this.escapeAttr(alt)}" loading="lazy" class="section-image"${captionAttr} />
             ${section.image.caption ? `<figcaption class="case-study-media-caption">${this.escapeHtml(section.image.caption)}</figcaption>` : ""}
           </figure>
@@ -379,11 +379,11 @@ export class CaseStudy {
 
     if (type === "image") {
       if (isPlaceholder) {
-        return `<figure class="case-study-media case-study-media--image${extraClass}" style="margin-bottom: 2rem;"><div class="case-study-embed figma-embed-wrapper case-study-media-placeholder" aria-label="Image placeholder"><!-- Replace with img or set src in data --></div>${captionHtml}</figure>`;
+        return `<figure class="case-study-media case-study-media--image${extraClass}"><div class="case-study-embed figma-embed-wrapper case-study-media-placeholder" aria-label="Image placeholder"><!-- Replace with img or set src in data --></div>${captionHtml}</figure>`;
       }
       const alt = media.alt || media.caption || "";
       const captionAttr = media.caption ? ` data-caption="${this.escapeAttr(media.caption)}"` : "";
-      return `<figure class="case-study-media case-study-media--image case-study-media--lightbox${extraClass}" style="margin-bottom: 2rem;">
+      return `<figure class="case-study-media case-study-media--image case-study-media--lightbox${extraClass}">
             <img src="${this.escapeAttr(media.src)}" alt="${this.escapeAttr(alt)}" loading="lazy" class="section-image"${captionAttr} />
             ${captionHtml}
           </figure>`;

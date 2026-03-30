@@ -18,7 +18,7 @@ export const caseStudies = {
       {
         heading: "The Problem & The Solution",
         body: "<p><strong>The Problem:</strong> Sharing secure digital files usually forces clients to create accounts and remember passwords, adding significant friction to the user experience.</p><p><strong>The Solution:</strong> A custom Next.js application that separates secure server operations from the user interface. Instead of full account logins, it uses secure hashed access codes to grant entry to specific gated viewing environments.</p>",
-        media: [{ type: "image", src: "/assets/images/ia-ui-portal.png", caption: "The platform's core interface: the minimalist, high-conversion entry portal for InLine Access Studio.", className: "case-study-media--large" }]
+        media: [{ type: "image", src: "/assets/images/ia-ui-portal.webp", caption: "The platform's core interface: the minimalist, high-conversion entry portal for InLine Access Studio.", className: "case-study-media--large" }]
       },
       {
         heading: "Data Verification Pipeline",
@@ -42,8 +42,8 @@ export const caseStudies = {
         heading: "Performance & Security Metrics",
         body: "<ul><li><strong>Near-Instant Server Actions:</strong> Production network logs confirm a 6ms response time for secure authentication, ensuring a frictionless experience for high-stakes gallery clients.</li><li><strong>Next-Gen Payload Optimization:</strong> Automatically serve WebP assets via Next.js Image optimization, reducing high-fidelity gallery images to ~40kB for instant visual rendering.</li><li><strong>Bespoke Security Architecture:</strong> Designed a 'Private by Design' entry system that eliminates traditional account overhead while maintaining strict cryptographic asset protection.</li></ul>",
         media: [
-          { type: "image", src: "/assets/images/ia-auth-proof.png", caption: "Next.js Server Action confirming a 6ms secure authentication response." },
-          { type: "image", src: "/assets/images/ia-payload-proof.png", caption: "Automatic WebP compression reducing gallery assets by over 80%." }
+          { type: "image", src: "/assets/images/ia-auth-proof.webp", caption: "Next.js Server Action confirming a 6ms secure authentication response." },
+          { type: "image", src: "/assets/images/ia-payload-proof.webp", caption: "Automatic WebP compression reducing gallery assets by over 80%." }
         ]
       }
     ]
@@ -101,7 +101,7 @@ export const caseStudies = {
         heading: "Accessibility & Validation",
         body: "<ul><li><strong>100/100 Lighthouse Score:</strong> Automated auditing confirms a perfect baseline for semantic HTML and ARIA implementation.</li><li><strong>100% Keyboard Navigability:</strong> Conducted manual testing to ensure zero focus traps, full modal trapping, and complete operability without a mouse.</li><li><strong>WCAG 2.2 AA Compliance:</strong> Mathematically verified that all UI elements and typography scales exceed the strict 4.5:1 contrast ratio threshold.</li></ul>",
         media: [
-          { type: "image", src: "/assets/images/accex-lighthouse-proof.png", caption: "Lighthouse audit confirming a perfect 100/100 Accessibility score." }
+          { type: "image", src: "/assets/images/accex-lighthouse-proof.webp", caption: "Lighthouse audit confirming a perfect 100/100 Accessibility score." }
         ]
       }
     ]
@@ -165,9 +165,9 @@ export const caseStudies = {
         heading: "Engineering Standards & Analytics",
         body: "<p>To ensure this portfolio performs at an enterprise level, I rigorously audited the architecture and tracked real-world user behavior. The site achieves a perfect 100/100 across all Lighthouse metrics. Additionally, integrating Microsoft Clarity allowed me to validate my system-level navigation, confirming high engagement on the categorical filters and tracking successful routing to the case studies.</p>",
         media: [
-          { type: "image", src: "/assets/images/portfolio-lighthouse-proof.png", caption: "Lighthouse audit confirming perfect 100 scores across Performance, Accessibility, Best Practices, and SEO." },
-          { type: "image", src: "/assets/images/ia-behavior-proof.png", caption: "Microsoft Clarity session analysis highlighting high-engagement filter zones on the Work page.", className: "data-artifact" },
-          { type: "image", src: "/assets/images/ia-conversion-proof.png", caption: "Quantitative click-tracking confirming successful conversion rates to individual case studies.", className: "data-artifact data-artifact--compact" }
+          { type: "image", src: "/assets/images/portfolio-lighthouse-proof.webp", caption: "Lighthouse audit confirming perfect 100 scores across Performance, Accessibility, Best Practices, and SEO." },
+          { type: "image", src: "/assets/images/ia-behavior-proof.webp", caption: "Microsoft Clarity session analysis highlighting high-engagement filter zones on the Work page.", className: "data-artifact" },
+          { type: "image", src: "/assets/images/ia-conversion-proof.webp", caption: "Quantitative click-tracking confirming successful conversion rates to individual case studies.", className: "data-artifact data-artifact--compact" }
         ]
       }
     ]

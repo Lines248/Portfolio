@@ -20,7 +20,7 @@ export const projects = [
     id: "ia-studio",
     title: "Authenticated Digital Asset Platform",
     type: "Front-End Engineering | Next.js 15 / React 19 / TypeScript",
-    image: "assets/images/ia-desktop.jpg",
+    image: "assets/images/ia-desktop.webp",
     alt: "Screenshot of the Authenticated Digital Asset Platform interface",
     description:
         "A secure, multi-tenant SaaS platform built with Next.js 15, React 19, and strict TypeScript. Features role-based access controls and a fully type-safe data mutation pipeline.",
@@ -124,7 +124,7 @@ export const projects = [
     id: "trust-circle",
     title: "Trust Circle",
     type: "UI/UX | Framer & Visual Identity",
-    image: "/assets/images/trust-circle.png",
+    image: "/assets/images/trust-circle.webp",
     alt: "Trust Circle startup website mockup and visual identity",
     description:
         "Architecting a fully responsive visual identity and web production for a live startup using Framer.",

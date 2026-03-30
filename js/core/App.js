@@ -142,6 +142,9 @@ export class App {
 
 
   async handleHomePage() {
+    const { renderCaseStudies } = await import("../renderCaseStudies.js");
+    renderCaseStudies();
+
     const grid = document.querySelector("#feature-grid");
     if (grid) {
       if ('requestIdleCallback' in window) {

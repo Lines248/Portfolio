@@ -72,9 +72,9 @@
     <body class="home-page">
         <a href="#main-content" class="skip-link">Skip to main content</a>
         
-        <header class="site-header" role="banner"></header>
+        <header class="site-header"></header>
 
-        <main id="main-content" role="main" class="home-main">
+        <main id="main-content" class="home-main">
  
             <section class="hero" aria-labelledby="hero-heading">
                 <header class="hero__header">
@@ -86,44 +86,13 @@
                 </div>
                 <div class="hero__actions">
                     <a href="/work" class="btn btn--primary">View Work</a>
-                    <a href="https://github.com/Lines248" class="hero__link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://github.com/Lines248" class="hero__link" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in new tab)">GitHub</a>
                 </div>
             </section>
 
             <section class="featured-case-studies" aria-labelledby="case-studies-heading">
                 <h2 id="case-studies-heading" class="featured-case-studies__title">Featured Case Studies</h2>
-                <div class="case-studies-grid" aria-label="Featured case study cards">
-                    <a href="/ia-studio" class="case-study-card" aria-label="View Authenticated Digital Asset Platform case study">
-                        <span class="case-study-card__image-wrap">
-                            <img class="case-study-card__image" src="/assets/images/ia-ui-portal.png" alt="InLine Access Studio - High-fidelity login portal for luxury digital viewing rooms." width="800" height="450" loading="lazy" decoding="async" />
-                        </span>
-                        <div class="case-study-card__body">
-                            <h3 class="case-study-card__title">Authenticated Digital Asset Platform</h3>
-                            <p class="case-study-card__subtitle">Product Design • Full-Stack Engineering • Secure Architecture</p>
-                            <p class="case-study-card__description">A secure, multi-tenant SaaS platform built with Next.js 15, React 19, and strict TypeScript. Features role-based access controls and a fully type-safe data mutation pipeline.</p>
-                        </div>
-                    </a>
-                    <a href="/deroche" class="case-study-card" aria-label="View DeRoche Projects case study">
-                        <span class="case-study-card__image-wrap">
-                            <img class="case-study-card__image" src="/assets/images/deroche.avif" alt="DeRoche Projects architectural portfolio interface." width="800" height="450" loading="lazy" decoding="async" />
-                        </span>
-                        <div class="case-study-card__body">
-                            <h3 class="case-study-card__title">DeRoche Projects</h3>
-                            <p class="case-study-card__subtitle">Design Systems • UI/UX • Information Architecture</p>
-                            <p class="case-study-card__description">Translating an architectural &#39;drawing board&#39; concept into a dense, high-performance digital portfolio.</p>
-                        </div>
-                    </a>
-                    <a href="/accex" class="case-study-card" aria-label="View ACCEX case study">
-                        <span class="case-study-card__image-wrap">
-                            <img class="case-study-card__image" src="/assets/images/accex-architecture.svg" alt="Data Flow architecture for ACCEX." width="800" height="450" loading="lazy" decoding="async" />
-                        </span>
-                        <div class="case-study-card__body">
-                            <h3 class="case-study-card__title">ACCEX</h3>
-                            <p class="case-study-card__subtitle">Accessibility Engineering • Vue.js • WCAG 2.2</p>
-                            <p class="case-study-card__description">Designed and engineered entirely from scratch. A high-performance, accessible color contrast checker built with modern front-end tooling to streamline UI compliance.</p>
-                        </div>
-                    </a>
-                </div>
+                <div class="case-studies-grid" aria-label="Featured case study cards"></div>
             </section>
 
             <section class="value-prop" aria-labelledby="value-prop-heading">
@@ -165,7 +134,7 @@
 
         <nav aria-label="Theme selection" data-theme-toggle-container></nav>
 
-        <footer class="site-footer" role="contentinfo"></footer>
+        <footer class="site-footer"></footer>
 
         <script type="module" src="./js/main.js?v=20260115-1"></script>
     </body>
