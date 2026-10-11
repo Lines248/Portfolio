@@ -4187,3 +4187,71 @@ main.case-study-page {
       border-color 0.25s var(--ease-expo-out), box-shadow 0.28s var(--ease-expo-out);
   }
 }
+/* ==========================================================================
+   Alignment pass (Oct 2026): one left edge for header, intro, filters, cards.
+   Desktop only. Mobile rules above are untouched.
+   ========================================================================== */
+@media (min-width: 769px) {
+  /* Header: drop side padding so the logo lines up with the page content */
+  .site-header {
+    padding-inline: 0;
+  }
+
+  /* Intro: tighter top, scroll hint flush left */
+  .work-page .work-intro {
+    padding-top: 0;
+  }
+
+  .work-scroll-hint {
+    margin: 32px 0;
+  }
+
+  /* Thread line sits on the content edge, under the hint line */
+  .work-section::before,
+  .scroll-progress-line {
+    left: 0;
+  }
+
+  /* Filters: one 8px rhythm, less dead space before first project */
+  .work-page .work-filters {
+    gap: 8px;
+    margin-bottom: 48px;
+  }
+
+  .work-page .category-filters {
+    gap: 8px;
+  }
+
+  /* Project rows: image, tags and text flush to the content edge */
+  .work-page #work-grid .project-card > .project-card__image-link,
+  .work-page #work-grid .project-card > .project-card__image-wrap,
+  .work-page #work-grid .project-card .project-card__media-col > .project-card__image-link,
+  .work-page #work-grid .project-card .project-card__media-col > .project-card__image-wrap {
+    padding: 0;
+    background: none;
+  }
+
+  .work-page #work-grid .project-card .project-card__media-col .project-points,
+  .work-page #work-grid .project-card .project-card__media-col .project-card__metrics {
+    padding-inline: 0;
+  }
+
+  .work-page #work-grid .project-card__body {
+    padding-inline: 0;
+  }
+}
+
+@media (min-width: 901px) {
+  /* Two-column rows: tighter gutter, no forced 90vh height */
+  .work-page #work-grid .project-card {
+    column-gap: 48px;
+    min-height: 0;
+    margin-bottom: 96px;
+  }
+
+  /* Text column starts at the top of the image */
+  .work-page #work-grid .project-card__body {
+    padding: 0;
+    justify-content: flex-start;
+  }
+}
