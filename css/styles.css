@@ -4387,9 +4387,13 @@ main.case-study-page {
     padding-inline: 0;
   }
 
-  .home-main .hero__header,
+  .home-main .hero__header {
+    max-width: 900px;
+  }
+
+  .home-main .hero__subhead,
   .home-main .hero__now {
-    max-width: 720px;
+    max-width: 680px;
   }
 }
 
