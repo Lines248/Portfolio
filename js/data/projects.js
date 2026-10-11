@@ -17,7 +17,7 @@ export const projects = [
     id: "ai-use-checker",
     caption: "Type what you want to use AI for and get a plain answer, with the policy rule behind it.",
     title: "Can I Use AI for This?",
-    type: "AI Engineering | Next.js, AI SDK, AI Gateway",
+    type: "AI Enablement Tool | Next.js, AI SDK, AI Gateway",
     image: "/assets/images/ai-use-checker.webp",
     alt: "The AI use checker answering 'Use it to rank grant applicants' with Not allowed, citing rule R5: people decide about people.",
     description:
@@ -32,14 +32,14 @@ export const projects = [
   },
   {
     id: "ia-studio",
-    caption: "Private viewing rooms for gallery clients, plus AI curation over WhatsApp.",
+    caption: "Private viewing rooms for gallery clients, plus AI curation from the gallery's own inventory.",
     title: "Secure Client Portal for Art Galleries",
     type: "Front-End Engineering | Next.js 15 / React 19 / TypeScript",
     image: "assets/images/ia-desktop.webp",
     alt: "Admin console of the gallery client portal, showing secure portals, inventory and clients.",
     description:
-        "A secure, multi-tenant portal for art galleries built with Next.js, React and strict TypeScript. Each client signs in and sees only their own works. Galleries can also text a request over WhatsApp and get AI-picked works from their own inventory.",
-    stack: ["Next.js", "React", "TypeScript", "Supabase", "AI Curation", "WhatsApp API"],
+        "A secure, multi-tenant portal for art galleries built with Next.js, React and strict TypeScript. Each client signs in and sees only their own works. Galleries can also ask for AI-picked suggestions from their own inventory.",
+    stack: ["Next.js", "React", "TypeScript", "Supabase", "AI Curation"],
     metrics: [
       { label: "6ms Auth Response", anchor: "performance-proof" },
       { label: "WebP Optimized", anchor: "performance-proof" }

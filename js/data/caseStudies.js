@@ -2,7 +2,7 @@ export const caseStudies = {
   "ia-studio": {
     id: "ia-studio",
     title: "Secure Client Portal for Art Galleries",
-    subtitle: "A secure portal where each gallery client sees only their own works, with AI curation over WhatsApp. Built with Next.js, React and TypeScript.",
+    subtitle: "A secure portal where each gallery client sees only their own works, with AI curation from the gallery's own inventory. Built with Next.js, React and TypeScript.",
     roles: ["Product Designer", "Full-Stack Engineer", "Project Manager"],
     context: "Founder / Lead Developer",
     stack: ["Next.js", "React", "TypeScript", "PostgreSQL", "Supabase", "Stripe"],
