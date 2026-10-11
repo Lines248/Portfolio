@@ -236,7 +236,7 @@ export const caseStudies = {
 
   "ai-governance": {
     id: "ai-governance",
-    title: "AI Governance for a Small Nonprofit",
+    title: "AI Governance for a Nonprofit",
     subtitle: "An AI policy, training plan and rollout for a small, mostly non-technical team.",
     roles: ["Research & policy", "Tools & data", "Rollout"],
     context: "Dance/NYC \u00b7 2026 \u00b7 In progress",

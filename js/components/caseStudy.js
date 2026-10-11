@@ -5,7 +5,7 @@ import { open as openDiagramLightbox, openImages as openDiagramLightboxImages, d
 
 /* Must match the order of projects on the work page (projects with case studies, excluding hidden) */
 const CASE_STUDY_ORDER = [
-  { id: "ai-governance", url: "/ai-governance", title: "AI Governance for a Small Nonprofit" },
+  { id: "ai-governance", url: "/ai-governance", title: "AI Governance for a Nonprofit" },
   { id: "ia-studio", url: "/ia-studio", title: "Secure Client Portal for Art Galleries" },
   { id: "accex", url: "/accex", title: "ACCEX" },
   { id: "inline-access", url: "/portfolio-site", title: "This Portfolio" },
