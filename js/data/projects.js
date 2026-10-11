@@ -1,6 +1,7 @@
 export const projects = [
   {
     id: "inline-access",
+    caption: "A three-theme design system, built by hand in vanilla JS.",
     title: "This Portfolio",
     type: "Front-End Engineering | Vanilla JS & Design System",
     image: "/assets/images/portfolio-site-mobile.avif",
@@ -18,6 +19,7 @@ export const projects = [
   },
   {
     id: "ia-studio",
+    caption: "A secure platform where each client logs in and sees only their own assets.",
     title: "Authenticated Digital Asset Platform",
     type: "Front-End Engineering | Next.js 15 / React 19 / TypeScript",
     image: "assets/images/ia-desktop.webp",
@@ -38,6 +40,7 @@ export const projects = [
   },
   {
     id: "accex",
+    caption: "Checks any two colors against WCAG contrast rules in one step.",
     title: "ACCEX",
     type: "Front-End Engineering | Accessibility Tool",
     image: "/assets/images/accex.avif",
@@ -58,6 +61,7 @@ export const projects = [
   },
   {
     id: "deroche-projects",
+    caption: "An architect's drawing board, turned into a fast portfolio site.",
     title: "DeRoche Projects",
     type: "Digital Identity & UI/UX",
     image: "/assets/images/deroche.avif",
@@ -73,6 +77,7 @@ export const projects = [
   },
   {
     id: "claim-your-signal",
+    caption: "An interactive prototype about who owns what you make online.",
     title: "Claim Your Signal",
     type: "Front-End Engineering | Interaction Design",
     image: "/assets/own-your-data.avif",
@@ -90,6 +95,7 @@ export const projects = [
   },
   {
     id: "vending-machine",
+    caption: "A Java vending machine I rebuilt on my own in Python.",
     title: "Vending Machine Web App",
     type: "Full-Stack Development",
     image: "/assets/images/vending-machine.avif",
@@ -106,6 +112,7 @@ export const projects = [
   },
   {
     id: "nomin-eat",
+    caption: "Groups vote in real time on where to eat, with live Yelp data.",
     title: "NominEat - Full-Stack Group Voting Web App",
     type: "Java Spring Boot / PostgreSQL / Vue.js / Yelp Fusion API",
     image: "/assets/images/nomineat-cover.avif",
@@ -122,6 +129,7 @@ export const projects = [
   },
   {
     id: "trust-circle",
+    caption: "Brand and responsive site for a live startup, built in Framer.",
     title: "Trust Circle",
     type: "UI/UX | Framer & Visual Identity",
     image: "/assets/images/trust-circle.webp",

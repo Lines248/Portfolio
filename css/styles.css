@@ -4255,3 +4255,12 @@ main.case-study-page {
     justify-content: flex-start;
   }
 }
+
+/* Work page: one-line caption under each project image */
+.work-page #work-grid .project-card__caption {
+  margin: 0;
+  font-size: var(--fs-s, 0.95rem);
+  line-height: 1.5;
+  color: var(--text-muted);
+  max-width: 60ch;
+}

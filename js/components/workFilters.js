@@ -15,7 +15,7 @@ const CASE_STUDY_PATHS = {
 export class WorkFilters {
   constructor() {
     this.selectedCategory = "all";
-    this.imageView = "image"; // "diagram" | "image" for work page project thumbnails
+    this.imageView = "image"; // work page always shows project images; diagrams live on case study pages
     this.isRendering = false;
   }
 
@@ -76,10 +76,6 @@ export class WorkFilters {
             UI UX<span class="filter-count">${counts["ui-ux"]}</span>
           </button>
         </div>
-        <div class="work-view-toggle" role="group" aria-label="Project image view">
-          <button type="button" class="filter-btn filter-btn--view ${this.imageView === 'diagram' ? 'active' : ''}" data-image-view="diagram" aria-pressed="${this.imageView === 'diagram'}">Diagrams</button>
-          <button type="button" class="filter-btn filter-btn--view ${this.imageView === 'image' ? 'active' : ''}" data-image-view="image" aria-pressed="${this.imageView === 'image'}">Images</button>
-        </div>
       </div>
     `;
   }
@@ -90,13 +86,6 @@ export class WorkFilters {
       btn.addEventListener('click', () => {
         const category = btn.getAttribute('data-category');
         this.setCategory(category);
-      });
-    });
-    const viewButtons = document.querySelectorAll('[data-image-view]');
-    viewButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const view = btn.getAttribute('data-image-view');
-        this.setImageView(view);
       });
     });
   }
@@ -144,22 +133,6 @@ export class WorkFilters {
     this.renderProjects();
   }
 
-  setImageView(view) {
-    if (view === this.imageView) return;
-    this.imageView = view;
-    this.updateImageViewButtons();
-    this.renderProjects();
-  }
-
-  updateImageViewButtons() {
-    const buttons = document.querySelectorAll('[data-image-view]');
-    buttons.forEach(btn => {
-      const view = btn.getAttribute('data-image-view');
-      const isActive = view === this.imageView;
-      btn.classList.toggle('active', isActive);
-      btn.setAttribute('aria-pressed', isActive);
-    });
-  }
 
   updateCategoryButtons() {
     const buttons = document.querySelectorAll('[data-category]');

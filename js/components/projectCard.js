@@ -97,6 +97,9 @@ export function ProjectCard(project, index = 0, options = {}) {
         : "";
 
     const projectLinks = buildProjectLinks(project);
+    const captionHTML = project.caption
+        ? `<p class="project-card__caption">${project.caption}</p>`
+        : "";
 
     const isFirstCard = project.featured && index === 0;
     const fetchPriority = isFirstCard ? "high" : "auto";
@@ -131,6 +134,7 @@ export function ProjectCard(project, index = 0, options = {}) {
         <article class="project-card project-card--stack-under-image${caseStudyClass}">
             <div class="project-card__media-col">
                 ${imageBlock}
+                ${captionHTML}
                 <ul class="project-points" aria-label="Technologies used">${stackList}</ul>
                 ${metricsHTML}
             </div>
