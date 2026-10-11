@@ -1,7 +1,7 @@
 export const projects = [
   {
     id: "ai-governance",
-    caption: "An AI policy, training plan and rollout for a team that never asked to be technical.",
+    caption: "An AI policy and rollout plan for a small nonprofit.",
     title: "AI Governance for a Small Nonprofit",
     type: "AI Governance & Enablement",
     image: "/assets/images/ai-governance-cover.svg",

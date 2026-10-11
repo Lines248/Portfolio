@@ -247,7 +247,7 @@ export const caseStudies = {
         media: []
       },
       {
-        heading: "Rules first, then tools",
+        heading: "What I wrote",
         body: "<p>I didn't start by picking a tool. I researched and wrote an 11-document AI governance and integration framework and presented it to our Executive Director. It covers five areas:</p><ul><li><strong>Policy:</strong> what AI can and can't be used for, and what data never goes in.</li><li><strong>Training:</strong> how staff learn to use it well.</li><li><strong>Equity:</strong> who could be helped or harmed, inside and outside the org.</li><li><strong>Funding:</strong> what it costs and how to pay for it.</li><li><strong>Implementation:</strong> the order things roll out in.</li></ul>",
         media: []
       },
@@ -258,7 +258,7 @@ export const caseStudies = {
       },
       {
         heading: "Where it stands",
-        body: "<p>The rollout is still in progress. Writing the policy was the fast part. Getting people to actually use a tool takes plain guidance, training that fits their real tasks and someone they trust to answer questions. That's the part I'm working on now.</p>",
+        body: "<p>The rollout is still in progress.</p>",
         media: []
       }
     ]
