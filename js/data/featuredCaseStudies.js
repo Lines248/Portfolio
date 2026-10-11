@@ -3,8 +3,8 @@ export const featuredCaseStudies = [
     id: "ia-studio",
     href: "/ia-studio",
     image: "/assets/images/ia-ui-portal.webp",
-    alt: "InLine Access Studio - High-fidelity login portal for luxury digital viewing rooms.",
-    title: "Authenticated Digital Asset Platform",
+    alt: "Sign-in screen of the gallery client portal.",
+    title: "Secure Client Portal for Art Galleries",
     subtitle: "Product Design \u2022 Full-Stack Engineering \u2022 Secure Architecture",
     description:
       "A secure, multi-tenant SaaS platform built with Next.js 15, React 19, and strict TypeScript. Features role-based access controls and a fully type-safe data mutation pipeline.",

@@ -5,9 +5,10 @@ import { open as openDiagramLightbox, openImages as openDiagramLightboxImages, d
 
 /* Must match the order of projects on the work page (projects with case studies, excluding hidden) */
 const CASE_STUDY_ORDER = [
-  { id: "inline-access", url: "/portfolio-site", title: "This Portfolio" },
-  { id: "ia-studio", url: "/ia-studio", title: "Authenticated Digital Asset Platform" },
+  { id: "ai-governance", url: "/ai-governance", title: "AI Governance for a Small Nonprofit" },
+  { id: "ia-studio", url: "/ia-studio", title: "Secure Client Portal for Art Galleries" },
   { id: "accex", url: "/accex", title: "ACCEX" },
+  { id: "inline-access", url: "/portfolio-site", title: "This Portfolio" },
   { id: "deroche-projects", url: "/deroche", title: "DeRoche Projects" },
   { id: "trust-circle", url: "/trust-circle", title: "Trust Circle" },
   { id: "nomin-eat", url: "/nomin-eat", title: "NominEat" },

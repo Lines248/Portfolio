@@ -14,15 +14,32 @@ export const projects = [
     category: "governance",
   },
   {
+    id: "ai-use-checker",
+    caption: "Type what you want to use AI for and get a plain answer, with the policy rule behind it.",
+    title: "Can I Use AI for This?",
+    type: "AI Engineering | Next.js, AI SDK, AI Gateway",
+    image: "/assets/images/ai-use-checker.webp",
+    alt: "The AI use checker answering 'Use it to rank grant applicants' with Not allowed, citing rule R5: people decide about people.",
+    description:
+        "A small tool that turns an AI policy into instant answers. Staff describe a task and get allowed, ask first or not allowed, with the rule behind it and a safer way to do it. Built with Next.js, TypeScript and the Vercel AI SDK, using structured output through AI Gateway. Accessible, and it fails safe when the model is down.",
+    stack: ["Next.js", "TypeScript", "AI SDK", "AI Gateway"],
+    links: {
+      live: "",
+      repo: "",
+    },
+    featured: true,
+    category: "development",
+  },
+  {
     id: "ia-studio",
-    caption: "A secure platform where each client logs in and sees only their own assets.",
-    title: "Authenticated Digital Asset Platform",
+    caption: "Private viewing rooms for gallery clients, plus AI curation over WhatsApp.",
+    title: "Secure Client Portal for Art Galleries",
     type: "Front-End Engineering | Next.js 15 / React 19 / TypeScript",
     image: "assets/images/ia-desktop.webp",
-    alt: "Screenshot of the Authenticated Digital Asset Platform interface",
+    alt: "Admin console of the gallery client portal, showing secure portals, inventory and clients.",
     description:
-        "A secure, multi-tenant SaaS platform built with Next.js 15, React 19, and strict TypeScript. Features role-based access controls and a fully type-safe data mutation pipeline.",
-    stack: ["Next.js", "React", "TypeScript", "PostgreSQL", "Supabase", "Stripe"],
+        "A secure, multi-tenant portal for art galleries built with Next.js, React and strict TypeScript. Each client signs in and sees only their own works. Galleries can also text a request over WhatsApp and get AI-picked works from their own inventory.",
+    stack: ["Next.js", "React", "TypeScript", "Supabase", "AI Curation", "WhatsApp API"],
     metrics: [
       { label: "6ms Auth Response", anchor: "performance-proof" },
       { label: "WebP Optimized", anchor: "performance-proof" }
@@ -57,6 +74,7 @@ export const projects = [
   },
   {
     id: "inline-access",
+    archived: true, // shown in the collapsed "Earlier work" list
     caption: "A three-theme design system, built by hand in vanilla JS.",
     title: "This Portfolio",
     type: "Front-End Engineering | Vanilla JS & Design System",

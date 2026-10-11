@@ -4572,3 +4572,10 @@ main.case-study-page {
 .case-study-media--stats figcaption {
   margin-top: 16px;
 }
+
+.home-section__lede {
+  margin: -32px 0 48px;
+  max-width: 60ch;
+  font-size: var(--fs-m);
+  color: var(--text-muted);
+}

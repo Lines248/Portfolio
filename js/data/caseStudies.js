@@ -1,8 +1,8 @@
 export const caseStudies = {
   "ia-studio": {
     id: "ia-studio",
-    title: "InLine Access Studio",
-    subtitle: "A secure, high-performance digital viewing platform for protected assets.",
+    title: "Secure Client Portal for Art Galleries",
+    subtitle: "A secure portal where each gallery client sees only their own works, with AI curation over WhatsApp. Built with Next.js, React and TypeScript.",
     roles: ["Product Designer", "Full-Stack Engineer", "Project Manager"],
     context: "Founder / Lead Developer",
     stack: ["Next.js", "React", "TypeScript", "PostgreSQL", "Supabase", "Stripe"],
@@ -18,7 +18,7 @@ export const caseStudies = {
       {
         heading: "The Problem & The Solution",
         body: "<p><strong>The Problem:</strong> Sharing secure digital files usually forces clients to create accounts and remember passwords, adding significant friction to the user experience.</p><p><strong>The Solution:</strong> A custom Next.js application that separates secure server operations from the user interface. Instead of full account logins, it uses secure hashed access codes to grant entry to specific gated viewing environments.</p>",
-        media: [{ type: "image", src: "/assets/images/ia-ui-portal.webp", caption: "The platform's core interface: the minimalist, high-conversion entry portal for InLine Access Studio.", className: "case-study-media--large" }]
+        media: [{ type: "image", src: "/assets/images/ia-ui-portal.webp", caption: "The platform's core interface: the sign-in screen gallery clients see first.", className: "case-study-media--large" }]
       },
       {
         heading: "Data Verification Pipeline",
