@@ -5,9 +5,9 @@ export const projects = [
     title: "AI Governance for a Nonprofit",
     type: "AI Governance & Enablement",
     image: "/assets/images/ai-governance-cover.svg",
-    alt: "Cover for the AI governance framework: eleven documents across policy, training, equity, funding and rollout.",
+    alt: "Cover for the AI governance framework, covering policy, training, equity, funding and rollout.",
     description:
-        "I researched and wrote an 11-part AI governance framework for Dance/NYC, covering policy, training, equity, funding and rollout. Then I set up the tools and started bringing a small, mostly non-technical team along.",
+        "I researched and wrote an AI governance framework for Dance/NYC, covering policy, training, equity, funding and rollout. Then I set up the tools and started bringing a small, mostly non-technical team along.",
     stack: ["AI Policy", "Training", "Change Management", "Claude Team"],
     links: {},
     featured: true,

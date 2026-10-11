@@ -248,7 +248,7 @@ export const caseStudies = {
       },
       {
         heading: "What I wrote",
-        body: "<p>I didn't start by picking a tool. I researched and wrote an 11-document AI governance and integration framework and presented it to our Executive Director. It covers five areas:</p><ul><li><strong>Policy:</strong> what AI can and can't be used for, and what data never goes in.</li><li><strong>Training:</strong> how staff learn to use it well.</li><li><strong>Equity:</strong> who could be helped or harmed, inside and outside the org.</li><li><strong>Funding:</strong> what it costs and how to pay for it.</li><li><strong>Implementation:</strong> the order things roll out in.</li></ul>",
+        body: "<p>I didn't start by picking a tool. I researched and wrote an AI governance and integration framework and presented it to our Executive Director. It covers five areas:</p><ul><li><strong>Policy:</strong> what AI can and can't be used for, and what data never goes in.</li><li><strong>Training:</strong> how staff learn to use it well.</li><li><strong>Equity:</strong> who could be helped or harmed, inside and outside the org.</li><li><strong>Funding:</strong> what it costs and how to pay for it.</li><li><strong>Implementation:</strong> the order things roll out in.</li></ul>",
         media: []
       },
       {
