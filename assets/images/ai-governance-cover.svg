@@ -3,9 +3,8 @@
   <desc id="d">Eleven documents grouped into five areas: policy, training, equity, funding and implementation.</desc>
   <rect width="1600" height="1000" fill="#f3f1ea"/>
   <g font-family="Inter, Helvetica, Arial, sans-serif" fill="#1d2b1f">
-    <text x="120" y="190" font-size="40" font-weight="600" letter-spacing="6">AI GOVERNANCE FRAMEWORK</text>
-    <text x="120" y="300" font-size="112" font-weight="700" letter-spacing="-3">Rules first.</text>
-    <text x="120" y="420" font-size="112" font-weight="700" letter-spacing="-3" fill="#0c7a3e">Then tools.</text>
+    <text x="120" y="300" font-size="112" font-weight="700" letter-spacing="-3">AI governance</text>
+    <text x="120" y="420" font-size="112" font-weight="700" letter-spacing="-3" fill="#0c7a3e">framework</text>
     <text x="120" y="500" font-size="36" fill="#4a5a4c">11 documents · 5 areas · written for a non-technical team</text>
   </g>
   <g font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="600" fill="#1d2b1f">
