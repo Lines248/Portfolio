@@ -4583,3 +4583,14 @@ main.case-study-page {
   font-size: var(--fs-m);
   color: var(--text-muted);
 }
+
+/* Hero: name big, role as a smaller line under it */
+.hero__role {
+  display: block;
+  margin-top: 12px;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--text-muted);
+}
