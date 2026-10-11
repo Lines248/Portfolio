@@ -4498,3 +4498,77 @@ main.case-study-page {
 [data-theme-toggle-container].is-dragging {
   opacity: 0.9;
 }
+
+/* Case study proof: score rings and big-number stats (HTML, not screenshots) */
+.score-rings,
+.stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.score-ring {
+  --size: 96px;
+  --ring: #0c7a3e;
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  width: 112px;
+  text-align: center;
+}
+
+:root.dark .score-ring {
+  --ring: #4ade80;
+}
+
+.score-ring__value {
+  display: grid;
+  place-items: center;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  /* ring = conic fill to the score, masked to a donut */
+  background:
+    radial-gradient(closest-side, var(--bg, #fff) 84%, transparent 85%),
+    conic-gradient(var(--ring) calc(var(--score) * 1%), color-mix(in srgb, var(--ring) 15%, transparent) 0);
+  color: var(--ring);
+  font-family: var(--font-mono), monospace;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.score-ring__label {
+  font-size: var(--fs-s);
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.stat {
+  display: grid;
+  gap: 4px;
+  min-width: 200px;
+  padding-left: 16px;
+  border-left: 2px solid var(--accent);
+}
+
+.stat__value {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1;
+}
+
+.stat__label {
+  font-size: var(--fs-s);
+  color: var(--text-muted);
+  max-width: 28ch;
+}
+
+.case-study-media--scores figcaption,
+.case-study-media--stats figcaption {
+  margin-top: 16px;
+}

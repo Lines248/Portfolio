@@ -389,6 +389,32 @@ export class CaseStudy {
           </figure>`;
     }
 
+    // Lighthouse-style score rings, drawn in HTML/CSS so they stay sharp at any size
+    if (type === "scores") {
+      const rings = (media.items || []).map(({ label, value }) => `
+            <li class="score-ring" style="--score: ${Number(value)}">
+              <span class="score-ring__value">${this.escapeHtml(String(value))}</span>
+              <span class="score-ring__label">${this.escapeHtml(label)}</span>
+            </li>`).join("");
+      return `<figure class="case-study-media case-study-media--scores">
+            <ul class="score-rings" role="list">${rings}</ul>
+            ${captionHtml}
+          </figure>`;
+    }
+
+    // Big-number callouts for single metrics (replaces cropped devtools screenshots)
+    if (type === "stats") {
+      const stats = (media.items || []).map(({ value, label }) => `
+            <li class="stat">
+              <span class="stat__value">${this.escapeHtml(value)}</span>
+              <span class="stat__label">${this.escapeHtml(label)}</span>
+            </li>`).join("");
+      return `<figure class="case-study-media case-study-media--stats">
+            <ul class="stats" role="list">${stats}</ul>
+            ${captionHtml}
+          </figure>`;
+    }
+
     if (media.type === "figma-embed") {
       const iframePart = isPlaceholder
         ? "<!-- Paste Figma iframe here -->"

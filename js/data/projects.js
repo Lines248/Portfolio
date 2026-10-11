@@ -1,23 +1,5 @@
 export const projects = [
   {
-    id: "inline-access",
-    caption: "A three-theme design system, built by hand in vanilla JS.",
-    title: "This Portfolio",
-    type: "Front-End Engineering | Vanilla JS & Design System",
-    image: "/assets/images/portfolio-site-mobile.avif",
-    alt: "Mobile view of this portfolio site showing its 3-theme design system.",
-    description:
-        "This site is the project. Instead of reaching for a template, I built a custom 3-theme design system from scratch using Vanilla JavaScript. Front-end only, no backend or database.",
-    stack: ["VANILLA JS", "SYSTEM DESIGN", "WCAG 2.2", "UI ARCHITECTURE"],
-    metrics: [{ label: "100 Lighthouse", anchor: "proof-section" }, { label: "Clarity Validated", anchor: "proof-section" }],
-    links: {
-      live: "https://sultzer.website/",
-      repo: "https://github.com/Lines248/portfolio-site",
-    },
-    featured: true,
-    category: "design",
-  },
-  {
     id: "ia-studio",
     caption: "A secure platform where each client logs in and sees only their own assets.",
     title: "Authenticated Digital Asset Platform",
@@ -55,6 +37,24 @@ export const projects = [
     links: {
       live: "https://accex.vercel.app/",
       repo: "https://github.com/Lines248/Accex",
+    },
+    featured: true,
+    category: "design",
+  },
+  {
+    id: "inline-access",
+    caption: "A three-theme design system, built by hand in vanilla JS.",
+    title: "This Portfolio",
+    type: "Front-End Engineering | Vanilla JS & Design System",
+    image: "/assets/images/portfolio-site-mobile.avif",
+    alt: "Mobile view of this portfolio site showing its 3-theme design system.",
+    description:
+        "This site is the project. Instead of reaching for a template, I built a custom 3-theme design system from scratch using Vanilla JavaScript. Front-end only, no backend or database.",
+    stack: ["VANILLA JS", "SYSTEM DESIGN", "WCAG 2.2", "UI ARCHITECTURE"],
+    metrics: [{ label: "100 Lighthouse", anchor: "proof-section" }, { label: "Clarity Validated", anchor: "proof-section" }],
+    links: {
+      live: "https://sultzer.website/",
+      repo: "https://github.com/Lines248/portfolio-site",
     },
     featured: true,
     category: "design",
