@@ -38,8 +38,7 @@ function initMobileMenu(header) {
         navDropdown.style.display = "none";
         navDropdown.hidden = true;
         menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute("aria-label", "Open main menu");
-        menuToggle.innerText = "MENU";
+        menuToggle.textContent = "Menu";
         document.body.style.overflow = "auto";
         menuToggle.focus();
     }
@@ -48,8 +47,7 @@ function initMobileMenu(header) {
         navDropdown.style.display = "flex";
         navDropdown.hidden = false;
         menuToggle.setAttribute("aria-expanded", "true");
-        menuToggle.setAttribute("aria-label", "Close main menu");
-        menuToggle.innerText = "CLOSE";
+        menuToggle.textContent = "Close";
         document.body.style.overflow = "hidden";
         if (firstLink) firstLink.focus();
     }
@@ -59,8 +57,7 @@ function initMobileMenu(header) {
             navDropdown.style.display = "none";
             navDropdown.hidden = true;
             menuToggle.setAttribute("aria-expanded", "false");
-            menuToggle.setAttribute("aria-label", "Open main menu");
-            menuToggle.innerText = "MENU";
+            menuToggle.textContent = "Menu";
             document.body.style.overflow = "auto";
         });
     });
@@ -69,6 +66,18 @@ function initMobileMenu(header) {
         const isOpen = navDropdown.style.display === "flex";
         if (isOpen) closeMenu();
         else openMenu();
+    });
+
+    // Close the menu if keyboard focus moves outside it (no trapped or hidden focus)
+    header.addEventListener("focusout", (e) => {
+        const isOpen = navDropdown.style.display === "flex";
+        if (isOpen && !header.contains(e.relatedTarget)) {
+            navDropdown.style.display = "none";
+            navDropdown.hidden = true;
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.textContent = "Menu";
+            document.body.style.overflow = "auto";
+        }
     });
 
     document.addEventListener("keydown", (e) => {

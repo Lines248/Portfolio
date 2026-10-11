@@ -2,6 +2,7 @@ export function SiteFooter() {
     return `
         <div class="footer-inner">
             <p>© 2026 Caroline (Lines) Sultzer</p>
+            <a href="#main-content" class="back-to-top">Back to top <span aria-hidden="true">↑</span></a>
             <nav class="footer-nav" aria-label="Footer links">
                 <a href="mailto:linessultzer@gmail.com" aria-label="Send email to Lines Sultzer">Email</a>
                 <a href="https://www.linkedin.com/in/lines-sultzer/" aria-label="Visit Lines Sultzer's LinkedIn profile (opens in new window)" target="_blank" rel="noopener noreferrer">LinkedIn</a>

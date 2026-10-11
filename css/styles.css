@@ -4594,3 +4594,34 @@ main.case-study-page {
   line-height: 1.25;
   color: var(--text-muted);
 }
+
+/* Accessibility: sticky header never covers anchor jumps or focused elements (WCAG 2.4.11) */
+html {
+  scroll-padding-top: 112px;
+}
+
+/* Bigger tap targets on header links (WCAG 2.5.8) */
+.nav .nav__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.nav a[aria-current] {
+  font-weight: 600;
+}
+
+.back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.back-to-top:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

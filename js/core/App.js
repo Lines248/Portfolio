@@ -150,6 +150,9 @@ export class App {
       this.handleWorkPage();
     }
 
+    const { initSectionNav } = await import("../utils/sectionNav.js");
+    initSectionNav();
+
     const grid = document.querySelector("#feature-grid");
     if (grid) {
       if ('requestIdleCallback' in window) {
