@@ -15,7 +15,7 @@ const CASE_STUDY_PATHS = {
 export class WorkFilters {
   constructor() {
     this.selectedCategory = "all";
-    this.imageView = "diagram"; // "diagram" | "image" for work page project thumbnails
+    this.imageView = "image"; // "diagram" | "image" for work page project thumbnails
     this.isRendering = false;
   }
 
