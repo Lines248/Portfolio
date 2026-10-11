@@ -24,8 +24,8 @@ export const projects = [
         "A small tool that turns an AI policy into instant answers. Staff describe a task and get allowed, ask first or not allowed, with the rule behind it and a safer way to do it. Built with Next.js, TypeScript and the Vercel AI SDK, using structured output through AI Gateway. Accessible, and it fails safe when the model is down.",
     stack: ["Next.js", "TypeScript", "AI SDK", "AI Gateway"],
     links: {
-      live: "",
-      repo: "",
+      live: "", // add the Vercel URL once it's deployed
+      repo: "https://github.com/Lines248/ai-use-checker",
     },
     featured: true,
     category: "development",
