@@ -54,6 +54,17 @@ function initMobileMenu(header) {
         if (firstLink) firstLink.focus();
     }
 
+    navDropdown.querySelectorAll('a[href^="/#"]').forEach(link => {
+        link.addEventListener("click", () => {
+            navDropdown.style.display = "none";
+            navDropdown.hidden = true;
+            menuToggle.setAttribute("aria-expanded", "false");
+            menuToggle.setAttribute("aria-label", "Open main menu");
+            menuToggle.innerText = "MENU";
+            document.body.style.overflow = "auto";
+        });
+    });
+
     menuToggle.addEventListener("click", () => {
         const isOpen = navDropdown.style.display === "flex";
         if (isOpen) closeMenu();

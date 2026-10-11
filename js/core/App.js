@@ -145,6 +145,11 @@ export class App {
     const { renderCaseStudies } = await import("../renderCaseStudies.js");
     renderCaseStudies();
 
+    // One-page layout: the homepage now holds the work list
+    if (document.getElementById("work-grid")) {
+      this.handleWorkPage();
+    }
+
     const grid = document.querySelector("#feature-grid");
     if (grid) {
       if ('requestIdleCallback' in window) {

@@ -7,8 +7,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
         
-        <title> Caroline Lines Sultzer | Full-Stack Developer Portfolio</title>
-        <meta name="title" content="Caroline Lines Sultzer | Full-Stack Developer Portfolio" />
+        <title>Caroline (Lines) Sultzer | Frontend Product Engineer</title>
+        <meta name="title" content="Caroline (Lines) Sultzer | Frontend Product Engineer" />
         <meta name="description" content="Lines Sultzer (Caroline Sultzer) - Full-stack developer specializing in accessible, semantic web experiences. JavaScript, Java, Python, React, Vue, and clean architecture." />
         <meta name="keywords" content="Lines Sultzer, Caroline Sultzer, full-stack developer, front-end developer, JavaScript developer, React developer, accessible web development, portfolio, software engineer" />
         <meta name="author" content="Caroline Lines Sultzer" />
@@ -81,47 +81,38 @@
                     <h1 id="hero-heading" class="hero__title">Caroline (Lines) Sultzer<br>Frontend Product Engineer</h1>
                     <p class="hero__subhead">I work where AI meets real workflows. I build accessible interfaces in React, Next.js and TypeScript, and the systems that sit behind them.</p>
                 </header>
+                <p class="hero__now"><span class="hero__now-label">Now</span>Leading AI at Dance/NYC and building a SaaS product for art galleries.</p>
                 <div class="hero__status-wrap">
                     <span class="hero__status-tag">Open to Remote Roles</span>
                 </div>
                 <div class="hero__actions">
-                    <a href="/work" class="btn btn--primary">View Work</a>
+                    <a href="#work" class="btn btn--primary">View Work</a>
                     <a href="https://github.com/Lines248" class="hero__link" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile (opens in new tab)">GitHub</a>
                 </div>
             </section>
 
-            <section class="featured-case-studies" aria-labelledby="case-studies-heading">
-                <h2 id="case-studies-heading" class="featured-case-studies__title">Featured Case Studies</h2>
-                <div class="case-studies-grid" aria-label="Featured case study cards"></div>
+            <section id="work" class="work-page home-section" aria-labelledby="work-heading">
+                <h2 id="work-heading" class="home-section__title">Selected Work</h2>
+                <div class="work-section">
+                    <div class="scroll-progress-line" aria-hidden="true"></div>
+                    <div id="work-grid" aria-label="Projects" aria-busy="true"></div>
+                    <div data-earlier-work></div>
+                </div>
             </section>
 
-            <section class="value-prop" aria-labelledby="value-prop-heading">
-                <h2 id="value-prop-heading" class="value-prop__title">Frontend Focus. Full-Stack Foundation.</h2>
-                <p class="value-prop__intro">I came to code from fine art and full-stack Java. I care how a product looks, how its data moves and how real people use it. I watch real sessions in tools like Clarity and fix what people actually get stuck on.</p>
-                <div class="value-prop__grid" aria-label="Value proposition highlights">
-                    <article class="value-prop__card">
-                        <h3 class="value-prop__card-title">AI in Practice</h3>
-                        <p class="value-prop__card-text">At Dance/NYC I wrote our AI governance framework and run our Claude workspace. I focus on rolling AI out in a way a small, non-technical team can trust and keep using.</p>
-                    </article>
-                    <article class="value-prop__card">
-                        <h3 class="value-prop__card-title">Built for Everyone</h3>
-                        <p class="value-prop__card-text">Accessibility is where I start. I write semantic, WCAG-compliant code and am working toward a certification in digital accessibility.</p>
-                    </article>
-                    <article class="value-prop__card">
-                        <h3 class="value-prop__card-title">Design-to-Code Translation</h3>
-                        <p class="value-prop__card-text">I worked as a designer first, so I know why an interaction matters. I write clear specs, keep component libraries tidy and structure Figma files so handoff to production is smooth.</p>
-                    </article>
+            <section id="about" class="about-intro home-section" aria-labelledby="about-heading">
+                <h2 id="about-heading" class="home-section__title">About</h2>
+                <div class="about-intro__inner">
+                    <div class="about-intro__bio">
+                        <p>I’m a frontend product engineer working where AI meets real workflows. I build accessible interfaces and the systems that sit behind them.</p>
+                        <p>At Dance/NYC I’m Operations Coordinator and I run the tech side of the org. That means leading our AI rollout on Claude, keeping our data clean, shipping UI updates and building the trackers and tools that let a small team scale.</p>
+                        <p>For the last two years I’ve run inline/access, my own studio, and I’m building view, a platform for art galleries, from the ground up. I build in React, Vue and plain JavaScript, with a full-stack Java background in API design, PostgreSQL and backend architecture. I like taking a design from Figma all the way to semantic, WCAG-compliant code that ships.</p>
+                        <p>I came to engineering from art and fabrication at Cooper Union, where I learned to build with my hands and troubleshoot whatever broke. Living with a disability is a big part of why I test for access first.</p>
+                    </div>
+                    <figure class="about-intro__portrait fade-in-image">
+                        <img src="/assets/images/lines-portrait.avif" alt="Lines sitting at desk with an ergonomic split keyboard and mountain projection on the wall" loading="lazy" />
+                    </figure>
                 </div>
-                <ul class="value-prop__skills" aria-label="Skills and focus areas">
-                    <li class="tag-frontend">JavaScript (ES6+) &amp; TypeScript</li>
-                    <li class="tag-frontend">React &amp; Vue</li>
-                    <li class="tag-backend">Java &amp; Python</li>
-                    <li class="tag-backend">PostgreSQL</li>
-                    <li class="tag-frontend">Semantic HTML &amp; CSS</li>
-                    <li class="tag-creative">WCAG 2.2 Accessibility</li>
-                    <li class="tag-frontend">Next.js</li>
-                    <li class="tag-backend">Claude &amp; AI Workflows</li>
-                </ul>
             </section>
 
             <section class="cta" aria-labelledby="cta-heading">

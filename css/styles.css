@@ -4326,3 +4326,175 @@ main.case-study-page {
   gap: 16px;
   font-size: var(--fs-s);
 }
+
+/* ==========================================================================
+   One-page homepage (sandbox): hero, selected work, about, contact
+   ========================================================================== */
+.home-section {
+  scroll-margin-top: 96px;
+  padding-block: 96px 0;
+}
+
+.home-section__title {
+  font-size: var(--fs-xl);
+  letter-spacing: -0.02em;
+  margin: 0 0 48px;
+}
+
+.home-main .hero {
+  min-height: 0;
+  padding: 96px 0 0;
+}
+
+.home-main .hero__header {
+  margin-bottom: 24px;
+}
+
+.home-main .hero__subhead {
+  margin-bottom: 0;
+}
+
+.home-main .hero__status-wrap {
+  margin-bottom: 32px;
+}
+
+.hero__now {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0 0 16px;
+  color: var(--text-muted);
+  font-size: var(--fs-m);
+}
+
+.hero__now-label {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.home-main .about-intro {
+  animation: none;
+}
+
+@media (min-width: 769px) {
+  /* Same width and left edge as the header */
+  .home-main {
+    max-width: none;
+    padding-inline: 0;
+  }
+
+  .home-main .hero__header,
+  .home-main .hero__now {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Header and content share one 16px edge on phones */
+  .site-header {
+    padding-inline: 0;
+  }
+
+  .site-header .nav {
+    width: min(calc(100% - 2rem), var(--max-width));
+    margin-inline: auto;
+    padding-inline: 0;
+  }
+
+  .home-main {
+    padding-inline: 0;
+  }
+
+  .home-main .hero {
+    padding-top: 48px;
+  }
+
+  .home-section {
+    padding-top: 64px;
+  }
+
+  /* Project rows: flush to the edge, title right under the image */
+  .work-section::before,
+  .scroll-progress-line {
+    display: none;
+  }
+
+  .work-page #work-grid .project-card {
+    padding: 0;
+    row-gap: 12px;
+    min-height: 0;
+    margin-bottom: 64px;
+  }
+
+  .work-page #work-grid .project-card__media-col {
+    display: contents;
+  }
+
+  .work-page #work-grid .project-card .project-card__media-col > .project-card__image-link,
+  .work-page #work-grid .project-card .project-card__media-col > .project-card__image-wrap {
+    order: 1;
+    padding: 0;
+    background: none;
+  }
+
+  .work-page #work-grid .project-card__caption { order: 2; }
+  .work-page #work-grid .project-card__body { order: 3; padding: 8px 0 0; }
+  .work-page #work-grid .project-card .project-card__media-col .project-points { order: 4; padding: 0; }
+  .work-page #work-grid .project-card .project-card__media-col .project-card__metrics { order: 5; padding: 0; }
+
+  .work-page #work-grid .project-card img {
+    min-height: 0;
+  }
+}
+
+/* Movable theme switcher: grip handle on the left of the button */
+[data-theme-toggle-container] {
+  display: flex;
+  align-items: stretch;
+}
+
+.theme-toggle__grip {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  margin-right: 4px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text-muted);
+  cursor: grab;
+  touch-action: none; /* let the pointer drag instead of scrolling the page */
+}
+
+/* Six-dot grip, drawn with two gradients */
+.theme-toggle__grip span {
+  width: 8px;
+  height: 14px;
+  background-image: radial-gradient(currentColor 1.2px, transparent 1.4px);
+  background-size: 4px 4.67px;
+}
+
+:root.dark .theme-toggle__grip {
+  background: rgba(20, 20, 30, 0.65);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.theme-toggle__grip:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+[data-theme-toggle-container].is-dragging .theme-toggle__grip {
+  cursor: grabbing;
+}
+
+[data-theme-toggle-container].is-dragging {
+  opacity: 0.9;
+}
