@@ -1,3 +1,5 @@
+import { makeDraggable } from "../utils/draggable.js";
+
 export class ThemeToggle {
   constructor() {
     this.themeManager = null;
@@ -6,6 +8,14 @@ export class ThemeToggle {
     this.themeManager = themeManager;
     this.render();
     this.attachEventListeners();
+    this.enableMoving();
+  }
+
+  // The switcher can be dragged anywhere on screen (or moved with arrow keys)
+  enableMoving() {
+    const container = document.querySelector('[data-theme-toggle-container]');
+    const handle = container?.querySelector('[data-theme-toggle-grip]');
+    makeDraggable(container, { handle, storageKey: 'themeTogglePosition' });
   }
 
   render() {
@@ -16,6 +26,13 @@ export class ThemeToggle {
     const themeLabel = this.getThemeLabel(currentTheme);
 
     container.innerHTML = `
+      <button
+        class="theme-toggle__grip"
+        data-theme-toggle-grip
+        type="button"
+        aria-label="Move theme switcher. Arrow keys move it, Home puts it back."
+        title="Drag to move. Double-click to reset."
+      ><span aria-hidden="true"></span></button>
       <button
         id="theme-toggle-btn"
         class="theme-toggle"
