@@ -4607,6 +4607,16 @@ html {
   min-height: 44px;
 }
 
+/* Resume is a bordered button, so the 44px row height made the box too tall.
+   Keep it compact; it still clears the 24px WCAG 2.2 target size. */
+.nav .nav__links {
+  align-items: center;
+}
+
+.nav .nav__links a.nav__resume {
+  min-height: 0;
+}
+
 .nav a[aria-current] {
   font-weight: 600;
 }
