@@ -61,6 +61,7 @@ export const projects = [
   },
   {
     id: "deroche-projects",
+    archived: true, // shown in the collapsed "Earlier work" list on /work
     caption: "An architect's drawing board, turned into a fast portfolio site.",
     title: "DeRoche Projects",
     type: "Digital Identity & UI/UX",
@@ -95,6 +96,7 @@ export const projects = [
   },
   {
     id: "vending-machine",
+    archived: true, // shown in the collapsed "Earlier work" list on /work
     caption: "A Java vending machine I rebuilt on my own in Python.",
     title: "Vending Machine Web App",
     type: "Full-Stack Development",
@@ -112,6 +114,7 @@ export const projects = [
   },
   {
     id: "nomin-eat",
+    archived: true, // shown in the collapsed "Earlier work" list on /work
     caption: "Groups vote in real time on where to eat, with live Yelp data.",
     title: "NominEat - Full-Stack Group Voting Web App",
     type: "Java Spring Boot / PostgreSQL / Vue.js / Yelp Fusion API",
@@ -129,6 +132,7 @@ export const projects = [
   },
   {
     id: "trust-circle",
+    archived: true, // shown in the collapsed "Earlier work" list on /work
     caption: "Brand and responsive site for a live startup, built in Framer.",
     title: "Trust Circle",
     type: "UI/UX | Framer & Visual Identity",

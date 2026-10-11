@@ -4264,3 +4264,65 @@ main.case-study-page {
   color: var(--text-muted);
   max-width: 60ch;
 }
+
+/* Work page: collapsed "Earlier work" list under the main projects */
+.earlier-work {
+  margin-top: 96px;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 24px;
+}
+
+.earlier-work__summary {
+  cursor: pointer;
+  font-size: var(--fs-m);
+  font-weight: 700;
+  list-style-position: inside;
+}
+
+.earlier-work__summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.earlier-work__count {
+  margin-left: 8px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.earlier-work__list {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 769px) {
+  .earlier-work__list {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 48px;
+  }
+}
+
+.earlier-work__title {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.earlier-work__title a {
+  color: inherit;
+}
+
+.earlier-work__caption {
+  margin: 4px 0 0;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.earlier-work__links {
+  margin: 8px 0 0;
+  display: flex;
+  gap: 16px;
+  font-size: var(--fs-s);
+}

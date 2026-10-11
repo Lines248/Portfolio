@@ -14,81 +14,17 @@ const CASE_STUDY_PATHS = {
 
 export class WorkFilters {
   constructor() {
-    this.selectedCategory = "all";
     this.imageView = "image"; // work page always shows project images; diagrams live on case study pages
     this.isRendering = false;
   }
 
   init() {
-    this.renderFilters();
-    this.attachEventListeners();
     this.ensureLightbox();
     this.attachLightboxListeners();
     this.renderProjects();
+    this.renderEarlierWork();
   }
 
-  getCategoryCounts() {
-    const visible = projects.filter(p => !p.hidden);
-    const counts = {
-      all: visible.length,
-      development: visible.filter(p => p.category === 'development').length,
-      design: visible.filter(p => p.category === 'design').length,
-      "ui-ux": visible.filter(p => p.category === 'ui-ux').length,
-    };
-    return counts;
-  }
-
-  renderFilters() {
-    const container = document.querySelector('[data-work-filters]');
-    if (!container) return;
-
-    const counts = this.getCategoryCounts();
-
-    container.innerHTML = `
-      <div class="work-filters">
-        <div class="category-filters" role="group" aria-label="Filter by category">
-          <button 
-            class="filter-btn ${this.selectedCategory === 'all' ? 'active' : ''}" 
-            data-category="all"
-            aria-pressed="${this.selectedCategory === 'all'}"
-          >
-            All<span class="filter-count">${counts.all}</span>
-          </button>
-          <button 
-            class="filter-btn ${this.selectedCategory === 'development' ? 'active' : ''}" 
-            data-category="development"
-            aria-pressed="${this.selectedCategory === 'development'}"
-          >
-            Full-Stack<span class="filter-count">${counts.development}</span>
-          </button>
-          <button 
-            class="filter-btn ${this.selectedCategory === 'design' ? 'active' : ''}" 
-            data-category="design"
-            aria-pressed="${this.selectedCategory === 'design'}"
-          >
-            Front-End<span class="filter-count">${counts.design}</span>
-          </button>
-          <button 
-            class="filter-btn ${this.selectedCategory === 'ui-ux' ? 'active' : ''}" 
-            data-category="ui-ux"
-            aria-pressed="${this.selectedCategory === 'ui-ux'}"
-          >
-            UI UX<span class="filter-count">${counts["ui-ux"]}</span>
-          </button>
-        </div>
-      </div>
-    `;
-  }
-
-  attachEventListeners() {
-    const categoryButtons = document.querySelectorAll('[data-category]');
-    categoryButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const category = btn.getAttribute('data-category');
-        this.setCategory(category);
-      });
-    });
-  }
 
   getCaseStudyUrl(project) {
     return CASE_STUDY_PATHS[project.id] || `/${project.id}`;
@@ -126,30 +62,47 @@ export class WorkFilters {
     });
   }
 
-  setCategory(category) {
-    if (category === this.selectedCategory) return;
-    this.selectedCategory = category;
-    this.updateCategoryButtons();
-    this.renderProjects();
-  }
 
 
-  updateCategoryButtons() {
-    const buttons = document.querySelectorAll('[data-category]');
-    buttons.forEach(btn => {
-      const category = btn.getAttribute('data-category');
-      const isActive = category === this.selectedCategory;
-      btn.classList.toggle('active', isActive);
-      btn.setAttribute('aria-pressed', isActive);
-    });
-  }
 
   getFilteredProjects() {
-    const visible = projects.filter(p => !p.hidden);
-    if (this.selectedCategory === 'all') {
-      return [...visible];
-    }
-    return visible.filter(p => p.category === this.selectedCategory);
+    return projects.filter(p => !p.hidden && !p.archived);
+  }
+
+  getEarlierProjects() {
+    return projects.filter(p => !p.hidden && p.archived);
+  }
+
+  renderEarlierWork() {
+    const container = document.querySelector('[data-earlier-work]');
+    if (!container) return;
+    const list = this.getEarlierProjects();
+    if (list.length === 0) return;
+
+    const linkOut = (url, label, title) =>
+      url ? `<a href="${url}" target="_blank" rel="noopener noreferrer" aria-label="${label}: ${title} (opens in new window)">${label}</a>` : "";
+
+    const items = list.map(p => {
+      const caseUrl = CASE_STUDY_PATHS[p.id];
+      const title = caseUrl ? `<a href="${caseUrl}">${p.title}</a>` : p.title;
+      const links = [
+        caseUrl ? `<a href="${caseUrl}" aria-label="Case study: ${p.title}">Case study</a>` : "",
+        linkOut(p.links?.live, "Live", p.title),
+        linkOut(p.links?.repo, "Code", p.title),
+      ].filter(Boolean).join("");
+      return `
+        <li class="earlier-work__item">
+          <h3 class="earlier-work__title">${title}</h3>
+          ${p.caption ? `<p class="earlier-work__caption">${p.caption}</p>` : ""}
+          ${links ? `<p class="earlier-work__links">${links}</p>` : ""}
+        </li>`;
+    }).join("");
+
+    container.innerHTML = `
+      <details class="earlier-work">
+        <summary class="earlier-work__summary">Earlier work <span class="earlier-work__count">${list.length}</span></summary>
+        <ul class="earlier-work__list">${items}</ul>
+      </details>`;
   }
 
   async renderProjects() {
