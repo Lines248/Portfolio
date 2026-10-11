@@ -274,9 +274,9 @@ export class CaseStudy {
             </span>
           </a>`
         : `<a href="${this.escapeAttr(prevOrder.url)}" class="nav-link nav-link-prev">SEE PREVIOUS CASE STUDY</a>`)
-      : `<span class="nav-link nav-link-placeholder">SEE PREVIOUS CASE STUDY</span>`;
+      : `<span class="nav-link nav-link-placeholder" aria-hidden="true"></span>`;
 
-    const allLink = '<a href="/work" class="nav-link nav-link-all">ALL WORK</a>';
+    const allLink = '<a href="/#work" class="nav-link nav-link-all">ALL WORK</a>';
 
     const nextLink = nextOrder
       ? (isBottom && nextProject
@@ -287,11 +287,11 @@ export class CaseStudy {
             </span>
           </a>`
         : `<a href="${this.escapeAttr(nextOrder.url)}" class="nav-link nav-link-next">SEE NEXT CASE STUDY</a>`)
-      : `<span class="nav-link nav-link-placeholder">SEE NEXT CASE STUDY</span>`;
+      : `<span class="nav-link nav-link-placeholder" aria-hidden="true"></span>`;
 
     const positionClass = position === "top" ? "case-study-nav-top" : "case-study-nav-bottom";
     return `
-      <nav class="${positionClass} case-study-nav" aria-label="Case study navigation">
+      <nav class="${positionClass} case-study-nav" aria-label="${position === "top" ? "Case study navigation" : "More case studies"}">
         <div class="case-study-nav-inner">
           <span class="nav-link-wrap nav-link-wrap-prev">${prevLink}</span>
           <span class="nav-link-wrap nav-link-wrap-all">${allLink}</span>
@@ -448,7 +448,7 @@ export class CaseStudy {
       linksArray.push(this.createLink(repoUrl, "GitHub Repo", "repo"));
     }
     if (linksArray.length === 0) return "";
-    return `<nav class="case-study-links">${linksArray.join("")}</nav>`;
+    return `<div class="case-study-links">${linksArray.join("")}</div>`;
   }
 
   isValidLink(url) {

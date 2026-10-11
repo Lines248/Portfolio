@@ -11,11 +11,8 @@ function isValidLink(url) {
 }
 
 function createProjectLink(url, label, projectTitle, linkType) {
-    const ariaLabel = linkType === "live" 
-        ? `View ${projectTitle} live demo (opens in new window)`
-        : `View ${projectTitle} source code on GitHub (opens in new window)`;
-    
-    return `<a href="${url}" aria-label="${ariaLabel}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+    // The visible words come first in the accessible name, so voice control users can say what they see.
+    return `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}<span class="visually-hidden">: ${projectTitle} (opens in a new tab)</span></a>`;
 }
 
 function hasCaseStudy(project) {
@@ -42,7 +39,7 @@ function buildProjectLinks(project) {
     let caseStudyLink = "";
     
     if (hasCaseStudy(project)) {
-        caseStudyLink = `<a href="${getCaseStudyUrl(project)}" class="case-study-link" aria-label="View ${project.title} case study">View Case Study</a>`;
+        caseStudyLink = `<a href="${getCaseStudyUrl(project)}" class="case-study-link">View Case Study<span class="visually-hidden">: ${project.title}</span></a>`;
     }
     
     if (project.links) {
@@ -59,7 +56,7 @@ function buildProjectLinks(project) {
         return "";
     }
     
-    let html = '<nav class="links" aria-label="Project links">';
+    let html = '<div class="links">';
     
     if (regularLinks.length > 0) {
         html += `<div class="links-row">${regularLinks.join("")}</div>`;
@@ -69,7 +66,7 @@ function buildProjectLinks(project) {
         html += `<div class="case-study-row">${caseStudyLink}</div>`;
     }
     
-    html += '</nav>';
+    html += '</div>';
     
     return html;
 }
