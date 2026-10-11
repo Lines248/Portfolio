@@ -3,6 +3,7 @@ import { caseStudies } from "../data/caseStudies.js";
 import { open as openDiagramLightbox, diagramLightbox } from "./diagramLightbox.js";
 
 const CASE_STUDY_PATHS = {
+  "ai-governance": "/ai-governance",
   "ia-studio": "/ia-studio",
   "inline-access": "/portfolio-site",
   "nomin-eat": "/nomin-eat",

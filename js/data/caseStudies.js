@@ -234,6 +234,35 @@ export const caseStudies = {
     ]
   },
 
+  "ai-governance": {
+    id: "ai-governance",
+    title: "AI Governance for a Small Nonprofit",
+    subtitle: "An AI policy, training plan and rollout for a small, mostly non-technical team.",
+    roles: ["Research & policy", "Tools & data", "Rollout"],
+    context: "Dance/NYC \u00b7 2026 \u00b7 In progress",
+    sections: [
+      {
+        heading: "The problem",
+        body: "<p>AI tools were showing up everywhere, and a small, mostly non-technical team needed a clear answer to a simple question: what are we allowed to use this for? Whatever we did had to be plain, fit people's real work and protect the data we hold about our community.</p>",
+        media: []
+      },
+      {
+        heading: "Rules first, then tools",
+        body: "<p>I didn't start by picking a tool. I researched and wrote an 11-document AI governance and integration framework and presented it to our Executive Director. It covers five areas:</p><ul><li><strong>Policy:</strong> what AI can and can't be used for, and what data never goes in.</li><li><strong>Training:</strong> how staff learn to use it well.</li><li><strong>Equity:</strong> who could be helped or harmed, inside and outside the org.</li><li><strong>Funding:</strong> what it costs and how to pay for it.</li><li><strong>Implementation:</strong> the order things roll out in.</li></ul>",
+        media: []
+      },
+      {
+        heading: "What's in place",
+        body: "<ul><li>I own our Claude Team workspace and admin the rest of our stack: Google Workspace, Notion, Fathom and Submittable.</li><li>I clean and maintain our CRM data in Python, so the data AI might touch is accurate first.</li><li>I built our internal systems and trackers in Notion.</li></ul>",
+        media: []
+      },
+      {
+        heading: "Where it stands",
+        body: "<p>The rollout is still in progress. Writing the policy was the fast part. Getting people to actually use a tool takes plain guidance, training that fits their real tasks and someone they trust to answer questions. That's the part I'm working on now.</p>",
+        media: []
+      }
+    ]
+  },
   "trust-circle": {
     id: "trust-circle",
     title: "Trust Circle",

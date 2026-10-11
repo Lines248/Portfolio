@@ -19,12 +19,13 @@ function createProjectLink(url, label, projectTitle, linkType) {
 }
 
 function hasCaseStudy(project) {
-    const caseStudyProjects = ["ia-studio", "inline-access", "nomin-eat", "vending-machine", "accex", "deroche-projects", "trust-circle"];
+    const caseStudyProjects = ["ai-governance", "ia-studio", "inline-access", "nomin-eat", "vending-machine", "accex", "deroche-projects", "trust-circle"];
     return caseStudyProjects.includes(project.id);
 }
 
 function getCaseStudyUrl(project) {
     const caseStudyPaths = {
+        "ai-governance": "/ai-governance",
         "ia-studio": "/ia-studio",
         "inline-access": "/portfolio-site",
         "nomin-eat": "/nomin-eat",

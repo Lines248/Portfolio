@@ -1,28 +1,110 @@
 {
-    "rewrites": [
-      { "source": "/work", "destination": "/work.html" },
-      { "source": "/about", "destination": "/about.html" },
-    { "source": "/ia-studio", "destination": "/ia-studio.html" },
-    { "source": "/deroche", "destination": "/deroche.html" },
-    { "source": "/trust-circle", "destination": "/trust-circle.html" },
-    { "source": "/vending-machine", "destination": "/vending-machine.html" },
-    { "source": "/accex", "destination": "/accex.html" },
-    { "source": "/nomin-eat", "destination": "/nomineat.html" },
-    { "source": "/portfolio-site", "destination": "/portfolio-site.html" },
-    { "source": "/home", "destination": "/index.html" },
-    { "source": "/", "destination": "/index.html" }
+  "rewrites": [
+    {
+      "source": "/ai-governance",
+      "destination": "/ai-governance.html"
+    },
+    {
+      "source": "/work",
+      "destination": "/work.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/ia-studio",
+      "destination": "/ia-studio.html"
+    },
+    {
+      "source": "/deroche",
+      "destination": "/deroche.html"
+    },
+    {
+      "source": "/trust-circle",
+      "destination": "/trust-circle.html"
+    },
+    {
+      "source": "/vending-machine",
+      "destination": "/vending-machine.html"
+    },
+    {
+      "source": "/accex",
+      "destination": "/accex.html"
+    },
+    {
+      "source": "/nomin-eat",
+      "destination": "/nomineat.html"
+    },
+    {
+      "source": "/portfolio-site",
+      "destination": "/portfolio-site.html"
+    },
+    {
+      "source": "/home",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/",
+      "destination": "/index.html"
+    }
   ],
   "redirects": [
-    { "source": "/work.html", "destination": "/work", "permanent": true },
-    { "source": "/about.html", "destination": "/about", "permanent": true },
-    { "source": "/ia-studio.html", "destination": "/ia-studio", "permanent": true },
-    { "source": "/deroche.html", "destination": "/deroche", "permanent": true },
-    { "source": "/trust-circle.html", "destination": "/trust-circle", "permanent": true },
-    { "source": "/vending-machine.html", "destination": "/vending-machine", "permanent": true },
-    { "source": "/accex.html", "destination": "/accex", "permanent": true },
-    { "source": "/nomineat.html", "destination": "/nomin-eat", "permanent": true },
-    { "source": "/portfolio-site.html", "destination": "/portfolio-site", "permanent": true },
-    { "source": "/index.html", "destination": "/", "permanent": true }
+    {
+      "source": "/ai-governance.html",
+      "destination": "/ai-governance",
+      "permanent": true
+    },
+    {
+      "source": "/work.html",
+      "destination": "/work",
+      "permanent": true
+    },
+    {
+      "source": "/about.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/ia-studio.html",
+      "destination": "/ia-studio",
+      "permanent": true
+    },
+    {
+      "source": "/deroche.html",
+      "destination": "/deroche",
+      "permanent": true
+    },
+    {
+      "source": "/trust-circle.html",
+      "destination": "/trust-circle",
+      "permanent": true
+    },
+    {
+      "source": "/vending-machine.html",
+      "destination": "/vending-machine",
+      "permanent": true
+    },
+    {
+      "source": "/accex.html",
+      "destination": "/accex",
+      "permanent": true
+    },
+    {
+      "source": "/nomineat.html",
+      "destination": "/nomin-eat",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio-site.html",
+      "destination": "/portfolio-site",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    }
   ],
   "headers": [
     {
@@ -61,5 +143,5 @@
         }
       ]
     }
-    ]
-  }
+  ]
+}
