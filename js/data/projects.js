@@ -15,6 +15,7 @@ export const projects = [
   },
   {
     id: "ai-use-checker",
+    hidden: true, // turn on once the live demo URL is added below
     caption: "Type what you want to use AI for and get a plain answer, with the policy rule behind it.",
     title: "Can I Use AI for This?",
     type: "AI Enablement Tool | Next.js, AI SDK, AI Gateway",
