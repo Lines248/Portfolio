@@ -4684,3 +4684,12 @@ html {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+
+/* About page: tighter spacing between sections (overrides the global 120px section padding) */
+.about-page > section {
+  padding-block: 48px;
+}
+
+.about-page > section:first-of-type {
+  padding-top: 120px;
+}

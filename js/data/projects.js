@@ -1,20 +1,5 @@
 export const projects = [
   {
-    id: "ai-governance",
-    caption: "An AI policy and rollout plan for a nonprofit.",
-    title: "AI Governance for a Nonprofit",
-    type: "AI Governance & Enablement",
-    image: "/assets/images/ai-governance-cover.svg",
-    alt: "Cover for the AI governance framework, covering policy, training, equity, funding and rollout.",
-    description:
-        "I researched and wrote an AI governance framework for Dance/NYC, covering policy, training, equity, funding and rollout. Then I set up the tools and started bringing a small, mostly non-technical team along.",
-    stack: ["AI Policy", "Training", "Change Management", "Claude Team"],
-    links: {},
-    featured: true,
-    category: "governance",
-    hidden: true, // moved to the About page ("Bringing AI into a nonprofit")
-  },
-  {
     id: "ai-use-checker",
     caption: "Type what you want to use AI for and get a plain answer, with the policy rule behind it.",
     title: "Can I Use AI for This?",
@@ -74,8 +59,8 @@ export const projects = [
     image: "/assets/images/accex.avif",
     alt: "Screenshot of the ACCEX website",
     description:
-        "ACCEX is an accessibility tool that checks color contrast for WCAG compliance. Fast, accessible front-end build created with Vite. Designed with clean structure, smooth interaction, and a minimal UI that scales easily as new sections and projects are added. Front-end only, no backend or database.",
-    stack: ["HTML", "CSS", "JavaScript", "Vue", "Vite", "CSS Modules", "Vercel"],
+        "A color contrast checker. Pick a text color and a background color, and it tells you right away if they pass WCAG. The colors also apply to the whole page, so you can see them in use. Front-end only, built with Vue and Vite.",
+    stack: ["Vue", "Vite", "Pinia", "CSS", "Vercel"],
     metrics: [
       { label: "100 Accessibility", anchor: "a11y-proof" },
       { label: "WCAG 2.2 AA", anchor: "a11y-proof" }
@@ -96,7 +81,7 @@ export const projects = [
     image: "/assets/images/portfolio-site-mobile.avif",
     alt: "Mobile view of this portfolio site showing its 3-theme design system.",
     description:
-        "This site is the project. Instead of reaching for a template, I built a custom 3-theme design system from scratch using Vanilla JavaScript. Front-end only, no backend or database.",
+        "This site is the project. I built it from scratch in plain JavaScript, with three themes on an 8pt grid and no framework.",
     stack: ["VANILLA JS", "SYSTEM DESIGN", "WCAG 2.2", "UI ARCHITECTURE"],
     metrics: [{ label: "100 Lighthouse", anchor: "proof-section" }, { label: "Clarity Validated", anchor: "proof-section" }],
     links: {
@@ -114,7 +99,7 @@ export const projects = [
     type: "Digital Identity & UI/UX",
     image: "/assets/images/deroche.avif",
     alt: "DeRoche Projects architectural portfolio interface",
-    description: "Translating an architectural 'drawing board' concept into a dense, high-performance digital portfolio.",
+    description: "A portfolio site design for an architecture firm, built around the idea of a drawing board. I designed the grid, filters and lightbox in Figma and worked with the developers to build it.",
     stack: ["Figma", "Information Architecture", "UI/UX", "Design Systems"],
     links: {
       live: "https://derocheprojects.com/",
@@ -145,13 +130,13 @@ export const projects = [
     id: "vending-machine",
     archived: true, // shown in the collapsed "Earlier work" list on /work
     caption: "A Java vending machine I rebuilt on my own in Python.",
-    title: "Vending Machine Web App",
+    title: "Vending Machine",
     type: "Full-Stack Development",
     image: "/assets/images/vending-machine.avif",
     alt: "Screenshot of the Vending Machine app.",
     description:
-        "Built as part of a backend engineering module at Tech Elevator. The original Java version was developed using Agile workflows and pair programming, after which I independently translated the full application into Python, re-implementing the architecture, logic, and transaction flow on my own. This CLI-based simulation highlights clean backend design, multi-language fluency, and the ability to refactor systems across stacks.",
-    stack: ["Python", "Java", "CLI", "REST APIs"],
+        "Built in a backend module at Tech Elevator. We wrote the first version in Java with pair programming. Then I rebuilt the whole thing in Python on my own. It runs in the command line, tracks inventory, makes change and logs every transaction.",
+    stack: ["Python", "Java", "CLI"],
     links: {
       live: "",
       repo: "https://github.com/Lines248/vending_machine_webapp",
@@ -168,7 +153,7 @@ export const projects = [
     image: "/assets/images/nomineat-cover.avif",
     alt: "Screenshot of the NominEat group voting web application.",
     description:
-        "Designed and developed a full-stack web app that helps groups vote on where to eat. Users can create rooms, submit restaurant options, and vote in real time. Built with a Java backend, Vue front-end, PostgreSQL database, and the Yelp API for live restaurant data. Developed as my final capstone project at Tech Elevator, demonstrating end-to-end architecture, API integration, and a collaborative Agile workflow.",
+        "A web app that helps groups vote on where to eat. People create a room, add restaurants and vote in real time. Built with a Java backend, a Vue front end, PostgreSQL and the Yelp API. This was my final capstone project at Tech Elevator, built with a team.",
     stack: ["Java", "JavaScript", "Vue", "PostgreSQL", "REST APIs", "YELP API"],
     links: {
       live: "",

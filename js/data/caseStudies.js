@@ -3,8 +3,8 @@ export const caseStudies = {
     id: "ia-studio",
     title: "Secure Client Portal for Art Galleries",
     subtitle: "A secure portal where each gallery client sees only their own works, with AI curation from the gallery's own inventory. Built with Next.js, React and TypeScript.",
-    roles: ["Product Designer", "Full-Stack Engineer", "Project Manager"],
-    context: "Founder / Lead Developer",
+    roles: ["Design", "Full-Stack Development"],
+    context: "Founder",
     stack: ["Next.js", "React", "TypeScript", "PostgreSQL", "Supabase", "Stripe"],
     featuredDiagram: {
       src: "/assets/images/ia-studio-user-flow.svg",
@@ -17,30 +17,25 @@ export const caseStudies = {
     sections: [
       {
         heading: "The Problem & The Solution",
-        body: "<p><strong>The Problem:</strong> Sharing secure digital files usually forces clients to create accounts and remember passwords, adding significant friction to the user experience.</p><p><strong>The Solution:</strong> A custom Next.js application that separates secure server operations from the user interface. Instead of full account logins, it uses secure hashed access codes to grant entry to specific gated viewing environments.</p>",
-        media: [{ type: "image", src: "/assets/images/ia-ui-portal.webp", caption: "The platform's core interface: the sign-in screen gallery clients see first.", className: "case-study-media--large" }]
+        body: "<p><strong>The Problem:</strong> Galleries need to show private work to specific clients, and keep everyone else out.</p><p><strong>The Solution:</strong> A Next.js app where each client signs in with an email and password and sees only the works the gallery chose for them. Sign-in and data changes run on the server, and the database only returns each client's own records.</p>",
+        media: [{ type: "image", src: "/assets/images/ia-ui-portal.webp", caption: "The sign-in screen gallery clients see first.", className: "case-study-media--large" }]
       },
       {
-        heading: "Data Verification Pipeline",
-        body: "<p>To ensure data integrity without sacrificing usability, I built a dual-layer verification pipeline using Next.js Server Actions and Zod. The application validates form data on the front-end as the user types, providing instant, zero-latency feedback that eliminates frustrating form-submission errors. A secondary validation layer then secures the data on the back-end before it reaches the PostgreSQL database, protecting business logic without compromising the seamless user experience.</p>",
-        media: [{ type: "image", src: "/assets/images/ia-studio-architecture.svg", caption: "System architecture mapping the data lifecycle from client-side input to secure PostgreSQL mutation." }]
+        heading: "Checking the Data",
+        body: "<p>Every form is checked twice with Zod. First in the browser as the person types, so they see mistakes right away. Then again on the server in a Next.js Server Action, before anything is saved to the PostgreSQL database.</p>",
+        media: [{ type: "image", src: "/assets/images/ia-studio-architecture.svg", caption: "How data moves from a form to the database." }]
       },
       {
-        heading: "Evaluative Research & Iteration",
-        body: "<p>Balancing complex business objectives with a frictionless end-user experience required a rigorous, data-driven approach. During the initial prototyping phase, I conducted targeted focus groups and A/B tests to gather qualitative feedback on the gated viewing flow.</p><p>To track quantitative performance without compromising security, I integrated Clarity analytics directly into the application architecture. Analyzing live user sessions and heatmaps allowed me to rapidly identify UX friction points and iterate on the interface.</p>",
+        heading: "Sign-In Flow",
+        body: "<p>I mapped the sign-in flow before building it, from the first screen to a client's private viewing room.</p>",
         media: [
-          { type: "image", src: "/assets/images/ia-studio-user-flow.svg", caption: "Abstracted user flow mapping the secure authentication sequence." }
+          { type: "image", src: "/assets/images/ia-studio-user-flow.svg", caption: "The sign-in flow." }
         ]
       },
       {
-        heading: "Outcome & Impact",
-        body: "<ul><li><strong>Friction Reduction:</strong> Successfully reduced end-user access friction by eliminating traditional account registration, resulting in a 100% successful authentication rate during the initial pilot phase.</li><li><strong>Operational Efficiency:</strong> Streamlined the asset-sharing workflow for platform administrators, significantly reducing the time required to manage and distribute secure digital assets.</li><li><strong>Data-Driven Iteration:</strong> Leveraged quantitative session data to identify and resolve a key navigation bottleneck, ensuring the platform remains intuitive for both administrators and invited end-users.</li></ul>",
-        media: []
-      },
-      {
         id: "performance-proof",
-        heading: "Performance & Security Metrics",
-        body: "<ul><li><strong>Near-Instant Server Actions:</strong> Production network logs confirm a 6ms response time for secure authentication, ensuring a frictionless experience for high-stakes gallery clients.</li><li><strong>Next-Gen Payload Optimization:</strong> Automatically serve WebP assets via Next.js Image optimization, reducing high-fidelity gallery images to ~40kB for instant visual rendering.</li><li><strong>Bespoke Security Architecture:</strong> Designed a 'Private by Design' entry system that eliminates traditional account overhead while maintaining strict cryptographic asset protection.</li></ul>",
+        heading: "Performance",
+        body: "<p>Sign-in responds in about 6ms in production. Next.js serves gallery images as WebP, so each one comes in at around 40kB.</p>",
         media: [
           {
             type: "stats",
@@ -58,10 +53,10 @@ export const caseStudies = {
   "nomin-eat": {
     meta: {
       role: "Front-End Lead",
-      year: "2026",
+      year: "2024",
       stack: ["Vue 3", "Java Spring Boot", "PostgreSQL", "Yelp API"]
     },
-    overview: "An interactive web application designed to eliminate the friction of group decision-making. By providing a shared, real-time voting room, it turns the often stressful process of picking a restaurant into a quick and fair consensus.",
+    overview: "A group voting app for picking a restaurant. The organizer starts a room, everyone else joins from a link, and the app counts the votes as they come in.",
     featuredDiagram: {
       src: "/assets/images/Nomineat.svg",
       alt: "System architecture diagram for NominEat."
@@ -73,7 +68,7 @@ export const caseStudies = {
       },
       {
         title: "Local Data Caching",
-        content: "<p>When an organizer enters a ZIP code, the Java Spring Boot backend requests data from the Yelp API. Instead of making constant calls to Yelp, it saves this data to a local PostgreSQL database. This allows the voting session to run quickly and reliably from local storage.</p>"
+        content: "<p>When an organizer enters a ZIP code, the Java Spring Boot backend requests data from the Yelp API. Instead of making constant calls to Yelp, it saves this data to a local PostgreSQL database. That way the vote runs from our own database and does not wait on Yelp.</p>"
       }
     ]
   },
@@ -81,10 +76,10 @@ export const caseStudies = {
   "accex": {
     meta: {
       role: "Front-End Engineer",
-      year: "2026",
-      stack: ["Vue 3", "Vite", "Pinia", "Vanilla CSS"]
+      year: "2025",
+      stack: ["Vue 3", "Vite", "Pinia", "CSS"]
     },
-    overview: "A digital inclusion tool that helps teams build websites everyone can easily read and navigate. It removes the guesswork from visual design by instantly testing color choices against global accessibility standards.",
+    overview: "A color contrast checker. Pick a text color and a background color, and it tells you right away if they pass WCAG 2.2.",
     featuredDiagram: {
       src: "/assets/images/accex-architecture.svg",
       alt: "Data Flow architecture for ACCEX."
@@ -96,16 +91,16 @@ export const caseStudies = {
     sections: [
       {
         title: "The Problem & The Solution",
-        content: "<p><strong>The Problem:</strong> Checking color contrast usually requires designers and developers to leave their work environment and use an external website or sandbox.</p><p><strong>The Solution:</strong> A Vue 3 application that calculates WCAG compliance instantly as users type. It uses a clean data flow to run accessibility math without slowing down the browser.</p>"
+        content: "<p><strong>The Problem:</strong> Checking color contrast usually requires designers and developers to leave their work environment and use an external website or sandbox.</p><p><strong>The Solution:</strong> A Vue 3 app that checks the contrast as you type, with the color math kept in one Pinia store.</p>"
       },
       {
         title: "Live CSS Updates",
-        content: "<p>Instead of showing a small preview window, the application applies the selected colors to the entire website interface in real time. It does this by updating CSS custom properties directly on the document root, turning the tool itself into a live accessibility demonstration.</p>"
+        content: "<p>Instead of a small preview box, the colors you pick are applied to the whole page right away. It works by updating CSS custom properties on the page root, so the tool shows you its own result.</p>"
       },
       {
         id: "a11y-proof",
         heading: "Accessibility & Validation",
-        body: "<ul><li><strong>100/100 Lighthouse Score:</strong> Automated auditing confirms a perfect baseline for semantic HTML and ARIA implementation.</li><li><strong>100% Keyboard Navigability:</strong> Conducted manual testing to ensure zero focus traps, full modal trapping, and complete operability without a mouse.</li><li><strong>WCAG 2.2 AA Compliance:</strong> Mathematically verified that all UI elements and typography scales exceed the strict 4.5:1 contrast ratio threshold.</li></ul>",
+        body: "<ul><li><strong>Lighthouse:</strong> 100 for accessibility.</li><li><strong>Keyboard:</strong> I tested every control without a mouse. Focus stays inside a dialog while it is open and never gets stuck anywhere else.</li><li><strong>Contrast:</strong> All text in the app meets WCAG 2.2 AA (4.5:1).</li></ul>",
         media: [
           { type: "scores", items: [{ label: "Accessibility", value: 100 }], caption: "Lighthouse accessibility audit." }
         ]
@@ -116,10 +111,10 @@ export const caseStudies = {
   "vending-machine": {
     meta: {
       role: "Backend Engineer",
-      year: "2026",
+      year: "2024",
       stack: ["Python", "Java", "CLI", "File I/O"]
     },
-    overview: "A reliable backend engine built to handle precise financial transactions and track inventory over time. It demonstrates how to safely process money, prevent calculation errors, and keep strictly accurate audit records.",
+    overview: "A command-line vending machine. It tracks inventory, takes money, makes change and logs every transaction. I wrote it in Java with a team, then rebuilt it in Python on my own.",
     featuredDiagram: {
       src: "/assets/images/vending-machine-architecture.svg",
       alt: "System architecture diagram for the Vending Machine."
@@ -127,15 +122,15 @@ export const caseStudies = {
     sections: [
       {
         title: "The Problem & The Solution",
-        content: "<p><strong>The Problem:</strong> Older monolithic applications often mix the user menu with the core math logic. This makes the code difficult to test and update over time.</p><p><strong>The Solution:</strong> I refactored a legacy Java application into a modern Python structure. I separated the command-line interface from the transaction math and inventory management so the core logic can be tested in isolation.</p>"
+        content: "<p><strong>The Problem:</strong> When the menu and the money math live in the same code, it is hard to test either one.</p><p><strong>The Solution:</strong> When I rebuilt it in Python, I split the command-line menu from the money and inventory logic, so the core logic can be tested on its own.</p>"
       },
       {
         image: {
           src: "/assets/images/vending-machine.avif",
           alt: "CLI output of the Vending Machine audit log."
         },
-        title: "Precision Math & Auditing",
-        content: "<p>Handling financial transactions in code requires careful math to prevent rounding errors. The application converts all currency to integers (cents) during calculations. Additionally, every machine state change writes to an external text file to meet standard auditing requirements.</p>"
+        title: "Money Math and Logging",
+        content: "<p>Money is stored in cents as whole numbers, so there are no rounding errors. Every purchase and change to the machine is written to a log file.</p>"
       }
     ]
   },
@@ -146,7 +141,7 @@ export const caseStudies = {
       year: "2026",
       stack: ["Vanilla JS", "CSS3", "HTML5"]
     },
-    overview: "A custom-built website engineered from the ground up to prioritize speed and energy efficiency. By stripping away heavy third-party code, it delivers information instantly while adapting perfectly to the user's device preferences.",
+    overview: "I built this site from scratch in plain JavaScript, HTML and CSS, without a framework, so it loads fast and follows your device settings.",
     featuredDiagram: {
       src: "/assets/images/portfolio-architecture.svg",
       alt: "System architecture diagram for the Portfolio Site."
@@ -158,18 +153,18 @@ export const caseStudies = {
     sections: [
       {
         title: "The Problem & The Solution",
-        content: "<p><strong>The Problem:</strong> Modern web frameworks like React are powerful, but they can be heavy and slow down simple websites.</p><p><strong>The Solution:</strong> A custom Vanilla JavaScript engine that loads content dynamically. It manages page routing and themes without relying on a backend server or complex build tools.</p>",
+        content: "<p><strong>The Problem:</strong> A portfolio is a simple site, and it does not need a big framework to run.</p><p><strong>The Solution:</strong> Plain JavaScript that loads the content, handles page routing and switches themes, with no build tools or backend.</p>",
         media: [{ type: "image", src: "/assets/images/portfolio-architecture.svg", caption: "System architecture diagram for the Portfolio Site." }]
       },
       {
-        heading: "A First-Principles UI Engine",
-        body: "<p>This portfolio is the project itself, a first-principles UI engine built with a zero-dependency architecture. It features a custom 3-theme design system anchored to a strict 8pt grid.</p><p>To ensure a premium user experience, the site leverages CSS variables and local browser storage to manage these themes. The JavaScript is heavily optimized to prioritize and render the user's preferred theme before the initial paint, completely eliminating jarring white flashes during load.</p>",
+        heading: "Themes and Layout",
+        body: "<p>The site has three themes (light, dark and nature), all on an 8pt grid. Theme colors are CSS variables, and your choice is saved in the browser. The saved theme loads before the page draws, so it never flashes white first.</p>",
         media: []
       },
       {
         id: "proof-section",
-        heading: "Engineering Standards & Analytics",
-        body: "<p>To ensure this portfolio performs at an enterprise level, I rigorously audited the architecture and tracked real-world user behavior. The site scores 100 in all four Lighthouse categories. I also run Microsoft Clarity to watch real sessions and adjust the layout based on where people actually click.</p>",
+        heading: "Testing",
+        body: "<p>The site scores 100 in all four Lighthouse categories. I also use Microsoft Clarity to see where people click, and I adjust the layout from that.</p>",
         media: [
           {
             type: "scores",
@@ -189,45 +184,45 @@ export const caseStudies = {
   "deroche-projects": {
     id: "deroche-projects",
     title: "DeRoche Projects",
-    subtitle: "Translating an architectural 'drawing board' concept into a dense, high-performance digital portfolio.",
+    subtitle: "A portfolio site design for an architecture firm, built around the idea of a drawing board.",
     roles: ["Information Architect", "UI/UX Designer", "Creative Technologist"],
     context: "Contracted via Digital Counsel",
     sections: [
       {
         heading: "The Problem & The Solution",
-        body: "<p><strong>The Problem:</strong> The client needed to display a massive, dense archive of architectural work without the interface feeling cluttered or overwhelming to the user.</p><p><strong>The Solution:</strong> I engineered a deterministic, three-tier responsive grid system in Figma. By strictly pinning every component and spacing value to an 8pt grid, the design handles a high density of visual data with perfect alignment across all viewports.</p>",
+        body: "<p><strong>The Problem:</strong> The firm had a large archive of work to show, and it still needed to feel easy to look through.</p><p><strong>The Solution:</strong> I designed a responsive grid in Figma with three sizes. Every component and space sits on an 8pt grid, so the layout lines up on any screen.</p>",
         media: [
           {
             type: "image",
             src: "/assets/images/deroche-grid-system.avif",
-            caption: "Managing complex column logic with a 12/4 mobile-to-desktop transition, allowing users to switch between [SM], [MD], and [LG] scales."
+            caption: "The grid goes from 4 columns on mobile to 12 on desktop, and people can switch between small, medium and large views."
           },
           {
             type: "image",
             src: "/assets/images/deroche-tablet.avif",
-            caption: "Tablet view of the portfolio showing the responsive grid and dense archive at mid-viewport scale."
+            caption: "The grid and archive on a tablet."
           }
         ]
       },
       {
-        heading: "State Logic & Interactive Filtering",
-        body: "<p>The goal was to make the portfolio function like an interactive architectural workspace rather than a static webpage. I mapped out the logic for how the UI responds to user intent, collaborating closely with the development team to translate complex archival needs into a robust data-sorting system. The interface allows users to filter the archive by Location, Type, and Completion, or sort the view by Random, Scale, and Chronological order, while a global project index provides instant access to isolate specific collections.</p>",
+        heading: "Filtering and Sorting",
+        body: "<p>I mapped out how the site responds when someone filters or sorts, and worked with the developers to turn the archive into data the site could sort. People can filter by location, type and completion, sort by random, scale or date, and jump to any project from an index.</p>",
         media: [
           {
             type: "image",
             src: "/assets/images/deroche-interaction.avif",
-            caption: "Multi-level hover and selection states provide immediate feedback, ensuring a 1:1 translation from the modular Figma library to production code."
+            caption: "Hover and selected states, built to match the Figma components."
           }
         ]
       },
       {
-        heading: "Contextual Lightbox Viewing",
-        body: "<p>To balance the dense, data-heavy index with focused viewing, I designed a high-opacity lightbox experience. This isolates specific project details and media while keeping the broader 'drawing board' context visible in the background, bridging the gap between macro and micro navigation.</p>",
+        heading: "Lightbox",
+        body: "<p>Clicking a project opens it in a lightbox. The project fills the screen, and the archive stays faintly visible behind it so people do not lose their place.</p>",
         media: [
           {
             type: "image",
             src: "/assets/images/deroche-lightroom.avif",
-            caption: "Active visual translation—ensuring the front-end layout perfectly mirrors the backend data structure of the archive."
+            caption: "A project open in the lightbox."
           }
         ]
       }
@@ -258,36 +253,7 @@ export const caseStudies = {
       },
       {
         heading: "How I approach it",
-        body: "<p>I do a task by hand a few times before I automate it, so I know every step. Then I build it piece by piece and check the results. I keep the AI's part small, and a person still makes the real decisions. That's the same rule I wrote into our AI policy at Dance/NYC.</p>",
-        media: []
-      }
-    ]
-  },
-  "ai-governance": {
-    id: "ai-governance",
-    title: "AI Governance for a Nonprofit",
-    subtitle: "An AI policy, training plan and rollout for a small, mostly non-technical team.",
-    roles: ["Research & policy", "Tools & data", "Rollout"],
-    context: "Dance/NYC \u00b7 2026 \u00b7 In progress",
-    sections: [
-      {
-        heading: "The problem",
-        body: "<p>AI tools were showing up everywhere, and a small, mostly non-technical team needed a clear answer to a simple question: what are we allowed to use this for? Whatever we did had to be plain, fit people's real work and protect the data we hold about our community.</p>",
-        media: []
-      },
-      {
-        heading: "What I wrote",
-        body: "<p>I didn't start by picking a tool. I researched and wrote an AI governance and integration framework and presented it to our Executive Director. It covers five areas:</p><ul><li><strong>Policy:</strong> what AI can and can't be used for, and what data never goes in.</li><li><strong>Training:</strong> how staff learn to use it well.</li><li><strong>Equity:</strong> who could be helped or harmed, inside and outside the org.</li><li><strong>Funding:</strong> what it costs and how to pay for it.</li><li><strong>Implementation:</strong> the order things roll out in.</li></ul>",
-        media: []
-      },
-      {
-        heading: "What's in place",
-        body: "<ul><li>I own our Claude Team workspace and admin the rest of our stack: Google Workspace, Notion, Fathom and Submittable.</li><li>I clean and maintain our CRM data in Python, so the data AI might touch is accurate first.</li><li>I built our internal systems and trackers in Notion.</li></ul>",
-        media: []
-      },
-      {
-        heading: "Where it stands",
-        body: "<p>The rollout is still in progress.</p>",
+        body: "<p>I do a task by hand a few times before I automate it, so I know every step. Then I build it piece by piece and check the results. I keep the AI's part small, and a person still makes the real decisions.</p>",
         media: []
       }
     ]
