@@ -237,28 +237,28 @@ export const caseStudies = {
   "n8n-automations": {
     id: "n8n-automations",
     title: "n8n Automations",
-    subtitle: "Workflows that take repetitive steps off a team's plate, with AI kept on a short leash and a person making the final call.",
+    subtitle: "Three workflows I built in n8n to cut down on busywork.",
     roles: ["Workflow design", "Automation", "AI agents"],
     context: "Personal project",
     sections: [
       {
         heading: "Security questionnaire helper",
-        body: "<p>Security questionnaires slow deals down, and most of the answers already exist somewhere. This workflow drafts them without letting AI make anything up.</p><ul><li>Someone pastes in a questionnaire, one question per line.</li><li>The workflow pulls the approved answer library from Notion.</li><li>AI drafts each answer using only that library, and cites which approved answer it used.</li><li>If the library doesn't clearly cover a question, it doesn't guess. It marks the question <strong>Needs a human</strong>.</li><li>Every question lands in a Notion review queue. Nothing goes to the customer automatically.</li></ul>",
+        body: "<p>Security questionnaires come up in a lot of sales deals, and most of the answers have already been written somewhere. This workflow drafts them.</p><p>Someone pastes in the questions. The workflow pulls the approved answers from Notion, and the AI drafts each answer from those, with a note on which one it used. If none of them fit, it doesn't make one up. It marks the question \"Needs a human.\" Every question goes into a review queue in Notion, and nothing goes to the customer until a person checks it.</p>",
         media: []
       },
       {
-        heading: "Email triage and forms",
-        body: "<ul><li><strong>Email triage:</strong> a new email starts the workflow. An AI agent reads it and decides what kind of message it is, and a switch sends it to the right label. It only labels. It never replies, forwards or deletes, and if it's unsure the email goes to To read.</li><li><strong>Form to Notion:</strong> a new submission starts the workflow. The fields get cleaned up and formatted, and a page is created in Notion with everything in the right place.</li></ul>",
+        heading: "Email and forms",
+        body: "<p>The email workflow reads each new email and gives it a label: needs a reply, to read later or newsletter. It only labels. It doesn't reply, forward or delete anything, and if it isn't sure, it picks to read later.</p><p>The form workflow takes a submission, cleans up the name and email, and makes a new page in Notion.</p>",
         media: []
       },
       {
         heading: "Error alerts",
-        body: "<p>All three workflows share one error workflow. If any run fails, I get an email with the workflow name, the step that broke, the error and a link to the run. Automations that fail quietly are worse than no automation.</p>",
+        body: "<p>If any of the three workflows fails, I get an email telling me which one, which step broke and why.</p>",
         media: []
       },
       {
         heading: "How I approach it",
-        body: "<p>I do a task by hand a few times first so I know every step. Then I automate it one piece at a time and check the output before I rely on it. I keep the AI's job small and clearly bounded, and anything that matters still goes to a person. It's the same thinking behind the AI policy I wrote at Dance/NYC.</p>",
+        body: "<p>I do a task by hand a few times before I automate it, so I know every step. Then I build it piece by piece and check the results. I keep the AI's part small, and a person still makes the real decisions. That's the same rule I wrote into our AI policy at Dance/NYC.</p>",
         media: []
       }
     ]
