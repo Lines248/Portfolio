@@ -32,14 +32,14 @@ export const projects = [
   },
   {
     id: "n8n-automations",
-    caption: "Two n8n workflows that sort my email and send form submissions into Notion.",
+    caption: "Three n8n workflows, including an AI helper that drafts security questionnaire answers from approved sources only.",
     title: "n8n Automations",
     type: "AI Automation | n8n, AI Agents, Notion",
     image: "/assets/images/n8n-workflows.webp",
-    alt: "n8n canvas with two workflows: email triage with an AI agent, and form submissions sent to Notion.",
+    alt: "n8n canvas with three workflows: email triage with an AI agent, form submissions sent to Notion, and a security questionnaire helper that drafts answers from an approved library into a review queue.",
     description:
-        "I built two workflows in n8n. One uses an AI agent to read new email and sort it by type. The other takes form submissions, cleans up the fields and creates a page in Notion. Both take repetitive manual steps off my plate.",
-    stack: ["n8n", "AI Agents", "Notion", "Automation"],
+        "I built three workflows in n8n. A security questionnaire helper drafts answers using only an approved answer library and flags anything it can't cover for a person to answer. The other two sort email with an AI agent and send form submissions into Notion. An error alert emails me if any run fails.",
+    stack: ["n8n", "AI Agents", "Notion", "Human Review", "Error Alerts"],
     links: {},
     featured: true,
     category: "development",
