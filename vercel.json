@@ -1,10 +1,6 @@
 {
   "rewrites": [
     {
-      "source": "/ai-governance",
-      "destination": "/ai-governance.html"
-    },
-    {
       "source": "/n8n-automations",
       "destination": "/n8n-automations.html"
     },
@@ -55,9 +51,14 @@
   ],
   "redirects": [
     {
+      "source": "/ai-governance",
+      "destination": "/about#ai-at-dancenyc",
+      "permanent": false
+    },
+    {
       "source": "/ai-governance.html",
-      "destination": "/ai-governance",
-      "permanent": true
+      "destination": "/about#ai-at-dancenyc",
+      "permanent": false
     },
     {
       "source": "/n8n-automations.html",

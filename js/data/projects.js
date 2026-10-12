@@ -12,6 +12,7 @@ export const projects = [
     links: {},
     featured: true,
     category: "governance",
+    hidden: true, // moved to the About page ("Bringing AI into a nonprofit")
   },
   {
     id: "ai-use-checker",
