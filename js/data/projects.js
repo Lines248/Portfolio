@@ -22,7 +22,7 @@ export const projects = [
     image: "/assets/images/ai-use-checker.webp",
     alt: "The AI use checker answering 'Use it to rank grant applicants' with Not allowed, citing rule R5: people decide about people.",
     description:
-        "A small tool that turns an AI policy into instant answers. Staff describe a task and get allowed, ask first or not allowed, with the rule behind it and a safer way to do it. Built with Next.js, TypeScript and the Vercel AI SDK, using structured output through AI Gateway. Accessible, and it fails safe when the model is down.",
+        "A personal project: a small tool that turns an AI policy into instant answers. You describe a task and get allowed, ask first or not allowed, with the rule behind it and a safer way to do it. Built with Next.js, TypeScript and the Vercel AI SDK, using structured output through AI Gateway. Accessible, and it fails safe when the model is down.",
     stack: ["Next.js", "TypeScript", "AI SDK", "AI Gateway"],
     links: {
       live: "https://ai-use-checker-plum.vercel.app",
