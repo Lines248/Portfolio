@@ -3166,7 +3166,7 @@ main.case-study-page {
 .case-study-main {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 4rem;
   min-width: 0;
   margin-top: 3rem;
 }
@@ -3190,6 +3190,8 @@ main.case-study-page {
   flex-direction: column;
   gap: 1.5rem;
   min-width: 0;
+  /* Override the global section padding (120px) so sections sit closer */
+  padding-block: 0;
 }
 
 /* Hash targets: scroll into view below sticky header (e.g. #proof-section from green pills) */
