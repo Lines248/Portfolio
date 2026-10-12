@@ -5,6 +5,10 @@
       "destination": "/ai-governance.html"
     },
     {
+      "source": "/n8n-automations",
+      "destination": "/n8n-automations.html"
+    },
+    {
       "source": "/work",
       "destination": "/work.html"
     },
@@ -53,6 +57,11 @@
     {
       "source": "/ai-governance.html",
       "destination": "/ai-governance",
+      "permanent": true
+    },
+    {
+      "source": "/n8n-automations.html",
+      "destination": "/n8n-automations",
       "permanent": true
     },
     {

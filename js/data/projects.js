@@ -31,6 +31,20 @@ export const projects = [
     category: "development",
   },
   {
+    id: "n8n-automations",
+    caption: "Two n8n workflows that sort my email and send form submissions into Notion.",
+    title: "n8n Automations",
+    type: "AI Automation | n8n, AI Agents, Notion",
+    image: "/assets/images/n8n-workflows.webp",
+    alt: "n8n canvas with two workflows: email triage with an AI agent, and form submissions sent to Notion.",
+    description:
+        "Two workflows I built on my own time. One uses an AI agent to read new email and sort it by type. The other takes form submissions, cleans up the fields and creates a page in Notion. Both take repetitive manual steps off my plate.",
+    stack: ["n8n", "AI Agents", "Notion", "Automation"],
+    links: {},
+    featured: true,
+    category: "development",
+  },
+  {
     id: "ia-studio",
     caption: "Private viewing rooms for gallery clients, plus AI curation from the gallery's own inventory.",
     title: "Secure Client Portal for Art Galleries",

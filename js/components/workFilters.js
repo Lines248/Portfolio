@@ -4,6 +4,7 @@ import { open as openDiagramLightbox, diagramLightbox } from "./diagramLightbox.
 
 const CASE_STUDY_PATHS = {
   "ai-governance": "/ai-governance",
+  "n8n-automations": "/n8n-automations",
   "ia-studio": "/ia-studio",
   "inline-access": "/portfolio-site",
   "nomin-eat": "/nomin-eat",

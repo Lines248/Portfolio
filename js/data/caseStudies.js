@@ -234,6 +234,30 @@ export const caseStudies = {
     ]
   },
 
+  "n8n-automations": {
+    id: "n8n-automations",
+    title: "n8n Automations",
+    subtitle: "Workflows that take repetitive steps off my plate, from sorting email to logging form submissions in Notion.",
+    roles: ["Workflow design", "Automation", "AI agents"],
+    context: "Personal project",
+    sections: [
+      {
+        heading: "The problem",
+        body: "<p>Two jobs kept eating my time. Sorting email by hand, and copying form submissions into Notion one field at a time. Both are the same few steps every time, which makes them good candidates for automation.</p>",
+        media: []
+      },
+      {
+        heading: "What I built",
+        body: "<ul><li><strong>Email triage:</strong> a new email starts the workflow. An AI agent reads it and decides what kind of message it is, and a switch sends it to the right label.</li><li><strong>Form to Notion:</strong> a new submission starts the workflow. The fields get cleaned up and formatted, and a page is created in Notion with everything in the right place.</li></ul>",
+        media: []
+      },
+      {
+        heading: "How I approach it",
+        body: "<p>I do a task by hand a few times first so I know every step. Then I automate it one piece at a time and check the output before I rely on it. I keep the AI agent's job small. It reads and sorts, and anything that matters still comes to me.</p>",
+        media: []
+      }
+    ]
+  },
   "ai-governance": {
     id: "ai-governance",
     title: "AI Governance for a Nonprofit",
