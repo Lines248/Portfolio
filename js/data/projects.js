@@ -35,7 +35,7 @@ export const projects = [
     caption: "Three n8n workflows, including an AI helper that drafts security questionnaire answers from approved sources only.",
     title: "n8n Automations",
     type: "AI Automation | n8n, AI Agents, Notion",
-    image: "/assets/images/n8n-workflows.webp",
+    image: "/assets/images/n8n-workflows-v2.webp",
     alt: "n8n canvas with three workflows: email triage with an AI agent, form submissions sent to Notion, and a security questionnaire helper that drafts answers from an approved library into a review queue.",
     description:
         "I built three workflows in n8n. A security questionnaire helper drafts answers using only an approved answer library and flags anything it can't cover for a person to answer. The other two sort email with an AI agent and send form submissions into Notion. An error alert emails me if any run fails.",
