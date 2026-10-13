@@ -3658,7 +3658,7 @@ main.case-study-page {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  margin-top: 4rem;
+  margin-top: 3rem;
   padding-top: 2rem;
   border-top: 1px solid var(--border-subtle);
 }
@@ -3731,6 +3731,14 @@ main.case-study-page {
 .case-study-nav-top .case-study-nav-inner {
   margin-top: 0;
   margin-bottom: 1.5rem;
+}
+
+/* Bottom nav: sit closer to the tags, line up ALL WORK with the next/prev labels */
+@media (min-width: 769px) {
+  .case-study-nav-bottom .case-study-nav-inner {
+    margin-top: 32px;
+    align-items: start;
+  }
 }
 
 .nav-link-wrap {
