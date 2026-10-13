@@ -1039,12 +1039,6 @@ li.tag-creative,
   }
 }
 
-@keyframes statusPulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.3; }
-  100% { opacity: 1; }
-}
-
 @media (min-width: 700px) {
   #feature-grid {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -2591,52 +2585,6 @@ li.tag-creative,
   margin-bottom: 2.5rem;
 }
 
-.hero__status-wrap {
-  margin-bottom: 1.5rem;
-}
-
-.hero__status-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 6px 12px;
-  font-family: var(--font-sans), 'Roboto Mono', monospace;
-  font-size: 11px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #4b4b4b;
-  background-color: #f3f4f6;
-  border: none;
-  border-radius: 2px;
-}
-
-.hero__status-tag::before {
-  content: '';
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #22c55e;
-  flex-shrink: 0;
-  animation: statusPulse 2.5s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero__status-tag::before {
-    animation: none;
-  }
-}
-
-:root.dark .hero__status-tag {
-  color: rgba(255, 255, 255, 0.85);
-  background-color: rgba(255, 255, 255, 0.08);
-  border: none;
-}
-
-:root.dark .hero__status-tag::before {
-  background-color: #22c55e;
-}
-
 .home-main .hero__title {
   margin: 0 0 1.25rem;
   font-size: clamp(2rem, 5vw, 3rem);
@@ -2962,20 +2910,6 @@ li.tag-creative,
   background-color: transparent;
   color: var(--text, #1a3a1a);
   border-color: var(--text, #1a3a1a);
-}
-
-/* Dark mode: Open to Remote Roles status tag – glass on navy */
-[data-theme="dark"] .hero__status-tag {
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.85);
-}
-
-/* Nature mode: status tag – crisp frosted glass, high-contrast text */
-[data-theme="nature"] .hero__status-tag {
-  background-color: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(27, 67, 50, 0.15);
-  color: var(--text, #1a3a1a);
 }
 
 /* Nav resume tooltip: theme overrides */
@@ -4356,15 +4290,11 @@ main.case-study-page {
   margin-bottom: 0;
 }
 
-.home-main .hero__status-wrap {
-  margin-bottom: 32px;
-}
-
 .hero__now {
   display: flex;
   align-items: baseline;
   gap: 12px;
-  margin: 0 0 16px;
+  margin: 0 0 32px;
   color: var(--text-muted);
   font-size: var(--fs-m);
 }
