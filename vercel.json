@@ -52,12 +52,12 @@
   "redirects": [
     {
       "source": "/ai-governance",
-      "destination": "/about#ai-at-dancenyc",
+      "destination": "/about#ai-at-work",
       "permanent": false
     },
     {
       "source": "/ai-governance.html",
-      "destination": "/about#ai-at-dancenyc",
+      "destination": "/about#ai-at-work",
       "permanent": false
     },
     {
